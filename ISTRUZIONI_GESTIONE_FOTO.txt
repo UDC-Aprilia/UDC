@@ -1,0 +1,55 @@
+UDC APRILIA — GUIDA ALLA GESTIONE DELLE FOTOGRAFIE
+
+COS'È INCLUSO
+- gestione-foto.html: pannello di gestione ottimizzato per smartphone.
+- data/foto.json: unico elenco pubblico delle foto mostrato anche nella Home in ordine casuale.
+- js/gestione-foto.js: caricamento su GitHub tramite API e ottimizzazione locale delle immagini.
+- La pagina pubblica e il sito rimangono gratuitamente su GitHub Pages, nei suoi limiti.
+
+PRIMA ATTIVAZIONE — RICHIESTA UNA VOLTA SOLA
+1) Pubblica tutti i file e le cartelle di questo ZIP nello STESSO repository GitHub
+   che ospita il sito, mantenendo nomi e percorsi. Non perdere CNAME/.nojekyll.
+2) Apri GitHub > Settings > Developer settings > Personal access tokens >
+   Fine-grained tokens (oppure https://github.com/settings/personal-access-tokens/new).
+3) Crea un token con accesso limitato a QUEL SOLO repository e permesso repository
+   "Contents: Read and write". Scegli una scadenza breve; rinnova alla scadenza.
+   Il token deve appartenere a un utente che ha permesso di scrittura nel repository.
+   Se il repository appartiene a un'organizzazione può servire approvazione.
+4) Apri https://udc-aprilia.it/gestione-foto.html (dopo la pubblicazione).
+   Inserisci proprietario GitHub, nome repository, branch (es. main) e token.
+   Il repository deve essere quello effettivamente pubblicato da GitHub Pages.
+5) Tocca "Accedi alla gestione". Poi scegli foto dalla galleria del telefono,
+   scrivi eventualmente una didascalia e premi "Pubblica fotografie".
+6) Al termine, attendi che GitHub Pages pubblichi le modifiche e apri la pagina Foto.
+
+SICUREZZA, PRIVACY E LIMITI
+- La pagina gestione-foto.html è pubblicamente raggiungibile: NON è una pagina
+  segreta o protetta da password sul server. Solo LE MODIFICHE sono autenticate
+  tramite le autorizzazioni del token GitHub. noindex non è controllo d'accesso.
+- Il token è mantenuto solo in memoria della scheda e non viene salvato in file,
+  localStorage o cookie dall'applicazione; va reinserito nelle sessioni successive.
+- Non comunicare il token via chat/email, non pubblicarlo, non fotografarlo,
+  non inserirlo nel repository. Proteggi e aggiorna telefono/browser.
+- Le immagini sono convertite in JPG ottimizzati (lato browser), dimensione
+  massima 1800 px; foto fino a 25 MB in ingresso, massimo 10 per operazione.
+- "Rimuovi" elimina una foto dal catalogo visualizzato, NON elimina il file
+  originale dal repository né dalla sua cronologia Git. Se serve cancellare
+  davvero una foto privata, eliminala anche tramite GitHub e valuta la cronologia.
+- In caso di pubblicazione fallita dopo upload di una foto, potrebbe restare
+  un file nel repository senza voce nel catalogo: si può eliminare su GitHub.
+- Il sito non ospita database, server, API proprie o servizi a pagamento.
+  L'utilizzo è soggetto ai limiti del piano GitHub e di GitHub Pages.
+- ATTENZIONE: assicurati di avere il diritto di pubblicare foto di persone.
+
+DOCUMENTAZIONE UFFICIALE
+https://docs.github.com/en/rest/repos/contents
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+
+TROUBLESHOOTING
+- 404: verifica proprietario/repository, branch e accesso del token.
+- 403: controlla token, permesso Contents Read/Write ed eventuali regole branch.
+- 409: aggiorna l'elenco e riprova, qualcun altro potrebbe aver pubblicato.
+- Le foto non si vedono subito? Attendi il completamento del deploy GitHub Pages.
+- Su file:// il caricamento pubblico JSON può essere bloccato dal browser:
+  per testare usa GitHub Pages o un server HTTP locale.

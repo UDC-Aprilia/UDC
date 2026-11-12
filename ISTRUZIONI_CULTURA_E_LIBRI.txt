@@ -1,0 +1,18 @@
+UDC APRILIA — PAGINA CULTURA E LIBRI (COPERTINE REALI)
+
+NUOVA VERSIONE
+La pagina cultura.html utilizza tre immagini originali inviate dall’utente.
+ORDINE: 1 La città degli operai (Carmen Porcelli), 2 Pensare Aprilia (Pietro Fazio), 3 La società della longevità (Paolo Terrinoni e Pietro Fazio).
+
+Le copertine sono in assets/libro-la-citta-degli-operai.jpg, assets/libro-pensare-aprilia.jpg, assets/libro-la-societa-della-longevita.jpg.
+Il codice della pagina è in js/sito.js e gli stili in css/stile.css.
+
+PENSARE APRILIA E AMAZON
+Il pulsante cerca il volume su Amazon Italia tramite ISBN 9791298648364 e autore. Non è una pagina prodotto identificata e non si garantisce la disponibilità all’acquisto. Per usare un URL diretto, sostituire nel file js/sito.js il link amazon.it/s?k=9791298648364+Pietro+Fazio con il link verificato della scheda Amazon.
+
+LA SOCIETÀ DELLA LONGEVITÀ
+Titolo e autori riportati secondo la copertina fornita. Mancano dati editoriali verificati; il pulsante Amazon apre una ricerca, non un prodotto verificato.
+
+PUBBLICAZIONE
+Estrai questo ZIP e carica tutte le cartelle e i file nel repository GitHub Pages di UDC Aprilia. Mantieni i percorsi. Controlla cultura.html su PC e cellulare e prova i collegamenti Amazon.
+Il resto del sito, la gestione fotografie/notizie e il flusso news sono mantenuti dalla versione precedente.

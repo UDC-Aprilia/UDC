@@ -1,0 +1,29 @@
+UDC APRILIA — AGGIORNAMENTO EVENTO DEL 18 NOVEMBRE 2026
+=======================================================
+
+Contenuto: incontro UDC «La politica dell’UDC: i territori al centro»
+Mercoledì 18 novembre 2026, ore 18:00
+Hotel Selene, Via Pontina Km 30, Pomezia
+
+MODIFICHE
+- Home: riquadro evento in primo piano, locandina, data, ora e sede.
+- Pagina Eventi: informazioni e locandina in apertura, altri eventi dopo.
+- data/attivita.json: evento registrato nell’archivio, disponibile anche alla gestione redazionale.
+- assets/evento-udc-pomezia-18-novembre-2026.jpg: locandina originale fornita dal coordinamento.
+- Metadati per la condivisione della pagina Eventi.
+
+COME PUBBLICARE
+1. Estrarre lo ZIP.
+2. Caricare nel repository GitHub Pages TUTTI i file e le cartelle, mantenendo la struttura.
+3. In particolare caricare assets/evento-udc-pomezia-18-novembre-2026.jpg,
+   data/attivita.json, css/stile.css, js/sito.js, js/contenuti.js, index.html ed eventi.html.
+4. Verificare sul sito: /index.html e /eventi.html#incontro-pomezia-2026.
+5. Per verificare l’immagine aprire /assets/evento-udc-pomezia-18-novembre-2026.jpg.
+6. In caso di pagina vecchia, aggiornare la cache del browser o aprire una scheda privata.
+
+NOTA REDAZIONALE
+Il testo riprende solo i dati contenuti nella locandina fornita.
+Non viene attribuita l’organizzazione dell’incontro al coordinamento UDC Aprilia.
+L’incontro viene mantenuto anche in archivio: dopo la data dell’evento è consigliabile
+spostare la prominenza nella Home a un aggiornamento più recente. Per rimuovere la fascia
+in primo piano, eliminare nel file js/sito.js la sezione con class="incontro-feature".

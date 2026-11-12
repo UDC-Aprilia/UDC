@@ -1,0 +1,65 @@
+UDC APRILIA - REDAZIONE NOTIZIE, ATTIVITA' E COMUNICATI UFFICIALI
+Versione: 12 novembre 2026
+
+PAGINE PUBBLICHE
+- index.html: la Home seleziona casualmente una notizia dalla rassegna stampa.
+- comunicati.html: rassegna stampa, articolo per articolo, con testata e link alla fonte.
+- eventi.html: attivita' organizzate e partecipazioni, chiaramente distinte.
+- archivio-comunicati.html: comunicati ufficiali PDF ordinati per anno.
+- foto.html: galleria fotografica esistente.
+
+PAGINE GESTIONE (non indicizzate, ma l'indirizzo e' pubblico)
+- gestione-notizie.html: crea, modifica e rimuove rassegna, eventi, documenti PDF.
+- gestione-foto.html: gestione delle foto gia' presente.
+- modello-comunicato.html: modello carta intestata con logo; modifica nel browser e stampa in PDF.
+
+COME ATTIVARE
+1. Carica TUTTI i contenuti dello ZIP nella radice del repository GitHub che pubblica udc-aprilia.it, preservando le cartelle.
+2. Apri https://udc-aprilia.it/gestione-notizie.html.
+3. Inserisci proprietario, repository, branch pubblicato e token personale fine-grained GitHub. NON inserire il token nel codice o inviarlo per posta.
+4. Il token deve essere limitato al repository del sito, con permesso "Contents: Read and write". Il token rimane in RAM nella scheda: chiudendo la scheda o disconnettendoti dovrai reinserirlo.
+5. Seleziona la sezione editoriale, compila i campi e pubblica. Il repository e' aggiornato subito; GitHub Pages puo' impiegare un po' ad aggiornare il sito.
+6. Non condividere il token. Se sottratto, revocalo subito da GitHub.
+
+PUBBLICARE UNA NOTIZIA
+- Apri Rassegna stampa, seleziona "Nuovo articolo" (o annulla eventuali modifiche).
+- Riporta data esatta, titolo, nome della testata, LINK HTTPS diretto, e una breve sintesi ORIGINALE.
+- Verifica che la pagina esista e riguardi effettivamente UDC Aprilia.
+- Non ripubblicare il testo integrale o fotografie altrui senza i diritti.
+- Per trovare nuovi articoli puoi partire dal pulsante "Cerca articoli su Google News" (apre una ricerca esterna): NON importa automaticamente risultati non controllati.
+- Il sito mostra in modo casuale una notizia tra quelle che hai approvato, NON pesca pagine casuali dal web.
+
+PUBBLICARE UN'ATTIVITA'
+- Seleziona Attivita' ed eventi; indica data, titolo, luogo e descrizione.
+- Seleziona "Organizzato da UDC Aprilia" solo se effettivamente organizzato; altrimenti "Partecipazione".
+- Eventuale foto: indica solo il nome del file gia' presente in assets/ (es. convegno.jpg). Puoi caricarne altre con la gestione foto, ma quella pagina non e' un campo upload collegato all'evento.
+
+CREARE E CARICARE UN COMUNICATO PDF
+- Apri modello-comunicato.html, modifica data, titolo, testo e firma, poi "Stampa / Salva PDF" dal browser; oppure usa un PDF ufficiale gia' pronto.
+- Accertati che carta intestata e contenuto siano stati autorizzati.
+- In gestione-notizie.html seleziona "Comunicati PDF", data, titolo, descrizione, scegli PDF (massimo 5 MB) e pubblica.
+- Il file e' salvato nel repository in "documenti/ANNO/nome.pdf" e aggiunto a data/documenti.json; sul sito appare sotto l'anno corrispondente.
+- Per modificare il solo titolo o descrizione scegli "Modifica" e salva senza nuovo allegato.
+- Per cambiare anno o PDF usa "Modifica" e allega un nuovo PDF. La vecchia versione resta nella cronologia GitHub.
+- L'archivio PDF e' inizialmente VUOTO: NON vengono inventati o attribuiti documenti al coordinamento.
+
+ARCHIVI DATI E MANUTENZIONE
+- data/stampa.json: articoli selezionati e verificati (alcuni gia' inseriti).
+- data/attivita.json: attivita' verificate con fonte (alcune gia' inserite).
+- data/documenti.json: comunicati ufficiali approvati; inizialmente vuoto.
+- data/foto.json: fotografie esistenti.
+- I file JSON possono essere aggiornati anche manualmente su GitHub.
+- Le modifiche in gestione-notizie usano GitHub Contents API; ogni salvataggio genera un commit. Le rimozioni agiscono sul catalogo e NON cancellano i file PDF dal repository.
+- In caso di errore durante il caricamento di un PDF, potrebbe restare il file nella cartella senza collegamento nel catalogo: e' recuperabile da GitHub.
+- Se due editor modificano contemporaneamente lo stesso archivio, potrebbe comparire un conflitto: premi "Aggiorna" e riprova.
+- Il sito NON esegue scraping, sincronizzazione web automatica o pubblicazione editoriale senza approvazione.
+
+SICUREZZA, PRIVACY E COSTI
+- GitHub Pages resta statico: non richiede un server o database a pagamento. Si applicano limiti e condizioni del piano GitHub in uso.
+- Le pagine di gestione sono pubblicamente raggiungibili ma non consentono di scrivere senza token GitHub.
+- "noindex" non e' un sistema di protezione della pagina; non mettere segreti nell'HTML.
+- Il token resta nella memoria della pagina, non viene scritto in localStorage o cookie. E' comunque opportuno usare dispositivi fidati, controllare le estensioni del browser e verificare la sicurezza dell'account GitHub (2FA).
+- Non archiviare tesseramenti o dati personali sensibili in questi archivi pubblici.
+- Prima di caricare PDF o foto elimina dati di contatto privati e contenuti riservati; controlla autorizzazioni e diritto d'autore.
+- I testi di articoli e comunicati esterni appartengono ai rispettivi editori.
+- Le ricerche web iniziali non costituiscono un aggiornamento continuo; la redazione deve verificare le fonti nel tempo.

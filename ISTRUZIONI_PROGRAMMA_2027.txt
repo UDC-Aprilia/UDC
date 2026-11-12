@@ -1,0 +1,19 @@
+UDC APRILIA — PAGINA PROGRAMMA AMMINISTRATIVO 2027–2032
+
+Questa versione inserisce nella Home un richiamo alla pagina Programma 2027–2032 e aggiorna programma.html.
+La pagina dice esplicitamente che il documento NON E’ STATO APPROVATO e non mette online il PDF di lavoro.
+
+PUBBLICAZIONE SU GITHUB PAGES
+1. Estrarre lo ZIP e caricare il CONTENUTO (non lo ZIP) nella radice del repository del sito.
+2. Aggiornare anche le cartelle css/ e js/, oltre a index.html e programma.html.
+3. Attendere il completamento della pubblicazione GitHub Pages.
+4. Controllare https://udc-aprilia.it/programma.html e la Home anche da smartphone.
+
+DOPO L'APPROVAZIONE
+1. Verificare testo, dati, coperture e delibera dell'organo competente.
+2. Preparare il PDF DEFINITIVO e annotare organo/data dell'approvazione.
+3. Aggiornare il testo della pagina in js/sito.js (blocco 'programma:') e aggiungere un collegamento al PDF definitivo nella cartella documenti/.
+4. Non pubblicare automaticamente la seconda stesura ancora indicata come BOZZA NON APPROVATA.
+5. Distinguere il documento programmatico del coordinamento dagli eventuali adempimenti elettorali ufficiali.
+
+Nessuna credenziale o servizio a pagamento aggiunto.

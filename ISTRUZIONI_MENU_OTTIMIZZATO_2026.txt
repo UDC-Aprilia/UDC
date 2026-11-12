@@ -1,0 +1,20 @@
+UDC APRILIA — VERSIONE CON MENU SEMPLIFICATO E CONTENUTI ACCESSIBILI
+
+CARICAMENTO SU GITHUB PAGES
+1. Estrarre questo ZIP.
+2. Caricare TUTTI i file, incluse le cartelle js, css, data, assets e .github, nella radice del repository GitHub Pages.
+3. Verificare nel sito pubblico index.html, programma.html, eventi.html e cultura.html.
+4. Provare menu e sottocategorie anche da cellulare.
+5. Dal 19 novembre 2026 (fuso Europa/Roma), la fascia evento non è più visualizzata nella Home, mentre la pagina Eventi conserva l'incontro.
+
+MODIFICHE
+- Sette categorie principali: Home, Chi siamo, Programma 2027, Notizie ed eventi, Cultura, Documenti, Contatti.
+- Sottomenu espandibili per tutte le pagine precedenti.
+- Un solo link Cultura nel footer.
+- Un solo richiamo al Programma 2027 nella Home.
+- Annuncio sintetico dell'evento in Home e scheda completa nella pagina Eventi.
+- Locandina cliccabile e indicata esplicitamente come immagine originale.
+- Contenuti HTML iniziali leggibili anche senza JavaScript, descrizioni e titoli già presenti nell'HTML, gestione da tastiera dei sottomenu.
+- Nessuna modifica agli archivi JSON, alla gestione riservata o ai flussi GitHub Actions.
+
+NOTA: L'HTML iniziale e' un riepilogo semantico; il sito completo viene caricato da JavaScript. Per un'indicizzazione integrale di tutte le pagine occorrerebbe una successiva conversione a rendering statico completo.

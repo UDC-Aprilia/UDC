@@ -1,0 +1,28 @@
+UDC APRILIA — HOME, NOTIZIE ED EVENTI DAL WEB
+================================================
+
+COSA CAMBIA
+- Nella Home, sezione Notizie e attività, NON compare più la fotografia fissa dell'evento.
+- Appare un carosello orizzontale: sui telefoni si scorre col dito; su desktop anche coi pulsanti.
+- Scorrimento automatico ogni 5,8 secondi, pausa disponibile e movimento disattivato quando il dispositivo richiede animazioni ridotte.
+- Tre titoli UDC (quando disponibili) vengono alternati a una notizia cittadina; i contenuti ufficiali non si confondono con fonti esterne.
+- Ogni card riporta data, testata e collegamento alla fonte originale (o a Google News quando il feed fornisce un collegamento intermediario).
+- L'archivio della redazione gestione-notizie.html continua a funzionare senza modifiche.
+
+COME ATTIVARE AGGIORNAMENTO GRATUITO
+1) Caricare TUTTI i file dello ZIP nel repository GitHub del sito, incluse le cartelle NASCOSTE .github/workflows e scripts.
+2) Controllare Settings > Actions > General: consentire le GitHub Actions; in Workflow permissions abilitare Read and write permissions (se il repository lo permette) oppure assegnare al workflow un token con permessi di scrittura per i contenuti. Nel file workflow e' gia impostato permissions: contents: write.
+3) Aprire Actions > Aggiorna notizie Aprilia > Run workflow: primo aggiornamento manuale.
+4) Verificare data/web-news.json e la Home dopo la pubblicazione. In seguito il workflow e' pianificato ogni 6 ore (GitHub puo' ritardare o saltare esecuzioni programmate).
+
+SICUREZZA E RESPONSABILITA'
+- Nessun token privato nel codice pubblicato; GitHub Actions usa il token temporaneo automatico.
+- Il sistema recupera Google News RSS, un servizio non garantito e soggetto a cambiamenti; se non arrivano notizie lascia quelle gia' disponibili.
+- I collegamenti di Google News possono passare da Google prima di aprire la testata. I link della rassegna inseriti dalla redazione invece puntano direttamente alla testata.
+- Filtra per Aprilia città, escludendo le più comuni notizie sulla moto Aprilia; NON garantisce che tutti gli articoli siano pertinenti o corretti. Il filtro e' automatico e occorre sorveglianza redazionale.
+- Non copia gli articoli né fotografie di testate: solo titolo, fonte, data e collegamento.
+- Non classifica tutte le notizie cittadine come eventi dell'UDC. Le notizie del web sono attribuite ai loro editori.
+- Non e' necessario acquistare hosting o servizi RSS. GitHub Actions e' soggetto alle condizioni e ai limiti del proprio piano/repository.
+
+IN CASO DI FEED VUOTO
+La Home continua a mostrare le notizie inserite in data/stampa.json e gli eventi redazionali di data/attivita.json dotati di link. Eventi senza link restano nella pagina Eventi e non diventano collegamenti fittizi.

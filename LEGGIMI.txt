@@ -1,0 +1,129 @@
+UDC APRILIA — SITO ISTITUZIONALE PER GITHUB PAGES
+
+1. APRI IL SITO SUL PC
+   Apri index.html per vedere il sito. Le fotografie, CSS e JavaScript sono locali.
+
+2. PUBBLICAZIONE GRATUITA SU GITHUB
+   - Accedi a https://github.com e crea un repository pubblico, ad esempio udc-aprilia.
+   - Carica tutti i FILE E LE CARTELLE che trovi accanto a questo LEGGIMI,
+     direttamente nella radice del repository: index.html, altre pagine HTML,
+     cartelle assets, css e js, file CNAME e .nojekyll.
+   - Vai su Settings > Pages > Build and deployment.
+   - Scegli Deploy from a branch; branch main e cartella /(root), poi Save.
+   - Imposta Custom domain = udc-aprilia.it (verifica prima che sia
+     esattamente il dominio acquistato, compresa l'estensione).
+   - Attiva Enforce HTTPS quando GitHub lo consente.
+
+3. DNS DOMINIOK (SOLO SE IL DOMINIO E' UDC-APRILIA.IT)
+   Nel pannello DNS di DominiOK imposta quattro record A per @:
+   185.199.108.153
+   185.199.109.153
+   185.199.110.153
+   185.199.111.153
+   Puoi aggiungere anche CNAME per www verso TUO-UTENTE.github.io
+   (sostituisci TUO-UTENTE con il tuo username GitHub).
+   Non eliminare i record MX/TXT della posta: servono alle caselle @udc-aprilia.it.
+   Non impostare record A in conflitto. Prima di modificare DNS verifica
+   esattamente il dominio e le eventuali configurazioni email.
+   La propagazione DNS può richiedere fino a 24 ore.
+   Guida ufficiale: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+
+4. AGGIUNGI NOMINATIVI E FOTO
+   Apri js/contenuti.js con un editor di testo.
+   Modifica gli elenchi consiglioGenerale oppure direttivo.
+   Inserisci le fotografie in assets/ e usa il nome esatto del file.
+   Per cambiare eventi, comunicati, uffici e collegamenti modifica lo stesso file.
+   Non e' necessario cambiare tutte le pagine HTML.
+
+5. PRIVACY: CONTROLLO NECESSARIO PRIMA DELLA MESSA ONLINE
+   La pagina pubblica privacy.html e' stata riscritta per il sito statico su GitHub Pages;
+   NON e' una copia della policy DominiOK, che riguarda i suoi servizi.
+   Il sito non ha moduli né analytics nel codice. GitHub può registrare IP e log di accesso.
+   Le email sono gestite dalle rispettive caselle, non dal modulo web.
+   Le domande cartacee sono raccolte da Pietro Fazio (coordinatore comunale)
+   o dalla segreteria locale, e vengono trasmesse alla Segreteria regionale UDC Lazio.
+   Anche la custodia temporanea e la trasmissione cartacea sono trattamenti
+   di dati sensibili. La pagina privacy NON sostituisce l'informativa nazionale.
+   PRIMA DELLA PUBBLICAZIONE, il soggetto che gestisce il sito deve confermare:
+   * identità e recapiti del titolare effettivo per sito e caselle email;
+   * base giuridica, tempi di conservazione e destinatari per i messaggi email;
+   * procedura e informativa nazionale per le domande cartacee;
+   * effettiva attivazione delle caselle email e dei servizi che trattano dati;
+   * autorizzazione alla pubblicazione delle foto delle persone.
+   Questa verifica non puo' essere dedotta dall'informativa allegata di DominiOK.
+
+6. CONTATTI
+   info@udc-aprilia.it · segreteria@udc-aprilia.it · coordinatore@udc-aprilia.it
+   stampa@udc-aprilia.it · organizzazione@udc-aprilia.it · tesseramento@udc-aprilia.it
+
+7. TESSERAMENTO
+   La pagina indirizza alla modulistica UDC nazionale. Il modulo compilato
+   può essere consegnato al coordinatore Pietro Fazio oppure alla segreteria
+   locale previo accordo. Il coordinamento lo trasmette alla Segreteria regionale UDC Lazio.
+   Non pubblicare mai moduli compilati o dati personali su GitHub.
+
+NOTA: GitHub Pages e' hosting statico gratuito su repository pubblico.
+Il dominio DominiOK rimane a pagamento secondo il tuo contratto.
+Il caricamento su GitHub e la modifica del DNS vanno effettuati dal titolare
+dei rispettivi account: non sono stati eseguiti automaticamente.
+
+NOTA SUI RUOLI PRIVACY: Pietro Fazio e' indicato quale coordinatore e referente
+locale, come comunicato. La formale titolarita' GDPR dei trattamenti email e
+delle domande cartacee va definita secondo gli atti e le istruzioni UDC.
+Non attribuire automaticamente la titolarita' a una persona solo per la carica.
+
+8. HOME EDITORIALE (VERSIONE AGGIORNATA)
+   La home propone un carosello fotografico, un'anteprima eventi e un'anteprima
+   comunicati, una breve presentazione del coordinamento e rinvii ai documenti,
+   infine un accesso alla pagina Tesseramento. I dettagli restano nelle pagine interne.
+   Eventi e comunicati in home sono letti automaticamente dal PRIMO elemento degli
+   elenchi eventi e comunicati di js/contenuti.js: metti per primo il più recente.
+   Il carosello usa automaticamente le foto presenti in js/contenuti.js, campo foto.
+   Se cambiano informazioni, aggiorna la pagina pertinente e non duplicare
+   i paragrafi sulla home.
+
+9. SEO (AGGIORNAMENTO 11 NOVEMBRE 2026)
+Ogni pagina HTML ha titolo, descrizione, URL canonico, Open Graph e Twitter Card specifici.
+Sono presenti sitemap.xml e robots.txt. URL predisposti per https://udc-aprilia.it/.
+Una volta attivo il sito sul dominio, controlla che gli URL e le immagini rispondano
+correttamente e invia https://udc-aprilia.it/sitemap.xml a Google Search Console.
+Le immagini social usano immagini gia presenti in assets; per anteprime ottimali
+puoi in futuro aggiungere immagini dedicate in formato 1200x630.
+
+10. NUOVA GALLERIA FOTO E CAROSELLO CASUALE
+   La Home e foto.html utilizzano lo stesso elenco: js/contenuti.js > foto.
+   Quando apri o ricarichi la Home, vengono estratte casualmente fino a sei foto,
+   senza ripetizioni nella stessa sequenza. Cambiano in dissolvenza ogni 6,5 secondi.
+   Dalla Home puoi aprire la galleria completa tramite “Guarda tutte le fotografie”.
+
+   PER AGGIUNGERE UNA FOTO CON GITHUB (anche senza programmi di sviluppo):
+   A. Entra nel repository del sito su github.com (con il tuo account).
+   B. Apri la cartella assets e scegli Add file > Upload files.
+   C. Seleziona le foto .jpg, .png o .webp e salva con Commit changes.
+   D. Apri js/contenuti.js su GitHub e premi l'icona della matita (Edit).
+   E. Cerca la sezione foto: [ e inserisci una riga PER CIASCUNA nuova foto,
+      prima della parentesi quadra di chiusura ], rispettando le virgole:
+      { file: 'nuova-foto.jpg', titolo: 'Incontro ad Aprilia' },
+   F. Premi Commit changes. Dopo la pubblicazione di GitHub Pages,
+      le foto sono visibili in foto.html e possono comparire nella Home.
+   Attenzione: il nome file deve corrispondere esattamente, maiuscole incluse.
+   Utilizza nomi semplici senza spazi e comprimi le immagini, idealmente
+   meno di 500 KB l'una. Non caricare fotografie senza autorizzazione.
+   Non è presente un pannello upload sul sito pubblico: GitHub Pages è statico
+   e un pannello sicuro richiederebbe autenticazione e un servizio aggiuntivo.
+   L'aggiornamento della galleria tramite GitHub mantiene il sito senza costi
+   software aggiuntivi e senza esporre credenziali ai visitatori.
+
+
+NOVITÀ — GESTIONE FOTO DA SMARTPHONE
+La galleria e il carosello Home sono ora alimentati da data/foto.json.
+Per aggiungere fotografie SENZA modificare il codice, apri gestione-foto.html
+sul sito pubblicato. Segui ISTRUZIONI_GESTIONE_FOTO.txt per configurare
+un token GitHub fine-grained (Contents Read and write, solo questo repository).
+La pagina di gestione è raggiungibile pubblicamente, ma le azioni di
+modifica richiedono un token valido. Il token non è memorizzato dal sito.
+NON modificare più js/contenuti.js per aggiungere foto alla galleria: usa
+la pagina di gestione o, manualmente, data/foto.json.
+
+
+NUOVA REDAZIONE NOTIZIE / ARCHIVIO COMUNICATI: consulta ISTRUZIONI_REDAZIONE_NOTIZIE.txt.

@@ -1,0 +1,24 @@
+UDC APRILIA — SEZIONE «IDENTITÀ E RADICI» (HOME)
+
+NOVITÀ
+- Nella Home, immediatamente sotto il carosello fotografico e prima delle notizie, compare la sezione «Identità e radici».
+- Sono utilizzate fotografie ORIGINALI fornite per il sito, mostrate separatamente: chiesa di San Michele Arcangelo e Biblioteca Giacomo Manzù.
+- La frase è tratta realmente dal libro Pensare Aprilia, di Pietro Fazio (2026), capitolo 11, «Abitare Aprilia», pagina 37:
+  «L’appartenenza passa da qui: dal riconoscere, nei luoghi della vita quotidiana, una città che sentiamo nostra.»
+- Non si pubblica il PDF del libro; la citazione è incorporata nella pagina come testo HTML accessibile.
+
+FILE MODIFICATI
+- js/sito.js (nuova sezione Home)
+- css/stile.css (stili adattivi per desktop e smartphone)
+- index.html (descrizione SEO)
+
+FILE AGGIUNTI
+- assets/chiesa-san-michele-aprilia.webp
+- assets/biblioteca-manzu-aprilia.webp
+
+PUBBLICAZIONE
+Sostituisci i file nel repository GitHub Pages con il contenuto dello ZIP, mantenendo percorsi e cartelle. La configurazione attuale del dominio e di GitHub Actions non va modificata.
+La pubblicazione online non è stata eseguita automaticamente. Dopo l'upload svuota la cache del browser se la modifica non appare subito.
+
+NOTA EDITORIALE
+Le due immagini descrivono luoghi reali distinti e non una ricostruzione fotografica del loro rapporto spaziale. Prima della pubblicazione, conferma di avere i diritti/autorizzazioni necessari per utilizzare le fotografie fornite.

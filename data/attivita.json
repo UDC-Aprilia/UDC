@@ -1,0 +1,32 @@
+[
+  {
+    "id": "evento-2026-11-18-pomezia",
+    "data": "2026-11-18",
+    "titolo": "La politica dell’UDC: i territori al centro",
+    "luogo": "Hotel Selene, Via Pontina Km 30, Pomezia",
+    "descrizione": "Incontro territoriale UDC, mercoledì 18 novembre alle ore 18:00. Focus: «Dalle nostre radici il futuro delle nuove generazioni». Previsti interventi di rappresentanti UDC e istituzionali, secondo la locandina dell’evento.",
+    "foto": "evento-udc-pomezia-18-novembre-2026.jpg",
+    "link": "",
+    "tipo": "iniziativa-territoriale"
+  },
+  {
+    "id": "evento-2025-09-16",
+    "data": "2025-09-16",
+    "titolo": "Assemblea pubblica “Territorio, Ambiente e Salute Pubblica”",
+    "luogo": "Aprilia",
+    "descrizione": "Incontro organizzato da UDC Aprilia il 16 settembre 2025, secondo il resoconto della testata; confronto su Sant’Apollonia e tutela del territorio.",
+    "foto": "convegno.jpg",
+    "link": "https://www.lavocediaprilia.it/ad-aprilia-assemblea-su-ambiente-e-salute-comunita-unita-per-la-bonifica-di-santapollonia/",
+    "tipo": "organizzato"
+  },
+  {
+    "id": "evento-2026-02-28",
+    "data": "2026-02-28",
+    "titolo": "Presentazione del Comitato Terzo Settore Rete di Aprilia",
+    "luogo": "Comunità Raggio di Sole, Aprilia",
+    "descrizione": "Partecipazione dell’UDC Aprilia alla conferenza stampa del Comitato, secondo Radio Studio 93. Non è un evento organizzato dall’UDC.",
+    "foto": "",
+    "link": "https://www.studio93.it/il-comitato-terzo-settore-rete-di-aprilia-si-presenta-alla-citta",
+    "tipo": "partecipazione"
+  }
+]

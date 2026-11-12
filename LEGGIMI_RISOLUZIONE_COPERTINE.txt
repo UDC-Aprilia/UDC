@@ -1,0 +1,32 @@
+UDC APRILIA — AGGIORNAMENTO COPERTINE DELLA PAGINA CULTURA
+Versione: 12 novembre 2026
+
+PERCHÉ NON VEDEVI LE COPERTINE?
+Nel vecchio ZIP le tre foto erano presenti e i percorsi di js/sito.js erano corretti. Il problema non può essere stabilito con certezza senza accesso al sito pubblicato. Le cause comuni sono: file non caricati nel repository, cartella assets non aggiornata, ritardi di GitHub Pages o cache del browser/CDN.
+
+COME AGGIORNARE IL SITO (IMPORTANTE)
+1. Estrai completamente questo ZIP: non caricare lo ZIP come singolo file nel repository.
+2. Apri il repository GitHub usato da udc-aprilia.it. Carica TUTTI i file e le cartelle di questo pacchetto nella directory di pubblicazione (radice o docs, secondo la configurazione esistente). Sovrascrivi i file esistenti.
+3. Verifica in GitHub che esistano esattamente questi file, rispettando maiuscole/minuscole:
+   assets/libro-la-citta-degli-operai.jpg
+   assets/libro-pensare-aprilia.jpg
+   assets/libro-la-societa-della-longevita.jpg
+   js/sito.js
+   css/stile.css
+   cultura.html
+4. Verifica in Settings > Pages che il branch e la cartella di pubblicazione siano quelli aggiornati. Attendi il completamento della pubblicazione visibile nella sezione Actions/Deployments.
+5. Apri https://udc-aprilia.it/cultura.html e aggiorna senza cache (Ctrl+F5 su Windows, Cmd+Shift+R su Mac), oppure visita la pagina in una scheda privata da smartphone.
+6. Per provare i file individualmente, apri questi URL:
+   https://udc-aprilia.it/assets/libro-la-citta-degli-operai.jpg
+   https://udc-aprilia.it/assets/libro-pensare-aprilia.jpg
+   https://udc-aprilia.it/assets/libro-la-societa-della-longevita.jpg
+   Se uno mostra 404 significa che il file non è nella cartella pubblicata o il nome non corrisponde.
+
+CORREZIONI IN QUESTA VERSIONE
+- Copertine originali incluse nello ZIP, nei percorsi verificati.
+- URL con versione nelle copertine, nel CSS e nei JavaScript (cache busting).
+- Rimangono in ordine: La città degli operai, Pensare Aprilia, La società della longevità.
+- Collegamento Amazon per Pensare Aprilia: ricerca mirata per titolo, autore e ISBN, non una pagina prodotto. L'utente indica che è disponibile su Amazon ma non è stato possibile verificare un ASIN o un URL diretto affidabile con la ricerca web.
+- Resto del sito conservato.
+
+NOTA: modificare file locali non aggiorna automaticamente il sito online. È necessaria la pubblicazione su GitHub Pages.
