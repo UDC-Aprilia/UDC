@@ -41,7 +41,7 @@ window.UDC = {
     { file: 'convegno.jpg', titolo: 'Festa nazionale · sala convegno' },
     { file: 'festa.jpg', titolo: 'Festa nazionale · momento conclusivo' },
     { file: 'nomina.jpg', titolo: 'Incontro e attività istituzionale' },
-    { file: 'cristina-evento.jpg', titolo: 'Archivio · momenti di partecipazione' }
+
   ],
   // Indirizzi comunicati dal coordinamento: modificabili qui in un unico punto.
   contatti: {

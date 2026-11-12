@@ -1,0 +1,9 @@
+UDC APRILIA — AGGIORNAMENTO FOTOGRAFICO (12 NOVEMBRE 2026)
+
+1. Sostituita assets/pietro.jpg con la fotografia più recente fornita per Pietro Fazio (occhiali, giacca scura, camicia bianca). Il percorso rimane invariato e il ritratto compare automaticamente nel profilo del coordinatore.
+2. Eliminata assets/cristina-evento.jpg (fotografia della donna in abito nero) dal pacchetto.
+3. Rimossa la corrispondente voce sia da data/foto.json (galleria/Home) sia dall'elenco di riserva in js/contenuti.js.
+4. Aggiornati i parametri di versione degli script nelle pagine HTML per ridurre la visualizzazione di copie in cache.
+5. Le altre immagini, incluse assets/cristina.jpg e assets/ilaria.jpg, restano invariate.
+
+PUBBLICAZIONE: caricare il contenuto completo dello ZIP nella radice del repository GitHub Pages già in uso, sostituendo i file omonimi. IMPORTANTE: GitHub non elimina automaticamente dal repository i file che mancano nello ZIP: cancellare manualmente assets/cristina-evento.jpg nel repository remoto se si vuole rimuovere anche il file pubblico originale. Per eliminarlo dalla cronologia Git occorrono procedure separate.
