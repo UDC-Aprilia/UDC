@@ -242,3 +242,13 @@ body{background:#fff} .header{box-shadow:0 1px 0 #dce3eb} .menu a{transition:bac
 
 /* Primo contenuto HTML semantico visibile anche senza JavaScript */
 .static-shell{max-width:1150px;margin:0 auto;padding:20px 24px 50px;font:16px/1.6 system-ui,sans-serif;color:#102b50}.static-shell header{display:flex;align-items:center;gap:25px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid #dbe3ed}.static-shell .static-nav{display:flex;gap:10px;flex-wrap:wrap}.static-shell main{padding:48px 0}.static-shell h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.6rem);line-height:1.2}.static-shell footer{border-top:1px solid #dbe3ed;padding-top:20px}.static-noscript{margin:1rem auto;max-width:1100px}
+
+/* Notizie nazionali: filtri tematici accessibili. */
+.udc-news-filters{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 20px}
+.udc-news-filter{border:1px solid #c9d4e0;color:#17365d;background:#fff;border-radius:25px;padding:9px 14px;font-size:.82rem;font-weight:600;font-family:inherit;line-height:1.25;cursor:pointer}
+.udc-news-filter:hover,.udc-news-filter:focus-visible{border-color:#a52337;outline-offset:2px}
+.udc-news-filter[aria-pressed="true"]{background:#102b50;border-color:#102b50;color:#fff}
+
+/* Collegamenti verificati alle pagine istituzionali del Comune di Aprilia */
+.udc-news-official-links{display:flex;gap:12px 20px;flex-wrap:wrap;align-items:center;padding:15px 18px;margin-bottom:15px;border:1px solid #d4e1ed;background:#f4f8fc;border-radius:9px;font-size:.88rem}
+.udc-news-official-links strong{color:#102b50}.udc-news-official-links a{color:#214e7b;text-underline-offset:3px}

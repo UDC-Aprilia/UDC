@@ -1,0 +1,112 @@
+{
+  "note": "Solo titoli, data, fonte e link: nessuna fotografia o testo degli articoli. I risultati Google News sono link intermedi, non necessariamente collegamenti diretti. Verificare termini dei feed, attribuzione e provenienza prima di pubblicare; notizie istituzionali distinte da comunicati di partito.",
+  "sources": [
+    {
+      "name": "Europa - Parlamento europeo",
+      "kind": "google_news",
+      "query": "site:europarl.europa.eu/news/it Parlamento europeo Italia when:30d",
+      "category": "Europa e NATO",
+      "priority": 6,
+      "max_age_days": 30,
+      "official_domain": "europarl.europa.eu"
+    },
+    {
+      "name": "NATO - Assemblea parlamentare",
+      "kind": "google_news",
+      "query": "site:nato-pa.int Italia delegazione NATO when:60d",
+      "category": "Europa e NATO",
+      "priority": 6,
+      "max_age_days": 60,
+      "official_domain": "nato-pa.int"
+    },
+    {
+      "name": "Lorenzo Cesa - attività parlamentare",
+      "kind": "google_news",
+      "query": "\"Lorenzo Cesa\" NATO Parlamento when:90d",
+      "category": "UDC nazionale",
+      "priority": 8,
+      "max_age_days": 90,
+      "required_pattern": "\\bLorenzo\\s+Cesa\\b"
+    },
+    {
+      "name": "Lorenzo Cesa - UDC",
+      "kind": "google_news",
+      "query": "\"Lorenzo Cesa\" UDC when:90d",
+      "category": "UDC nazionale",
+      "priority": 8,
+      "max_age_days": 90,
+      "required_pattern": "\\bLorenzo\\s+Cesa\\b"
+    },
+    {
+      "name": "UDC nazionale - sito ufficiale",
+      "kind": "rss",
+      "url": "https://www.udc-italia.it/feed/",
+      "category": "UDC nazionale",
+      "priority": 8,
+      "max_age_days": 90
+    },
+    {
+      "name": "Antonio De Poli - UDC",
+      "kind": "google_news",
+      "query": "\"Antonio De Poli\" UDC when:90d",
+      "category": "UDC nazionale",
+      "priority": 8,
+      "max_age_days": 90,
+      "required_pattern": "\\bAntonio\\s+De\\s+Poli\\b"
+    },
+    {
+      "name": "UDC Regione Lazio",
+      "kind": "google_news",
+      "query": "\"UDC\" \"Lazio\" politica when:90d",
+      "category": "UDC Regione Lazio",
+      "priority": 8,
+      "max_age_days": 90,
+      "required_pattern": "\\b(?:UDC|Unione di Centro)\\b"
+    },
+    {
+      "name": "UDC Aprilia - attività locali",
+      "kind": "google_news",
+      "query": "\"UDC\" \"Aprilia\" when:120d",
+      "category": "UDC Aprilia",
+      "priority": 10,
+      "max_age_days": 120,
+      "required_pattern": "\\b(?:UDC|Unione di Centro)\\b"
+    },
+    {
+      "name": "Pietro Fazio - coordinamento UDC Aprilia",
+      "kind": "google_news",
+      "query": "\"Pietro Fazio\" \"Aprilia\" when:120d",
+      "category": "UDC Aprilia",
+      "priority": 10,
+      "max_age_days": 120,
+      "required_pattern": "\\bPietro\\s+Fazio\\b"
+    },
+    {
+      "name": "Pietro Fazio - UDC",
+      "kind": "google_news",
+      "query": "\"Pietro Fazio\" \"UDC\" when:120d",
+      "category": "UDC Aprilia",
+      "priority": 10,
+      "max_age_days": 120,
+      "required_pattern": "\\bPietro\\s+Fazio\\b"
+    },
+    {
+      "name": "Comune di Aprilia - comunicati ufficiali",
+      "kind": "google_news",
+      "query": "site:comune.aprilia.lt.it/tipi-di-notizia/comunicati when:90d",
+      "category": "Comune di Aprilia",
+      "priority": 7,
+      "max_age_days": 90,
+      "official_domain": "comune.aprilia.lt.it"
+    },
+    {
+      "name": "Comune di Aprilia - avvisi ufficiali",
+      "kind": "google_news",
+      "query": "site:comune.aprilia.lt.it/tipi-di-notizia/avvisi when:60d",
+      "category": "Comune di Aprilia",
+      "priority": 7,
+      "max_age_days": 60,
+      "official_domain": "comune.aprilia.lt.it"
+    }
+  ]
+}

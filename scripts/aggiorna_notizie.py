@@ -1,80 +1,185 @@
 #!/usr/bin/env python3
-"""Feed informativo automatico per sito statico. Solo metadati e link, nessun articolo copiato."""
+"""Aggiorna il catalogo di link da RSS selezionati senza ripubblicare articoli.
+
+Le fonti e le ricerche sono configurate in data/fonti-notizie.json.
+Le voci Google News sono indicate come link intermediari, non link diretti.
+"""
 import json
 import re
-import ssl
+import sys
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from pathlib import Path
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CONFIG = ROOT / 'data' / 'fonti-notizie.json'
 OUT = ROOT / 'data' / 'web-news.json'
-QUERIES = [
-    ('udc', '"UDC" "Aprilia" when:90d'),
-    ('udc', '"Pietro Fazio" "Aprilia" when:90d'),
-    ('local', '"Comune di Aprilia" eventi iniziative when:30d'),
-    ('local', '"Aprilia" "Latina" notizie città when:14d'),
-]
-BLOCK = ('motogp', 'motocicl', 'motori', 'aprilia racing', 'rs 660', 'bezzecchi', 'piaggio', 'rsv4', 'motorbike')
-LOCAL = re.compile(r'\baprilia\b|\bapriliani\b|\baprili(a|ano)\b', re.I)
-UDC = re.compile(r'\budc\b|unione di centro|pietro fazio', re.I)
-MAX_AGE = datetime.now(timezone.utc) - timedelta(days=100)
+BLOCK = re.compile(r'\b(?:motogp|motocicl\w*|aprilia racing|rs\s*660|bezzecchi|piaggio|rsv4|superbike)\b', re.I)
+POLITICAL = re.compile(r'\b(?:udc|unione di centro|lorenzo cesa|antonio de poli|politic\w*|parlament\w*|governo|senat\w*|camera dei deputati|minister\w*|regione lazio|consiglio regionale|giunta regionale|elezion\w*|comune di aprilia|sindac\w*|consiglio comunale)\b', re.I)
+MAX_BYTES = 2_000_000
 
-def fetch(query):
-    params = urllib.parse.urlencode({'q':query,'hl':'it','gl':'IT','ceid':'IT:it'})
-    req = urllib.request.Request('https://news.google.com/rss/search?'+params, headers={'User-Agent':'UDCAprilia-SiteFeed/1.0 (+https://udc-aprilia.it; metadata only)'})
-    with urllib.request.urlopen(req, timeout=18, context=ssl.create_default_context()) as resp:
-        return resp.read(2_000_000)
 
-def extract(xml, group):
-    root = ET.fromstring(xml)
-    items = []
-    for row in root.findall('.//channel/item'):
-        title = (row.findtext('title') or '').strip()
-        url = (row.findtext('link') or '').strip()
-        source_node = row.find('source')
-        source = (source_node.text or '').strip() if source_node is not None else ''
-        if source and title.endswith(' - '+source): title=title[:-(len(source)+3)].strip()
-        text = title+' '+source
-        if not LOCAL.search(text) or any(k in text.lower() for k in BLOCK): continue
-        if group == 'udc' and not UDC.search(text): continue
-        if group == 'local' and UDC.search(text): group_actual='udc'
-        else: group_actual=group
-        if not url.startswith('https://'): continue
-        try: date = parsedate_to_datetime(row.findtext('pubDate') or '').astimezone(timezone.utc)
-        except (TypeError,ValueError,OverflowError): continue
-        if date < MAX_AGE or date > datetime.now(timezone.utc)+timedelta(days=1):continue
-        items.append({'title':title[:210], 'date':date.date().isoformat(), 'source':source[:80] or 'Google News', 'url':url, 'category':'Notizie UDC Aprilia' if group_actual=='udc' else 'Notizie ed eventi di Aprilia','priority':group_actual})
-    return items
+def https_url(value):
+    try:
+        parsed = urllib.parse.urlsplit(value.strip())
+        return value.strip() if parsed.scheme == 'https' and parsed.hostname and not parsed.username and not parsed.password else None
+    except (ValueError, AttributeError):
+        return None
+
+
+def normalize_title(value):
+    return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', value or '')).strip()[:190]
+
+
+def fetch(url):
+    request = urllib.request.Request(url, headers={'User-Agent': 'UDCApriliaFeed/2.0 (https://udc-aprilia.it; RSS metadata)'})
+    with urllib.request.urlopen(request, timeout=20) as response:
+        return response.read(MAX_BYTES + 1)[:MAX_BYTES]
+
+
+def text_of(item, name):
+    node = item.find(name)
+    return ''.join(node.itertext()).strip() if node is not None else ''
+
+
+def parse_date(value):
+    if not value:
+        return None
+    try:
+        parsed = parsedate_to_datetime(value)
+    except (TypeError, ValueError, IndexError):
+        try:
+            parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        except (ValueError, TypeError):
+            return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def source_title(item):
+    node = item.find('source')
+    return ''.join(node.itertext()).strip() if node is not None else ''
+
+
+def parse_feed(data, config, now):
+    root = ET.fromstring(data)
+    channel_items = root.findall('./channel/item')
+    atom = '{http://www.w3.org/2005/Atom}'
+    entries = channel_items or root.findall(f'./{atom}entry')
+    cutoff = now - timedelta(days=int(config.get('max_age_days', 45)))
+    output = []
+    for item in entries:
+        if item.tag == f'{atom}entry':
+            title = text_of(item, f'{atom}title')
+            link = next((node.get('href', '') for node in item.findall(f'{atom}link') if node.get('rel', 'alternate') == 'alternate'), '')
+            dt = text_of(item, f'{atom}published') or text_of(item, f'{atom}updated')
+        else:
+            title = text_of(item, 'title')
+            link = text_of(item, 'link')
+            dt = text_of(item, 'pubDate') or text_of(item, '{http://purl.org/dc/elements/1.1/}date')
+        title = normalize_title(title)
+        link = https_url(link)
+        date = parse_date(dt)
+        if not title or not link or not date or not cutoff <= date <= now + timedelta(days=1):
+            continue
+        if BLOCK.search(title):
+            continue
+        # Per ricerche generiche evita contenuti che non riguardano la politica.
+        if config.get('political_only') and not POLITICAL.search(title):
+            continue
+        if config.get('required_pattern') and not re.search(config['required_pattern'], title, re.I):
+            continue
+        # Le ricerche sul Comune devono indicare la provenienza istituzionale.
+        # Google News fornisce URL intermedi: non fingere un link diretto.
+        if config.get('official_domain'):
+            official = config['official_domain'].lower()
+            source_label = source_title(item).lower()
+            source_node = item.find('source')
+            source_url = https_url(source_node.get('url', '')) if source_node is not None else None
+            source_host = urllib.parse.urlsplit(source_url).hostname.lower() if source_url else ''
+            official_host = official.removeprefix('www.')
+            if not (source_host == official_host or source_host.endswith('.' + official_host)):
+                continue
+        source = source_title(item) or config['name']
+        if config.get('kind') == 'google_news' and title.endswith(' - ' + source):
+            title = title[:-(len(source) + 3)].strip()
+        output.append({
+            'title': title, 'date': date.date().isoformat(), 'source': source[:90],
+            'url': link, 'category': config['category'],
+            'priority': config['priority'], 'via': 'Google News' if config.get('kind') == 'google_news' else 'diretta'
+        })
+    return output
+
+
+def feed_url(item):
+    if item.get('kind') == 'google_news':
+        return 'https://news.google.com/rss/search?' + urllib.parse.urlencode({
+            'q': item['query'], 'hl': 'it', 'gl': 'IT', 'ceid': 'IT:it'
+        })
+    return item['url']
+
 
 def main():
-    prior = {'items':[], 'updated_at':''}
-    if OUT.exists():
-        try:prior=json.loads(OUT.read_text(encoding='utf-8'))
-        except (ValueError,OSError):pass
-    results=[]
-    failures=[]
-    for group, query in QUERIES:
-        try:results.extend(extract(fetch(query),group))
-        except Exception as exc:failures.append(f'{query}: {type(exc).__name__}: {exc}')
-    # Un outage non svuota il feed. Salvaguardia di continuità editoriale.
-    if not results:
-        print('Nessun risultato recuperato; mantengo il feed esistente.','; '.join(failures))
-        return
-    used=set();clean=[]
-    for item in sorted(results, key=lambda x:(x['priority']!='udc',x['date']), reverse=False):
-        key=re.sub(r'[^\w]+',' ',item['title'].casefold()).strip()
-        if key in used: continue
-        used.add(key)
-        clean.append(item)
-    # UDC in cima; altre notizie saranno intercalate dal carosello.
-    clean.sort(key=lambda x:(x['priority']!='udc',-int(x['date'].replace('-',''))))
-    payload={'updated_at':datetime.now(timezone.utc).isoformat(timespec='seconds'),'items':clean[:60]}
-    updated=json.dumps(payload,ensure_ascii=False,indent=2)+'\n'
-    if OUT.read_text(encoding='utf-8') != updated:OUT.write_text(updated,encoding='utf-8')
-    print('Feed aggiornato:',len(clean[:60]),'notizie. Errori:',failures)
+    config = json.loads(CONFIG.read_text(encoding='utf-8'))
+    existing = {'updated_at': '', 'items': []}
+    try:
+        existing = json.loads(OUT.read_text(encoding='utf-8'))
+    except (FileNotFoundError, ValueError):
+        pass
+    now = datetime.now(timezone.utc)
+    items, failures, succeeded = [], [], 0
+    for source in config['sources']:
+        if not source.get('enabled', True):
+            continue
+        try:
+            url = feed_url(source)
+            if not https_url(url):
+                raise ValueError('URL feed non HTTPS')
+            found = parse_feed(fetch(url), source, now)
+            items.extend(found)
+            succeeded += 1
+            print(f"{source['name']}: {len(found)} voci compatibili")
+        except (Exception) as error:
+            failures.append(f"{source['name']}: {type(error).__name__}: {error}")
+    if not succeeded:
+        print('Nessun feed raggiunto; conservato catalogo precedente.', *failures, sep='\n', file=sys.stderr)
+        return 1
+    # Recupera i contenuti precedenti solo per le fonti non raggiunte; scarta comunque le voci datate.
+    old = existing.get('items', []) if isinstance(existing, dict) else []
+    if failures and isinstance(old, list):
+        old_cutoff = (now - timedelta(days=60)).date().isoformat()
+        items.extend(x for x in old if isinstance(x, dict) and x.get('date', '') >= old_cutoff and https_url(x.get('url', '')))
+    seen_urls, seen_titles, unique = set(), set(), []
+    for item in sorted(items, key=lambda x: (int(x.get('priority', 0)), x['date']), reverse=True):
+        key = re.sub(r'[^\w]+', '', item['title'].casefold())
+        url_key = item['url'].split('?')[0].rstrip('/')
+        if key in seen_titles or url_key in seen_urls:
+            continue
+        seen_titles.add(key)
+        seen_urls.add(url_key)
+        unique.append(item)
+    # Quote per categoria: l'eccesso di notizie nazionali non deve oscurare il territorio.
+    quotas = {'UDC Aprilia': 25, 'Comune di Aprilia': 25, 'Europa e NATO': 20, 'UDC nazionale': 35, 'UDC Regione Lazio': 20}
+    picked, counts = [], {}
+    for item in unique:
+        category = item.get('category', '')
+        if category in ('Lorenzo Cesa', 'Antonio De Poli', 'UDC e dirigenti nazionali'):
+            category = 'UDC nazionale'
+            item['category'] = category
+        counts[category] = counts.get(category, 0) + 1
+        if counts[category] <= quotas.get(category, 18):
+            picked.append(item)
+    payload = {'updated_at': now.isoformat(timespec='seconds'), 'items': picked[:120]}
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    print(f"Catalogo aggiornato: {len(payload['items'])} articoli. Errori: {len(failures)}")
+    for error in failures:
+        print(error, file=sys.stderr)
+    return 0
 
-if __name__=='__main__':main()
+
+if __name__ == '__main__':
+    raise SystemExit(main())
