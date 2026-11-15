@@ -26,3 +26,18 @@ SICUREZZA E RESPONSABILITA'
 
 IN CASO DI FEED VUOTO
 La Home continua a mostrare le notizie inserite in data/stampa.json e gli eventi redazionali di data/attivita.json dotati di link. Eventi senza link restano nella pagina Eventi e non diventano collegamenti fittizi.
+
+
+AGGIORNAMENTO 15/11/2026 — SCORRIMENTO FILTRI
+- Corretto il CSS: le schede [hidden] non rimangono visibili quando si sceglie una categoria.
+- Il pulsante Comune di Aprilia è ora un link esterno al portale ufficiale
+  https://www.comune.aprilia.lt.it/ (Notizie, Avvisi e Albo Pretorio).
+- Ogni categoria senza abbastanza notizie RSS mostra anche collegamenti
+  alle fonti verificabili, chiaramente contrassegnati e scorrevoli.
+  Questi collegamenti NON sono presentati come notizie aggiornate.
+- I feed automatici vengono aggiornati dal workflow GitHub Actions,
+  ogni 6 ore o manualmente con Actions > Aggiorna notizie del sito > Run workflow.
+- Il file data/web-news.json dello ZIP originale era vuoto: lo scaricamento
+  effettivo delle notizie richiede il workflow e connettività di rete.
+- Pubblicare i file aggiornati del sito su GitHub Pages (inclusi CSS e JS).
+- Se il browser mantiene la vecchia versione, ricaricare con Ctrl+F5.
