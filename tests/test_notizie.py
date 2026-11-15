@@ -15,7 +15,13 @@ def feed(title, url='https://news.google.com/rss/articles/test', source_url='htt
 
 class NewsTests(unittest.TestCase):
     def setUp(self): self.now = datetime(2026,11,15,tzinfo=timezone.utc)
-    def test_seven_sections(self): self.assertEqual(len(CATEGORIE),7)
+    def test_nine_sections(self): self.assertEqual(len(CATEGORIE),9)
+    def test_udc_lazio_accepted(self):
+        x = feed('UDC Lazio, Regino Brachetti interviene', source_url='https://www.udc-italia.it/', source='UDC Italia')
+        self.assertEqual(estrai_notizie(x,'udc_lazio',self.now)[0]['priority'],'udc_lazio')
+    def test_udc_latina_accepted(self):
+        x = feed('UDC Latina: Ciro Palumbo incontra i coordinatori', source_url='https://latinatu.it/', source='LatinaTu')
+        self.assertEqual(estrai_notizie(x,'udc_latina',self.now)[0]['priority'],'udc_latina')
     def test_aprilia_accepted(self):
         self.assertEqual(estrai_notizie(feed('Avviso pubblico per Aprilia'),'aprilia',self.now)[0]['priority'],'aprilia')
     def test_no_motorcycle(self):

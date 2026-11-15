@@ -5,7 +5,7 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
   const { escapeHtml: esc, safeUrl, formatDate, uniqueNews, loadJson } = window.UDCUtils;
   const LABELS = Object.freeze({
     udc_aprilia: 'UDC Aprilia', aprilia: 'Città di Aprilia', regione_lazio: 'Regione Lazio',
-    italia: 'Italia · notizie nazionali', udc_nazionale: 'UDC nazionale',
+    italia: 'Italia · notizie nazionali', udc_nazionale: 'UDC nazionale', udc_lazio: 'UDC Lazio', udc_latina: 'UDC Latina e provincia',
     istituzioni: 'Istituzioni italiane', europa: 'Europa e Unione europea'
   });
   const LINKS = {
@@ -13,23 +13,38 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
     'Città di Aprilia': [['Notizie del Comune di Aprilia', 'https://www.comune.aprilia.lt.it/tipi-di-notizia/notizie'], ['Avvisi pubblici del Comune', 'https://www.comune.aprilia.lt.it/tipi-di-notizia/avvisi']],
     'Regione Lazio': [['Notizie della Regione Lazio', 'https://www.regione.lazio.it/notizie']],
     'Italia · notizie nazionali': [['Notizie della Presidenza del Consiglio', 'https://www.governo.it/']],
-    'UDC nazionale': [['Sito ufficiale UDC nazionale', 'https://www.udc-italia.it/']],
+    'UDC nazionale': [['Notizie ufficiali UDC · De Poli e Cesa', 'https://www.udc-italia.it/']],
+    'UDC Lazio': [['UDC nazionale · notizie anche sul Lazio', 'https://www.udc-italia.it/']],
+    'UDC Latina e provincia': [['Notizie UDC della provincia di Latina', 'https://latinatu.it/udc-nominato-il-coordinatore-provinciale-di-latina/']],
     'Istituzioni italiane': [['Attività del Parlamento italiano', 'https://www.parlamento.it/']],
     'Europa e Unione europea': [['Notizie del Parlamento europeo', 'https://www.europarl.europa.eu/news/it'], ['Notizie della Commissione europea', 'https://commission.europa.eu/news-and-media_it']],
     'Rassegna stampa': [['Archivio rassegna stampa', 'comunicati.html']],
     'Eventi e attività': [['Iniziative del coordinamento', 'eventi.html']]
   };
-  const categories = [...Object.values(LABELS), 'Rassegna stampa', 'Eventi e attività'];
-  root.innerHTML = `<div class="udc-news-toolbar"><span class="udc-news-explainer">Notizie dal web · fonti originali consultabili</span>
-    <div class="udc-news-buttons" role="group" aria-label="Controlli scorrimento">
-      <button id="udc-news-prev" type="button" aria-label="Precedente" title="Precedente">‹</button>
-      <button id="udc-news-play" type="button" aria-label="Pausa" title="Pausa">Ⅱ</button>
-      <button id="udc-news-next" type="button" aria-label="Successiva" title="Successiva">›</button></div></div>
-    <div class="udc-news-filters" role="group" aria-label="Filtra notizie per area">
-      <button class="udc-news-category is-active" type="button" data-category="" aria-pressed="true">Tutte</button>
-      ${categories.map(name => `<button class="udc-news-category" type="button" data-category="${esc(name)}" aria-pressed="false">${esc(name)}</button>`).join('')}
-      <a class="udc-news-category udc-news-external" href="https://www.comune.aprilia.lt.it/" target="_blank" rel="noopener noreferrer" title="Sito istituzionale, avvisi e Albo Pretorio">Sito del Comune ↗</a>
-    </div><div id="udc-news-track" class="udc-news-track" tabindex="0" role="region" aria-label="Articoli in scorrimento"></div>
+  // Una sola gerarchia: macroaree, senza duplicare voci dell'archivio editoriale.
+  const FILTERS = [
+    ['', 'Tutte'], ['aprilia', 'Aprilia'], ['regione_lazio', 'Lazio'],
+    ['italia', 'Italia'], ['europa', 'Europa'], ['udc', 'UDC']
+  ];
+  const FILTER_AREAS = {
+    aprilia:['Città di Aprilia'], regione_lazio:['Regione Lazio'],
+    italia:['Italia · notizie nazionali','Istituzioni italiane'],
+    europa:['Europa e Unione europea'], udc:['UDC Aprilia','UDC nazionale','UDC Lazio','UDC Latina e provincia']
+  };
+  const categories = Object.values(LABELS);
+  const MAIN_AREAS = ['UDC Aprilia','Città di Aprilia','Regione Lazio','Italia · notizie nazionali','Europa e Unione europea','UDC nazionale','UDC Lazio','UDC Latina e provincia'];
+  root.innerHTML = `<div class="udc-news-toolbar">
+    <div class="udc-news-heading"><span class="udc-news-eyebrow">OSSERVATORIO · FONTI VERIFICABILI</span><p>Le notizie, senza rumore.</p></div>
+    <div class="udc-news-buttons" role="group" aria-label="Controlli notizie">
+      <button id="udc-news-prev" type="button" aria-label="Notizia precedente" title="Notizia precedente">‹</button>
+      <button id="udc-news-play" type="button" aria-label="Metti in pausa" title="Metti in pausa">Ⅱ</button>
+      <button id="udc-news-next" type="button" aria-label="Notizia successiva" title="Notizia successiva">›</button></div></div>
+    <div class="udc-news-filters" role="group" aria-label="Seleziona l'area delle notizie">
+      ${FILTERS.map(([id,name]) => `<button class="udc-news-category${id === '' ? ' is-active' : ''}" type="button" data-category="${id}" aria-pressed="${id === ''}">${name}</button>`).join('')}
+    </div>
+    <div class="udc-news-display"><div id="udc-news-track" class="udc-news-track" role="region" aria-roledescription="carosello" aria-label="Notizia selezionata" aria-live="polite"></div>
+      <div class="udc-news-aside"><span class="udc-news-aside-kicker">INFORMAZIONE TRASPARENTE</span><h3>Direttamente dalle fonti.</h3><p>I collegamenti esterni si aprono in una nuova scheda: per tornare qui, seleziona la scheda UDC Aprilia. Le notizie esterne non sono comunicati UDC.</p><a href="https://www.comune.aprilia.lt.it/" target="_blank" rel="noopener noreferrer" class="udc-news-municipality">Portale del Comune di Aprilia <span aria-hidden="true">↗</span></a><div class="udc-news-aside-foot"><span class="udc-news-counter" id="udc-news-counter">—</span><span>Selezione di notizie e fonti</span></div></div>
+    </div>
     <p id="udc-news-status" class="udc-news-status" role="status">Caricamento notizie…</p>
     <p id="udc-news-meta" class="udc-news-meta"></p>`;
   const track = root.querySelector('#udc-news-track');
@@ -39,6 +54,7 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
   const prev = root.querySelector('#udc-news-prev');
   const next = root.querySelector('#udc-news-next');
   const buttons = [...root.querySelectorAll('button.udc-news-category')];
+  const counter = root.querySelector('#udc-news-counter');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches, timer = null, hover = false, focus = false;
   let allNews = [], selected = '', visible = [], position = 0, updated = '';
@@ -56,7 +72,7 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
     const buckets = new Map();
     for (const item of items) {
       if (!buckets.has(item.category)) buckets.set(item.category, []);
-      buckets.get(item.category).push(item);
+      if (buckets.get(item.category).length < 15) buckets.get(item.category).push(item);
     }
     for (const [key, arr] of buckets) buckets.set(key, shuffle(arr));
     const result = [];
@@ -79,10 +95,11 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
     const attr = external ? ' target="_blank" rel="noopener noreferrer"' : '';
     return `<article class="udc-news-card${isSource ? ' udc-news-card-source' : ''}">
       <div class="udc-news-card-head"><span class="udc-news-label">${esc(item.category)}</span>
-      <span class="udc-news-date">${isSource ? 'Fonte ufficiale' : esc(formatDate(item.date))}</span></div>
+      <span class="udc-news-date">${isSource ? 'Portale della fonte' : esc(formatDate(item.date))}</span></div>
+      <div class="udc-news-card-body"><span class="udc-news-card-overline">${isSource ? 'COLLEGAMENTO ISTITUZIONALE' : 'NOTIZIA DAL WEB'}</span>
       <h3><a href="${esc(href)}"${attr}>${esc(item.title)}</a></h3>
-      <p class="udc-news-source">${isSource ? 'Collegamento, non un articolo' : 'Fonte: ' + esc(item.source || 'Fonte esterna')}</p>
-      <a class="udc-news-read" href="${esc(href)}"${attr}>${isSource ? 'Consulta la fonte ↗' : 'Leggi la notizia originale ↗'}</a></article>`;
+      <p class="udc-news-source">${isSource ? 'Vai alla fonte. Questo è un collegamento, non un nuovo articolo.' : 'Pubblicato da ' + esc(item.source || 'fonte identificata')}</p></div>
+      <a class="udc-news-read" href="${esc(href)}"${attr}>${isSource ? 'Visita il sito originale' : 'Leggi la notizia completa'} <span aria-hidden="true">↗</span></a></article>`;
   }
   function sync() {
     clearInterval(timer); timer = null;
@@ -96,8 +113,16 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
   function step(direction) {
     if (visible.length < 2) return;
     position = (position + direction + visible.length) % visible.length;
-    const target = track.children[position];
-    if (target) track.scrollTo({ left: target.offsetLeft - track.children[0].offsetLeft, behavior: reduced.matches ? 'instant' : 'smooth' });
+    showCurrent();
+  }
+  function showCurrent() {
+    [...track.children].forEach((node, i) => {
+      const active = i === position;
+      node.hidden = !active;
+      node.setAttribute('aria-hidden', String(!active));
+      node.querySelectorAll('a').forEach(a => { a.tabIndex = active ? 0 : -1; });
+    });
+    counter.textContent = visible.length ? `${position + 1} / ${visible.length}` : '0 / 0';
   }
   function render() {
     buttons.forEach(button => {
@@ -105,17 +130,24 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
       button.classList.toggle('is-active', current);
       button.setAttribute('aria-pressed', String(current));
     });
-    visible = selected ? allNews.filter(item => item.category === selected).sort((a,b) => String(b.date).localeCompare(String(a.date))) : mixed(allNews);
+    visible = selected ? allNews.filter(item => (FILTER_AREAS[selected] || []).includes(item.category)).sort((a,b) => String(b.date).localeCompare(String(a.date))) : mixed(allNews);
     const count = visible.length;
-    if (!count) {
-      const categoriesWithFallback = selected ? [selected] : categories.filter(name => LINKS[name]);
+    if (!selected) {
+      // Quando mancano articoli da un'area, mostriamo una fonte dichiarata,
+      // evitando che 'Tutte' presenti solo notizie della stampa locale.
+      const covered = new Set(visible.map(item => item.category));
+      const fallback = MAIN_AREAS.filter(name => !covered.has(name)).flatMap(name => (LINKS[name] || []).slice(0,1).map(([title, href]) => ({title, href, category:name, origin:'source'})));
+      visible = mixed([...visible, ...fallback]);
+    }
+    if (!visible.length) {
+      const categoriesWithFallback = selected ? (FILTER_AREAS[selected] || []) : categories.filter(name => LINKS[name]);
       visible = categoriesWithFallback.flatMap(name => (LINKS[name] || []).map(([title, href]) => ({title, href, category:name, origin:'source'})));
     }
     track.innerHTML = visible.map(card).join('');
     position = 0;
-    track.scrollLeft = 0;
-    status.textContent = count ? `${count} ${count === 1 ? 'notizia' : 'notizie'} ${selected ? 'per ' + selected : 'da tutte le categorie'} · clicca sul titolo per aprire la fonte.`
-      : `Nessuna notizia web aggiornata${selected ? ' per ' + selected : ''}: sono disponibili i collegamenti diretti alle fonti, non articoli.`;
+    showCurrent();
+    status.textContent = count ? `${count} ${count === 1 ? 'notizia disponibile' : 'notizie disponibili'} · gli eventuali collegamenti alle fonti sono contrassegnati e non sono articoli.`
+      : `Nessun articolo aggiornato per questa selezione: i collegamenti mostrati conducono alle fonti, non a singole notizie.`;
     requestAnimationFrame(sync);
   }
   buttons.forEach(button => button.addEventListener('click', () => { selected = button.dataset.category; render(); }));
@@ -134,10 +166,10 @@ window.UDC_initHomeNews = async function ({ stampa = [], eventi = [] } = {}) {
   const webNews = (Array.isArray(feed.items) ? feed.items : []).filter(item => LABELS[item.priority] && item.title && item.url && item.date)
     .map(item => ({ title:item.title, href:item.url, date:item.date, source:item.source, category:LABELS[item.priority], origin:'web' }));
   const editorial = [
-    ...stampa.map(item => ({title:item.titolo, href:item.link, date:item.data, source:item.fonte, category:'Rassegna stampa', origin:'redazione'})),
-    ...eventi.filter(item => item.link).map(item => ({title:item.titolo, href:item.link, date:item.data, source:item.luogo || 'UDC Aprilia', category:'Eventi e attività', origin:'redazione'}))
+    ...stampa.map(item => ({title:item.titolo, href:item.link, date:item.data, source:item.fonte, category:'UDC Aprilia', origin:'redazione'})),
+    ...eventi.filter(item => item.link).map(item => ({title:item.titolo, href:item.link, date:item.data, source:item.luogo || 'UDC Aprilia', category:'UDC Aprilia', origin:'redazione'}))
   ];
-  allNews = uniqueNews([...webNews, ...editorial]).slice(0, 140);
+  allNews = uniqueNews([...webNews, ...editorial]).slice(0, 160);
   updated = String(feed.updated_at || '').slice(0,10);
   meta.textContent = `${updated ? 'Feed aggiornato il ' + formatDate(updated) + ' · ' : ''}Notizie esterne selezionate da fonti identificabili; non rappresentano comunicati ufficiali UDC. Aggiornamento automatico tramite GitHub Actions ogni 6 ore (se attivo).`;
   render();

@@ -1,4 +1,37 @@
 {
   "updated_at": "",
-  "items": []
+  "items": [
+    {
+      "title": "Reddito di cittadinanza: Antonio De Poli interviene sul dibattito politico",
+      "url": "https://www.udc-italia.it/reddito-di-cittadinanza-antonio-de-poli-udc-il-campo-largo-vecchie-ricette/",
+      "date": "2026-11-13",
+      "source": "UDC Italia",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale"
+    },
+    {
+      "title": "Lorenzo Cesa: innovazione e difesa europea all’incontro NATO 3.0",
+      "url": "https://www.udc-italia.it/italia-nato-3-0-lorenzo-cesa-la-difesa-europea-si-costruisce-sul-campo-e-nellinnovazione-tecnologica/",
+      "date": "2026-11-11",
+      "source": "UDC Italia",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale"
+    },
+    {
+      "title": "Aprilia: Ciro Palumbo affida a Ilaria Cavallin il ruolo di vicecoordinatrice provinciale UDC",
+      "url": "https://www.studio93.it/aprilia-ilaria-cavallin-nominata-vice-coordinatrice-provinciale-delludc",
+      "date": "2026-10-03",
+      "source": "Radio Studio 93",
+      "category": "UDC Latina e provincia",
+      "priority": "udc_latina"
+    },
+    {
+      "title": "Festa nazionale UDC: tra gli interventi quello del coordinatore regionale Regino Brachetti",
+      "url": "https://www.udc-italia.it/festa-nazionale-udc-2026-12-13-settembre-roma/",
+      "date": "2026-09-04",
+      "source": "UDC Italia",
+      "category": "UDC Lazio",
+      "priority": "udc_lazio"
+    }
+  ]
 }

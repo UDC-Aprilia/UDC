@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'data/web-news.json'
 NEWS_URL = 'https://news.google.com/rss/search?'
 MAX_AGE_DAYS = 75
-MAX_PER_CATEGORY = 22
+MAX_PER_CATEGORY = 18
 MAX_RESULTS = 150
 
 # Ricerca per siti ufficiali: non si includono risultati di domini arbitrari.
@@ -46,12 +46,22 @@ CATEGORIE = {
         'site:consilium.europa.eu/it/press/press-releases when:45d'],
         'domains': ('commission.europa.eu', 'europarl.europa.eu', 'consilium.europa.eu'), 'required': r'.'},
     'udc_nazionale': {'label': 'UDC nazionale', 'priority': 6, 'queries': [
-        'site:udc-italia.it when:75d', '"UDC" "De Poli" when:30d'],
+        'site:udc-italia.it "Antonio De Poli" when:75d', 'site:udc-italia.it "Lorenzo Cesa" when:75d', 'site:udc-italia.it when:75d'],
         'domains': ('udc-italia.it', 'ansa.it'), 'required': r'udc|unione di centro|de poli|cesa'},
     'udc_aprilia': {'label': 'UDC Aprilia', 'priority': 0, 'queries': [
-        '"UDC" "Aprilia" when:75d', '"Pietro Fazio" "Aprilia" when:75d'],
-        'domains': ('udc-aprilia.it', 'ansa.it', 'latinaoggi.eu', 'ilcaffe.tv', 'udc-italia.it'),
+        '"UDC" "Aprilia" when:75d', '"Pietro Fazio" "Aprilia" when:75d', '"UDC Aprilia" "Ciro Palumbo" when:75d'],
+        'domains': ('udc-aprilia.it', 'ansa.it', 'latinaoggi.eu', 'ilcaffe.tv', 'udc-italia.it', 'latinatu.it', 'studio93.it'),
         'required': r'udc.*aprilia|aprilia.*udc|pietro fazio'},
+    'udc_lazio': {'label': 'UDC Lazio', 'priority': 7, 'queries': [
+        '"Regino Brachetti" UDC when:75d', '"UDC" "Lazio" when:60d',
+        'site:udc-italia.it "Lazio" when:75d'],
+        'domains': ('udc-italia.it', 'ansa.it', 'latinatu.it', 'studio93.it', 'latinaoggi.eu', 'regione.lazio.it'),
+        'required': r'udc|brachetti|unione di centro'},
+    'udc_latina': {'label': 'UDC Latina e provincia', 'priority': 8, 'queries': [
+        '"Ciro Palumbo" "UDC" when:75d', '"UDC" "Latina" when:60d',
+        '"UDC" "Provincia di Latina" when:75d'],
+        'domains': ('udc-italia.it', 'ansa.it', 'latinatu.it', 'studio93.it', 'latinaoggi.eu', 'ilcaffe.tv'),
+        'required': r'udc|ciro palumbo|unione di centro'},
 }
 ESCLUSIONI = re.compile(r'motogp|motocicl|aprilia racing|rs 660|bezzecchi|piaggio|rsv4', re.I)
 # Feed diretto verificato sul sito ufficiale del Parlamento europeo. Il parsing
