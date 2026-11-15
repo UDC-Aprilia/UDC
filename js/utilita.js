@@ -27,7 +27,7 @@ window.UDCUtils = Object.freeze({
   safeUrl(value, allowRelative = false) {
     try {
       const url = new URL(String(value || ''), window.location.href);
-      if (url.protocol !== 'https:' && !(allowRelative && url.protocol === 'http:')) return '';
+      if (url.protocol !== 'https:' && !(allowRelative && (url.protocol === 'http:' || (url.protocol === 'file:' && value && !String(value).startsWith('//'))))) return '';
       return url.href;
     } catch {
       return '';

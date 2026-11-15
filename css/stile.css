@@ -3175,3 +3175,13 @@ body {
   margin: 2px 0 10px;
 }
 .udc-news-track:empty { padding-bottom: 0; }
+
+/* Correzione: il display:flex delle card non deve annullare [hidden]. */
+.udc-news-card[hidden] { display:none !important; }
+/* Collega direttamente il Comune alla propria pagina istituzionale. */
+.udc-news-filters a.udc-news-category { display:inline-flex; align-items:center; text-decoration:none; }
+.udc-news-filters a.udc-news-category:hover, .udc-news-filters a.udc-news-category:focus-visible { background:#102b50; color:#fff; }
+/* Due collegamenti verificati rimangono scorrevoli anche senza articoli RSS. */
+.udc-news-card-source { flex-basis: min(68%, 650px); border-top-color:#587ea3; }
+.udc-news-card-source .udc-news-date { font-style:italic; }
+@media(max-width:650px) { .udc-news-card-source { flex-basis:88%; } }
