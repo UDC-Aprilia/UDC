@@ -1,0 +1,9 @@
+AGGIORNAMENTO NEWS UDC APRILIA — 15 NOVEMBRE 2026
+
+1. Evidenza: UDC Aprilia e Pietro Fazio, coordinatore; le notizie del Comune di Aprilia restano separate dalle posizioni politiche del partito.
+2. Filtri: UDC Aprilia, Pietro Fazio, Comune di Aprilia, UDC nazionale, politica nazionale, Regione Lazio, politica locale.
+3. Per il Comune sono presenti link diretti a portale istituzionale, comunicati e avvisi. Le voci cercate con Google News vengono esposte solo quando la fonte del feed risulta indicata come Comune di Aprilia; il clic potrebbe passare per Google News.
+4. Nessun articolo integrale o fotografia di terzi riprodotta. Controllare condizioni d'uso dei feed. Il recupero automatico non è garantito, dipende dai servizi esterni.
+5. Pubblicare i file del progetto nel repository GitHub, comprese le cartelle .github e data, quindi abilitare Actions e avviare il workflow 'Aggiorna notizie UDC Aprilia'. Aggiornamento programmato ogni sei ore, salvo ritardi o limiti del servizio.
+6. Prima di pubblicare le notizie, controllare editorialmente i risultati per correttezza, attribuzione e pertinenza. Il filtro automatico riduce il rumore ma non equivale a verifica delle fonti.
+7. Non confondere notizie giornalistiche sul coordinamento con i comunicati ufficiali del coordinamento pubblicati nel sito.

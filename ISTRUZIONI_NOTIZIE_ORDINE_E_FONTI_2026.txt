@@ -1,0 +1,21 @@
+UDC APRILIA — AGGIORNAMENTO NOTIZIE (15 novembre 2026)
+
+ORDINE FILTRI
+Tutte | Europa e NATO | UDC nazionale | UDC Regione Lazio | UDC Aprilia | Comune di Aprilia
+Le notizie su Pietro Fazio compaiono in UDC Aprilia e mantengono la dicitura di riferimento.
+
+Lorenzo Cesa è Presidente della Delegazione parlamentare italiana presso l’Assemblea parlamentare della NATO; non Presidente della NATO o dell’Assemblea NATO. Fonte istituzionale: https://www.parlamento.it/leg/19/BGT/Schede/Bicamerali/v3/4-00093.htm
+
+FONTI E AUTORESPONSABILITÀ
+Configurazione in data/fonti-notizie.json. Il job .github/workflows/aggiorna-notizie.yml aggiorna data/web-news.json ogni 6 ore su GitHub Actions, da abilitare sul repository. Google News non garantisce disponibilità né restituisce sempre il link diretto. Alcuni risultati potrebbero essere vuoti. Nessun articolo completo, immagine o descrizione copiata viene acquisito.
+
+La provenienza del Comune viene verificata anche tramite il dominio URL del tag source, non solo mediante l'etichetta testuale. Le notizie del Comune sono separate da quelle di partito. Le ricerche automatiche non equivalgono a un'approvazione editoriale: controllare periodicamente titoli, fonti, licenze, pertinanza e condizioni RSS. Escludere fonti non autorizzate; valutare con un legale le modalità di riuso ai sensi di L. 633/1941, art. 43-bis e altre norme applicabili. Nessuna soluzione tecnica può garantire assenza di contestazioni.
+
+ISTRUZIONI
+Estrarre lo ZIP. Per GitHub Pages caricare il CONTENUTO della cartella UDC-main nella radice del repository (non la cartella contenitore). In GitHub Actions eseguire manualmente il workflow Aggiorna notizie UDC Aprilia la prima volta. Verificare permessi di scrittura del workflow e il file data/web-news.json. In locale mediante file:// le richieste fetch possono essere bloccate dai browser; utilizzare un server HTTP locale, ad es. python -m http.server 8000, oppure la versione pubblicata.
+
+RIFERIMENTI
+https://www.normattiva.it/atto/caricaDettaglioAtto?atto.articolo.numero=43&atto.articolo.sottoArticolo=2&atto.codiceRedazionale=041U0633&atto.dataPubblicazioneGazzetta=1941-07-16
+https://www.comune.aprilia.lt.it/tipi-di-notizia/comunicati
+
+Aggiornamento di equilibrio redazionale: non esistono pulsanti individuali per i dirigenti. La sezione UDC nazionale comprende il Segretario nazionale Antonio De Poli e il Presidente nazionale Lorenzo Cesa, con visibilità basata sulle notizie reperite. Europa e NATO è una categoria tematica, non personale.

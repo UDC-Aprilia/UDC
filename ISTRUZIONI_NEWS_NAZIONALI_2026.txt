@@ -1,0 +1,41 @@
+UDC APRILIA - NEWS DAL WEB / POLITICA NAZIONALE (15 NOVEMBRE 2026)
+================================================================
+
+AGGIORNAMENTI REALIZZATI
+- La home mostra il titolo "UDC APRILIA – Notizie e aggiornamenti dal territorio e dalla politica".
+- Cinque filtri: Tutte, UDC e dirigenti, Politica nazionale, Regione Lazio, Aprilia.
+- Titoli cliccabili; fonte e data sempre visibili. Priorità alle notizie UDC e ai dirigenti nazionali.
+- Rotazione casuale dei titoli nella categoria e avanzamento automatico ogni 5,8 secondi, con pausa.
+- Recupero automatico da RSS ufficiali UDC Italia e Regione Lazio, più ricerche RSS Google News selezionate per
+  Lorenzo Cesa, Antonio De Poli, UDC, politica nazionale, Lazio, Aprilia. Niente copie di articoli o fotografie.
+- Rassegna stampa redazionale ed eventi già esistenti conservati.
+
+ATTIVAZIONE SU GITHUB PAGES
+1. Sostituire o caricare il contenuto completo della cartella UDC-main nel repository GitHub esistente.
+   IMPORTANTE: includere la cartella nascosta .github/workflows/aggiorna-notizie.yml.
+2. In GitHub > Settings > Actions > General autorizzare i workflow; verificare che il token possa scrivere
+   nel repository (permissions: contents: write è già nel workflow; restrizioni organizzative possono prevalere).
+3. GitHub > Actions > Aggiorna notizie UDC Aprilia > Run workflow. Controllare i log della prima esecuzione.
+4. Accertare che data/web-news.json sia stato aggiornato e pubblicato; il caricamento non avviene solo aprendo la home.
+5. Il workflow viene avviato indicativamente ogni 6 ore (non garantito al minuto da GitHub).
+
+PERSONALIZZAZIONE / MODERAZIONE
+- Aprire data/fonti-notizie.json per abilitare/disabilitare feed, modificare query e priorità.
+- Inserire soltanto feed autorizzati e rispettare le condizioni d'uso delle testate.
+- I feed Google News possono usare URL intermedi Google: la scheda lo dichiara esplicitamente.
+- Per link sempre diretti privilegiare RSS delle testate o aggiungere link verificati con gestione-notizie.html.
+- Per escludere completamente Google News impostare enabled: false per le fonti kind: google_news.
+- La classificazione automatica per parola chiave è fallibile: controllare regolarmente i contenuti.
+- Se tutte le fonti sono irraggiungibili, il programma conserva il vecchio file, evitando di cancellare il catalogo.
+- Durante l'attivazione il catalogo data/web-news.json può essere ancora vuoto: nessuna notizia viene inventata.
+
+VERIFICA LOCALE
+  python -m unittest discover -s tests -v
+  python scripts/aggiorna_notizie.py  # necessita accesso HTTPS a internet
+  python -m http.server 8000            # per provare le pagine, non aprire index.html via file://
+
+NOTE LEGALI
+Art. 43-bis, legge 633/1941: i link e gli estratti molto brevi godono di specifica esclusione
+nei limiti previsti dalla norma. Non significa che qualsiasi uso dei feed sia automaticamente autorizzato.
+Verificare licenze, condizioni RSS, attribuzione e diritto d'autore. Nessun contenuto protetto viene
+copiato dal programma oltre ai metadati minimi (titolo, data, testata, URL).
