@@ -1,0 +1,15 @@
+UDC APRILIA — CORREZIONE VISUALIZZAZIONE 2027–2032
+
+Il titolo grande 2027–2032 nella scheda blu della pagina programma.html
+non viene più tagliato orizzontalmente: la dimensione del carattere è stata
+ridotta in modo responsivo per desktop, tablet e smartphone.
+
+File modificati:
+- css/stile.css: regole .prog2027-bigyear e min-width dei figli della griglia.
+- programma.html: nuova versione del parametro di cache del CSS.
+
+Tutte le altre pagine, documenti e funzioni del sito Premium 10 sono invariati.
+
+Per pubblicare: sostituisci i file del repository con quelli di UDC-main.
+In alternativa puoi aggiornare solo css/stile.css e programma.html.
+Dopo la pubblicazione, premi Ctrl+F5 e verifica il numero completo.

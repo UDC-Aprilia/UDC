@@ -34,6 +34,16 @@ class NewsTests(unittest.TestCase):
         self.assertEqual(len(estrai_notizie(feed('Parlamento europeo: nuova legge',url='https://www.europarl.europa.eu/news/it/press-room/test',source='Parlamento europeo'),'europa',self.now)),1)
     def test_no_other_domain_direct(self):
         self.assertEqual(estrai_notizie(feed('Parlamento europeo',url='https://example.org/a'),'europa',self.now),[])
+    def test_official_rss_regional(self):
+        data = feed('Aggiornamento sulle attività della Regione', url='https://www.regione.lazio.it/notizie/test', source='Regione Lazio')
+        results = estrai_notizie(data,'regione_lazio',self.now)
+        self.assertEqual(results[0]['link_kind'],'diretto')
+    def test_google_news_link_distinct(self):
+        results = estrai_notizie(feed('Avviso pubblico per Aprilia'),'aprilia',self.now)
+        self.assertEqual(results[0]['link_kind'],'aggregatore')
+    def test_udc_territorial_routing(self):
+        data = feed('UDC Lazio: Ciro Palumbo incontra il coordinamento', url='https://www.udc-italia.it/ciro-palumbo/', source='UDC Italia')
+        self.assertEqual(estrai_notizie(data,'udc_nazionale',self.now)[0]['priority'],'udc_latina')
     def test_duplicate_title(self):
         a={'title':'Avviso Aprilia','url':'https://example.org/one','date':'2026-11-15','priority':'aprilia','source':'Comune'}
         self.assertEqual(len(deduplica([a,{**a,'url':'https://example.org/two'}])),1)

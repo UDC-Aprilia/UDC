@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Aggrega titoli RSS da fonti istituzionali / ricerche ristrette a domini pubblici.
+"""Aggrega titoli RSS da fonti istituzionali e ricerche ristrette a domini selezionati.
 
 Esecuzione: python scripts/aggiorna_notizie.py
 Pubblicazione via GitHub Actions. Conserva il feed precedente se la rete fallisce.
-Non importa descrizioni o testi completi; ogni notizia rimanda alla fonte.
+Non importa descrizioni o testi completi. I link Google News sono distinti dai link diretti.
 """
 from __future__ import annotations
 import json
@@ -19,9 +19,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'data/web-news.json'
 NEWS_URL = 'https://news.google.com/rss/search?'
-MAX_AGE_DAYS = 75
-MAX_PER_CATEGORY = 18
-MAX_RESULTS = 150
+MAX_AGE_DAYS = 90
+MAX_PER_CATEGORY = 22
+MAX_RESULTS = 160
 
 # Ricerca per siti ufficiali: non si includono risultati di domini arbitrari.
 # La categoria Comune riguarda tutta la città, non solo i comunicati UDC.
@@ -66,7 +66,13 @@ CATEGORIE = {
 ESCLUSIONI = re.compile(r'motogp|motocicl|aprilia racing|rs 660|bezzecchi|piaggio|rsv4', re.I)
 # Feed diretto verificato sul sito ufficiale del Parlamento europeo. Il parsing
 # supporta anche Atom in caso di modifica futura del formato.
-RSS_DIRETTI = [('europa', 'https://www.europarl.europa.eu/rss/doc/press-releases/it.xml', 'Parlamento europeo')]
+RSS_DIRETTI = [
+    ('europa', 'https://www.europarl.europa.eu/rss/doc/press-releases/it.xml', 'Parlamento europeo'),
+    ('regione_lazio', 'https://www.regione.lazio.it/rss-news-regione', 'Regione Lazio'),
+    ('regione_lazio', 'https://www.regione.lazio.it/rss-giunta-regionale', 'Giunta regionale del Lazio'),
+    # Feed WordPress: viene tentato ma gli errori non bloccano la pubblicazione.
+    ('udc_nazionale', 'https://www.udc-italia.it/feed/', 'UDC Italia'),
+]
 
 
 def scarica(url):
@@ -131,24 +137,41 @@ def estrai_notizie(xml, categoria, now=None, source_override=None):
             published = published.astimezone(timezone.utc)
         except (ValueError, TypeError, OverflowError): continue
         if not now-timedelta(days=MAX_AGE_DAYS) <= published <= now+timedelta(days=1): continue
+        if categoria == 'udc_nazionale':
+            if re.search(r'ciro\s+palumbo', title, re.I): categoria_effettiva = 'udc_latina'
+            elif re.search(r'regino\s+brachetti', title, re.I): categoria_effettiva = 'udc_lazio'
+            else: categoria_effettiva = categoria
+        else:
+            categoria_effettiva = categoria
         result.append({'title': title[:210], 'date': published.date().isoformat(),
                        'source': source[:100] or config['label'], 'url': url,
-                       'category': config['label'], 'priority': categoria})
+                       'category': CATEGORIE[categoria_effettiva]['label'], 'priority': categoria_effettiva,
+                       'link_kind': 'aggregatore' if is_google else 'diretto'})
     return result
 
 
 def deduplica(items):
-    ordered = sorted(items, key=lambda i: (CATEGORIE.get(i.get('priority'), {}).get('priority', 99), -int(i.get('date','0000-00-00').replace('-', '') or 0)))
-    urls, titles, result, counts = set(), set(), [], {}
+    """Deduplica globale e distribuisce gli articoli equamente tra le nove sezioni."""
+    ordered = sorted(items, key=lambda i: (i.get('date',''), -CATEGORIE.get(i.get('priority'),{}).get('priority',99)), reverse=True)
+    urls, titles, buckets = set(), set(), {k: [] for k in CATEGORIE}
     for item in ordered:
         key = item.get('priority')
-        if key not in CATEGORIE or counts.get(key, 0) >= MAX_PER_CATEGORY: continue
-        title_key = normalizza_titolo(item['title']); url_key = item['url'].split('?',1)[0].rstrip('/')
-        if title_key in titles or url_key in urls: continue
-        titles.add(title_key); urls.add(url_key); counts[key] = counts.get(key,0)+1
-        result.append(item)
-    return sorted(result[:MAX_RESULTS], key=lambda i: i['date'], reverse=True)
-
+        if key not in CATEGORIE or len(buckets[key]) >= MAX_PER_CATEGORY: continue
+        if not isinstance(item.get('title'),str) or not isinstance(item.get('url'),str): continue
+        title_key = normalizza_titolo(item['title'])
+        url_key = item['url'].split('?',1)[0].rstrip('/')
+        if not title_key or title_key in titles or url_key in urls: continue
+        titles.add(title_key); urls.add(url_key)
+        buckets[key].append(item)
+    result=[]
+    while len(result)<MAX_RESULTS:
+        progressed=False
+        for category in CATEGORIE:
+            if buckets[category] and len(result)<MAX_RESULTS:
+                result.append(buckets[category].pop(0))
+                progressed=True
+        if not progressed: break
+    return sorted(result,key=lambda i:i['date'],reverse=True)
 
 def salva_snapshot(payload):
     cataloghi = {}

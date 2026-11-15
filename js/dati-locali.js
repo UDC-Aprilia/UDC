@@ -133,12 +133,57 @@ window.UDCLocalData = {
         "priority": "udc_nazionale"
       },
       {
+        "title": "Lavori parlamentari in Assemblea: calendario del Senato dal 17 novembre",
+        "url": "https://www.senato.it/attualita/archivio-notizie?nid=84102",
+        "date": "2026-11-13",
+        "source": "Senato della Repubblica",
+        "category": "Istituzioni italiane",
+        "priority": "istituzioni",
+        "link_kind": "diretto"
+      },
+      {
+        "title": "Istituita la figura del direttore socioassistenziale nelle ASL",
+        "url": "https://www.regione.lazio.it/notizie/Istituita-figura-direttore-socioassistenziale-ASL",
+        "date": "2026-11-12",
+        "source": "Regione Lazio",
+        "category": "Regione Lazio",
+        "priority": "regione_lazio",
+        "link_kind": "diretto"
+      },
+      {
+        "title": "Sanità: inaugurato l’Ospedale di Comunità di Poggio Mirteto",
+        "url": "https://www.regione.lazio.it/notizie/ospedale-comunita-poggio-mirteto",
+        "date": "2026-11-12",
+        "source": "Regione Lazio",
+        "category": "Regione Lazio",
+        "priority": "regione_lazio",
+        "link_kind": "diretto"
+      },
+      {
+        "title": "Italia Direzione Nord 2026: incontro in collaborazione con il Parlamento europeo",
+        "url": "https://milan.europarl.europa.eu/en/news/European-Parliament-Milan-at-Italia-Direzione-Nord-2026",
+        "date": "2026-11-12",
+        "source": "Parlamento europeo – Ufficio di Milano",
+        "category": "Europa e Unione europea",
+        "priority": "europa",
+        "link_kind": "diretto"
+      },
+      {
         "title": "Lorenzo Cesa: innovazione e difesa europea all’incontro NATO 3.0",
         "url": "https://www.udc-italia.it/italia-nato-3-0-lorenzo-cesa-la-difesa-europea-si-costruisce-sul-campo-e-nellinnovazione-tecnologica/",
         "date": "2026-11-11",
         "source": "UDC Italia",
         "category": "UDC nazionale",
         "priority": "udc_nazionale"
+      },
+      {
+        "title": "Censimento sull’intero territorio comunale del Canone Unico Patrimoniale",
+        "url": "https://comune.aprilia.lt.it/novita/censimento-sullintero-territorio-comunale-del-canone-unico-patrimoniale-0",
+        "date": "2026-11-04",
+        "source": "Comune di Aprilia",
+        "category": "Città di Aprilia",
+        "priority": "aprilia",
+        "link_kind": "diretto"
       },
       {
         "title": "Aprilia: Ciro Palumbo affida a Ilaria Cavallin il ruolo di vicecoordinatrice provinciale UDC",
@@ -156,6 +201,7 @@ window.UDCLocalData = {
         "category": "UDC Lazio",
         "priority": "udc_lazio"
       }
-    ]
+    ],
+    "curated_at": "2026-11-15"
   }
 };
