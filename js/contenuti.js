@@ -43,18 +43,11 @@ window.UDC = {
     { file: 'nomina.jpg', titolo: 'Incontro e attività istituzionale' },
 
   ],
-  // Indirizzi comunicati dal coordinamento: modificabili qui in un unico punto.
+  // Unica casella pubblica del coordinamento: tutte le richieste arrivano qui.
   contatti: {
     email: 'info@udc-aprilia.it',
     telefono: '',
     indirizzo: '',
-    uffici: [
-      { nome: 'Informazioni generali', email: 'info@udc-aprilia.it', descrizione: 'Informazioni e richieste generali.' },
-      { nome: 'Segreteria', email: 'segreteria@udc-aprilia.it', descrizione: 'Comunicazioni e attività della segreteria.' },
-      { nome: 'Coordinatore', email: 'coordinatore@udc-aprilia.it', descrizione: 'Comunicazioni indirizzate al coordinatore comunale.' },
-      { nome: 'Ufficio stampa', email: 'stampa@udc-aprilia.it', descrizione: 'Richieste dei media e comunicazioni stampa.' },
-      { nome: 'Organizzazione', email: 'organizzazione@udc-aprilia.it', descrizione: 'Eventi, incontri e attività organizzative.' },
-      { nome: 'Tesseramento', email: 'tesseramento@udc-aprilia.it', descrizione: 'Informazioni sulle procedure di adesione.' }
-    ]
+    uffici: []
   }
 };

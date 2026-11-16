@@ -1,0 +1,16 @@
+AGGIORNAMENTO UDC APRILIA - 16 NOVEMBRE 2026
+
+- Unico indirizzo pubblico: info@udc-aprilia.it.
+- La pagina Contatti, Tesseramento e il modello di comunicato usano questa sola email.
+- privacy.html contiene il testo integrale della informativa Word del 16 novembre 2026,
+  visibile anche senza JavaScript. js/sito.js lo utilizza anche nel layout normale.
+- Le copie scaricabili si trovano in documenti/ (PDF e Word).
+- Per cambiare in futuro la Privacy, aggiornare sia privacy.html sia i documenti
+  scaricabili (PDF e Word), mantenendo testi e date coerenti.
+- Per pubblicare il sito, caricare i FILE INTERNI della cartella UDC-main nella
+  radice del repository GitHub (dove si trova index.html), non lo ZIP come file.
+
+ATTENZIONE: applicare concretamente la conservazione email descritta nel documento:
+risposte ordinarie conservate per il tempo necessario e non oltre 12 mesi dalla
+chiusura; revisione almeno trimestrale; eccezioni per obblighi o tutele documentate.
+Le procedure su tesseramento e deleghe restano distinte dall'informativa web.
