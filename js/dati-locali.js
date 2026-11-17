@@ -121,6 +121,7 @@ window.UDCLocalData = {
     }
   ],
   "documenti": [],
+  "lettere": [],
   "webNews": {
     "updated_at": "",
     "items": [

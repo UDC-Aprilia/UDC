@@ -3335,3 +3335,15 @@ body {overflow-wrap:break-word}
 @media(prefers-reduced-motion:reduce){.home-quickpath{transition:none}.home-quickpath:hover{transform:none}}
 
 @media(max-width:560px){.floating-home-label{font-size:0}.floating-home-label::before{content:"Home";font-size:.8rem}}
+
+/* Lettere istituzionali: variante discreta dell’archivio PDF */
+.archive-doc.archive-letter { border-left-color:#254d78; }
+
+/* Stato delle comunicazioni istituzionali */
+.letter-details{margin-top:1rem;padding:.8rem 1rem;border-left:3px solid #c9d5e4;background:#f6f8fb;border-radius:0 8px 8px 0;}
+.letter-details p{margin:.3rem 0;line-height:1.55;}
+.letter-details strong{color:#173457;}
+.letter-details .archive-small-note{font-size:.9rem;color:#526175;}
+
+/* Archivio pubblico delle iniziative, senza dati riservati */
+.archive-letter .letter-details{border-left-color:#254d78}.archive-letter .archive-small-note{font-style:italic}
