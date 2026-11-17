@@ -15,6 +15,17 @@ STATI = {'inviata', 'consegnata', 'protocollata', 'risposta-ricevuta'}
 ESITI = {'non-noto', 'in-valutazione', 'accolta', 'parzialmente-accolta', 'non-accolta', 'nessun-riscontro'}
 RISERVATI = re.compile(r'(ricevut[ae]|accettazione|consegna-pec|documento-identita|tessera|riservat|privat|sanitari|allegato-pec|\.p7m)', re.I)
 DATE_FIELDS = ('data','data_consegna','data_protocollo','data_risposta')
+# Informativa privacy pubblica preesistente, distinta dai comunicati stampa.
+# L'eccezione è limitata a questi due nomi esatti nella sola cartella documenti/.
+PRIVACY_PUBLIC_FILES = {
+    Path('documenti/Informativa-Privacy-UDC-Aprilia-2026.pdf'),
+    Path('documenti/Informativa-Privacy-UDC-Aprilia-2026.docx'),
+}
+
+def is_public_privacy_file(path, root):
+    try: return path.relative_to(root) in PRIVACY_PUBLIC_FILES
+    except ValueError: return False
+
 # Soltanto i campi elencati possono entrare nel catalogo pubblico.
 FIELDS = {
  'documenti': {'anno','data','titolo','descrizione','file','pubblica','verifica_privacy'},
@@ -95,6 +106,7 @@ def validate(root=ROOT):
             for path in folder.rglob('*'):
                 if path.is_symlink(): err(f'Collegamento simbolico vietato: {path.relative_to(root)}');continue
                 if not path.is_file() or path.name in {'.gitkeep', 'LEGGIMI.txt'}:continue
+                if kind == 'documenti' and is_public_privacy_file(path, root):continue
                 if path.suffix.lower()!='.pdf': err(f'File non previsto nelle cartelle pubbliche: {path.relative_to(root)}')
                 elif path.resolve() not in refs[kind]: err(f'PDF non approvato, rimuovere prima della pubblicazione: {path.relative_to(root)}')
     # Nessuna cartella riservata deve essere inviata nel repository o negli ZIP pubblici.
@@ -114,7 +126,7 @@ def validate(root=ROOT):
             if entry.is_symlink():err(f'Symlink vietato: {entry.relative_to(root)}');continue
             if any(part.lower() in private_names for part in entry.relative_to(root).parts):
                 err(f'Percorso riservato nel sito: {entry.relative_to(root)}')
-            if entry.is_file() and entry.suffix.lower() in forbidden_ext:
+            if entry.is_file() and entry.suffix.lower() in forbidden_ext and not is_public_privacy_file(entry, root):
                 err(f'Formato non ammesso nelle cartelle del sito: {entry.relative_to(root)}')
     for entry in root.iterdir():
         if entry.is_file() and entry.suffix.lower() in forbidden_ext:

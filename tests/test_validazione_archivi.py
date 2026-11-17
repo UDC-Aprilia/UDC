@@ -45,3 +45,16 @@ def test_private_reply_blocks():
         'data_risposta':'2025-10-03','esito':'in-valutazione','file_risposta':'risposta.pdf'}
         (root/'data'/'lettere.json').write_text(json.dumps([row]))
         assert module.validate(root)==1
+
+
+def test_privacy_public_files_allowed_but_other_files_blocked():
+    with tempfile.TemporaryDirectory() as tmp:
+        root=Path(tmp);basic_tree(root)
+        (root/'documenti'/'Informativa-Privacy-UDC-Aprilia-2026.pdf').write_bytes(b'%PDF-1.4')
+        (root/'documenti'/'Informativa-Privacy-UDC-Aprilia-2026.docx').write_bytes(b'PK\x03\x04')
+        assert module.validate(root)==0
+        (root/'documenti'/'sconosciuto.docx').write_bytes(b'PK\x03\x04')
+        assert module.validate(root)==1
+        (root/'documenti'/'sconosciuto.docx').unlink()
+        (root/'documenti'/'2025'/'non-approvato.pdf').write_bytes(b'%PDF-1.4')
+        assert module.validate(root)==1

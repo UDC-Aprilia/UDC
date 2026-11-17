@@ -2,7 +2,7 @@
 """Build statico esplicito: non copia automaticamente file non approvati."""
 from pathlib import Path
 import shutil
-from valida_pubblicazione import validate, ROOT
+from valida_pubblicazione import validate, ROOT, is_public_privacy_file
 
 DEST=ROOT/'_site'
 ALLOWED_ROOT_EXT={'.html','.xml'}
@@ -21,7 +21,8 @@ def main():
         elif p.is_dir() and p.name in DIRECTORIES:
             for f in p.rglob('*'):
                 if f.is_symlink(): raise SystemExit(f'Link simbolico non autorizzato: {f}')
-                if not f.is_file() or f.suffix.lower() not in DIRECTORIES[p.name]:continue
+                if not f.is_file():continue
+                if f.suffix.lower() not in DIRECTORIES[p.name] and not (p.name=='documenti' and is_public_privacy_file(f, ROOT)):continue
                 if p.name=='data' and f.name not in DATA_FILES:continue
                 target=DEST/f.relative_to(ROOT)
                 target.parent.mkdir(parents=True,exist_ok=True)
