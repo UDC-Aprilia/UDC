@@ -1,21 +1,28 @@
 
+
 name: Recupero storico rassegna stampa
-on:
+
+'on':
   workflow_dispatch:
     inputs:
       dal:
-        description: Data iniziale YYYY-MM-DD
+        description: "Data iniziale YYYY-MM-DD"
         required: true
-        default: '2025-05-01'
+        default: "2025-05-01"
+        type: string
       al:
-        description: Data finale YYYY-MM-DD
+        description: "Data finale YYYY-MM-DD"
         required: true
-        default: '2026-11-22'
+        default: "2026-11-22"
+        type: string
+
 permissions:
   contents: write
+
 concurrency:
   group: udc-aggiornamenti-contenuti
   cancel-in-progress: false
+
 jobs:
   storico:
     runs-on: ubuntu-latest
