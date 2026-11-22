@@ -211,18 +211,18 @@
       const external = document.querySelector('#press-external-link');
       const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('it-IT');
       const refresh = () => {
-        const term = normalize(query.value.trim());
+        const searchWords = normalize(query.value.trim()).split(/\s+/).filter(Boolean);
         let visible = 0;
         cards.forEach(card => {
           const content = field.value === 'all' ? card.textContent + ' ' + Object.values(card.dataset).join(' ') :
             field.value === 'title' ? card.dataset.title : field.value === 'author' ? card.dataset.author :
             field.value === 'source' ? card.dataset.source : card.dataset.topic;
           const date = card.dataset.date || '';
-          const matches = (!term || normalize(content).includes(term)) && (!from.value || date >= from.value) && (!to.value || date <= to.value);
+          const matches = (!searchWords.length || searchWords.every(word => normalize(content).includes(word))) && (!from.value || date >= from.value) && (!to.value || date <= to.value);
           card.hidden = !matches;
           if (matches) visible++;
         });
-        counter.textContent = `${visible} ${visible === 1 ? 'articolo registrato' : 'articoli registrati'} ${term || from.value || to.value ? 'corrispondenti ai filtri' : 'nell’archivio'}`;
+        counter.textContent = `${visible} ${visible === 1 ? 'articolo registrato' : 'articoli registrati'} ${searchWords.length || from.value || to.value ? 'corrispondenti ai filtri' : 'nell’archivio'}`;
         empty.hidden = visible !== 0;
         const terms = [];
         if (query.value.trim()) terms.push(query.value.trim());
