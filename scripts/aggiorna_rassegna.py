@@ -56,7 +56,7 @@ def extract(xml):
         except (ValueError, TypeError, OverflowError):
             continue
         yield {
-            'id': 'rassegna-auto-' + hashlib.sha256((normalize(title) + day).encode()).hexdigest()[:16],
+            'id': 'rassegna-auto-' + hashlib.sha256((normalize(title) + normalize(source_name) + day).encode()).hexdigest()[:16],
             'data': day, 'titolo': title[:210],
             'testo': 'Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.',
             'fonte': source_name[:100] or 'Fonte esterna', 'link': link,
@@ -73,7 +73,7 @@ def update(fetch=None):
     banned_ids = set(exclusions.get('ids', []))
     banned_urls = {clean_url(x) for x in exclusions.get('urls', [])}
     banned_titles = {normalize(x) for x in exclusions.get('titles', [])}
-    titles = {normalize(i.get('titolo', '')) for i in existing}
+    titles = {(normalize(i.get('titolo', '')), normalize(i.get('fonte', '')), i.get('data', '')) for i in existing}
     links = {clean_url(i.get('link', '')) for i in existing}
     added = 0
     errors = []
@@ -83,15 +83,26 @@ def update(fetch=None):
             for item in extract(fetch(url)):
                 t = normalize(item['titolo'])
                 u = clean_url(item['link'])
-                if t in titles or u in links or t in banned_titles or u in banned_urls or item['id'] in banned_ids:
+                key = (t, normalize(item.get('fonte', '')), item.get('data', ''))
+                if key in titles or u in links or t in banned_titles or u in banned_urls or item['id'] in banned_ids:
                     continue
                 existing.append(item)
-                titles.add(t)
+                titles.add(key)
                 links.add(u)
                 added += 1
         except (OSError, ValueError, ET.ParseError) as exc:
             errors.append(f'{query}: {exc}')
-    if added:
+    # Suggerimenti di corrispondenza ai PDF, sempre da verificare.
+    from recupero_storico_stampa import DOCS, pdf_matches
+    docs = json.loads(DOCS.read_text(encoding='utf-8'))
+    linked = 0
+    for item in existing:
+        if not item.get('pdf_collegati'):
+            matches = pdf_matches(item, docs)
+            if matches:
+                item['pdf_collegati'] = matches
+                linked += 1
+    if added or linked:
         existing.sort(key=lambda x: x.get('data', ''), reverse=True)
         FILE.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return added, errors

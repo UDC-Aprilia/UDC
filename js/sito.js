@@ -301,6 +301,20 @@
         }
         title.appendChild(a);
         article.append(meta,title);
+        if (Array.isArray(item.pdf_collegati) && item.pdf_collegati.length) {
+          const pdfList = document.createElement('div');
+          pdfList.className = 'press-pdf-links';
+          item.pdf_collegati.forEach(pdf => {
+            if (!pdf || !/^[\w.-]+\.pdf$/i.test(pdf.file || '')) return;
+            const link = document.createElement('a');
+            link.href = 'documenti/' + encodeURIComponent(String(pdf.data || '').slice(0,4)) + '/' + encodeURIComponent(pdf.file);
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = 'PDF potenzialmente collegato (da verificare): ' + (pdf.titolo || pdf.file);
+            pdfList.appendChild(link);
+          });
+          article.appendChild(pdfList);
+        }
         return article;
       };
       const renderOnline = (requested, scroll = false) => {
