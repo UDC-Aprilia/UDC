@@ -16,10 +16,8 @@ window.UDC_initHomeTeasers = async function({stampa=[]}={}) {
     return Number.isFinite(days) && days >= -1 && days <= 95;
   });
   const items=uniqueNews(recent).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-  // Mostra più categorie quando possibile, senza inventare notizie mancanti.
-  const selected=[], categories=new Set();
-  for(const x of items){if(selected.length===3)break;if(categories.has(x.category))continue;selected.push(x);categories.add(x.category);}
-  for(const x of items){if(selected.length===3)break;if(!selected.includes(x))selected.push(x);}
+  // Home: le sei pubblicazioni più recenti, senza rimescolare l'ordine cronologico.
+  const selected=items.slice(0,6);
   if(!selected.length){root.innerHTML='<p class="note">Nessun articolo aggiornato disponibile. <a href="notizie.html">Consulta le fonti nell’osservatorio →</a></p>';return;}
   root.innerHTML = selected.map(x=>{
     const href=safeUrl(x.href); if(!href)return '';

@@ -1,0 +1,21 @@
+
+/* Rassegna stampa — fascia editoriale a scorrimento, con controllo accessibile */
+.press-flow{margin:2.4rem 0 3rem;padding:clamp(1.3rem,3vw,2.5rem);background:#f7f5f0;border:1px solid #e7e1d6;border-radius:18px;overflow:hidden}
+.press-flow-heading{display:flex;justify-content:space-between;align-items:center;gap:2rem;margin-bottom:1.5rem}
+.press-flow-heading h2{font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.5rem);margin:.4rem 0}
+.press-flow-heading p{max-width:640px;margin:.3rem 0;color:#555}
+.press-flow-toggle{border:1px solid #9b8d76;border-radius:100px;background:transparent;color:#342e25;padding:.65rem 1.15rem;cursor:pointer;white-space:nowrap;font:inherit}
+.press-flow-toggle:focus-visible,.press-flow-window:focus-visible{outline:3px solid #a68a4b;outline-offset:3px}
+.press-flow-window{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+.press-flow-track{display:flex;gap:1rem;width:max-content;padding:.3rem .15rem 1rem}
+.press-flow-item{box-sizing:border-box;width:min(340px,78vw);min-height:195px;padding:1.35rem;background:white;border:1px solid #e5dfd4;border-radius:12px;white-space:normal}
+.press-flow-meta,.press-flow-label{display:block;font-size:.77rem;color:#706858;line-height:1.5}
+.press-flow-item h3{font-family:Georgia,serif;font-size:1.16rem;line-height:1.35;margin:.85rem 0}
+.press-flow-item h3 a{color:#27231d;text-decoration:none}
+.press-flow-item h3 a:hover{text-decoration:underline}
+.press-flow-label{margin-top:1rem}
+.press-flow-hint{font-size:.85rem;color:#625a4d;margin:.3rem 0 0}
+.press-archive-heading{margin:2.5rem 0 1.5rem}
+.press-archive-heading h2{font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem)}
+@media(max-width:650px){.press-flow-heading{align-items:flex-start;flex-direction:column;gap:.8rem}.press-flow{padding:1.1rem}}
+@media(prefers-reduced-motion:reduce){.press-flow-window{scroll-behavior:auto}}
