@@ -49,8 +49,8 @@ CATEGORIE = {
         'site:udc-italia.it "Antonio De Poli" when:75d', 'site:udc-italia.it "Lorenzo Cesa" when:75d', 'site:udc-italia.it when:75d'],
         'domains': ('udc-italia.it', 'ansa.it'), 'required': r'udc|unione di centro|de poli|cesa'},
     'udc_aprilia': {'label': 'UDC Aprilia', 'priority': 0, 'queries': [
-        '"UDC" "Aprilia" when:75d', '"Pietro Fazio" "Aprilia" when:75d', '"UDC Aprilia" "Ciro Palumbo" when:75d'],
-        'domains': ('udc-aprilia.it', 'ansa.it', 'latinaoggi.eu', 'ilcaffe.tv', 'udc-italia.it', 'latinatu.it', 'studio93.it'),
+        '"UDC" "Aprilia" when:75d', '"Pietro Fazio" "Aprilia" when:75d', '"UDC Aprilia" "Ciro Palumbo" when:75d', 'site:latinanews.eu "Pietro Fazio" when:75d', 'site:latinanews.eu "UDC" "Aprilia" when:75d'],
+        'domains': ('udc-aprilia.it', 'ansa.it', 'latinaoggi.eu', 'ilcaffe.tv', 'udc-italia.it', 'latinanews.eu', 'latinatu.it', 'studio93.it'),
         'required': r'udc.*aprilia|aprilia.*udc|pietro fazio'},
     'udc_lazio': {'label': 'UDC Lazio', 'priority': 7, 'queries': [
         '"Regino Brachetti" UDC when:75d', '"UDC" "Lazio" when:60d',
@@ -207,6 +207,12 @@ def main():
         return
     payload = {'updated_at': today.isoformat(timespec='seconds'), 'items': deduplica(results)}
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    try:
+        from aggiorna_rassegna import update as aggiorna_rassegna
+        added, press_errors = aggiorna_rassegna()
+        print(f'Rassegna stampa: {added} nuovi articoli; {len(press_errors)} errori di ricerca.')
+    except (OSError, ValueError) as exc:
+        print('AVVISO rassegna stampa:', exc)
     salva_snapshot(payload)
     print(f'Pubblicate {len(payload["items"])} notizie; {len(errors)} problemi di fonte.')
     for error in errors: print('ERRORE FONTE:', error)

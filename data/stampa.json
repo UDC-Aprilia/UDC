@@ -1,5 +1,48 @@
 [
   {
+    "id": "rassegna-latinanews-2026-11-20-fazio-sanita",
+    "data": "2026-11-20",
+    "titolo": "Sanità, Fazio: “Ad Aprilia attenzione concreta della Regione Lazio”",
+    "testo": "Articolo di Carmen Porcelli sulle dichiarazioni di Pietro Fazio, coordinatore cittadino UDC Aprilia, riguardo ai potenziamenti sanitari programmati dalla Regione Lazio.",
+    "fonte": "Latina News",
+    "autore": "Carmen Porcelli",
+    "link": "https://www.latinanews.eu/sanita-fazio-ad-aprilia-attenzione-concreta-della-regione-lazio/",
+    "tipo_link": "diretto",
+    "origine": "inserimento_verificato"
+  },
+  {
+    "id": "rassegna-verificata-2026-10-07-5",
+    "data": "2026-10-07",
+    "titolo": "Avviso Generazione Sport, l’UDC di Aprilia: un’opportunità da cogliere",
+    "testo": "Approfondimento pubblicato dalla testata indicata.",
+    "fonte": "Radio Studio 93",
+    "link": "https://www.studio93.it/avviso-generazione-sport-ludc-di-aprilia-e-unopportunita-da-cogliere"
+  },
+  {
+    "id": "rassegna-verificata-2026-09-24-6",
+    "data": "2026-09-24",
+    "titolo": "Aprilia, strisce blu: l’UDC chiede un tavolo dopo la sentenza del TAR",
+    "testo": "Approfondimento pubblicato dalla testata indicata.",
+    "fonte": "Radio Studio 93",
+    "link": "https://www.studio93.it/aprilia-strisce-blu-dopo-la-sentenza-del-tar-ludc-chiede-un-tavolo-per-analizzare-dati-e-migliorare-la-sosta"
+  },
+  {
+    "id": "rassegna-verificata-2026-08-06-8",
+    "data": "2026-08-06",
+    "titolo": "Spari in via degli Oleandri, l’UDC Aprilia: più sicurezza",
+    "testo": "Approfondimento pubblicato dalla testata indicata.",
+    "fonte": "Sfera Magazine",
+    "link": "https://www.sferamagazine.it/aprilia/spari-in-via-degli-oleandri-ludc-aprilia-piu-sicurezza/"
+  },
+  {
+    "id": "rassegna-verificata-2026-06-24-7",
+    "data": "2026-06-24",
+    "titolo": "UDC Aprilia: tutelare i lavoratori della Koch-Glitsch",
+    "testo": "Approfondimento pubblicato dalla testata indicata.",
+    "fonte": "ApriliaNews",
+    "link": "https://www.aprilianews.it/politica/udc-aprilia-tutelare-i-lavoratori-della-koch-glitsch-e-salvare-il-patrimonio-produttivo-della-citta/"
+  },
+  {
     "id": "rassegna-2026-05-06",
     "data": "2026-05-06",
     "titolo": "UDC Aprilia: non basta tornare al voto, serve nuova classe dirigente",
@@ -38,37 +81,5 @@
     "testo": "La testata riferisce la proposta UDC di istituire un comitato permanente per il monitoraggio ambientale.",
     "fonte": "Radio Studio 93",
     "link": "https://www.studio93.it/tutela-dellambiente-ludc-di-aprilia-torna-a-proporre-il-comitato-di-monitoraggio"
-  },
-  {
-    "id": "rassegna-verificata-2026-10-07-5",
-    "data": "2026-10-07",
-    "titolo": "Avviso Generazione Sport, l’UDC di Aprilia: un’opportunità da cogliere",
-    "testo": "Approfondimento pubblicato dalla testata indicata.",
-    "fonte": "Radio Studio 93",
-    "link": "https://www.studio93.it/avviso-generazione-sport-ludc-di-aprilia-e-unopportunita-da-cogliere"
-  },
-  {
-    "id": "rassegna-verificata-2026-09-24-6",
-    "data": "2026-09-24",
-    "titolo": "Aprilia, strisce blu: l’UDC chiede un tavolo dopo la sentenza del TAR",
-    "testo": "Approfondimento pubblicato dalla testata indicata.",
-    "fonte": "Radio Studio 93",
-    "link": "https://www.studio93.it/aprilia-strisce-blu-dopo-la-sentenza-del-tar-ludc-chiede-un-tavolo-per-analizzare-dati-e-migliorare-la-sosta"
-  },
-  {
-    "id": "rassegna-verificata-2026-06-24-7",
-    "data": "2026-06-24",
-    "titolo": "UDC Aprilia: tutelare i lavoratori della Koch-Glitsch",
-    "testo": "Approfondimento pubblicato dalla testata indicata.",
-    "fonte": "ApriliaNews",
-    "link": "https://www.aprilianews.it/politica/udc-aprilia-tutelare-i-lavoratori-della-koch-glitsch-e-salvare-il-patrimonio-produttivo-della-citta/"
-  },
-  {
-    "id": "rassegna-verificata-2026-08-06-8",
-    "data": "2026-08-06",
-    "titolo": "Spari in via degli Oleandri, l’UDC Aprilia: più sicurezza",
-    "testo": "Approfondimento pubblicato dalla testata indicata.",
-    "fonte": "Sfera Magazine",
-    "link": "https://www.sferamagazine.it/aprilia/spari-in-via-degli-oleandri-ludc-aprilia-piu-sicurezza/"
   }
 ]
