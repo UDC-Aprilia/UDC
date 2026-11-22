@@ -157,7 +157,7 @@
     organi: `${heading('Organi e consiglio direttivo','Composizione del coordinamento comunale e incarichi.')}<section class="section section-white"><div class="container"><span class="kicker">Responsabili</span><h2>Il coordinamento</h2>${people(d.dirigenti)}<div style="margin-top:60px"><span class="kicker">Composizione</span><h2>Consiglio direttivo</h2>${people(d.direttivo)}</div></div></section>`,
     consiglio: `${heading('Consiglio generale','I componenti e le rispettive responsabilità, con fotografia individuale in cornice rotonda.')}<section class="section section-white"><div class="container"><span class="kicker">Organizzazione del coordinamento</span><h2>Coordinatore e vicecoordinatrici</h2><div class="consiglio-annuncio" role="status"><span class="kicker">Prossima iniziativa</span><h2>Presentazione del Consiglio generale di Aprilia</h2><p>Stiamo organizzando un evento dedicato alla presentazione del Consiglio generale UDC di Aprilia. Sarà un’occasione per conoscere i componenti, condividere obiettivi e rafforzare il dialogo con la comunità. La data, il luogo e il programma saranno comunicati attraverso questo sito non appena definiti.</p><a class="text-link" href="eventi.html">Consulta gli eventi e gli aggiornamenti →</a></div><p class="section-lead">Le figure di coordinamento indicate per UDC Aprilia.</p>${people(d.dirigenti)}<div style="margin-top:65px"><span class="kicker">Composizione</span><h2>Componenti del Consiglio generale</h2><p class="section-lead">Composizione del Consiglio generale del coordinamento comunale.</p>${d.consiglioGenerale.length ? people(d.consiglioGenerale) : '<div class="empty">La composizione del Consiglio generale sarà resa nota in occasione della presentazione ufficiale.</div>'}</div></div></section>`,
     eventi: `${heading('Eventi e appuntamenti','Incontri, manifestazioni e iniziative del coordinamento e del partito.')}<section class="incontro-event-page" id="incontro-pomezia-2026" aria-labelledby="incontro-event-title"><div class="container"><div class="incontro-event-grid"><div class="incontro-event-copy"><span class="incontro-event-tag">APPUNTAMENTO · 18 NOVEMBRE 2026</span><h2 id="incontro-event-title">La politica dell’UDC: i territori al centro</h2><p class="incontro-event-lead">Dalle nostre radici il futuro delle nuove generazioni.</p><div class="incontro-event-facts"><div><span>Data e ora</span><strong>Mercoledì 18 novembre 2026 · ore 18:00</strong></div><div><span>Sede</span><strong>Hotel Selene, Via Pontina Km 30, Pomezia</strong></div></div><h3>Programma dell'incontro</h3><p>La locandina annuncia i saluti istituzionali di Veronica Felici, Daniele Sabatini, Marco Silvestroni, Giorgio Simeoni, Luciano Crea e Laura Cartaginese; modera Daniele Reguiz.</p><p>Tra gli interventi sono indicati Stefano Annesi, Roberto Ricciardi, Regino Brachetti, Nazzareno Neri e Francesco Rocca. Le conclusioni sono affidate all'On. Lorenzo Cesa.</p><p class="incontro-source">Informazioni riportate dalla locandina fornita per la pubblicazione; eventuali aggiornamenti dell'organizzazione non sono automaticamente recepiti.</p><a class="incontro-button" href="assets/evento-udc-pomezia-18-novembre-2026.jpg" target="_blank" rel="noopener noreferrer">Apri la locandina originale (immagine) ↗</a></div><a class="incontro-event-art" href="assets/evento-udc-pomezia-18-novembre-2026.jpg" target="_blank" rel="noopener noreferrer" aria-label="Apri la locandina originale dell'incontro del 18 novembre"><img src="assets/evento-udc-pomezia-18-novembre-2026.jpg" width="605" height="807" alt="Locandina evento La politica dell'UDC: i territori al centro. Pomezia, mercoledì 18 novembre ore 18" loading="eager"></a></div></div></section><section class="section section-white"><div class="container"><span class="kicker">Archivio e attività</span><h2>Altri eventi</h2>${eventCards(d.eventi.filter(e => e.id !== 'evento-2026-11-18-pomezia'))}</div></section>`,
-    comunicati: `${heading('Rassegna stampa','Fonti giornalistiche, archivio documentale e ricerca estesa.')}<section class="section section-white"><div class="container"><div class="note">Le notizie appartengono alle rispettive testate: sono indicati titolo, data, fonte e collegamento originale. Le segnalazioni automatiche richiedono verifica presso l’editore. <a href="archivio-comunicati.html">Comunicati ufficiali PDF →</a></div>${pressTicker(d.comunicati.filter(pressRelevant))}<section class="press-search-premium" aria-labelledby="press-search-title"><span class="kicker">CENTRO DOCUMENTAZIONE</span><h2 id="press-search-title">Ricerca nella stampa e nell’archivio</h2><p>Consulta tutte le schede conservate dal sito oppure avvia una ricerca aggiornata nella stampa online. I risultati esterni si aprono nel servizio di ricerca, non sono archiviati automaticamente.</p><form id="press-search-form" class="press-search-form" role="search"><div class="press-field press-field-wide"><label for="press-query">Parole chiave, persona o argomento</label><input id="press-query" type="search" placeholder="Es. Pietro Fazio, UDC Aprilia, sanità, urbanistica" autocomplete="off"></div><div class="press-field"><label for="press-field">Campo</label><select id="press-field"><option value="all">Tutti i campi</option><option value="title">Titolo</option><option value="author">Autore</option><option value="source">Testata / fonte</option><option value="topic">Argomento</option></select></div><div class="press-field"><label for="press-from">Dal</label><input id="press-from" type="date"></div><div class="press-field"><label for="press-to">Al</label><input id="press-to" type="date"></div><div class="press-search-actions"><button type="submit" class="press-search-submit">Cerca nell’archivio</button><button type="button" id="press-search-reset" class="press-search-reset">Azzera filtri</button></div></form><div class="press-external"><div><h3>Amplia la ricerca alla stampa online</h3><p>La ricerca esterna può trovare articoli non presenti nel nostro archivio. La copertura dipende dall’indicizzazione delle testate e non garantisce risultati esaustivi.</p></div><a id="press-external-link" href="https://news.google.com/search?hl=it&gl=IT&ceid=IT%3Ait&q=UDC%20Aprilia" target="_blank" rel="noopener noreferrer">Cerca nella stampa online ↗</a></div><details class="press-archive" id="archivio-stampa"><summary class="press-archive-summary"><span><span class="kicker">ARCHIVIO CONSERVATO</span><strong>Consulta tutti gli articoli registrati</strong><small>Ricerca per data, titolo, autore, fonte e argomento</small></span><span class="press-archive-chevron" aria-hidden="true">⌄</span></summary><div class="press-archive-body"><p class="press-archive-count" role="status" aria-live="polite"></p><div class="press-archive-results">${pressCards([...d.comunicati].sort((a,b)=>String(b.data||'').localeCompare(String(a.data||''))))}</div><nav class="press-pagination" aria-label="Pagine dei risultati della rassegna stampa" hidden></nav><p class="press-archive-empty" hidden>Nessun articolo registrato corrisponde ai filtri. Puoi estendere la ricerca alla stampa online.</p></div></details></section></div></section>`,
+    comunicati: `${heading('Rassegna stampa','Fonti giornalistiche, archivio documentale e ricerca estesa.')}<section class="section section-white"><div class="container"><div class="note">Le notizie appartengono alle rispettive testate: sono indicati titolo, data, fonte e collegamento originale. Le segnalazioni automatiche richiedono verifica presso l’editore. <a href="archivio-comunicati.html">Comunicati ufficiali PDF →</a></div>${pressTicker(d.comunicati.filter(pressRelevant))}<section class="press-search-premium" aria-labelledby="press-search-title"><span class="kicker">CENTRO DOCUMENTAZIONE</span><h2 id="press-search-title">Ricerca nella stampa e nell’archivio</h2><p>Consulta tutte le schede conservate dal sito oppure avvia una ricerca aggiornata nella stampa online. Le segnalazioni della stampa online raccolte automaticamente sono consultabili qui, con 10 risultati per pagina. Per ulteriori risultati puoi aprire Google News.</p><form id="press-search-form" class="press-search-form" role="search"><div class="press-field press-field-wide"><label for="press-query">Parole chiave, persona o argomento</label><input id="press-query" type="search" placeholder="Es. Pietro Fazio, UDC Aprilia, sanità, urbanistica" autocomplete="off"></div><div class="press-field"><label for="press-field">Campo</label><select id="press-field"><option value="all">Tutti i campi</option><option value="title">Titolo</option><option value="author">Autore</option><option value="source">Testata / fonte</option><option value="topic">Argomento</option></select></div><div class="press-field"><label for="press-from">Dal</label><input id="press-from" type="date"></div><div class="press-field"><label for="press-to">Al</label><input id="press-to" type="date"></div><div class="press-search-actions"><button type="submit" class="press-search-submit">Cerca nell’archivio</button><button type="button" id="press-search-reset" class="press-search-reset">Azzera filtri</button></div></form><div class="press-external"><div><h3>Amplia la ricerca alla stampa online</h3><p>Qui sotto trovi le segnalazioni online raccolte automaticamente dai feed RSS, filtrabili e suddivise in pagine da 10. Il pulsante apre anche Google News per cercare ulteriori articoli: i suoi risultati non possono essere paginati direttamente da questo sito statico.</p></div><a id="press-external-link" href="https://news.google.com/search?hl=it&gl=IT&ceid=IT%3Ait&q=UDC%20Aprilia" target="_blank" rel="noopener noreferrer">Cerca nella stampa online ↗</a></div><section class="press-online-results" id="risultati-stampa-online" aria-label="Risultati stampa online raccolti"><h3>Articoli della stampa online indicizzati</h3><p class="note">Articoli con link a testate esterne, inclusi quelli raccolti periodicamente dai feed RSS. Non è una ricerca in tempo reale su tutto il web.</p><p class="press-online-count" role="status" aria-live="polite">Caricamento risultati…</p><div class="press-online-list"></div><nav class="press-pagination press-online-pagination" aria-label="Pagine risultati stampa online" hidden></nav><p class="press-online-empty" hidden>Nessuna segnalazione online indicizzata corrisponde alla ricerca. Usa «Cerca nella stampa online» per ampliare la ricerca su Google News.</p></section><details class="press-archive" id="archivio-stampa"><summary class="press-archive-summary"><span><span class="kicker">ARCHIVIO CONSERVATO</span><strong>Consulta tutti gli articoli registrati</strong><small>Ricerca per data, titolo, autore, fonte e argomento</small></span><span class="press-archive-chevron" aria-hidden="true">⌄</span></summary><div class="press-archive-body"><p class="press-archive-count" role="status" aria-live="polite"></p><div class="press-archive-results">${pressCards([...d.comunicati].sort((a,b)=>String(b.data||'').localeCompare(String(a.data||''))))}</div><nav class="press-pagination" aria-label="Pagine dei risultati della rassegna stampa" hidden></nav><p class="press-archive-empty" hidden>Nessun articolo registrato corrisponde ai filtri. Puoi estendere la ricerca alla stampa online.</p></div></details></section></div></section>`,
     lettere: `${heading('Lettere e comunicazioni istituzionali','Lettere inviate, consegne PEC, protocolli, risposte ed esiti documentati, distinti per anno.')}<section class="section section-white"><div class="container"><div class="note">Archivio pubblico delle iniziative del Coordinamento comunale UDC Aprilia: lettere inviate, stato PEC, eventuale protocollo, sintesi dei riscontri ed esiti documentati. I documenti sono distinti dai <a href="archivio-comunicati.html">comunicati stampa</a> e dalla <a href="comunicati.html">rassegna stampa</a>. La consegna PEC e la protocollazione non dimostrano l’accoglimento di una richiesta. Gli stati indicati sono informazioni documentate e non giudizi sull’operato degli enti. I documenti riservati, le ricevute PEC complete e le risposte non pubblicabili rimangono fuori dal sito e dal repository GitHub. Le risposte integrali appaiono soltanto dopo una verifica specifica della pubblicabilità.</div>${documentCards(d.lettere || [], 'lettera')}</div></section>`,
     documenti: `${heading('Archivio comunicati ufficiali','Comunicati stampa ufficiali inviati alle redazioni, disponibili in PDF e organizzati per anno.')}<section class="section section-white"><div class="container"><div class="note">Archivio dei comunicati stampa del Coordinamento comunale UDC Aprilia, pubblicati in PDF e suddivisi per anno. Sono inseriti esclusivamente documenti destinati alla diffusione pubblica. </div>${documentCards(d.documenti || [])}</div></section>`,
     galleria: `${heading('Galleria fotografica','Immagini degli appuntamenti e delle attività del partito.')}<section class="section section-white"><div class="container"><span class="kicker">Archivio fotografico</span><h2>Momenti e incontri</h2><p class="section-lead">Tutte le immagini dell’archivio. Tutte le fotografie partecipano automaticamente allo slideshow della Home, in ordine casuale a ogni visita.</p>${fotoArchivio.length ? `<div class="gallery">${fotoArchivio.map(f => `<figure tabindex="0" role="button" data-photo="${asset(f.file)}" aria-label="Ingrandisci ${escape(f.titolo || 'Fotografia UDC Aprilia')}"><img src="${asset(f.file)}" alt="${escape(f.titolo || 'Fotografia UDC Aprilia')}" loading="lazy"><figcaption>${escape(f.titolo || 'Fotografia UDC Aprilia')}</figcaption></figure>`).join('')}</div>` : '<div class="empty">Non sono ancora state pubblicate fotografie.</div>'}</div></section><dialog id="lightbox" aria-label="Foto ingrandita"><button type="button" aria-label="Chiudi">×</button><img src="" alt=""></dialog>`,
@@ -254,6 +254,83 @@
         empty.hidden = matchedCards.length !== 0;
         if (scroll) archive.querySelector('.press-archive-body').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
       };
+      // Risultati esterni: indice RSS raccolto dal workflow GitHub Actions.
+      // Non tentiamo di leggere/suddividere la pagina Google News (cross-origin).
+      const onlineSection = document.querySelector('.press-online-results');
+      const onlineList = onlineSection.querySelector('.press-online-list');
+      const onlineCount = onlineSection.querySelector('.press-online-count');
+      const onlinePages = onlineSection.querySelector('.press-online-pagination');
+      const onlineEmpty = onlineSection.querySelector('.press-online-empty');
+      let onlineItems = [];
+      let onlineMatches = [];
+      let onlinePage = 1;
+      const onlineCard = item => {
+        const article = document.createElement('article');
+        article.className = 'press-online-item';
+        const meta = document.createElement('p');
+        meta.className = 'meta';
+        meta.textContent = `${item.data || 'Data non disponibile'} · ${item.fonte || 'Fonte esterna'}`;
+        const title = document.createElement('h4');
+        const a = document.createElement('a');
+        a.textContent = item.titolo || 'Articolo';
+        if (/^https:\/\//i.test(item.link || '')) {
+          a.href = item.link;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+        title.appendChild(a);
+        article.append(meta,title);
+        return article;
+      };
+      const renderOnline = (requested, scroll = false) => {
+        const total = Math.ceil(onlineMatches.length / pageSize);
+        onlinePage = Math.max(1, Math.min(requested, total || 1));
+        onlineList.replaceChildren(...onlineMatches.slice((onlinePage-1)*pageSize,onlinePage*pageSize).map(onlineCard));
+        onlinePages.replaceChildren();
+        onlinePages.hidden = total <= 1;
+        const add = (label, number, disabled = false) => {
+          const b = document.createElement('button');
+          b.type='button'; b.textContent=label; b.disabled=disabled;
+          if(number === onlinePage && !disabled) b.setAttribute('aria-current','page');
+          b.addEventListener('click',()=>renderOnline(number,true));
+          onlinePages.appendChild(b);
+        };
+        if(total > 1) {
+          add('← Precedente',onlinePage-1,onlinePage===1);
+          const nums = new Set([1,total]);
+          for(let n=Math.max(1,onlinePage-2);n<=Math.min(total,onlinePage+2);n++)nums.add(n);
+          let previous=0;
+          [...nums].sort((a,b)=>a-b).forEach(n=>{
+            if(n>previous+1){const dots=document.createElement('span');dots.textContent='…';onlinePages.appendChild(dots);}
+            add(String(n),n);previous=n;
+          });
+          add('Successiva →',onlinePage+1,onlinePage===total);
+        }
+        onlineCount.textContent = `${onlineMatches.length} segnalazioni online indicizzate · ${onlineMatches.length ? `Visualizzati ${(onlinePage-1)*pageSize+1}–${Math.min(onlinePage*pageSize,onlineMatches.length)}` : 'Nessun risultato'} · Pagina ${onlinePage} di ${total || 1} · Dal più recente al meno recente`;
+        onlineEmpty.hidden=onlineMatches.length!==0;
+        if(scroll)onlineSection.scrollIntoView({behavior:'smooth',block:'start'});
+      };
+      const refreshOnline = () => {
+        const cleaned = query.value.trim().replace(/^tutto\s+(?:su|riguardo\s+a)\s+/i,'');
+        const words = normalize(cleaned).split(/\s+/).filter(Boolean);
+        onlineMatches=onlineItems.filter(item=>{
+          const content=field.value==='title'?item.titolo:field.value==='author'?item.autore:field.value==='source'?item.fonte:field.value==='topic'?item.argomento:[item.titolo,item.testo,item.fonte,item.autore,item.argomento].join(' ');
+          return words.every(word=>normalize(content).includes(word)) && (!from.value||item.data>=from.value) && (!to.value||item.data<=to.value);
+        });
+        renderOnline(1);
+      };
+      fetch('data/stampa.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(items=>{
+        if(!Array.isArray(items))throw Error('Formato indice non valido');
+        // Articoli con collegamento esterno: redazionali e segnalazioni RSS; deduplicati.
+        const seen=new Set();
+        onlineItems=items.filter(item=>item && item.titolo && item.data && /^https:\/\//i.test(item.link || ''))
+          .sort((a,b)=>String(b.data).localeCompare(String(a.data)))
+          .filter(item=>{const key=normalize(item.titolo);if(seen.has(key))return false;seen.add(key);return true;});
+        refreshOnline();
+      }).catch(()=>{
+        onlineCount.textContent='Indice online non disponibile. Pubblica il sito su GitHub Pages o su un server web e riprova.';
+        onlineEmpty.hidden=false;
+      });
       const refresh = () => {
         const cleanedQuery = query.value.trim().replace(/^tutto\s+(?:su|riguardo\s+a)\s+/i, '');
         const searchWords = normalize(cleanedQuery).split(/\s+/).filter(Boolean);
@@ -267,6 +344,7 @@
           if (matches) matchedCards.push(card);
         });
         showPage(1);
+        refreshOnline();
         const terms = [];
         if (cleanedQuery) terms.push(cleanedQuery);
         else terms.push('UDC Aprilia');

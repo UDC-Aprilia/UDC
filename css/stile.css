@@ -3365,3 +3365,10 @@ body {overflow-wrap:break-word}
 .press-pagination button:disabled {opacity:.4; cursor:not-allowed;}
 .press-pagination button:focus-visible {outline:3px solid #c99a42; outline-offset:2px;}
 .press-archive-results .card[hidden] {display:none !important;}
+
+/* Ricerca online: 10 segnalazioni per pagina, navigazione separata dall'archivio. */
+.press-online-results {margin:2rem 0; padding:1.25rem; border:1px solid #d9e0e8; border-radius:12px; background:#fafcfe}
+.press-online-item {padding:1rem 0; border-bottom:1px solid #d9e0e8}
+.press-online-item h4 {margin:.35rem 0; font-size:1.08rem}
+.press-online-item a {color:#17334b; text-decoration:underline}
+.press-online-empty[hidden] {display:none!important}
