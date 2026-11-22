@@ -215,6 +215,27 @@
       let matchedCards = [];
       const external = document.querySelector('#press-external-link');
       const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('it-IT');
+      // Interpreta eventuali operatori data digitati nel campo parole chiave.
+      // Le date del form prevalgono; gli operatori non devono diventare parole da cercare.
+      const searchInput = () => {
+        const raw = query.value.trim();
+        const embeddedFrom = raw.match(/\bafter:(\d{4}-\d{2}-\d{2})\b/i);
+        const embeddedTo = raw.match(/\bbefore:(\d{4}-\d{2}-\d{2})\b/i);
+        const cleaned = raw.replace(/\b(?:after|before):\d{4}-\d{2}-\d{2}\b/gi,' ')
+          .replace(/^\s*tutto\s+(?:su|riguardo\s+a)\s+/i,'').replace(/\s+/g,' ').trim();
+        return {cleaned, start:from.value || embeddedFrom?.[1] || '', end:to.value || embeddedTo?.[1] || ''};
+      };
+      const queryMatches = (content, words) => {
+        if (!words.length) return true;
+        const haystack = normalize(content);
+        // La ricerca UDC Aprilia + Fazio non deve escludere gli articoli
+        // che citano soltanto una delle due espressioni identificative.
+        const generic = new Set(['udc','aprilia','pietro','fazio','coordinatore']);
+        const specifics = words.filter(w=>!generic.has(w));
+        if (specifics.length) return specifics.every(w=>haystack.includes(w));
+        return words.some(w=>haystack.includes(w)) &&
+          (haystack.includes('udc') || haystack.includes('fazio'));
+      };
       const showPage = (requestedPage, scroll = false) => {
         const totalPages = Math.ceil(matchedCards.length / pageSize);
         currentPage = Math.max(1, Math.min(requestedPage, totalPages || 1));
@@ -311,28 +332,30 @@
         if(scroll)onlineSection.scrollIntoView({behavior:'smooth',block:'start'});
       };
       const refreshOnline = () => {
-        const cleaned = query.value.trim().replace(/^tutto\s+(?:su|riguardo\s+a)\s+/i,'');
+        const {cleaned,start,end} = searchInput();
         const words = normalize(cleaned).split(/\s+/).filter(Boolean);
         onlineMatches=onlineItems.filter(item=>{
           const content=field.value==='title'?item.titolo:field.value==='author'?item.autore:field.value==='source'?item.fonte:field.value==='topic'?item.argomento:[item.titolo,item.testo,item.fonte,item.autore,item.argomento].join(' ');
-          return words.every(word=>normalize(content).includes(word)) && (!from.value||item.data>=from.value) && (!to.value||item.data<=to.value);
+          return queryMatches(content,words) && (!start||item.data>=start) && (!end||item.data<=end);
         });
         renderOnline(1);
       };
+      const bundledPressIndex = [{"id":"rassegna-latinanews-2026-11-20-fazio-sanita","data":"2026-11-20","titolo":"Sanità, Fazio: “Ad Aprilia attenzione concreta della Regione Lazio”","testo":"Articolo di Carmen Porcelli sulle dichiarazioni di Pietro Fazio, coordinatore cittadino UDC Aprilia, riguardo ai potenziamenti sanitari programmati dalla Regione Lazio.","fonte":"Latina News","autore":"Carmen Porcelli","link":"https://www.latinanews.eu/sanita-fazio-ad-aprilia-attenzione-concreta-della-regione-lazio/","tipo_link":"diretto","origine":"inserimento_verificato"},{"id":"rassegna-verificata-2026-10-07-5","data":"2026-10-07","titolo":"Avviso Generazione Sport, l’UDC di Aprilia: un’opportunità da cogliere","testo":"Approfondimento pubblicato dalla testata indicata.","fonte":"Radio Studio 93","link":"https://www.studio93.it/avviso-generazione-sport-ludc-di-aprilia-e-unopportunita-da-cogliere"},{"id":"rassegna-verificata-2026-09-24-6","data":"2026-09-24","titolo":"Aprilia, strisce blu: l’UDC chiede un tavolo dopo la sentenza del TAR","testo":"Approfondimento pubblicato dalla testata indicata.","fonte":"Radio Studio 93","link":"https://www.studio93.it/aprilia-strisce-blu-dopo-la-sentenza-del-tar-ludc-chiede-un-tavolo-per-analizzare-dati-e-migliorare-la-sosta"},{"id":"rassegna-verificata-2026-08-06-8","data":"2026-08-06","titolo":"Spari in via degli Oleandri, l’UDC Aprilia: più sicurezza","testo":"Approfondimento pubblicato dalla testata indicata.","fonte":"Sfera Magazine","link":"https://www.sferamagazine.it/aprilia/spari-in-via-degli-oleandri-ludc-aprilia-piu-sicurezza/"},{"id":"rassegna-verificata-2026-06-24-7","data":"2026-06-24","titolo":"UDC Aprilia: tutelare i lavoratori della Koch-Glitsch","testo":"Approfondimento pubblicato dalla testata indicata.","fonte":"ApriliaNews","link":"https://www.aprilianews.it/politica/udc-aprilia-tutelare-i-lavoratori-della-koch-glitsch-e-salvare-il-patrimonio-produttivo-della-citta/"},{"id":"rassegna-2026-05-06","data":"2026-05-06","titolo":"UDC Aprilia: non basta tornare al voto, serve nuova classe dirigente","testo":"Riflessione pubblicata sul futuro amministrativo di Aprilia e sulla qualità della classe dirigente.","fonte":"Sfera Magazine","link":"https://www.sferamagazine.it/aprilia/udc-aprilia-non-basta-tornare-al-voto-serve-nuova-classe-dirigente/"},{"id":"rassegna-2026-04-07","data":"2026-04-07","titolo":"Aprilia: Casa di Comunità, serve chiarezza","testo":"Articolo sulle richieste di chiarimento dell’UDC Aprilia in materia di servizi sanitari territoriali.","fonte":"Radio Studio 93","link":"https://www.studio93.it/aprilia-casa-di-comunita-serve-chiarezza"},{"id":"rassegna-2026-02-24","data":"2026-02-24","titolo":"UDC Aprilia: la politica della responsabilità oltre le polemiche","testo":"Intervento riportato dalla testata sul confronto politico e sulla responsabilità amministrativa.","fonte":"Sfera Magazine","link":"https://www.sferamagazine.it/aprilia/udc-aprilia-la-politica-della-responsabilita-oltre-le-polemiche/"},{"id":"rassegna-2026-01-26","data":"2026-01-26","titolo":"Aprilia, l’UDC: serve impegno per rilanciare l’identità della comunità","testo":"Rassegna stampa: riflessione sul senso di comunità e sulle istituzioni cittadine.","fonte":"Radio Studio 93","link":"https://www.studio93.it/aprilia-ludc-serve-impegno-per-rilanciare-identita-della-nostra-comunita"},{"id":"rassegna-2025-11-13","data":"2025-11-13","titolo":"Tutela dell’ambiente: proposta di un Comitato di monitoraggio","testo":"La testata riferisce la proposta UDC di istituire un comitato permanente per il monitoraggio ambientale.","fonte":"Radio Studio 93","link":"https://www.studio93.it/tutela-dellambiente-ludc-di-aprilia-torna-a-proporre-il-comitato-di-monitoraggio"}];
       fetch('data/stampa.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(items=>{
         if(!Array.isArray(items))throw Error('Formato indice non valido');
         // Articoli con collegamento esterno: redazionali e segnalazioni RSS; deduplicati.
         const seen=new Set();
         onlineItems=items.filter(item=>item && item.titolo && item.data && /^https:\/\//i.test(item.link || ''))
           .sort((a,b)=>String(b.data).localeCompare(String(a.data)))
-          .filter(item=>{const key=normalize(item.titolo);if(seen.has(key))return false;seen.add(key);return true;});
+          .filter(item=>{const key=String(item.link).split('?')[0].replace(/\/$/,'');if(seen.has(key))return false;seen.add(key);return true;});
         refreshOnline();
       }).catch(()=>{
-        onlineCount.textContent='Indice online non disponibile. Pubblica il sito su GitHub Pages o su un server web e riprova.';
-        onlineEmpty.hidden=false;
+        // Anteprima locale: usa il catalogo incorporato nello ZIP.
+        onlineItems=bundledPressIndex.filter(item=>item && item.titolo && item.data && /^https:\/\//i.test(item.link || '')).sort((a,b)=>String(b.data).localeCompare(String(a.data)));
+        refreshOnline();
       });
       const refresh = () => {
-        const cleanedQuery = query.value.trim().replace(/^tutto\s+(?:su|riguardo\s+a)\s+/i, '');
+        const {cleaned:cleanedQuery,start,end} = searchInput();
         const searchWords = normalize(cleanedQuery).split(/\s+/).filter(Boolean);
         matchedCards = [];
         cards.forEach(card => {
@@ -340,7 +363,7 @@
             field.value === 'title' ? card.dataset.title : field.value === 'author' ? card.dataset.author :
             field.value === 'source' ? card.dataset.source : card.dataset.topic;
           const date = card.dataset.date || '';
-          const matches = (!searchWords.length || searchWords.every(word => normalize(content).includes(word))) && (!from.value || date >= from.value) && (!to.value || date <= to.value);
+          const matches = queryMatches(content,searchWords) && (!start || date >= start) && (!end || date <= end);
           if (matches) matchedCards.push(card);
         });
         showPage(1);
@@ -348,10 +371,10 @@
         const terms = [];
         if (cleanedQuery) terms.push(cleanedQuery);
         else terms.push('UDC Aprilia');
-        if (field.value === 'title' && query.value.trim()) terms[0] = `intitle:${query.value.trim()}`;
-        if (field.value === 'author' && query.value.trim()) terms[0] = `"${query.value.trim()}"`;
-        if (from.value) terms.push('after:' + from.value);
-        if (to.value) terms.push('before:' + to.value);
+        if (field.value === 'title' && cleanedQuery) terms[0] = `intitle:${cleanedQuery}`;
+        if (field.value === 'author' && cleanedQuery) terms[0] = `"${cleanedQuery}"`;
+        if (start) terms.push('after:' + start);
+        if (end) terms.push('before:' + end);
         external.href = 'https://news.google.com/search?' + new URLSearchParams({q:terms.join(' '),hl:'it',gl:'IT',ceid:'IT:it'});
       };
       form.addEventListener('submit', event => {event.preventDefault();archive.open = true;refresh();archive.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});});
