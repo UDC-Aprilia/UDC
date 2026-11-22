@@ -3347,3 +3347,9 @@ body {overflow-wrap:break-word}
 
 /* Archivio pubblico delle iniziative, senza dati riservati */
 .archive-letter .letter-details{border-left-color:#254d78}.archive-letter .archive-small-note{font-style:italic}
+
+/* Archivio comunicati: raggruppamento cronologico per mese */
+.archive-month { margin: 1.8rem 0 .75rem; padding-bottom: .45rem; border-bottom: 1px solid #d8e0eb; text-transform: capitalize; color: #16395d; font-size: 1.15rem; }
+
+/* Archivio comunicati: raggruppamento cronologico per mese */
+.archive-month { margin: 1.8rem 0 .75rem; padding-bottom: .45rem; border-bottom: 1px solid #d8e0eb; text-transform: capitalize; color: #16395d; font-size: 1.15rem; }
