@@ -12,6 +12,9 @@ DIRECTORIES={'assets':{'.jpg','.jpeg','.png','.webp','.gif','.svg','.ico','.avif
 
 def main():
     if validate(ROOT): raise SystemExit('Pubblicazione bloccata: correggere gli errori sopra.')
+    import json
+    approved = {ROOT / 'documenti' / str(x['anno']) / x['file'] for x in json.loads((ROOT/'data/documenti.json').read_text())}
+    approved |= {ROOT / 'lettere' / str(x['anno']) / x['file'] for x in json.loads((ROOT/'data/lettere.json').read_text())}
     if DEST.exists(): shutil.rmtree(DEST)
     DEST.mkdir()
     for p in ROOT.iterdir():
@@ -24,6 +27,7 @@ def main():
                 if not f.is_file():continue
                 if f.suffix.lower() not in DIRECTORIES[p.name] and not (p.name=='documenti' and is_public_privacy_file(f, ROOT)):continue
                 if p.name=='data' and f.name not in DATA_FILES:continue
+                if p.name in ('documenti','lettere') and f.suffix.lower()=='.pdf' and f not in approved and not is_public_privacy_file(f, ROOT):continue
                 target=DEST/f.relative_to(ROOT)
                 target.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copy2(f,target)

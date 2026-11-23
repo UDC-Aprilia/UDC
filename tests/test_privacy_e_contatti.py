@@ -5,7 +5,7 @@ class PrivacyTests(unittest.TestCase):
  def test_ten_sections(self):
   from bs4 import BeautifulSoup
   soup=BeautifulSoup((ROOT/'privacy.html').read_text(), 'html.parser')
-  self.assertEqual(len(soup.select('main h2')),10)
+  self.assertEqual(len(soup.select('main h2')),11)
  def test_four_addresses(self):
   for email in ['info','segreteria','tesseramento','coordinatore']:
    self.assertIn(email+'@udc-aprilia.it',(ROOT/'privacy.html').read_text())
