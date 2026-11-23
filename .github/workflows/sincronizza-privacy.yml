@@ -1,0 +1,29 @@
+name: Sincronizza informativa privacy
+on:
+  push:
+    paths:
+      - 'documenti/Informativa-Privacy-UDC-Aprilia-2026.pdf'
+      - 'scripts/sincronizza_privacy.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'PyMuPDF>=1.24,<2'
+      - run: python scripts/sincronizza_privacy.py
+      - run: |
+          git add privacy.html
+          if ! git diff --cached --quiet; then
+            git config user.name 'UDC aggiornamento privacy'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Sincronizza pagina privacy dal PDF'
+            git push
+          fi
