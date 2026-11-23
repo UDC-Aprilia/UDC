@@ -78,6 +78,25 @@ window.UDCLocalData = {
       ]
     },
     {
+      "id": "rassegna-auto-1944b36452f3dce3",
+      "data": "2026-10-29",
+      "titolo": "Servizio di Sanità Animale di Aprilia, l'UDC rinnova la richiesta di un incontro tra Comune e ASL",
+      "testo": "Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.",
+      "fonte": "Aprilianews.it",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNnFxZ1FDSllZdDZlay1sRkpveG4zOE41bThRT1k3OVBqRk1DYmJsMFB3MDF4ZkN1YUVZdUtlT212bjdiVXNDWFBiZXZWNWFJYTFkN1MwM0FwYWg2QUQzc2p1SlY0WWIyUWZQQVlONU5qY2JqM0llTjBNem5kek9XWXkwdGtGTXNRYU82dDlwekZ0TGZjNkdxQnBPUUpaN05GZHBLbmNmQVBFTDMwTGNJY0FMa05KSlp3ZlpLV3ZuUm9yOWUwcG8tYXY1b04?oc=5",
+      "tipo_link": "aggregatore",
+      "origine": "ricerca_rss",
+      "argomento": "UDC Aprilia / Pietro Fazio",
+      "pdf_collegati": [
+        {
+          "file": "2026-10-29-servizio-di-sanita-animale-di-aprilia-l-udc-rinnova-la-richiesta-di-un-incontro-tra-c.pdf",
+          "titolo": "Servizio di Sanità Animale di Aprilia l'UDC rinnova la richiesta di un incontro tra Comune e ASL",
+          "data": "2026-10-29",
+          "stato": "corrispondenza_da_verificare"
+        }
+      ]
+    },
+    {
       "id": "rassegna-auto-dc65f949ec96c1d6",
       "data": "2026-10-07",
       "titolo": "Avviso Generazione Sport, l’Udc di Aprilia: “E’ un’opportunità da cogliere”",
@@ -202,6 +221,17 @@ window.UDCLocalData = {
       ]
     },
     {
+      "id": "rassegna-auto-e7120169eabaa030",
+      "data": "2026-08-10",
+      "titolo": "Aprilia, Pietro Fazio (UDC): “La fiducia si conquista prima del voto”",
+      "testo": "Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.",
+      "fonte": "LatinaNews",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQcURRTlBrYnc3dUJTdHgxaW0xelpadzRVaTZMYlZ3M3cwT2Rmb3dZelQzaHVoUnY5anNHSjl0Vy1tdGN1RDNiSWF3SjlXczY2NGJaSGVVZGRRT1lqMWMtd3VVbGtkNGdpUkdINTNsRjYwWlFEbE5YWThjWGgtRVdaZGFPZmpCYzY1VXhpTmM4cGs2X0Rq0gGcAUFVX3lxTFA4UTZnLUxYbzBhWGVFdXJDUW0tTEJzbC1GaG1IYXV5R0F1MjE1eVVtNmNnaW04UWtDSGRoR1p0MVhrMldnbGM0UHFLMnVaZ25WTGZnTFpVeFQ0QmU3UEduQ1h0TVF3N2QxQmxDMEV5dUZRSk5qaFl1RGFpSmlyZlB5aHZYa25FUURkMUVHLXMtaUhpSXBxcW9xanVCOA?oc=5",
+      "tipo_link": "aggregatore",
+      "origine": "ricerca_rss",
+      "argomento": "UDC Aprilia / Pietro Fazio"
+    },
+    {
       "id": "rassegna-verificata-2026-08-06-8",
       "data": "2026-08-06",
       "titolo": "Spari in via degli Oleandri, l’UDC Aprilia: più sicurezza",
@@ -262,6 +292,28 @@ window.UDCLocalData = {
       "link": "https://www.aprilianews.it/politica/udc-aprilia-tutelare-i-lavoratori-della-koch-glitsch-e-salvare-il-patrimonio-produttivo-della-citta/"
     },
     {
+      "id": "rassegna-auto-d419f1b936f12619",
+      "data": "2026-06-24",
+      "titolo": "Udc Aprilia: \"Tutelare i lavoratori della Koch-Glitsch e salvare il patrimonio produttivo della città\"",
+      "testo": "Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.",
+      "fonte": "Aprilianews.it",
+      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOLVlOOTAtOEdKVG5CVXFrS2h4NnJHYkVJckNCaDgwbUE1dnpjTE4xVmpSSTdUZWhyUTRERXktbW9fMzZGeUt6YjhNb1RLY0RKSE4ydVc5S2dTY2x4LW1EcU5rVlE2S1NtLWtDWllPUjRJU3JlaG96dmt0aDExRXkzTGl0U1lkdUU5STFsWFpHQXpaTU95eE5MX0NKOXFBa0Q1V2pYZ1NQbHVNT2U1WkZFTHplOUNad1pISkVET2hHUmNwVF9UbGplQm55VVdkZ0t1aWc?oc=5",
+      "tipo_link": "aggregatore",
+      "origine": "ricerca_rss",
+      "argomento": "UDC Aprilia / Pietro Fazio"
+    },
+    {
+      "id": "rassegna-auto-b7540ffa5d8c8f46",
+      "data": "2026-05-21",
+      "titolo": "Aprilia, l’UDC chiede al Comune di partecipare al bando sullo sport",
+      "testo": "Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.",
+      "fonte": "LatinaNews",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNTjc4VGwwc2Y2R0pmNDVhWU9wTFRHajQ2Rk1aNmRHU2RGLTdhQkxhQi1xV1NnRnBSZDZncGw0RDBDWE1ua2pOb1M1bl9FYUMybWZ6eW9sSGJSc3k4TTlBY2NRMGpwckUwYlVHNVZaR1hvZThjemxXQXBUay0wTDhzeDRJSzZDNEs5MmtFSVhiT0hCOEQ0Y2R30gGfAUFVX3lxTE5fZDJVRUhfRHZ3eHFJcWM5Y2FOTnlITFVJVkVobG5CNTdZdVdfX1JBVFI3N0ZYanRHN0w1MEY3d0NXZGd3eGt4ZmttU2s1MC1RRldBdkVlUkpCb004R3BKYUF3OVpjNXJVQ1JfMTVsVG5TcTlSbmJXVGtUazN3cXZkXzRNRGlVbklXbmQ5TVE3S2tGR2dlYVpDdTRfSUNHZw?oc=5",
+      "tipo_link": "aggregatore",
+      "origine": "ricerca_rss",
+      "argomento": "UDC Aprilia / Pietro Fazio"
+    },
+    {
       "id": "rassegna-2026-05-06",
       "data": "2026-05-06",
       "titolo": "UDC Aprilia: non basta tornare al voto, serve nuova classe dirigente",
@@ -292,6 +344,17 @@ window.UDCLocalData = {
           "stato": "corrispondenza_da_verificare"
         }
       ]
+    },
+    {
+      "id": "rassegna-auto-e35a54042a8a15bb",
+      "data": "2026-03-24",
+      "titolo": "L’Udc di Aprilia apre al polo civico: «Vengano nella coalizione di centrodestra»",
+      "testo": "Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.",
+      "fonte": "Latina Oggi",
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPOFozSExNbkU3MDVCOUVRaUZCdTVrbm9Pc0JtUzMyYUpJQlA0VlRRU3owMDk4RF9yVm1fOEU5UExqT29UQ0NJSENJRFpEcFY2RkpGd2k1WFluQkpRRGtnaWdSdkdVTXdIYkRqRUcxWk90TUd2R1ZhZkJTUEc4REc1NDA1Y1V6cWU1WWs2S2ktQUhSVWo4UDFvNDRpcUY3R0RobWp3Z2NlWU0yWGJha3lFbnRSQWd2VHpPRWlmOHdZZ0EtOWl0SG80?oc=5",
+      "tipo_link": "aggregatore",
+      "origine": "ricerca_rss",
+      "argomento": "UDC Aprilia / Pietro Fazio"
     },
     {
       "id": "rassegna-2026-02-24",
@@ -349,6 +412,17 @@ window.UDCLocalData = {
           "stato": "corrispondenza_da_verificare"
         }
       ]
+    },
+    {
+      "id": "rassegna-auto-9d8fcd3b0214172d",
+      "data": "2026-01-26",
+      "titolo": "Fazio Udc: Profonda riflessione per rilanciare la città di Aprilia",
+      "testo": "Segnalazione automatica da feed pubblico. Verificare il contenuto e la firma sulla testata.",
+      "fonte": "Aprilianews.it",
+      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOGVkOW5xODVScWxQcnM3RjJTbUNVcjg4azc3Qy1fZTF3eXFvdEhJM3MtT0ptRWhXRHlBVXhjTXdYVjhRdXEycG1vRzB4bmlpZDNVSFF5QlUzUDV1VTNDVXJ0dWRhWWpIOHV4V2Q0TTdZblhYXy1MMDg5aW5hMi1lTjgzbEJpckVnVDRtMTFmck9lMmhiM2I0QWhLQVNOWHJucGh4Q1RZNVZPUQ?oc=5",
+      "tipo_link": "aggregatore",
+      "origine": "ricerca_rss",
+      "argomento": "UDC Aprilia / Pietro Fazio"
     },
     {
       "id": "rassegna-2025-11-13",
