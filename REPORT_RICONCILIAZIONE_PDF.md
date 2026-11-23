@@ -1,0 +1,53 @@
+# Riconciliazione PDF
+
+- DA VERIFICARE 2026-10-29 Servizio di Sanità Animale di Aprilia l'UDC rinnova la richiesta  | migliori: 1.00 Comunicato-Servizio-Sanit#U00e0 Animale-2026.pdf, 1.00 2026-1~1.PDF
+- DA VERIFICARE 2026-10-19 Condanniamo con fermezza gli atti vandalici che hanno colpito il  | migliori: 1.00 comunicato-atti-vandalici-2026.pdf, 1.00 2026-1~2.PDF
+- DA VERIFICARE 2026-09-24 STRISCE BLU, UDC APRILIA: «DOPO IL TAR, ORA PARLINO I DATI» La se | migliori: 0.58 2014AB~1.PDF, 0.30 20EEE3~1.PDF
+- DA VERIFICARE 2026-08-21 UDC APRILIA: SALA MANZÙ ABBIAMO CHIESTO GLI ATTI AL COMUNE | migliori: 0.55 209037~1.PDF, 0.39 Comunicato-Servizio-Sanit#U00e0 Animale-2026.pdf
+- DA VERIFICARE 2026-08-08 Spari in via degli Oleandri: un episodio che preoccupa la città I | migliori: 0.55 2000B5~1.PDF, 0.26 20EEE3~1.PDF
+- MAPPATO 2026-06-19 20EEE3~1.PDF -> 2026-06-19-parcheggi-e-strisce-blu-prima-i-servizi-poi-le-tariffe-in-questi-giorni-ho-avuto-modo.pdf (confidenza 1.00)
+- MAPPATO 2026-05-20 20DA27~1.PDF -> 2026-05-20-sport-e-periferie-2026-occasione-concreta-per-aprilia-utile-un-momento-di-confronto-c.pdf (confidenza 1.00)
+- DA VERIFICARE 2026-05-05 Non basta tornare al voto Aprilia ha bisogno di una nuova classe  | migliori: 1.00 Comunicato-Non-basta-tornare-al-voto-2026.pdf, 1.00 20D548~1.PDF
+- DA VERIFICARE 2026-04-18 2026-04-18 18-aprile 2026 Casa della Salute   Casa di Comunità di | migliori: 0.46 2039A7~1.PDF, 0.37 20B55E~1.PDF
+- MAPPATO 2026-04-10 201546~1.PDF -> 2026-04-10-coordinamento-udc-aprilia-spett-le-commissione-straordinaria-del-comune-di-aprilia-no.pdf (confidenza 0.88)
+- DA VERIFICARE 2026-04-08 ASAM, UDC Aprilia: “Serve un chiarimento pubblico” UDC Aprilia se | migliori: 1.00 ASAM, UDC Aprilia_Serve un chiarimento pubblico.pdf, 1.00 2026-0~2.PDF
+- DA VERIFICARE 2026-04-07 2026-04-07 7 aprile 2026 Casa della Salute  Casa di Comunità | migliori: 0.45 2039A7~1.PDF, 0.34 20B55E~1.PDF
+- MAPPATO 2026-03-23 204B4C~1.PDF -> 2026-03-23-aprilia-avviato-il-confronto-nel-centrodestra-obiettivo-una-coalizione-solida-e-credi.pdf (confidenza 1.00)
+- MAPPATO 2026-03-18 2039A7~1.PDF -> 2026-03-18-casa-della-salute-di-aprilia-silenzio-su-tempi-e-servizi.pdf (confidenza 1.00)
+- DA VERIFICARE 2026-03-11 2026-03-11 si-14-Referendum giustizia | migliori: 0.62 UDC Aprilia per la separazione delle carriere.pdf, 0.61 202C4B~1.PDF
+- MAPPATO 2026-03-02 20C580~1.PDF -> 2026-03-02-forum-sulleuropa-ad-aprilia-ludc-rilancia-una-pace-fondata-su-responsabilita-e-uneuro.pdf (confidenza 1.00)
+- MAPPATO 2026-02-28 20528F~1.PDF -> 2026-02-28-terzo-settore-responsabilita-e-confronto-per-il-futuro-di-aprilia-si-e-svolta-presso.pdf (confidenza 1.00)
+- MAPPATO 2026-02-23 209213~1.PDF -> 2026-02-23-ora-e-il-tempo-della-responsabilita-limpegno-delludc-per-la-ricostruzione-della-polit.pdf (confidenza 1.00)
+- DA VERIFICARE 2026-02-18 Aprilia, 18 febbraio 2026  comunicato-sanita-presidio-territorial | migliori: 0.44 Ex discarica Sant#U2019Apollonia_ passo avanti importante, ora serve piena trasparenza e tempi certi.pdf, 0.44 20D7F2~1.PDF
+- DA VERIFICARE 2026-02-17 NON SOLO FONDI, SERVE PROGRAMMAZIONE Salvare un finanziamento non | migliori: 1.00 207B11~1.PDF, 1.00 10-NON SOLO FONDI, SERVE PROGRAMMAZIONE.pdf
+- DA VERIFICARE 2026-02-17 Ex discarica Sant’Apollonia: passo avanti importante, ora serve p | migliori: 1.00 Ex discarica Sant#U2019Apollonia_ passo avanti importante, ora serve piena trasparenza e tempi certi.pdf, 1.00 20D7F2~1.PDF
+- DA VERIFICARE 2026-02-16 Riflessioni per Aprilia - Appunti per una nuova responsabilità ci | migliori: 0.87 PARTECIPAZIONE DEMOCRATICA_comunicato stampa 2 febbraio 2026.pdf, 0.87 209F57~1.PDF
+- DA VERIFICARE 2026-02-10 2026-02-10 8-Casa della Salute di Aprilia  10 febbraio 2026 | migliori: 0.43 Ex discarica Sant#U2019Apollonia_ passo avanti importante, ora serve piena trasparenza e tempi certi.pdf, 0.43 20D7F2~1.PDF
+- MAPPATO 2026-02-09 209F57~1.PDF -> 2026-02-09-riflessioni-per-aprilia-appunti-per-una-nuova-responsabilita-civica-la-legalita-non-e.pdf (confidenza 0.87)
+- MAPPATO 2026-02-06 204847~1.PDF -> 2026-02-06-segnalazioni-dei-cittadini-sulle-condizioni-della-viabilita-urbana-il-coordinamento-d.pdf (confidenza 1.00)
+- DA VERIFICARE 2026-02-02 Riflessioni per Aprilia – Appunti per una nuova responsabilità ci | migliori: 0.88 PARTECIPAZIONE DEMOCRATICA_comunicato stampa 2 febbraio 2026.pdf, 0.88 2026-0~4.PDF
+- MAPPATO 2026-01-30 20414C~1.PDF -> 2026-01-30-sanita-territoriale-ad-aprilia-richiesta-di-aggiornamenti-sullo-stato-degli-intervent.pdf (confidenza 1.00)
+- DA VERIFICARE 2026-01-26 2026-01-26 3-IDENTITÀ DELLA COMUNITÀ DI APRILIA comunicato stampa | migliori: 0.52 2026-0~1.PDF, 0.45 comunicato-atti-vandalici-2026.pdf
+- MAPPATO 2026-01-21 20E8B6~1.PDF -> 2026-01-21-dalla-politica-che-divide-alla-responsabilita-dei-territori-aprilia-e-la-sfida-della.pdf (confidenza 1.00)
+- DA VERIFICARE 2026-01-18 2026-01-18 2-Comunicato stampa del 18 gennaio 2026 APRILIA, RICOS | migliori: 0.39 2026-0~1.PDF, 0.37 PARTECIPAZIONE DEMOCRATICA_comunicato stampa 2 febbraio 2026.pdf
+- MAPPATO 2026-01-16 2026-0~1.PDF -> 2026-01-16-emergenza-del-6-gennaio-il-coordinamento-udc-di-aprilia-ringrazia-il-volontariato-di.pdf (confidenza 1.00)
+
+## Voci non pubblicate perché manca un PDF associato con certezza
+- 2026-10-29: Servizio di Sanità Animale di Aprilia l'UDC rinnova la richiesta di un incontro tra Comune e ASL — 2026-10-29-servizio-di-sanita-animale-di-aprilia-l-udc-rinnova-la-richiesta-di-un-incontro-tra-c.pdf
+- 2026-10-19: Condanniamo con fermezza gli atti vandalici che hanno colpito il monumento ai Bersaglieri e il — 2026-10-19-condanniamo-con-fermezza-gli-atti-vandalici-che-hanno-colpito-il-monumento-ai-bersagl.pdf
+- 2026-09-24: STRISCE BLU, UDC APRILIA: «DOPO IL TAR, ORA PARLINO I DATI» La sentenza n. 959/2026 del TAR Lazio – — 2026-09-24-strisce-blu-udc-aprilia-dopo-il-tar-ora-parlino-i-dati-la-sentenza-n-959-2026-del-tar.pdf
+- 2026-08-21: UDC APRILIA: SALA MANZÙ ABBIAMO CHIESTO GLI ATTI AL COMUNE — 2026-08-21-udc-aprilia-sala-manzu-abbiamo-chiesto-gli-atti-al-comune.pdf
+- 2026-08-08: Spari in via degli Oleandri: un episodio che preoccupa la città Il Coordinamento UDC Aprilia esprime — 2026-08-08-spari-in-via-degli-oleandri-un-episodio-che-preoccupa-la-citta-il-coordinamento-udc-a.pdf
+- 2026-05-05: Non basta tornare al voto Aprilia ha bisogno di una nuova classe dirigente — 2026-05-05-non-basta-tornare-al-voto-aprilia-ha-bisogno-di-una-nuova-classe-dirigente.pdf
+- 2026-04-18: 2026-04-18 18-aprile 2026 Casa della Salute   Casa di Comunità di Aprilia — 2026-04-18-2026-04-18-18-aprile-2026-casa-della-salute-casa-di-comunita-di-aprilia.pdf
+- 2026-04-08: ASAM, UDC Aprilia: “Serve un chiarimento pubblico” UDC Aprilia segue con attenzione la vicenda che — 2026-04-08-asam-udc-aprilia-serve-un-chiarimento-pubblico-udc-aprilia-segue-con-attenzione-la-vi.pdf
+- 2026-04-07: 2026-04-07 7 aprile 2026 Casa della Salute  Casa di Comunità — 2026-04-07-2026-04-07-7-aprile-2026-casa-della-salute-casa-di-comunita.pdf
+- 2026-03-11: 2026-03-11 si-14-Referendum giustizia — 2026-03-11-2026-03-11-si-14-referendum-giustizia.pdf
+- 2026-02-18: Aprilia, 18 febbraio 2026  comunicato-sanita-presidio-territoriale-2026 — 2026-02-18-aprilia-18-febbraio-2026-comunicato-sanita-presidio-territoriale-2026.pdf
+- 2026-02-17: NON SOLO FONDI, SERVE PROGRAMMAZIONE Salvare un finanziamento non basta se manca una strategia — 2026-02-17-non-solo-fondi-serve-programmazione-salvare-un-finanziamento-non-basta-se-manca-una-s.pdf
+- 2026-02-17: Ex discarica Sant’Apollonia: passo avanti importante, ora serve piena trasparenza e tempi certi — 2026-02-17-ex-discarica-santapollonia-passo-avanti-importante-ora-serve-piena-trasparenza-e-temp.pdf
+- 2026-02-16: Riflessioni per Aprilia - Appunti per una nuova responsabilità civica Ricostruire fiducia ad Aprilia — 2026-02-16-riflessioni-per-aprilia-appunti-per-una-nuova-responsabilita-civica-ricostruire-fiduc.pdf
+- 2026-02-10: 2026-02-10 8-Casa della Salute di Aprilia  10 febbraio 2026 — 2026-02-10-2026-02-10-8-casa-della-salute-di-aprilia-10-febbraio-2026.pdf
+- 2026-02-02: Riflessioni per Aprilia – Appunti per una nuova responsabilità civica PARTECIPAZIONE DEMOCRATICA — 2026-02-02-riflessioni-per-aprilia-appunti-per-una-nuova-responsabilita-civica-partecipazione-de.pdf
+- 2026-01-26: 2026-01-26 3-IDENTITÀ DELLA COMUNITÀ DI APRILIA comunicato stampa del 26 gennaio 2026 — 2026-01-26-2026-01-26-3-identita-della-comunita-di-aprilia-comunicato-stampa-del-26-gennaio-2026.pdf
+- 2026-01-18: 2026-01-18 2-Comunicato stampa del 18 gennaio 2026 APRILIA, RICOSTRUIRE FIDUCIA  UN CONTRIBUTO AL — 2026-01-18-2026-01-18-2-comunicato-stampa-del-18-gennaio-2026-aprilia-ricostruire-fiducia-un-con.pdf
