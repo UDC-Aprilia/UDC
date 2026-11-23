@@ -882,16 +882,8 @@ window.UDCLocalData = {
     }
   ],
   "webNews": {
-    "updated_at": "",
+    "updated_at": "2026-11-23T06:59:46+00:00",
     "items": [
-      {
-        "title": "Reddito di cittadinanza: Antonio De Poli interviene sul dibattito politico",
-        "url": "https://www.udc-italia.it/reddito-di-cittadinanza-antonio-de-poli-udc-il-campo-largo-vecchie-ricette/",
-        "date": "2026-11-13",
-        "source": "UDC Italia",
-        "category": "UDC nazionale",
-        "priority": "udc_nazionale"
-      },
       {
         "title": "Lavori parlamentari in Assemblea: calendario del Senato dal 17 novembre",
         "url": "https://www.senato.it/attualita/archivio-notizie?nid=84102",
@@ -902,17 +894,16 @@ window.UDCLocalData = {
         "link_kind": "diretto"
       },
       {
-        "title": "Istituita la figura del direttore socioassistenziale nelle ASL",
-        "url": "https://www.regione.lazio.it/notizie/Istituita-figura-direttore-socioassistenziale-ASL",
-        "date": "2026-11-12",
-        "source": "Regione Lazio",
-        "category": "Regione Lazio",
-        "priority": "regione_lazio",
-        "link_kind": "diretto"
+        "title": "Reddito di cittadinanza: Antonio De Poli interviene sul dibattito politico",
+        "url": "https://www.udc-italia.it/reddito-di-cittadinanza-antonio-de-poli-udc-il-campo-largo-vecchie-ricette/",
+        "date": "2026-11-13",
+        "source": "UDC Italia",
+        "category": "UDC nazionale",
+        "priority": "udc_nazionale"
       },
       {
-        "title": "Sanità: inaugurato l’Ospedale di Comunità di Poggio Mirteto",
-        "url": "https://www.regione.lazio.it/notizie/ospedale-comunita-poggio-mirteto",
+        "title": "Istituita la figura del direttore socioassistenziale nelle ASL",
+        "url": "https://www.regione.lazio.it/notizie/Istituita-figura-direttore-socioassistenziale-ASL",
         "date": "2026-11-12",
         "source": "Regione Lazio",
         "category": "Regione Lazio",
@@ -926,6 +917,15 @@ window.UDCLocalData = {
         "source": "Parlamento europeo – Ufficio di Milano",
         "category": "Europa e Unione europea",
         "priority": "europa",
+        "link_kind": "diretto"
+      },
+      {
+        "title": "Sanità: inaugurato l’Ospedale di Comunità di Poggio Mirteto",
+        "url": "https://www.regione.lazio.it/notizie/ospedale-comunita-poggio-mirteto",
+        "date": "2026-11-12",
+        "source": "Regione Lazio",
+        "category": "Regione Lazio",
+        "priority": "regione_lazio",
         "link_kind": "diretto"
       },
       {
@@ -961,7 +961,6 @@ window.UDCLocalData = {
         "category": "UDC Lazio",
         "priority": "udc_lazio"
       }
-    ],
-    "curated_at": "2026-11-15"
+    ]
   }
 };
