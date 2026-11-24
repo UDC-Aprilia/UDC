@@ -108,7 +108,11 @@ def validate(root=ROOT):
                 if not path.is_file() or path.name in {'.gitkeep', 'LEGGIMI.txt', 'README.md'}:continue
                 if kind == 'documenti' and is_public_privacy_file(path, root):continue
                 if path.suffix.lower()!='.pdf': err(f'File non previsto nelle cartelle pubbliche: {path.relative_to(root)}')
-                elif path.resolve() not in refs[kind]: print(f'NON PUBBLICATO (non catalogato): {path.relative_to(root)}')
+                elif path.resolve() not in refs[kind]:
+                    if kind == 'lettere':
+                        err(f'Lettera non autorizzata: {path.relative_to(root)}')
+                    else:
+                        print(f'NON PUBBLICATO (non catalogato): {path.relative_to(root)}')
     # Nessuna cartella riservata deve essere inviata nel repository o negli ZIP pubblici.
     for parent in (root,root/'data',root/'documenti',root/'lettere'):
         if not parent.exists():continue

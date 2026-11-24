@@ -57,4 +57,5 @@ def test_privacy_public_files_allowed_but_other_files_blocked():
         assert module.validate(root)==1
         (root/'documenti'/'sconosciuto.docx').unlink()
         (root/'documenti'/'2025'/'non-approvato.pdf').write_bytes(b'%PDF-1.4')
-        assert module.validate(root)==1
+        # I documenti storici non catalogati restano esclusi dal build.
+        assert module.validate(root)==0
