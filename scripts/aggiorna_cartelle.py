@@ -4,6 +4,7 @@ import re
 from datetime import date
 from pathlib import Path
 import unicodedata
+from urllib.parse import urlsplit
 
 from impronte import sha256
 
@@ -18,6 +19,11 @@ SIGNATURES = {
 }
 PHOTO_NAMES = ('foto.jpg', 'foto.jpeg', 'foto.png')
 TEXT_NAMES = ('scheda.txt', 'profilo.txt')
+PROGRAM_FILE = 'programma-2027-2032.pdf'
+COVER_NAMES = ('copertina.jpg', 'copertina.jpeg', 'copertina.png')
+BOOK_FIELDS = ('Titolo', 'Autori', 'Pubblicazione')
+BOOK_OPTIONAL = ('Sottotitolo', 'Tema', 'Descrizione', 'Editore', 'Anno', 'ISBN',
+                 'Ordine', 'Nota', 'Link editore', 'Link pubblicazione', 'Nota link')
 FIELDS = ('Nome', 'Incarico', 'Coordinamento', 'Direttivo', 'Consiglio generale', 'Ordine', 'Pubblicazione')
 OPTIONAL_FIELDS = ('Contatto',)
 
@@ -39,11 +45,15 @@ def entries(folder):
         yield path
 
 
-def profile_dirs(base):
-    for path in entries(directory(base / 'profili')):
+def record_dirs(base, category):
+    for path in entries(directory(base / category)):
         if not path.is_dir() or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', path.name):
-            raise ValueError(f'Cartella personale non valida: {path}')
+            raise ValueError(f'Cartella scheda non valida: {path}')
         yield path
+
+
+def profile_dirs(base):
+    return record_dirs(base, 'profili')
 
 
 def read_text(path, limit):
@@ -53,18 +63,24 @@ def read_text(path, limit):
     return text
 
 
-def read_sheet(path):
+def read_fields(path, required, optional=(), limit=16000):
+    """Formato testo condiviso: una riga Campo: valore, in UTF-8."""
     fields = {}
-    for line in read_text(path, 4000).splitlines():
+    for line in read_text(path, limit).splitlines():
         if not line.strip():
             continue
         key, sep, value = line.partition(':')
         key = key.strip()
-        if not sep or key not in (*FIELDS, *OPTIONAL_FIELDS) or key in fields or not value.strip():
+        if not sep or key not in (*required, *optional) or key in fields or not value.strip():
             raise ValueError(f'Campo non valido o ripetuto in {path}: {line}')
         fields[key] = value.strip()
-    if not set(FIELDS).issubset(fields):
-        raise ValueError(f'Campi mancanti in {path}: {set(FIELDS) - set(fields)}')
+    if not set(required).issubset(fields):
+        raise ValueError(f'Campi mancanti in {path}: {set(required) - set(fields)}')
+    return fields
+
+
+def read_sheet(path):
+    fields = read_fields(path, FIELDS, OPTIONAL_FIELDS, 4000)
     flags = {}
     for key in ('Coordinamento', 'Direttivo', 'Consiglio generale', 'Pubblicazione'):
         value = fields[key].casefold()
@@ -172,6 +188,104 @@ def profiles(base):
     return sorted(result, key=lambda p: (p['ordine'], p['nome'].casefold(), p['id']))
 
 
+def program(base):
+    """Un solo PDF: il deposito nella cartella pubblica vale come autorizzazione."""
+    folder = directory(base / 'programma')
+    files = list(entries(folder))
+    if not files:
+        return None
+    if len(files) != 1 or files[0].name != PROGRAM_FILE:
+        raise ValueError(f'Usare soltanto {PROGRAM_FILE}: {folder}')
+    row = media_row(files[0])
+    row['versione'] = sha256(files[0])[:16]
+    return row
+
+
+def isbn13(value):
+    digits = re.sub(r'[ -]', '', value)
+    if (not re.fullmatch(r'97[89]\d{10}', digits)
+            or sum(int(c) * (1 if i % 2 == 0 else 3)
+                   for i, c in enumerate(digits)) % 10):
+        raise ValueError(f'ISBN-13 non valido: {value}')
+    return digits
+
+
+def external_link(value):
+    # URL espliciti: niente javascript:, credenziali, spazi o caratteri di controllo.
+    if not value:
+        return ''
+    if re.search(r'[\s\\<>"\x00-\x1f]', value):
+        raise ValueError(f'URL non valido: {value}')
+    url = urlsplit(value)
+    if url.scheme != 'https' or not url.hostname or url.username or url.password:
+        raise ValueError(f'Usare un URL HTTPS pubblico: {value}')
+    return value
+
+
+def books(base):
+    result = []
+    identities = set()
+    isbns = set()
+    covers = set()
+    for folder in record_dirs(base, 'cultura'):
+        files = list(entries(folder))
+        if not files:
+            continue
+        if any(not p.is_file() or p.name not in ('scheda.txt', *COVER_NAMES) for p in files):
+            raise ValueError(f'Usare scheda.txt e una sola copertina: {folder}')
+        fields = read_fields(folder / 'scheda.txt', BOOK_FIELDS, BOOK_OPTIONAL)
+        state = fields['Pubblicazione'].casefold()
+        if state not in ('sì', 'si', 'no'):
+            raise ValueError(f'Pubblicazione: Sì o No in {folder}')
+        identity = (normalized_name(fields['Titolo']), normalized_name(fields['Autori']))
+        code = isbn13(fields['ISBN']) if 'ISBN' in fields else ''
+        if identity in identities or (code and code in isbns):
+            raise ValueError(f'Libro o ISBN duplicato: {folder}')
+        identities.add(identity)
+        if code:
+            isbns.add(code)
+        order = fields.get('Ordine', '9999')
+        if not re.fullmatch(r'\d{1,4}', order):
+            raise ValueError(f'Ordine non valido: {folder}')
+        year = fields.get('Anno', '')
+        if year and not re.fullmatch(r'\d{4}', year):
+            raise ValueError(f'Anno non valido: {folder}')
+        photos = [p for p in files if p.name in COVER_NAMES]
+        if len(photos) > 1:
+            raise ValueError(f'Una sola copertina per libro: {folder}')
+        cover = photos[0] if photos else None
+        digest = ''
+        if cover:
+            media_row(cover)
+            digest = sha256(cover)
+            if digest in covers:
+                raise ValueError(f'Copertina identica in due libri: {folder}')
+            covers.add(digest)
+        publisher = external_link(fields.get('Link editore', ''))
+        publication = external_link(fields.get('Link pubblicazione', ''))
+        if state == 'no':
+            continue
+        result.append({
+            'id': folder.name,
+            'titolo': fields['Titolo'],
+            'autori': fields['Autori'],
+            'sottotitolo': fields.get('Sottotitolo', ''),
+            'tema': fields.get('Tema', ''),
+            'descrizione': fields.get('Descrizione', ''),
+            'editore': fields.get('Editore', ''),
+            'anno': year,
+            'isbn': fields.get('ISBN', ''),
+            'ordine': int(order),
+            'nota': fields.get('Nota', ''),
+            'link_editore': publisher,
+            'link_pubblicazione': publication if publication != publisher else '',
+            'nota_link': fields.get('Nota link', ''),
+            'copertina': cover.name if cover else '',
+            'versione': digest[:16],
+        })
+    return sorted(result, key=lambda b: (b['ordine'], b['titolo'].casefold(), b['id']))
+
+
 def generate(root=ROOT):
     base = directory(root / BASE)
     result = {}
@@ -180,6 +294,8 @@ def generate(root=ROOT):
         rows = [row for row, _ in unique_media(entries(folder))]
         result[category] = sorted(rows, key=lambda x: (x['data'], x['file']), reverse=True)
     result['profili'] = profiles(base)
+    result['programma'] = program(base)
+    result['cultura'] = books(base)
     output = root / 'js' / 'pubblicazioni.js'
     output.write_text(
         'window.UDCPubblicazioni = ' + json.dumps(result, ensure_ascii=True, indent=2) + ';\n',

@@ -6,8 +6,8 @@ import tempfile
 from pathlib import Path
 
 from aggiorna_cartelle import (
-    CATEGORIES, PHOTO_NAMES, TEXT_NAMES, ROOT, directory, entries,
-    generate, profile_dirs, media_row,
+    CATEGORIES, PHOTO_NAMES, TEXT_NAMES, COVER_NAMES, PROGRAM_FILE, ROOT, directory, entries,
+    generate, profile_dirs, record_dirs, media_row,
 )
 from impronte import sha256
 
@@ -71,17 +71,42 @@ def copy_unique(source, destination, profile=False):
         known.add(digest)
 
 
-def seed_profiles(source, repository):
+def seed_records(source, repository, category, image_names):
     """Prima configurazione: importa le schede esistenti, senza sovrascrivere il PC."""
-    for folder in profile_dirs(repository):
-        target = directory(directory(source / 'profili') / folder.name)
+    for folder in record_dirs(repository, category):
+        target = directory(directory(source / category) / folder.name)
         local = list(entries(target))
         if not (target / 'scheda.txt').exists():
             for path in entries(folder):
-                if path.name in PHOTO_NAMES and any(p.name in PHOTO_NAMES for p in local):
+                if path.name in image_names and any(p.name in image_names for p in local):
                     continue
                 if not (target / path.name).exists():
                     shutil.copy2(path, target / path.name)
+
+
+def seed_profiles(source, repository):
+    seed_records(source, repository, 'profili', PHOTO_NAMES)
+
+
+def copy_canonical(source, destination, names, image_names=()):
+    """Sostituisce un documento o una scheda; non accumula versioni obsolete."""
+    paths = list(entries(source))
+    if any(not path.is_file() or path.name not in names for path in paths):
+        raise ValueError(f'File non previsto: {source}; usare i nomi indicati nella guida')
+    images = [path for path in paths if path.name in image_names]
+    if len(images) > 1:
+        raise ValueError(f'Una sola copertina: {source}')
+    for path in paths:
+        if path.suffix != '.txt':
+            media_row(path)
+    if images:
+        for name in image_names:
+            if name != images[0].name:
+                (destination / name).unlink(missing_ok=True)
+    for path in paths:
+        target = destination / path.name
+        if not target.exists() or sha256(target) != sha256(path):
+            shutil.copy2(path, target)
 
 
 def main():
@@ -96,6 +121,11 @@ def main():
     for category in CATEGORIES:
         directory(source / category)
     seed_profiles(source, ROOT / 'pubblicazioni')
+    seed_records(source, ROOT / 'pubblicazioni', 'cultura', COVER_NAMES)
+    local_program = directory(source / 'programma')
+    remote_program = ROOT / 'pubblicazioni' / 'programma' / PROGRAM_FILE
+    if remote_program.is_file() and not list(entries(local_program)):
+        shutil.copy2(remote_program, local_program / PROGRAM_FILE)
     with tempfile.TemporaryDirectory() as tmp:
         stage = Path(tmp)
         (stage / 'js').mkdir()
@@ -107,6 +137,10 @@ def main():
         for folder in profile_dirs(source):
             destination = directory(stage / 'pubblicazioni' / 'profili' / folder.name)
             copy_unique(folder, destination, profile=True)
+        copy_canonical(local_program, stage / 'pubblicazioni' / 'programma', (PROGRAM_FILE,))
+        for folder in record_dirs(source, 'cultura'):
+            destination = directory(stage / 'pubblicazioni' / 'cultura' / folder.name)
+            copy_canonical(folder, destination, ('scheda.txt', *COVER_NAMES), COVER_NAMES)
         # Controlla l'insieme completo, comprese le collisioni tra persone.
         generate(stage)
         # Propaga anche le rimozioni delle vecchie foto, non solo le aggiunte.

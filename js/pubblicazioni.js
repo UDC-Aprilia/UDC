@@ -47,5 +47,62 @@ window.UDCPubblicazioni = {
       "foto_versione": "4028285e27ea3a0f",
       "allegati": []
     }
+  ],
+  "programma": null,
+  "cultura": [
+    {
+      "id": "la-citta-degli-operai",
+      "titolo": "La citt\u00e0 degli operai",
+      "autori": "Carmen Porcelli",
+      "sottotitolo": "Aprilia da villaggio agricolo a polo industriale (1945\u20131970)",
+      "tema": "Storia del territorio",
+      "descrizione": "Una ricerca sulla trasformazione di Aprilia nel dopoguerra, sulla crescita industriale, sul lavoro e sulle persone che hanno contribuito alla storia del territorio.",
+      "editore": "Atlantide Editore",
+      "anno": "2026",
+      "isbn": "979-12-81526-34-1",
+      "ordine": 1,
+      "nota": "",
+      "link_editore": "https://atlantideditore.it/product/la-citta-degli-operai/",
+      "link_pubblicazione": "",
+      "nota_link": "",
+      "copertina": "copertina.jpg",
+      "versione": "66aaeb2f0c9602d2"
+    },
+    {
+      "id": "pensare-aprilia",
+      "titolo": "Pensare Aprilia",
+      "autori": "Pietro Fazio",
+      "sottotitolo": "Idee, persone e comunit\u00e0 per ricostruire la fiducia",
+      "tema": "Identit\u00e0 e comunit\u00e0",
+      "descrizione": "Una riflessione sul futuro della citt\u00e0, sulla fiducia nelle istituzioni e sul ruolo dei cittadini: un invito a riconoscere nelle radici e nei luoghi condivisi un punto di partenza per la comunit\u00e0.",
+      "editore": "Edizioni Generazioni Insieme",
+      "anno": "2026",
+      "isbn": "979-12-986483-6-4",
+      "ordine": 2,
+      "nota": "L\u2019autore \u00e8 coordinatore cittadino UDC Aprilia. Il libro \u00e8 un contributo personale al dibattito pubblico, non un programma elettorale.",
+      "link_editore": "",
+      "link_pubblicazione": "https://www.amazon.it/s?k=Pensare+Aprilia+Pietro+Fazio+9791298648364",
+      "nota_link": "Ricerca Amazon per ISBN e autore: non \u00e8 stato verificato un collegamento diretto alla scheda d\u2019acquisto.",
+      "copertina": "copertina.jpg",
+      "versione": "025211b1c945768b"
+    },
+    {
+      "id": "la-societa-della-longevita",
+      "titolo": "La societ\u00e0 della longevit\u00e0",
+      "autori": "Paolo Terrinoni e Pietro Fazio",
+      "sottotitolo": "Come cambia il vivere insieme quando la vita si allunga",
+      "tema": "Societ\u00e0 e generazioni",
+      "descrizione": "Una riflessione sulle trasformazioni sociali legate alla maggiore durata della vita e sulle relazioni tra generazioni, servizi e comunit\u00e0.",
+      "editore": "",
+      "anno": "",
+      "isbn": "979-12-986483-2-6",
+      "ordine": 3,
+      "nota": "",
+      "link_editore": "",
+      "link_pubblicazione": "https://www.amazon.it/s?k=9791298648326",
+      "nota_link": "Ricerca Amazon per ISBN: non \u00e8 una scheda prodotto verificata. Editore e anno non verificati.",
+      "copertina": "copertina.jpg",
+      "versione": "0ee77f0f686246a1"
+    }
   ]
 };
