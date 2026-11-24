@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T19:29:30+00:00",
+  "updated_at": "2026-11-24T04:27:06+00:00",
   "items": [
     {
       "title": "Sanità, inaugurate le Case della Comunità di Ferentino e Veroli",
@@ -38,10 +38,19 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Inaugurati la Casa della Comunità e l'Ospedale di Comunità di Santa Marinella e la Casa della Comunità di Trevignano Romano",
+      "title": "Manovra | Antonio De Poli (Udc): sostegno a famiglie e imprese, con Zes unica meno burocrazia e più investimenti",
+      "date": "2026-11-23",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/manovra-antonio-de-poli-udc-sostegno-a-famiglie-e-imprese-con-zes-unica-meno-burocrazia-e-piu-investimenti/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
+      "title": "SILD VITERBO - graduatoria provvisoria art.1 l. 68/99",
       "date": "2026-11-23",
       "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQY25kR0FlYzVrZjdjWUx4cEd3M21xUVp6QnVmUFNSWXJyeWxCcVNzMG0zand0OVR0S2VzbU9YOWZkNHV2WDhYV0ItdHpCYU02RllsaDJheGJOY3ZqaW1LTk5MQVozRmZWVVcxR1pybk5qcTlocUo4aFdtUFRLZkdTU0lEOXJUTzRVc3pvNXAwc3o0bmVMRlltRHZhN2x4N0U?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQdTBMY1BTclhSN01ndWhYNVRGR2FiRk9Ma3VXODA5cThWbzZSMHNtb1RrRDRDS2ZJN1VrRGFFUmRWMUUwX3ZBTVFrZ0lkTUxmeWs2MHZON0RnRDlncGt2eWV0Z20wcFRQUWhCREhPZzhhUm92SXRQYXRkUHYxY2xsM2hPcjZaUXBkTmRuSFFfMUxwdmRDSUJzTXR3TjlteG01Q1FZYjJ4VWRPR28?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -56,10 +65,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "L'Europa a Montecitorio. Calendario dal 23 al 29 novembre",
+      "title": "Campi Flegrei, audizioni martedì e mercoledì - Diretta webtv",
       "date": "2026-11-23",
       "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1jb25SQzlZSF9FbFNITWxqeGNDTnVnX0kzZWZORGtHMk1HSklnMzY4Z3pXZFY0QlhCY0lFRC1kdXpyUDM2TElQLUZFajc5eDVhWkY3U1VRbzllVDdseE5nS1lGNDY2cFhxaWRodkRXMA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA1eHRvVzhQZF90eklkbW1kb0pnZWxqZHdQVkJ4XzNxZDFTMDZiS2dxZVlnMnNDd00xcmw1Ui1YM0tjcXVHLVdPR2pHZVB3aW9rWnB5R2dCcjZsTmpzTnZYandTMmFSVXkwbkx4dnJqcw?oc=5",
       "category": "Istituzioni italiane",
       "priority": "istituzioni",
       "link_kind": "aggregatore"
@@ -74,10 +83,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "SILD VITERBO - graduatoria provvisoria art.1 l. 68/99",
+      "title": "Inaugurati la Casa della Comunità e l'Ospedale di Comunità di Santa Marinella e la Casa della Comunità di Trevignano Romano",
       "date": "2026-11-23",
       "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQdTBMY1BTclhSN01ndWhYNVRGR2FiRk9Ma3VXODA5cThWbzZSMHNtb1RrRDRDS2ZJN1VrRGFFUmRWMUUwX3ZBTVFrZ0lkTUxmeWs2MHZON0RnRDlncGt2eWV0Z20wcFRQUWhCREhPZzhhUm92SXRQYXRkUHYxY2xsM2hPcjZaUXBkTmRuSFFfMUxwdmRDSUJzTXR3TjlteG01Q1FZYjJ4VWRPR28?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQY25kR0FlYzVrZjdjWUx4cEd3M21xUVp6QnVmUFNSWXJyeWxCcVNzMG0zand0OVR0S2VzbU9YOWZkNHV2WDhYV0ItdHpCYU02RllsaDJheGJOY3ZqaW1LTk5MQVozRmZWVVcxR1pybk5qcTlocUo4aFdtUFRLZkdTU0lEOXJUTzRVc3pvNXAwc3o0bmVMRlltRHZhN2x4N0U?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -92,10 +101,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Campi Flegrei, audizioni martedì e mercoledì - Diretta webtv",
+      "title": "Progetto Mimosa: dalla rete al sistema - Martedì alle 11 diretta webtv - Saluto di Mulè",
       "date": "2026-11-23",
       "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA1eHRvVzhQZF90eklkbW1kb0pnZWxqZHdQVkJ4XzNxZDFTMDZiS2dxZVlnMnNDd00xcmw1Ui1YM0tjcXVHLVdPR2pHZVB3aW9rWnB5R2dCcjZsTmpzTnZYandTMmFSVXkwbkx4dnJqcw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBYSGNKWk5MaUE5WWlaMzc4QTV0SFhFeXlwemlDYzJCckJZUXNsUkMyU3dydDBZVGFYazdjVXRfSUhFajlua3ZxbEx4OFlnSzVuUkRJVGZpY05NbDZZaHhWcVIwZTBYUGR6ZFl5b1J0Yw?oc=5",
       "category": "Istituzioni italiane",
       "priority": "istituzioni",
       "link_kind": "aggregatore"
@@ -119,37 +128,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Goldman Sachs, l'economia italiana perde spinta con l'erosione del potere d'acquisto",
+      "title": "Mongiello, con la lucana Albano si rafforza il dialogo con Shell Italia",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOR0ZNeTU3SXhuV3pCeW5sTEoxUHlobEpFVWxoSXpLV3NZSjRkUm8zcFh2SGkxenlFQWw3VThsNXhwdk55aU5JWC1pc0EtRnBWVHlzQVhEdDY3QzNRNjNlb2FzR3NBazNVTnRzZnRyX2ZuY2xHMjdwNHRhbTFUaTJ1blpSaVBsXzRuTC1Femd4RXBzNUhIVlJFM2JKVkNmTmVFY2FrMXZKSzE5RG1EaDJtVWxBOXJHQlFBSmdqN2l1cFk3dXI0Um9OWTNCMVBQOUJCQ0tkR1VEcVRvbW92emgxVm1ybmxnWDU5ZDctOFFOOGRDTEpaUXBJ?oc=5",
-      "category": "Italia · notizie nazionali",
-      "priority": "italia",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Progetto Mimosa: dalla rete al sistema - Martedì alle 11 diretta webtv - Saluto di Mulè",
-      "date": "2026-11-23",
-      "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBYSGNKWk5MaUE5WWlaMzc4QTV0SFhFeXlwemlDYzJCckJZUXNsUkMyU3dydDBZVGFYazdjVXRfSUhFajlua3ZxbEx4OFlnSzVuUkRJVGZpY05NbDZZaHhWcVIwZTBYUGR6ZFl5b1J0Yw?oc=5",
-      "category": "Istituzioni italiane",
-      "priority": "istituzioni",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Press conference with lead MEPs on MFF and own resources on Wednesday at 9.30 | Attualità | Parlamento europeo",
-      "date": "2026-11-23",
-      "source": "European Parliament",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOeHNMWEt1OHVqNC1YQXptRkZrMWhpcUUzakhZdFZpYkhJcFpuTlFPRnE0UThJVURaVUFVbEhuaTJJeHdPSXZVQmJNQW1KODVlTUZZMHAwaEhHSTRuX3NYeE5YeHl1NDlET1lldDIzSnBQNGx3NUNvMnh5WUhzTjg0NjNWbDdES1VTbjkzalhPanFTMy1SaEtJcGJKWXJNbVpvb0F2NkNHNFZNVUhFMjhRQW5leXUtdjBGRkh6TVVaT09RV1dpbS1faTgzaUFaWjlpOHhZZ3NlNUc0Wkh3?oc=5",
-      "category": "Europa e Unione europea",
-      "priority": "europa",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Eurostat, a ottobre rincari carburanti +29,5% dal 2025, +27% in Italia",
-      "date": "2026-11-23",
-      "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxORE9VdjFGUFNBNXVTWWU0T21rNndZeDBNaHF0RVFQeGdiQWFGczRnZ01peFFiOXdpSEpfeUFqMTdNTDdXR0ZKMUJRUDdCa00zSVpkcFEzU0xNRmdSV09xbjVOekttRHBVOE1hbUF6ZlFKbHd2MkF2T29zaDNxQlVkTTF2QjlaNGdYejBzNWQ2UWFMeThwNDl0T1RrcXdGT0g2Q0luV0YzUTJ3LXpJS1lOU0VaQXNTWktGZGVjY0dwMHBJbW0tX3pMS0VBQTFfX2pfNEN1VzBYWEJPMkozeURyYUdpd295Qi1VTDVudXBn?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPZ1JNSHN3U2x1ZmQxWTNyY3NFNjNuZDkybm5CNUpwdVI2LWJvVU9JZEtKVkRyM3F3ZEdGaUVkVUFmRjYtZmRFcjE2N3kwOTZQcXJLV3psYmNqZ2d0emh5TXRyc3lmbEVhQlRJUDdKb3BTd0l1WTUwbkhHUExTNDRGMlZwcVRrM0dRVUtINDB6UDJESC04a3Q5STlhVThTaHJOQ1BRY1ZVUnRsNklxdHM0Z2NuTTRuUHFZaHhocGtmQnNiM1NNMmZ2Zm9TMEI4MVZPOVFUT1oxalI5Y1FhcTU3bVNUWjgwb0NWcjB0NjBzbmJER1RE0gH6AUFVX3lxTE5qUGswc1ptNVRfYWtuajc4OFN4elFxUDVJS1l6Wm1yVGtTdUJqT3RGMmpsT0Rfb2dfRkhua3RGYzlxdXFOOHh4UkE4RnQ4bk5pT08tWkN4YlhoVGphZ3VpeDg1cFZYZXRxb3RsVzZWOXVWUUpzdEpoeHp2X19vWTZPZXdFNjhfdVVSblJiTkpaa0JiT3lTcU0teEdoY0dxRk45TkZfbVhhRUhLOGVzU1NOTWhtT2sxbTZna1ZfZlM5eHBUQkl3Z094Szd2MlB6X1ZJejNsbktQd1BPV3BibG9KeEhLRGVGSjhKa2VjMHUxeXE3TnphR0pRYlE?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -164,19 +146,28 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Press briefing on this week’s plenary session | Attualità | Parlamento europeo",
+      "title": "Press conference with lead MEPs on MFF and own resources on Wednesday at 9.30 | Attualità | Parlamento europeo",
       "date": "2026-11-23",
       "source": "European Parliament",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRmNaTlJNX3Z6TTFKRXJMYWFISGxzWTZ1S202R3FqNVRsTW50bl9kNE1mNmtKdkxLYzEyZlczWDRsMUpmcXdwbDktWGJBUmFrTE1UOFhJSGtncEpBTTliVDdKYVk1OGFtWWxPSkdodlhERlZacEZvWU1EajJSWjBVejZrQ0s4YzlnMXdzNEdzTWg3dUU5NmtyUmU2YnRhY09nOUd5TEhQN3hUU2ZZeDhFdVB3?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOeHNMWEt1OHVqNC1YQXptRkZrMWhpcUUzakhZdFZpYkhJcFpuTlFPRnE0UThJVURaVUFVbEhuaTJJeHdPSXZVQmJNQW1KODVlTUZZMHAwaEhHSTRuX3NYeE5YeHl1NDlET1lldDIzSnBQNGx3NUNvMnh5WUhzTjg0NjNWbDdES1VTbjkzalhPanFTMy1SaEtJcGJKWXJNbVpvb0F2NkNHNFZNVUhFMjhRQW5leXUtdjBGRkh6TVVaT09RV1dpbS1faTgzaUFaWjlpOHhZZ3NlNUc0Wkh3?oc=5",
       "category": "Europa e Unione europea",
       "priority": "europa",
       "link_kind": "aggregatore"
     },
     {
-      "title": "La berlinese finperkrs sbarca in Italia e punta al mondo bancario",
+      "title": "Manovra economica 2027, le audizioni del pomeriggio",
+      "date": "2026-11-23",
+      "source": "Consiglio Regionale del Lazio",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xcjhpemdzQmNUcEI1a19JZGlvaWlyV0dnWWotTjVIV0FwRlZkRUdQdUZqWG1qemxONXN0RTc5SHpXbVJVOG9WUHFpZjUxTFY5cWh2Vms2TGd5R2tidVJ6S0M5aVVZMzVKM1VtN1ZRa2c0cFVrSTZaZg?oc=5",
+      "category": "Regione Lazio",
+      "priority": "regione_lazio",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "Goldman Sachs, l'economia italiana perde spinta con l'erosione del potere d'acquisto",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNOTByX1YzenIwcDNkQjdyYXNaMHhiQWdMbGFmQmZPaGVYc3dsZ29LNVE5a0dEQWt4eTRYSjNxYVFtV3dOSHp5dnpCaDM4YTlTYjZoWWxpWC14aEtGbXc4R0RFUjJhNlpMOFBQVXQzT2piQXZqb3NRSEtRQ3daX1F0RTl5enNXQ3RIb1lDQ0QwQUFoR2ZDVndTTXQ4SjJ5bUpKWkl6U1ViNnRzRVkwYmhGNTN2QzMyV1dMZHFsOFAyR1RpZTgyUUhfb0F2V0x3eWg5WDZsYzJHLVVYNDhVcDVma2x5b0R2Y21nVXdDNWJKYWZiZ9IB9wFBVV95cUxPZi1hOHZ3NENHMWhKQl9kZWdwTlpqQmtHOWZHeWppOFg0VGptUG1weHVYOFlSNHhpSjJLaEJ6Mll4OXZfTm9QSzZ1T0RRX0UtSnpnenFRaEozYUd6X0g0LWhXeGVWbGVKTlJYdmdlNGwySklzUHZtZFRyYXZlaDZ2dFdpNUlzckw3S1J4eHJWRWptcktnVzVBd0ZJVTdYWm5EQzE2aHBVS0ZEZUpRU1k3YThYaDBYbS1YN1RYN0pFV2s1eGtVeW9UeEV3bGtNTjZXZnducjJmRTdHUDAxS1NIOWxGNXl3b0RUU2w1WXZuQ2p3UmdTZ1k0?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOR0ZNeTU3SXhuV3pCeW5sTEoxUHlobEpFVWxoSXpLV3NZSjRkUm8zcFh2SGkxenlFQWw3VThsNXhwdk55aU5JWC1pc0EtRnBWVHlzQVhEdDY3QzNRNjNlb2FzR3NBazNVTnRzZnRyX2ZuY2xHMjdwNHRhbTFUaTJ1blpSaVBsXzRuTC1Femd4RXBzNUhIVlJFM2JKVkNmTmVFY2FrMXZKSzE5RG1EaDJtVWxBOXJHQlFBSmdqN2l1cFk3dXI0Um9OWTNCMVBQOUJCQ0tkR1VEcVRvbW92emgxVm1ybmxnWDU5ZDctOFFOOGRDTEpaUXBJ?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -191,10 +182,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "EP TODAY | Attualità | Parlamento europeo",
+      "title": "Press briefing on this week’s plenary session | Attualità | Parlamento europeo",
       "date": "2026-11-23",
       "source": "European Parliament",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQeUR6MDF2QngzRGM2ZnJPeWhNblZFTW1RX1lCUVNtaURMWmZhamxsMUJxUl9fZFVkMXRRRkZlUm1qVzR6NVhRQjZiTV9CX09uZ19yek8yQVRmcEZ6Nl8yUDBJbUR1YjBrbGxLX0g5WExHM0c4dU9GVnFQMU1KeUd1WA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRmNaTlJNX3Z6TTFKRXJMYWFISGxzWTZ1S202R3FqNVRsTW50bl9kNE1mNmtKdkxLYzEyZlczWDRsMUpmcXdwbDktWGJBUmFrTE1UOFhJSGtncEpBTTliVDdKYVk1OGFtWWxPSkdodlhERlZacEZvWU1EajJSWjBVejZrQ0s4YzlnMXdzNEdzTWg3dUU5NmtyUmU2YnRhY09nOUd5TEhQN3hUU2ZZeDhFdVB3?oc=5",
       "category": "Europa e Unione europea",
       "priority": "europa",
       "link_kind": "aggregatore"
@@ -218,19 +209,19 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Council approves conclusions on the new strategic vision for the EU’s outermost regions",
+      "title": "EP TODAY | Attualità | Parlamento europeo",
       "date": "2026-11-23",
-      "source": "Council, European Union",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQU0FMaVNoQlNYbnRrMjgwb3lVVXE3RXAtYU5KLWt3QnRETE1Ca2NHcWJiMTZHLTg4a0RVOExETXdqSXlVSVhTZ2FGdnlCcHJsMkNyd1JaSXc2cW1ZV2xmcTB2Q0ZfdER4S2hHaUdUckxYeUlMWnNQOFM0TE85c2hjdk84WmdIeWdxM3l4VXRoU1NJVXdrTzVyUmdXZHRDdExIS1k3V0g0YUd1Z0I3bkg5Um50M1ZSRXdIaDNrbjlKVERvOEpRc1dKTkQ1Z2N6eXY5aHI0d3JPQ052YlJvbjRGR3h5V2s0b0U5QVlv?oc=5",
+      "source": "European Parliament",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQeUR6MDF2QngzRGM2ZnJPeWhNblZFTW1RX1lCUVNtaURMWmZhamxsMUJxUl9fZFVkMXRRRkZlUm1qVzR6NVhRQjZiTV9CX09uZ19yek8yQVRmcEZ6Nl8yUDBJbUR1YjBrbGxLX0g5WExHM0c4dU9GVnFQMU1KeUd1WA?oc=5",
       "category": "Europa e Unione europea",
       "priority": "europa",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Consiglio Abruzzo, la settimana politica all'Emiciclo",
+      "title": "Eurostat, a ottobre rincari carburanti +29,5% dal 2025, +27% in Italia",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPSlBNV2dCZHZ1aVMtNmRhT0d4OEw1UmtHZnRlOGpsc0xLWkowMnFjbmgyZEY0VFlQcFljWGlPWlVTZ3RlZUM0bHJuS0lkMklJUWtkSmozd3ROVmE3Z3EzSWtWRDUxMWg4Y0ZHNEV5bmUzU09vNGZMaTVyd2d4Vm9PMWQ4NHdkWHZ1QXgtZ1lNaDFMQTZLWnAweVpHaHBnQUUzdEFBU2RzRW1ZdjR6cHZ4b1lfYnQ0b1JCNXNvOEhXV0ZnSW5ITFhuRk1ZcWdFOHNwVndKR2N2azVXcGlfT2g1RmN3NnTSAeoBQVVfeXFMTjJkWm4xNUFJTkxvYld2WVE2WWkxSVZ5azdDYkpVc0ZxQWJWNjN2OWtKbWZOQUxYVWx6YzBnYjhER25sdXlYOFFfeGlZbVlJQjBTcWg5SEFqYWJrLXFXTVlUUFFSaC1sOGU4SXVsakNoTEVhVkRGVTVNaHBrNHFZcGM3ZEtCVkJBX3Y3RjFyYnRaQi13bWstQlhZeFo3YXJlN3ZUemgza3hSZHBCMjY0ZHBNODhMRzhUTWV2QnBZdUJGZmdnbW1SdmVJSVM3SzQ2RXhkMGlSbTlrb0s2UVFXcDVYNGlmWXM1MUdn?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxORE9VdjFGUFNBNXVTWWU0T21rNndZeDBNaHF0RVFQeGdiQWFGczRnZ01peFFiOXdpSEpfeUFqMTdNTDdXR0ZKMUJRUDdCa00zSVpkcFEzU0xNRmdSV09xbjVOekttRHBVOE1hbUF6ZlFKbHd2MkF2T29zaDNxQlVkTTF2QjlaNGdYejBzNWQ2UWFMeThwNDl0T1RrcXdGT0g2Q0luV0YzUTJ3LXpJS1lOU0VaQXNTWktGZGVjY0dwMHBJbW0tX3pMS0VBQTFfX2pfNEN1VzBYWEJPMkozeURyYUdpd295Qi1VTDVudXBn?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -245,19 +236,19 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Bilancio dell'UE per il 2027: via libera definitivo del Consiglio",
+      "title": "Council approves conclusions on the new strategic vision for the EU’s outermost regions",
       "date": "2026-11-23",
       "source": "Council, European Union",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNQy10NlowMFZVN3RUUzVHc3BtUFpfWWg0dWNEWU5EbmpuOWdBSHlFTHpEZ1dWTHhDelBwUUtNaDZPSnUtM29adnF0a2JRcEFHQVN3ejY2NVFNRkktRXFtVlFJWUlKaDhnd3F6NlAwcXZxcFdaaHktUXBabkg0cjFCVl9KNmxuXzltbUJiUnBpZ1VPaWtNek5qZno1VDNPR19kdGZjWjhBOGN0eEFqMncwUHBWbmlleG15dWc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQU0FMaVNoQlNYbnRrMjgwb3lVVXE3RXAtYU5KLWt3QnRETE1Ca2NHcWJiMTZHLTg4a0RVOExETXdqSXlVSVhTZ2FGdnlCcHJsMkNyd1JaSXc2cW1ZV2xmcTB2Q0ZfdER4S2hHaUdUckxYeUlMWnNQOFM0TE85c2hjdk84WmdIeWdxM3l4VXRoU1NJVXdrTzVyUmdXZHRDdExIS1k3V0g0YUd1Z0I3bkg5Um50M1ZSRXdIaDNrbjlKVERvOEpRc1dKTkQ1Z2N6eXY5aHI0d3JPQ052YlJvbjRGR3h5V2s0b0U5QVlv?oc=5",
       "category": "Europa e Unione europea",
       "priority": "europa",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Tajani, 'Italia e Azerbaigian complementari, da business forum salto di qualità'",
+      "title": "La berlinese finperkrs sbarca in Italia e punta al mondo bancario",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxNcnpydFFMS3ZaR0w4LWdVNGQwMWRBck9KX3F0TEVyeFdNZmtkQUVlWjV2bFdmb0l5VnhUY2pSeHNrREc5YzJfR1JNdkFUN0o0ZDd0MnhRWjY5UXhCb3RVWHpMeEdiWWF4V01tdzIzbDI5d3VuYjBId2c2TUZBaURnbHltUTF3NkdpQTZDX1cyMDRRN29DQ2VvOHNubXVhbnk5OC1zcFo5bmU3QmFWelNBX3dVbFNtOTA2NHFDREZrNTloMUZqNDhBQXU4cVJ1aU1qQ2dBdzB4UGNQbnFmRkhQejhWb29mQTNxemJTOU9SQW8zOVloeDczQkQtRkh6RHJzUWtSZ0M2WEpHUdIBjwJBVV95cUxNM1FhTVdjeTBneUhVX2xSWk5OWnhNMkh2eVpZREt5RXZ1QTRSQlhENFV2VFRIWnBsSHlWVmV6Wl9GRHBFWVZHWTEtN2JqcHowQmpBVWo3RUsxUkd3dmxVQm1LNUdfbjY3aVNmaEJCSDZnUF9iQ1pWekJOSG5INFR5UlB0cTNRazZFVXNSQTJxem1CaE1jY0d3elRYRWg4S0JfNXo5QmhWVlhUQ1Vac19INkZ5dUxRS0tiajNDMmE3a3hXbDV5TDdFZU9xaXJZYkU3M3JRQ1FFbENDWU1fVDByVFNhSlE0b09ybmtVMHZGX3JZcVZqVVNoMXBiOWRBTENiQXp0ek5mMlctNGVNNUV3?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNOTByX1YzenIwcDNkQjdyYXNaMHhiQWdMbGFmQmZPaGVYc3dsZ29LNVE5a0dEQWt4eTRYSjNxYVFtV3dOSHp5dnpCaDM4YTlTYjZoWWxpWC14aEtGbXc4R0RFUjJhNlpMOFBQVXQzT2piQXZqb3NRSEtRQ3daX1F0RTl5enNXQ3RIb1lDQ0QwQUFoR2ZDVndTTXQ4SjJ5bUpKWkl6U1ViNnRzRVkwYmhGNTN2QzMyV1dMZHFsOFAyR1RpZTgyUUhfb0F2V0x3eWg5WDZsYzJHLVVYNDhVcDVma2x5b0R2Y21nVXdDNWJKYWZiZ9IB9wFBVV95cUxPZi1hOHZ3NENHMWhKQl9kZWdwTlpqQmtHOWZHeWppOFg0VGptUG1weHVYOFlSNHhpSjJLaEJ6Mll4OXZfTm9QSzZ1T0RRX0UtSnpnenFRaEozYUd6X0g0LWhXeGVWbGVKTlJYdmdlNGwySklzUHZtZFRyYXZlaDZ2dFdpNUlzckw3S1J4eHJWRWptcktnVzVBd0ZJVTdYWm5EQzE2aHBVS0ZEZUpRU1k3YThYaDBYbS1YN1RYN0pFV2s1eGtVeW9UeEV3bGtNTjZXZnducjJmRTdHUDAxS1NIOWxGNXl3b0RUU2w1WXZuQ2p3UmdTZ1k0?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -272,6 +263,33 @@
       "link_kind": "aggregatore"
     },
     {
+      "title": "Bilancio dell'UE per il 2027: via libera definitivo del Consiglio",
+      "date": "2026-11-23",
+      "source": "Council, European Union",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNQy10NlowMFZVN3RUUzVHc3BtUFpfWWg0dWNEWU5EbmpuOWdBSHlFTHpEZ1dWTHhDelBwUUtNaDZPSnUtM29adnF0a2JRcEFHQVN3ejY2NVFNRkktRXFtVlFJWUlKaDhnd3F6NlAwcXZxcFdaaHktUXBabkg0cjFCVl9KNmxuXzltbUJiUnBpZ1VPaWtNek5qZno1VDNPR19kdGZjWjhBOGN0eEFqMncwUHBWbmlleG15dWc?oc=5",
+      "category": "Europa e Unione europea",
+      "priority": "europa",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "Champions: Maresca 'in Italia bravi a piangere, con il Napoli gara dura'",
+      "date": "2026-11-23",
+      "source": "ANSA",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPQWhMYlRXcThLaGItQTNDWGlWMWlUdFQwRnBCRWY0a0UxT3hUSXk3UVlMb1RRN0NVdnllQkhTbWk5QWRSTzY3OXVCMU4wMkNDVzE0amlYRHpDU0tmcGQ2ZU10d3Ruc1hSa0hLbDFNYmE4UGkzTlNUdUQ1X2hVWEZkaDc4TXB2NzhMQWhoSEZjVTQ1UEJPOF9SMGluOTA1aGRfaWxDTzA4RDJ0S0Rva1FhRDZzandyZzBPaG1FbHVRazZxR25fZE5YRmp4eGtZTC16Y29vdHRaTVh0RVlhRXVmMDVlcDNrYVUxODV4ckdERdIB9AFBVV95cUxQVXNrTEhFQlpHb0Nnb1V1QTRtWmZZV3pRaEF3QV9WM3FJWFdmaWQySzhHeGNrS180MEtSZkwyRnB6ZGlfLVpEZzhwbENKZWRZelpLSGJFVkY3akprQlRWeG1SaFB1TmdZLURlRVEyWUpLaGwzbzk2RExoeWNZNmYyNllYZlloOUZROXFoekhMc0lvZlhvRFluT3V3d3p2VUxmbURQY1kyUHJIWHVmWUg4RUR4U3o2VTJ3Y085T3RWLUdJejdXV2dKQXZUT0JlSEhlRGVqeFVDNHZyR2JqS29JX004UldJaXJEMVQtYzVETU8tU2tR?oc=5",
+      "category": "Italia · notizie nazionali",
+      "priority": "italia",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "Calendario 2027 Polizia penitenziaria - Martedì alle 11 diretta webtv - Saluto di Mulè",
+      "date": "2026-11-23",
+      "source": "Camera.it",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBWMWtuYmQyTERIUG13bVZNU0N1UENLd1NhUnRHOFBTWkxuOERZLW0yZFRMTjBGUTNfNUk0U1VGWXBzOE9JLVJCSXR1LTdkaS1Ra0dLWC1CeUs0WFV5T3dCTU0yQ28wZ1dyaTRlREhSYw?oc=5",
+      "category": "Istituzioni italiane",
+      "priority": "istituzioni",
+      "link_kind": "aggregatore"
+    },
+    {
       "title": "EU sanctions against terrorism: Council lists the founder of 'The Base'",
       "date": "2026-11-23",
       "source": "Council, European Union",
@@ -281,10 +299,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Comunità islamiche, censiti 73 episodi di islamofobia in Italia in due anni",
+      "title": "Rai: Palermo si prepara ad accendere il Capodanno d'Italia",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPcGlPeE5nSmdkbjRPZFkwTFloTm1vSmR1SjRIamNVVC1icnNmR1dMZ3hiX2JzZHJKOGJqbl9mdmY2V0pGWF9ZZG9nbXoxWjhaMEhPRDQ1bHlia3pDeTBVRnYxR21SX2toUjlxVzhIWG8tSW45ekdSMUR6amJpUEJ4eWdmWWNlRUNWVFFKMTlzaURsSHNwREFER3VmTVRoU2Q4aGtiV0J5TFNETWFWSVYzMzk0a25YQ1UtUWFpX2pSb1ZyakViNHp1YVgzYi0tTV95RmNzUHdKeDczdThZcHJRZXBGMHJPN2NUTEl2aUFLaXlQU2I4dGd5eEc0YmRKM0VuanVYSU0xTkRiRTVR0gGSAkFVX3lxTE82LWUtYjNfaEVSMVVLT2xsQTRjcWZ2VV9JZUwwN0JNMUJrd25Nd3JnVnNPVnAyZVJXV0RNcWdLd3V5R0NjNDE0VHJvZHkyLW9uaDRWTHZWT1pRNW5KdmdkSVhxS0VBQTQ3MnpacllUQUN3d2UzYVp0QU1WNFJjd0FyLTliOHhhc0c0Q0FfWlU1NnIyMUs5dmI5ZXNpdnBDNE9iY2R0aUV0YmhLc2k1M3ExcURTODFCTy1aajVST09wVzhhYlBFN2FMVFV6Tks0WXJtdmRwV1ZRSmlqcDQtS2pPWmFkRlZHNF9RcHhkR3ZCQjdKTTV1dzZoaHNKTHljdERlb0ZIaGd4S3dfdmFncDlMbUE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOejVqdlhwaGFCV0FHTVdYZVhIcU1oaGI3YmlwUVRmT2sxMk01TkFiZHhOOS1NVmFQeFBvejllWThvVlBjcTdZR0pDdUhQaERVTlA0QllCazlOZF9kREJMY1hvNWVIZ1pRR3g2MG5hbmE3ekE5bHdIN0dPenpHc0tLLVlXREQxbnliX1lhelQ2S1B4bFF3WWFLejhNNzljMmE5emNGME00SlBwUWlPNzI2RnNGbjNvUzdxejRBdWF4dThFcDYzTlpfZktFb3M4b3RrcWdENW9Rc2lXOXZFSGxhLVFsLTJWbFc10gHuAUFVX3lxTE1Zai1qUnBLa1NuQ1JJak5IWUIyOEFNel9WOFFaWEJ2TmI3NE9pdXY3NFZYeG8tbmd6VXVWZ1NYQU5GSnZOOG54TlJldWFYd0FQWWhSd3IzWE8ySW1SOWNudTZtX1ZyYzBFc0thTGhRbWpUci00dzBfT2hKSFB3WXVQa3JFVWE4M29rdFdOUHFSbW11VWJLQ3ZOUjc0aEpHWnhqQUgwTHI4NHEyV1d3SUtqdGliYlVDbDQ2ZzRfZDRNdmxSMU1YSTh5WXdfYTkwZVBtWmJnWmtmV1FraTkzVTc0bVF5cEt5RDJsb29iZlE?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -308,10 +326,28 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Nuovo Lexus NX, definita la strategia commerciale per il lancio in Italia",
+      "title": "Consiglio Abruzzo, la settimana politica all'Emiciclo",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNckZPdnNFeEtnZ2RsVklHVDVNbmwxeTltdmFRblRWeXMzNmV2TVNQVkRjM293dktuVnBScV9kNEk4ekU4RGRSeWxGcmRPQ21oUFdwUk9MOGtmLUJ1TjJaek56ZVRYUkZIVjNZS1NJa1VRNkdDdVo2aFA3M19ya3hpM2lBNW9PeHgzYXZnSHRNcmY4MEpZVjN1VTBvTjFubllzSHZwLTBVQUxjMEtMc250WmRwWGFxb2hHeGdGSU5CeGRjSGM3VVY3R3JrNEpJdmFNbHNJcWl1TFZWU2NYMDY2cFktZXJOc0hDMVFVejNJeVhZQzhXS04xVjlqaThabEZma0tZdjR6QdIBjAJBVV95cUxNWFlmZnFQUjlzcER5eFhvXzd4WTkwWFFqZkVTQmR0Nmtwd3JxRjFUbE5RUzVPVEljS2FjUlppcHZQMVpwWmdxalpCS3E5cm5XVFBhNWFXYmJyZUh6NzVVZWdsaDAxd01TUjQ1UThGR0hOOHI0U0VpSUt2bWdDM1VRNVFqdlRJbklfWmdCRzllNWNiRUwzSlNlWE9PSFhIS01Db1dJWHZIemZpMnBBMG0zZFpQV0UtcXB1b0lYR2EtQXRTSHFHa3Q4QVJkRTMxM0d0UDgzWGUzeG1kbE5TMGp2b010eEpiQWdfUDFwN3BKVUhlT0N1cUJIYTlYMC1LUC1MREZBRXVVdjFKNTlL?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPSlBNV2dCZHZ1aVMtNmRhT0d4OEw1UmtHZnRlOGpsc0xLWkowMnFjbmgyZEY0VFlQcFljWGlPWlVTZ3RlZUM0bHJuS0lkMklJUWtkSmozd3ROVmE3Z3EzSWtWRDUxMWg4Y0ZHNEV5bmUzU09vNGZMaTVyd2d4Vm9PMWQ4NHdkWHZ1QXgtZ1lNaDFMQTZLWnAweVpHaHBnQUUzdEFBU2RzRW1ZdjR6cHZ4b1lfYnQ0b1JCNXNvOEhXV0ZnSW5ITFhuRk1ZcWdFOHNwVndKR2N2azVXcGlfT2g1RmN3NnTSAeoBQVVfeXFMTjJkWm4xNUFJTkxvYld2WVE2WWkxSVZ5azdDYkpVc0ZxQWJWNjN2OWtKbWZOQUxYVWx6YzBnYjhER25sdXlYOFFfeGlZbVlJQjBTcWg5SEFqYWJrLXFXTVlUUFFSaC1sOGU4SXVsakNoTEVhVkRGVTVNaHBrNHFZcGM3ZEtCVkJBX3Y3RjFyYnRaQi13bWstQlhZeFo3YXJlN3ZUemgza3hSZHBCMjY0ZHBNODhMRzhUTWV2QnBZdUJGZmdnbW1SdmVJSVM3SzQ2RXhkMGlSbTlrb0s2UVFXcDVYNGlmWXM1MUdn?oc=5",
+      "category": "Italia · notizie nazionali",
+      "priority": "italia",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "L'Europa a Montecitorio. Calendario dal 23 al 29 novembre",
+      "date": "2026-11-23",
+      "source": "Camera.it",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1jb25SQzlZSF9FbFNITWxqeGNDTnVnX0kzZWZORGtHMk1HSklnMzY4Z3pXZFY0QlhCY0lFRC1kdXpyUDM2TElQLUZFajc5eDVhWkY3U1VRbzllVDdseE5nS1lGNDY2cFhxaWRodkRXMA?oc=5",
+      "category": "Istituzioni italiane",
+      "priority": "istituzioni",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "Fuga dall'Austria verso l'Italia, inseguimento in Pusteria e un arresto",
+      "date": "2026-11-23",
+      "source": "ANSA",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOREd4Yi0zT0lWbUw5aUc2YVFoV0dhWWVTdmdwalRrRGhvZFQtZzJDcmVUaFZYYWdycHFZaURsYmNlcjFkNjFObDRncWtGTktfN3p4dHpnbUhiUGE4YmVrTlhOelRaLVRYMUxhclVzNUpvSmNRNXlxbzR2SGk1ZTRxaWFXRG5iRU5hNDZkZ3VNdVE0b1lXR1dqNjJpYXBnWFNiTWJscHJVVXZLZ2VkbUxhdE1Xa1M2bDBabGJ4Tm9Nc0c1czRReUVXZUpzUG5TcWlDZ2c4c0FrZnozbDlGdzVwVGhCUWJrbFFyR0VSd2ZnRdIB9AFBVV95cUxQOU5LUUQyVHhlMUdkQ2ZNTWw4OUNEcmhsdGZWZ09qVDZWWjhjMTFtRFVqQ0FPV1ZLY1B1LVVWXzZiVENtTllmYmt4Y05lcjI5YlM5TmRoM2c5Q01JeWI4S2tYd3dTUERGRXpOZ01CNUU3NDVCNzItSmY2ZmpVLXBucWJILWxUZVZFRnNLR2RYdndHdjhzSjFpNWdMVm9DNThhWG9sd2FEV0JzVTk4WkNYSmk1MHRIQl9wSkwtMlhhNW1mSFdJSDE0VXR0aGdVOHoxOG9haUdaMDh0SHNSM0xmSU5QdlRMU043dV82SWxlZzJXUXQy?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -326,10 +362,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "ll duo jazz Marcotulli-Varela all'anniversario delle relazioni Italia-Giappone",
+      "title": "Cattaneo sullo stato della ricerca: \"Risorse appena sufficienti\"",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxPWFR1dnR2ckJrNm44V1hrd3lpLUJ5c2VhbmhnRGI1c3VYYkt3cFVjZzQ3RXM0eng1UzdxcWE4VGpscWN5Qmo0S21sTDVSTWlYbXFiSUg2Q3BKZk84bVYyWHpkT0paejhjNF85a3IzU0xWR2l1c2dJUlprVW5xZVJHaUxrbjN4ZDlrMXdTaXFaNWt3aDRFU3JaTzFMcnJYQlU3Mlk3b29PcmJUSEpNOURSbnE3SWtOektKbVVBM1dxeXlmaUE0TGx2Q0x1amVVTk5va2lUdWFRV1ozTGtNM2hXMW1TbGQxT2lfNmNHdnBiOERTQzI0NEtINzQ3TkNROHVyTG5fQWdHUEkzclRrU0ZfSm1aLWxjSG9tVWNz0gGgAkFVX3lxTFBqZmNBczloOUpVdkNEaU80aDRwUVExLWY4ckRSRFhwWUNLamcydy1SWVJrdmtmVkxwMnIzV3Utb200WFFfdUdZRW9SNWgyMXdadlRQVmJfU19RZGx0b3gta1BUOVhZTnF3cG5rYkJiS21wVWQ3d09SU1c4RkpkZnlMaFlLemtFQkhNN2JYTW8yUWNfUElRX1d2WEllTGwxWUFOTDEtV3BOdFljNUZuTUlESDhrQ0ZOcnZLNmhPWkJjc1VoUk9tUWl0MmtvX1hoLWN1WGhmeFI1STdpMVRSaHk3V2dBYjlBUlVoaTRpcHE4YjVLX3MxQzJ2bjhEUUI1TTZLaUtobzZZUUpJUWptTTljSEQ4clF1WmVwTXhYampEaw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQWHBvTHNud0RJVThJV0R6UGlWSTZra1ZNZ3VFdlZlNngtY3dLUXJvZHlRMnNvVWtwS2gzZGlTMkFDQnljeWFnbi1JUUl5RFR5WkZWdzhZd3E0cm4wX2dtTk9SRy05dDBablFGOWM2MWM0LU1qNWd6bkZMUGwzNDIyVWtJTFV5X185WDFUQS1QQTFUTVBBRWpzZ2tBUGV4MXdGdWN4a0hDQWlwSGExRkhhOXlRQk9ZUThMSUlndFpyUmdhT19jb1VtQWhBTExJTGJnb2VzcUxwM092MHM3SDFHLU50c1gySm1lbURnT0pqYmU?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -344,28 +380,28 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Ricerca, servono tempi certi e rapidi per i ricercatori che vogliono tornare in Italia ++manca foto",
+      "title": "Milano, rubano auto di lusso in centro: due uomini arrestati",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxPMDgxb0R2TzlJbzkwMm1sTWxvcDQ0VThReTdNV3VNRkxFbW9Md0pQRTlBbkQwVHAyWXJGaXNaRXBLMy01b3daZ2g2SDVnbklXamVnczFLQngzRTRsU1lTS3FaUWtaeXJwN1lLNkJKX0FuWkI2Y3pUMTdaR2IyZVVXd1RDRkNyRzRmWDFNY0pNTTF3WEVpWENFQnRiT08yZDF1WEowSTJwdTlaaDNGTkp2ZlhZMEVYbFdUNVpsWjQybXN2NDdSLTViQzk0cHVuc2x1NWJmNTUweDdfS3k0Y1RJVUhwVFB3aTFWaHE2RW13WUZxRzh0bjVPOFEtLUV3eGd3c0VzRl9CSGpUQXJhNTMwZFJTcG92VE1FZVNn?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOZVhESlB4QWxPU2VQcUR6MDRSdTZmTHlob3ZnVlRaTVV1RktISW9nM2xoUlJldXFhT0JEWFdwWnVrZDZ5M3dDSFktTGZRRDJ6UUZCY0xhbHZMdWdwMW5YR2poaGJsM2pKMzdlYl8wb1c0QjFPZzBKTk9lcU5JbXBxNEluNHdmcEEwRndpV0FMXzR2UjNHUkd0dFBndUxFNlBJT3BEblNxZW1XQUlZWHd5YjFxTVZtbmlsVDZ2MEFiUGw0b3B3R0tCTjA1RndoQWVTYkhNLW93TTdiM3kwcGo1UTBBS0s2UXdEV0JaLQ?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Calendario 2027 Polizia penitenziaria - Martedì alle 11 diretta webtv - Saluto di Mulè",
+      "title": "Resoconti delle Giunte e Commissioni",
       "date": "2026-11-23",
       "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBWMWtuYmQyTERIUG13bVZNU0N1UENLd1NhUnRHOFBTWkxuOERZLW0yZFRMTjBGUTNfNUk0U1VGWXBzOE9JLVJCSXR1LTdkaS1Ra0dLWC1CeUs0WFV5T3dCTU0yQ28wZ1dyaTRlREhSYw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMivAJBVV95cUxNOGpMY0hORE9jQk0zckIwek9DWnl5ZGprYy1uWUNxTHltQ1h4SVV3QVdGMkV6OFZvd3N5SEVaUXNTaGRqeTlnVDI3QUFBNnV2cFVpYVRXa1l0ZnNDYUozcWQ0aXFlTHoza0REVDlTOV9VY2dWbkhNWDZNVnBMaHR0bUhOUEktNW91SjdOc1A5bi1ucWxDWEhUVW4waGxrbzY5ZU9jMGU0UTJrQWp4TlM5OTZSZFI5eGVXSVRVa0RUNEppNVZ1WC1tVGJFOVQzNkt2TklzOXNpZmNkeENkOW83ZTB6Q2xhdnpNd0l6dXRXRG52cDVabUxBMGdnNEpVOUlPZVAxckxRb1lZNWhvZ01Mc2NJSEpndmxWbHd4SGE5ZExkRXJYYTczUDhZTllJcHVXb2l3UFVQTnA0ZjdL?oc=5",
       "category": "Istituzioni italiane",
       "priority": "istituzioni",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Zelensky, l'Ucraina deve entrare nella Nato, e questo serve all'Alleanza",
+      "title": "Tajani, 'Italia e Azerbaigian complementari, da business forum salto di qualità'",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNYkE4WWhZVVpPUVFKdnR3RjE2MzJNc1ZUeEVFbmxSOS1Ham5DWm4yXzh2dlBZNHo5WmtsbDFXbVh4aDNzRk1rOWM5UE9SRG9zbUxtZU1NYWVDMlUzdnpzak42Z3VlVzB4Q29qT3BTbmdZc0k4R09RTlhiMFR0SkYtYmxyU1AtS0ViaVlHcXEzU3FOdVJxWDN2LUE0Zm9GOHNNaC11T1lqRG8taDM0OEtyUWdrdy1QajF2NXZ1UUQ0dXVFalJGMVFTeXBrM2xxRm5kM09xT1VzLWVQakw2U3ZSMXlTRHh0Ry1fWFVZNFZmcUF4aTlaVm5DNGpNWExYaDBRVjZkaXFrUEk0bzctdndrMtIBlgJBVV95cUxNRVM2NUZ2MTFtU1JpTHFJS1o3bTU4UHFIbVpaT2lzRl9wN2VBc3BfVV9SQUw4VVJYNDl6RFJpbEthWmF6U1pJSEJhT1NyNHdfcTB6SjRkdDl1WFlOYjNRTllLQjlxWFJhRl8xRlg4UHVGdi1sUkxWTzhWZWR1NjcweEFpaXdfenFkbkg1NWZ2Njhmdk1ycFU2YmZheFhPNldPWURlbEsySnpsV1psVjlxcWJSUlNNQ19fckpjYTk0SWdYaTlHQWpMeVZFY01CYVJjNG9BcHNxUUw3MlVneXB5eE9VX0VmSDBlQ2ZVYW9MUlpvZURfd0xPZ2E1WDFXRU1mOGVMZGdsNVd6V1M0OVdvcEExamVDZw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxNcnpydFFMS3ZaR0w4LWdVNGQwMWRBck9KX3F0TEVyeFdNZmtkQUVlWjV2bFdmb0l5VnhUY2pSeHNrREc5YzJfR1JNdkFUN0o0ZDd0MnhRWjY5UXhCb3RVWHpMeEdiWWF4V01tdzIzbDI5d3VuYjBId2c2TUZBaURnbHltUTF3NkdpQTZDX1cyMDRRN29DQ2VvOHNubXVhbnk5OC1zcFo5bmU3QmFWelNBX3dVbFNtOTA2NHFDREZrNTloMUZqNDhBQXU4cVJ1aU1qQ2dBdzB4UGNQbnFmRkhQejhWb29mQTNxemJTOU9SQW8zOVloeDczQkQtRkh6RHJzUWtSZ0M2WEpHUdIBjwJBVV95cUxNM1FhTVdjeTBneUhVX2xSWk5OWnhNMkh2eVpZREt5RXZ1QTRSQlhENFV2VFRIWnBsSHlWVmV6Wl9GRHBFWVZHWTEtN2JqcHowQmpBVWo3RUsxUkd3dmxVQm1LNUdfbjY3aVNmaEJCSDZnUF9iQ1pWekJOSG5INFR5UlB0cTNRazZFVXNSQTJxem1CaE1jY0d3elRYRWg4S0JfNXo5QmhWVlhUQ1Vac19INkZ5dUxRS0tiajNDMmE3a3hXbDV5TDdFZU9xaXJZYkU3M3JRQ1FFbENDWU1fVDByVFNhSlE0b09ybmtVMHZGX3JZcVZqVVNoMXBiOWRBTENiQXp0ek5mMlctNGVNNUV3?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -380,10 +416,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Mattarella: 'I bambini nel mondo soffrono, situazione sconfortante. Serve più impegno'",
+      "title": "L'Italia pronta per la Davis a Bologna, attesi Alcaraz e Zverev",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPTUppUmJOVTl5Q0hnZFVHUGN1T2h4aEQ2T1lxeHZQQlQ4dUxLaFRIN3JZRDVlVmJZa3NtSXljYnVuRk1GaEVpR0lzUWMyUm5UQW5mblFjd29CU2RITVpGTWN5ZUZfZmQzMEdQaUVYVjhBNzZXTVNOdlJpdjczN2JtX0JubmdjSkRReUtRQVVKY1dKVVJROU8tdkh3ZXBMNnZzLXNMSmZnTFJadElRdV9PdExiRjQ3WERzMlpNOUtpVEQ4R09XUktrMEZVcVdNd2NhWWc4TElVbW5JYUozVVlNOXBRRUNnUGs4UnFISHdYQ2c1Z0NtN0ZycHpQRnpyU2xVQkwzck0zNE3SAY4CQVVfeXFMUGJjYU1QQ01zenI5VkJ1N2ZjM0FnRWtVdlNoX3pEdm9Rd29JRGpicFdaX2dKcGtjSmUtYUdLTVNaSE42eHFoUzFyeFZ4ZDcxRVNFVU4tNnBMbmtaa1dVcE5vZEhlMElFTHVTNDRaZUlCYjNUVHlBcTlkOXZ2U1oyYm0wWURKZy0wNGhETHNxc2lJSklEaDlfZHF3Rjl5ZzU4NVl2ZVdweThUZ3dwNG9fRUR2M053SEphVlN4ajAzdnlwRkxXRUtsWGF1TGpaZ29jSkFqbjBxdG8taG9KMS1CYU1lZzZFQndTekpyaVRoUkt6N2o3T05RVEdzWnNBTms4eHhVbDhpeEtES2huLVRB?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOVjhNRXlkT2FlZ3lGNnNvRkZ3dWdpbjZRa2hpdXduWlNGdC03dU9LSy03eFhXeGw1Tzd3aHNoWXA5czBhLUlFVERUWnZtcWVROEpJUzViN2hJSzBlRldFLVpFWGg2X0hlaGZQTy0yYnV1Z3g4X3RoTjNpYjExaXZGd1Z5dVlrY2lQMm1lLTZmcDNub2V0OU9raW0zWjU3UnFwSlF1Q1JLZ1VJSWI3ZzlWM25vRkJObFFHaTEzNHZENGFkMDFDTEpGQmc3ZlhtVUhtWVRUSllDYUVuSnY1UnA5NjVmQUF6M0FOY0d4VVlLRDFSZkZoR2otd0VSY3hQbzB0aFJDbmdmc2tsdGJzaHfSAZMCQVVfeXFMT2hQZHE4V296LUZYYVhtUmFjOU1RTGVLc24zdXRmNnZib0dkdnFILS1zOUYzQkhVNUY1Uk1RRjhaN3BLZlV6VGlkT180NU95WFVSb1IzV3RoNGxMYXpRdUVERjlob2pKbDlLdGpRaGRTNm9uUGJDTHNHdk5qdGJ5NTJKWmZVU3BEYVZSMG53dVFCb21EZm9hdW9YRVZ6SEkwNndMTjg4OWFzcnlBMnlsWVVzTFZDaGNISklMbmc4a3BOTHdBaTNOSVVrZzc3MTZ1Z19RUE40YUhnN3JaLTdlcWgtbDhIRkRnWUJnQ1JxRlRDd3l5Q2ZNMTJOOHdKQ19BNDhOaGZMTWU1VnRmT1paRTE2SGM?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -398,64 +434,73 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Primo congresso di Ripartiamo dai giovani, 'movimento diventa nazionale'",
+      "title": "Nuovo Lexus NX, definita la strategia commerciale per il lancio in Italia",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOdU45Uk94WnljQzFad2VEQm52dXI3ZF92TVhoN002Wm5ndWlEUlVCNUZZN19NUEw2Q0VVRlRLWml5NUtsaGdjbVdIY1pvXzJndVVVRzZSNTJoRzVuVktBd1puTXBKWXpneE5nQTI3YU5HRTUtV1J4TVp1bUV3U2pkRWFYZTRoREhPNllRbERxbGw3V2k0N18tVFMtNlp4Tmo1NVU0N3NaSXhNUFE0TmJZdVI2bHA5bExOYkVIejNUYUpBUGlZX1BEUjRxY1JpN1N0WklsV2E2ZllGMm8xOWNBWDNoN1gyRjI4WlFRa0dR0gHzAUFVX3lxTE5hQjNhWDg5Z2lDYU9GendqZUlCNEx5dEJzZ25BbmtodmZjOEE0Vmh1alZTdlU4T0MxUTVmZmhDaGMxeE5LRWQ4Zmh6YzVkSFRGOGs0dUVzbENZSEpoUG54UlpJN3RIUUF6ODJZNGxvV1NfZVQwUWI1ZHlHY1o5WXpaOUZYNERFbVRfT3RXMUZ0eXYtandidlNBOVhqNVZoX21fTFRQRWpyYUxYMm5QRTRsRko3ekZWZ09admhtNUdBSUN1djhNd3lGM1UwdjMxa2VoeFBMZEREYXdpX0ZoMENwcGpGZW45TUhZeUhTZFRIeEh4aw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNckZPdnNFeEtnZ2RsVklHVDVNbmwxeTltdmFRblRWeXMzNmV2TVNQVkRjM293dktuVnBScV9kNEk4ekU4RGRSeWxGcmRPQ21oUFdwUk9MOGtmLUJ1TjJaek56ZVRYUkZIVjNZS1NJa1VRNkdDdVo2aFA3M19ya3hpM2lBNW9PeHgzYXZnSHRNcmY4MEpZVjN1VTBvTjFubllzSHZwLTBVQUxjMEtMc250WmRwWGFxb2hHeGdGSU5CeGRjSGM3VVY3R3JrNEpJdmFNbHNJcWl1TFZWU2NYMDY2cFktZXJOc0hDMVFVejNJeVhZQzhXS04xVjlqaThabEZma0tZdjR6QdIBjAJBVV95cUxNWFlmZnFQUjlzcER5eFhvXzd4WTkwWFFqZkVTQmR0Nmtwd3JxRjFUbE5RUzVPVEljS2FjUlppcHZQMVpwWmdxalpCS3E5cm5XVFBhNWFXYmJyZUh6NzVVZWdsaDAxd01TUjQ1UThGR0hOOHI0U0VpSUt2bWdDM1VRNVFqdlRJbklfWmdCRzllNWNiRUwzSlNlWE9PSFhIS01Db1dJWHZIemZpMnBBMG0zZFpQV0UtcXB1b0lYR2EtQXRTSHFHa3Q4QVJkRTMxM0d0UDgzWGUzeG1kbE5TMGp2b010eEpiQWdfUDFwN3BKVUhlT0N1cUJIYTlYMC1LUC1MREZBRXVVdjFKNTlL?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Grillo alla Casa Bianca con Renzo Piano: \"Ho preso l'applauso di tutti\"",
+      "title": "I provvedimenti attuativi delle leggi - Monitoraggio e controllo - XIX Novembre 2026",
+      "date": "2026-11-23",
+      "source": "Camera.it",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPeFBiTHZyTEZuM2h2Qmc1MzFnaDlZaG5hT1djdlp4WWFLUDZ4VTM4dTZabUVBZ2lWM1VOOTJ6UTVmeE0xQVdQMFBRamRyWWFxdl80cDRzTWV2bzNGeHM2RFR3Z2RLUjNONUdLSTJFdHZTaVZzOVcwSmVTV0Ftb3B5SmpIanZfRFNpUGFJLTY5ZGZiWllNUXc4Y05XOXVLakVfbWdDV2liRTVqX1ptSXplT3hGTlR0U1NWc2x5VTNUc25tQ3VoT1lN?oc=5",
+      "category": "Istituzioni italiane",
+      "priority": "istituzioni",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "Comunità islamiche, censiti 73 episodi di islamofobia in Italia in due anni",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPc19wUU45NTktQUtneUJpYlI2OHJjclhwdlFET1dhYW5GbHJiamV1b3BoOGdCTFZvaW5aYWliX1V5dFlxN2pkazlkSHB5QzEzYlhEekQ3aTQzNGZ2TzM2Yll4VXc1MG9iRnR4N2wyT3NYWjJRVzhxY0FSQjZieEYtRVFaTG52WFVFTU9HNEN0a2tHWjdiRFhHeU5iR01lVjY3VkRnZEV3cU9LV0RoX21lR0tnZUlna1JBRWF0bFdnM2VUcjhrRWN1RHMyTVV5aEsxTExoUWhrRDNLTElJRi1xak9wcEZuNEx5c0dDM0JrWHd6VGRpdjU0eg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPcGlPeE5nSmdkbjRPZFkwTFloTm1vSmR1SjRIamNVVC1icnNmR1dMZ3hiX2JzZHJKOGJqbl9mdmY2V0pGWF9ZZG9nbXoxWjhaMEhPRDQ1bHlia3pDeTBVRnYxR21SX2toUjlxVzhIWG8tSW45ekdSMUR6amJpUEJ4eWdmWWNlRUNWVFFKMTlzaURsSHNwREFER3VmTVRoU2Q4aGtiV0J5TFNETWFWSVYzMzk0a25YQ1UtUWFpX2pSb1ZyakViNHp1YVgzYi0tTV95RmNzUHdKeDczdThZcHJRZXBGMHJPN2NUTEl2aUFLaXlQU2I4dGd5eEc0YmRKM0VuanVYSU0xTkRiRTVR0gGSAkFVX3lxTE82LWUtYjNfaEVSMVVLT2xsQTRjcWZ2VV9JZUwwN0JNMUJrd25Nd3JnVnNPVnAyZVJXV0RNcWdLd3V5R0NjNDE0VHJvZHkyLW9uaDRWTHZWT1pRNW5KdmdkSVhxS0VBQTQ3MnpacllUQUN3d2UzYVp0QU1WNFJjd0FyLTliOHhhc0c0Q0FfWlU1NnIyMUs5dmI5ZXNpdnBDNE9iY2R0aUV0YmhLc2k1M3ExcURTODFCTy1aajVST09wVzhhYlBFN2FMVFV6Tks0WXJtdmRwV1ZRSmlqcDQtS2pPWmFkRlZHNF9RcHhkR3ZCQjdKTTV1dzZoaHNKTHljdERlb0ZIaGd4S3dfdmFncDlMbUE?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Grillo a Che Tempo Che Fa: \"A Di Battista dare una mano subito\"",
+      "title": "XIX Legislatura - Commissioni - Convocazioni",
+      "date": "2026-11-23",
+      "source": "Camera.it",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdGJIcl9kZ2Q2d29oaEs3YWtsMmRKcWttZUUwTGhfMXBkVF9oblN3Sk45UmZzSWIxaWltR1lTTG04UkhzdzNFNDVocHdwR1pZMzJPVEJpRzZGN0RRRVNpYWxpOE9CanJXcV9LRk5INjBuTTk1ZFN1WmRjOGM5Q2tTbkw5RHZCaVJzQlV5N2x4SUZSVk4tbmRpQnBHcUR3dzNZU1hHT2VuelpxbDNK?oc=5",
+      "category": "Istituzioni italiane",
+      "priority": "istituzioni",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "Somalia, al via un master universitario finanziato dall'Italia",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOX2NGUGZvc21yXzBSUENUaFNTX2Z6LVJTdHlsUC1vMzVKanBEbFhmWkdOSC1haGFTLTc1R1ZZNnVhdU02LTJyaFRCblNyOVAtVUFuS1NDR2ROWTZxNUJiWGRQR0NzRU40anBfN0hFOVFpZlZOVDdGQzJrTHNUSzlMMzZuTmZJNWhkaUxiTE1sUWFsTXc0cHY2YzlXbGh6WkdWb251bkt2ODVraVpmYWlGdDkzYUQ3RFhEYm5yNGk1RHBVYlRfanZTeTVUd0E2aTFUWjkxQ3F1b29yVk5malhZTnhrVVdocU1DWTRHUU0zNA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxPV2JOdG5nbVNmMHZRN1Vma1BCWlFrNnV5MkJlOElaaXVSbTFsZTNQRExKYkRDRmJWTjFBTFo5alprTDFBVmlOaURUaDZhNHQyQ29ENVNpXzRjcXZZVjBJVE5fMUtXR254THhHdjVjZlVZUmhZRS1VcmRQSzZ6cUU0LUJUTFFQQ3g4anhwc1I0VmRlaFZqU2NtaXZlRnViZTBxUzE2QTdNRml4YVVMWk9WcFcwcmhrbldQaFJpUlppOUFqWDBWNjl5aU1uZy00ZVpzZFdUbzFXWkJQZU4xYTRBaGhON0M1cVZnYjQ1N2dqQ0tZSW1sQnFIck8zcjdFeWw5Sm5iOdIBigJBVV95cUxOTUpsd29ycjdRUEVmSkhwaS1lV1hPY2Iwa1h5ZXE2U2J6SlJKNTJ6by05bjF5YnpyWmZYMjYxQndTZEczeDJNT0xhcDZYRkhfSDlNaEtGQVNNTU9GLUJEVHVvUElUa0JWb3NqNTYzdFVPVmlFdVNRMjU0cEtMTTJ4TldZdXlMYndqRTVVWGdRc0p5OFJQTVdKbTBYeUFEOW5iMzNRa2pNZHFpTnBPZXo1QkMtNzktZnJVUW81dDdBNk41VXV2ckU2VzZ1R2VHbTN3ZlJhRFBvYnBON3doZ2V6ZTBoenRPOXJpdzF4dENrZGRuOWpaaUd4UDJua2N6eTJJQ0V6bWoydzdrZw?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
     },
     {
-      "title": "La letterina di Littizzetto ai caregiver: \"Non hanno bisogno di una medaglia\"",
+      "title": "Ricerca, servono tempi certi e rapidi per i ricercatori che vogliono tornare in Italia ++manca foto",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPLUktX1UxQXFNd0pieUxfTVJvTG41SEdlWXVoRkplSEVsWEpmcWh1bjhWdjZabTFQem9WdTlsdlRvVDhocll4QVFsSVpRLXRFNUFxenRvZVo4NWJxVWtaZXVlZWIzRHZVS0tINU1OcGVWTUVMWEIxRDMxZDhLUkV0RUdpb3FONXBzMnE5MkhZX01SQlBKbVdReG9qZHBaV2ZGM0g0WDRjZklxOGJmdG52NGc1NFBqZE1BTDQxUTQ5WTFoTThndHlHNkM0cXROYUU5SDNaakM0UmpuOHN6b192eWdYbHVxeDVRR0p1eVZFbzFqNjlHem9KejZySThINlVmQXc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxPMDgxb0R2TzlJbzkwMm1sTWxvcDQ0VThReTdNV3VNRkxFbW9Md0pQRTlBbkQwVHAyWXJGaXNaRXBLMy01b3daZ2g2SDVnbklXamVnczFLQngzRTRsU1lTS3FaUWtaeXJwN1lLNkJKX0FuWkI2Y3pUMTdaR2IyZVVXd1RDRkNyRzRmWDFNY0pNTTF3WEVpWENFQnRiT08yZDF1WEowSTJwdTlaaDNGTkp2ZlhZMEVYbFdUNVpsWjQybXN2NDdSLTViQzk0cHVuc2x1NWJmNTUweDdfS3k0Y1RJVUhwVFB3aTFWaHE2RW13WUZxRzh0bjVPOFEtLUV3eGd3c0VzRl9CSGpUQXJhNTMwZFJTcG92VE1FZVNn?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Panetta, le infrastrutture di pagamento sono strumenti potere, serve autonomia",
+      "title": "Zelensky, l'Ucraina deve entrare nella Nato, e questo serve all'Alleanza",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPX3BzZ3lPbG5iNHo4c2YxOTU4QmhiNWYtemltZmNobEFOTERLOU5kSHE4LTJMbU5SOGtZdXdPZTNvcnVYWFdWazZYdjBzWkJfUkVSNVU3UDhFZ3VwUm1rSVowSkdTTFZsZFRSZEV4d2x3YV80aHJNb2RrYkY0bHVjV1Exem5iSGM0ellmRDhUQzVXZ1Z2d2FOeXY3VkVlTEtJMDNNZnd5ZTJ4czVTVm1kd3BxdEhDN2kxbFg1MDNCdkJlYW5lcF9iTEhZcGdIS0VrRFV5anpCV0J4QVo3R0M2U2ZuMlIyZWlaVUI0aWcySkhtNkVjM2Rwc1ZNNDNHb01s0gGGAkFVX3lxTE9Qc0QxOHY2eG1UQjRDMFBENVhDelFYN01vRkt2alcyRUVNcVdSYURsNFJnR0xIaEpjX3g3b0hnc3BsT3M2Zjd5VlVWVHdHSDU4cmVNY3dHNGZPZ1k2R0NuclhMOWZlbWRILWJYcUFFZHJyOWZac1RxQVBaZWRjVThRVkNqS3lfVlQ5a1c5cHJxSFNGZDl2Q2VvSGEzUXU5alFPaWpKdDVuSVZpSzlkRnBUMm1rM0RiS2tYTVljMWs5TERqclVRTFkwYnZlZkRha2RrUDJTMDBJSUtPSTdCeGo4dTZCOWYyb0wtSF8yOTJ6LU5pemJoVFNJZkF2M1hYc0tqRDZnZlE?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxNYkE4WWhZVVpPUVFKdnR3RjE2MzJNc1ZUeEVFbmxSOS1Ham5DWm4yXzh2dlBZNHo5WmtsbDFXbVh4aDNzRk1rOWM5UE9SRG9zbUxtZU1NYWVDMlUzdnpzak42Z3VlVzB4Q29qT3BTbmdZc0k4R09RTlhiMFR0SkYtYmxyU1AtS0ViaVlHcXEzU3FOdVJxWDN2LUE0Zm9GOHNNaC11T1lqRG8taDM0OEtyUWdrdy1QajF2NXZ1UUQ0dXVFalJGMVFTeXBrM2xxRm5kM09xT1VzLWVQakw2U3ZSMXlTRHh0Ry1fWFVZNFZmcUF4aTlaVm5DNGpNWExYaDBRVjZkaXFrUEk0bzctdndrMtIBlgJBVV95cUxNRVM2NUZ2MTFtU1JpTHFJS1o3bTU4UHFIbVpaT2lzRl9wN2VBc3BfVV9SQUw4VVJYNDl6RFJpbEthWmF6U1pJSEJhT1NyNHdfcTB6SjRkdDl1WFlOYjNRTllLQjlxWFJhRl8xRlg4UHVGdi1sUkxWTzhWZWR1NjcweEFpaXdfenFkbkg1NWZ2Njhmdk1ycFU2YmZheFhPNldPWURlbEsySnpsV1psVjlxcWJSUlNNQ19fckpjYTk0SWdYaTlHQWpMeVZFY01CYVJjNG9BcHNxUUw3MlVneXB5eE9VX0VmSDBlQ2ZVYW9MUlpvZURfd0xPZ2E1WDFXRU1mOGVMZGdsNVd6V1M0OVdvcEExamVDZw?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Grillo a Che Tempo Che Fa: \"Non voglio l'applauso sulla fiducia\"",
+      "title": "Mattarella: 'I bambini nel mondo soffrono, situazione sconfortante. Serve più impegno'",
       "date": "2026-11-23",
       "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPanBVOVY4WXBCaWt6RTNnWlNROS1iLXVUMXVIN0szZDJtLUc4QnJ4UjRYUm9UQTBhSW84ZGZIMklpZXZVOEVJblJyeHRiOHluMWpkNGphY3RhU1ozVER4X0FNVGkxNlBqUVF1cDdjeEprMUVta3lvY2dUUFI5UHRJb0NFWm13eU1vakdKSTVYNnd1QmY2RXlGZVRBNDlST1pyNmplcHR6Y291VG9ib0ladjVzYXExYVB2XzFaT2VVOUZyS0gwOVI0aXpGVndVX1NxTVJDT010d3dXbXpDcndMdE9UZVVPcGJaaktsOVE3bw?oc=5",
-      "category": "Italia · notizie nazionali",
-      "priority": "italia",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Sangiuliano (FdI), 'Carfagna ottima candidatura a sindaca di Napoli'",
-      "date": "2026-11-23",
-      "source": "ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPcVl3UHFRQ2l2eDRPNTlUcnd1NzRMRDNZU3VHd21ReDFzbGw2ckl0VmI0d1oteVA3ODRITXVUSGg5SEo1V0hLOXphb2hya1NqN2VIRWY5WjluYU04RHZTYkhxNFFZenlKLUY2QlVlQ2lkQUdycmtmLTJlejhuYldLOUJfZ2lmVm53c0F3Rm5Gb3NCay1jbGNOQWtjUzloa283aVZ2aFdZcFkxbjJGNTBpalpsbFJlU1ZNZnpadjFXUVMtdGNzQjU1aTJaMTFrWkZvdm9TZzdVSWtzTTF0QkVzTFMzY0EzdVZS0gHuAUFVX3lxTE9rMzg5T2l1ZWktVnNCLWxSTF9Ha3EzOGU1SGtlWFhWOGstTTB4eGlhemtsZHN4Y3d4cGxWc1VwRy1ZOHpxdXVTZ2g3WGdrWWkwUDNxUUhkNmRIblZ5QWRXR1JDYUNRU1VKZVlQRnZ3eEZJTDU5ZEczeXhsMWtoQnNqUFpmc0d0bFBOVmg5R2xNanIwRHVYV0xOLTJ1YWR2dzRmWnByQ2h0N1FqYm1pRWFyNHRudUhwRzlfNUxBOU42a3NDSTZWRnlSQTh2VW16YTRCYXFOQ1VZZk9sVTRiYy05cWxqRDljVkR3Z2ZqZ0E?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPTUppUmJOVTl5Q0hnZFVHUGN1T2h4aEQ2T1lxeHZQQlQ4dUxLaFRIN3JZRDVlVmJZa3NtSXljYnVuRk1GaEVpR0lzUWMyUm5UQW5mblFjd29CU2RITVpGTWN5ZUZfZmQzMEdQaUVYVjhBNzZXTVNOdlJpdjczN2JtX0JubmdjSkRReUtRQVVKY1dKVVJROU8tdkh3ZXBMNnZzLXNMSmZnTFJadElRdV9PdExiRjQ3WERzMlpNOUtpVEQ4R09XUktrMEZVcVdNd2NhWWc4TElVbW5JYUozVVlNOXBRRUNnUGs4UnFISHdYQ2c1Z0NtN0ZycHpQRnpyU2xVQkwzck0zNE3SAY4CQVVfeXFMUGJjYU1QQ01zenI5VkJ1N2ZjM0FnRWtVdlNoX3pEdm9Rd29JRGpicFdaX2dKcGtjSmUtYUdLTVNaSE42eHFoUzFyeFZ4ZDcxRVNFVU4tNnBMbmtaa1dVcE5vZEhlMElFTHVTNDRaZUlCYjNUVHlBcTlkOXZ2U1oyYm0wWURKZy0wNGhETHNxc2lJSklEaDlfZHF3Rjl5ZzU4NVl2ZVdweThUZ3dwNG9fRUR2M053SEphVlN4ajAzdnlwRkxXRUtsWGF1TGpaZ29jSkFqbjBxdG8taG9KMS1CYU1lZzZFQndTekpyaVRoUkt6N2o3T05RVEdzWnNBTms4eHhVbDhpeEtES2huLVRB?oc=5",
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
@@ -506,28 +551,19 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Giornata internazionale per l’eliminazione violenza contro le donne",
+      "title": "Intelligenza artificiale, vicepresidente Ascani a Bruxelles: serve solida ricerca pubblica per tutelare diritti e creare opportunità",
       "date": "2026-11-22",
       "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBkNlVFejhMQnkzNC1mQjJTNHM3UW9kSUdHbDdETGpZUkpkeWxBMHEwOERRY2tiVm9Ca3JwN2pFbHZ2ZHVoRzR2SGVlT1AwY3pWT1JZX2ltZV9CZ1ZLUkxVTWJmZHhxUWFCOXRlQ0xYUQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE8xeUhaWjFjWXlVeGt0LVdIdUJGdHUxMURISVRvQ0pSSklZSndzcEFqSUcwcTFxODJLTkt2M09yclVyYWtNMTMwQS1HOEpUYVRNdjhxWEdTTV9INElWMVdSNXZXdjlrYkRUbGloa3VwRQ?oc=5",
       "category": "Istituzioni italiane",
       "priority": "istituzioni",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Gaza: l'impatto delle inondazioni e delle restrizioni agli aiuti | 23-11-2026 | Attualità | Parlamento europeo",
+      "title": "Giornata internazionale per l’eliminazione violenza contro le donne",
       "date": "2026-11-22",
-      "source": "European Parliament",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcU5ibE5NNDFlQXRNNFB4ZU03LXJWWjVzTzk3T0dHblgtZmJRSG1rTmdsRm5fdjBEYXAyYnE4VVZCdmI1dVNUWFF6LTRFVF9IQ1gzVDZTMmt3VFJFaVVkalBPQXlxektUYXVsQ2JQMEdqWlNOc1lOVHFLXzhKQldMVnlxYWl0VUxYc19KeENpbzB5akUtaDFkZVdEVGFoTjlLRS1MYmRPVmVBOXhHSFdPRExmbEhkMVpNMDh4UHdsRWcyNVFoUDhOcW8zWDVKUWRD?oc=5",
-      "category": "Europa e Unione europea",
-      "priority": "europa",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Archivio delle notizie - A.G. n. 448 - Schema dlgs recante nuovo codice della strada: in Commissione 8a",
-      "date": "2026-11-21",
-      "source": "Senato della Repubblica",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBDVXlXTm5aNUd6QzRteHNmMnNDa2VtVkotdGZvVnY5empGQTdJNFotZk1NalB4LWxlUWd0cFJjR01IZXVoU0lKeEJpaFQwdmItd1VLbGRkYmkyaUprcTR0NkhRbzg0QWNSUC1r?oc=5",
+      "source": "Camera.it",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBkNlVFejhMQnkzNC1mQjJTNHM3UW9kSUdHbDdETGpZUkpkeWxBMHEwOERRY2tiVm9Ca3JwN2pFbHZ2ZHVoRzR2SGVlT1AwY3pWT1JZX2ltZV9CZ1ZLUkxVTWJmZHhxUWFCOXRlQ0xYUQ?oc=5",
       "category": "Istituzioni italiane",
       "priority": "istituzioni",
       "link_kind": "aggregatore"
@@ -542,21 +578,21 @@
       "link_kind": "aggregatore"
     },
     {
+      "title": "Archivio delle notizie - A.G. n. 448 - Schema dlgs recante nuovo codice della strada: in Commissione 8a",
+      "date": "2026-11-21",
+      "source": "Senato della Repubblica",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBDVXlXTm5aNUd6QzRteHNmMnNDa2VtVkotdGZvVnY5empGQTdJNFotZk1NalB4LWxlUWd0cFJjR01IZXVoU0lKeEJpaFQwdmItd1VLbGRkYmkyaUprcTR0NkhRbzg0QWNSUC1r?oc=5",
+      "category": "Istituzioni italiane",
+      "priority": "istituzioni",
+      "link_kind": "aggregatore"
+    },
+    {
       "title": "Apertura lista d'attesa Trasporto Scolastico a.s. 2026/2027",
       "date": "2026-11-20",
       "source": "Comune di Aprilia",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQcnZqNnl0OEgyR3FpOXg0bjdtd3JaS19qRU5ZaVE5WEY3SWFrRzcxOHBFTHF4ZU9uWVV6Ykd0LXQxSWU2bHVJMFdHd1UyLTNtcElZdVNxdEpYdVlaVE85VGg4MjdET19Ra2NqUThYMkdlQW9yckcyRkJzcTZYd2ZacnVLWFpVUlRfTnlnQVBsNm9oY1p4ZFhOSVZ5eEdQSUZHeFFXVjdEdw?oc=5",
       "category": "Città di Aprilia",
       "priority": "aprilia",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Copasir, audizione Vittorio Pisani – Martedì alle 14.30",
-      "date": "2026-11-20",
-      "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE43b25Fb3pEZnNmZjdMd1lzeW9zZ3cwNjRPMllDNG1RRTNVNkhMNnNwSEZmWGNJcnptc2pObm9VX1QxNVQ3dnU5VWZMUzBKVks0NmRVNkE3Qmd4RHVuT05JTmFYN2hRX0dNd2F1S2hIbw?oc=5",
-      "category": "Istituzioni italiane",
-      "priority": "istituzioni",
       "link_kind": "aggregatore"
     },
     {
@@ -569,30 +605,12 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Per mano 6 - Lunedì alle 15 diretta webtv - Saluto di Mulè",
-      "date": "2026-11-20",
-      "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE8zUkdLMkpiNmprOFB1cWlxekRkZUtOUGdqcm1Fd2JxMkFuNGxIYUtlX0o1c3htNzFfUFBMYlU5X1JFNlV4OTRfS1EzT0I4SFFOZWQ5ZDhnOElpMXB0dXhHSEZ0YktZMzUweU1fLUV3RQ?oc=5",
-      "category": "Istituzioni italiane",
-      "priority": "istituzioni",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "Press conference on the adoption of the 2027 EU budget on Wednesday at 10.30 | Attualità | Parlamento europeo",
       "date": "2026-11-20",
       "source": "European Parliament",
       "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOLXE2SjItQUZUbExiaFlNeWNzRkRDUHlNTUJSV0VaTm90Rmp1YUVaTnlJVlFURzZuWGhudVVfTmgtVHdKRUZCU3NCQ1c2ZmFQUFBTMmlsOHdtM21MUFk0bHRub0NYMEdlZ1NHcEprNUlJLUQwYnhfX05oQUhNRnQyU3NnTEdlNHA0MzFaRUx4UGNpTG5yTDlLU3g5MmZrOUFlNzdJZU1YUGQyVk9WVGx4OEpNRkFtVU14RXNCa1h4SW9SME9nX2dyRlBjTnNjYnlYYW5QVWVUUEI3U0k?oc=5",
       "category": "Europa e Unione europea",
       "priority": "europa",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Riconoscimento al merito per le eccellenze italiane per la pace e lo sviluppo economico - Lunedì alle 10 diretta webtv",
-      "date": "2026-11-20",
-      "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1NNHB4c1o1NFRuVU9wbmIySEt4RWUxUG00dzU1c2NGX2pVb0FGMEEwZ2NtOHJMckRWYXZUR3AxTl9YdkFxbnBzaWpHLUdkSHdjNmxfNnlZd0FySWh4NVdsd0o2bDA2ZmZ1anBManZycw?oc=5",
-      "category": "Istituzioni italiane",
-      "priority": "istituzioni",
       "link_kind": "aggregatore"
     },
     {
@@ -605,30 +623,12 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Covid, lunedì audizione Conte – giovedì Mackinson – Diretta webtv",
-      "date": "2026-11-20",
-      "source": "Camera.it",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE50UEh3UUl4OWJmZ3pCY3FaR1I0dFZnQl90ZUJUa3hZY3BQeGhfd25ndEFCY19KejdrV0dKcEg5b1k5c0lFU3l6Y2cyQ3VnQlprWjZmc0lPUzJVcGNjcEg2SnkzVHhMX2V0Q1BQVWdHWQ?oc=5",
-      "category": "Istituzioni italiane",
-      "priority": "istituzioni",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "Media advisory - Agriculture and Fisheries Council of 23 November 2026",
       "date": "2026-11-20",
       "source": "Council, European Union",
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQODczckNHeG9DbVhBLWJSVElEVlg5WnNrRGktZVJMRWhfbjhLR1BuY1h5MlNldlVvZmpQOGh6blhwSWNSUHF5cWltUm90UnBxdzI5ZVFNVExJa3h6Y0pWUnVQYnhQNU90SVN1Wk14dUpwTm9NUVVkWWlENC1QN09Hd0ZDa2NfQUh3Q2E3UW5OckN4NXRETFBqanNzMXlTVDRfU3RDMGJqLXJZajh5ZGpKc054MVVKSTBUTWczMGM0dHZNTGZ0bXpCN3JrZWd0SDV3RHc?oc=5",
       "category": "Europa e Unione europea",
       "priority": "europa",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Archivio delle notizie - D-l n. 177/2026 - Istruttorie ambientali: in Commissione 8a",
-      "date": "2026-11-20",
-      "source": "Senato della Repubblica",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9fb0VLV3NBOFlYeFRuZmFNS2lqdmYtbzVCbGJpdkQwU0NSenYyOFlsSTUxWDdsQ3dBNWstRlV1TG9McGpKYzNGRDlLYUVUdzA4cTl1WGVGYzhnY1MwdS1DWHVEdFZreTF4Qlk0?oc=5",
-      "category": "Istituzioni italiane",
-      "priority": "istituzioni",
       "link_kind": "aggregatore"
     },
     {
@@ -641,30 +641,57 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Zes unica | Antonio De Poli (Udc): battaglia vinta dall’Udc, semplificazioni per tutti, Centrodestra sostiene chi produce",
-      "date": "2026-11-19",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNYTBSWEd6MUVfaldPVWUzWjl2TGVzeEVZemh2b29OQ3Y0ZnYxSndLRXZ6aEhNekVTaGNvVVZkLXEzM0dnNkZMTWJ1UE1EVE9qS1c4WmZ2b2JfOXRCb2RoZDNMLXZzVHZSMTZ0NDA2UDk0V1hjaVB0UFNMTGVwODhTRDlDazZCcDFpajVWaVJQWm5YcFlUeDZZZUkzOG1ham80YkhTSU5TcW9hQXZvSWtLTHlnVW4zcE9UcU9taWFROEh6NlMxaTNzbVp6d2xYVlFtVjYweVJ2Zw?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
+      "title": "Copasir, audizione Vittorio Pisani – Martedì alle 14.30",
+      "date": "2026-11-20",
+      "source": "Camera.it",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE43b25Fb3pEZnNmZjdMd1lzeW9zZ3cwNjRPMllDNG1RRTNVNkhMNnNwSEZmWGNJcnptc2pObm9VX1QxNVQ3dnU5VWZMUzBKVks0NmRVNkE3Qmd4RHVuT05JTmFYN2hRX0dNd2F1S2hIbw?oc=5",
+      "category": "Istituzioni italiane",
+      "priority": "istituzioni",
       "link_kind": "aggregatore"
     },
     {
-      "title": "Pomezia | Lorenzo Cesa: «L’UDC è il motore moderato del centrodestra. Avanti con Francesco Rocca e il Governo Meloni",
-      "date": "2026-11-19",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOWURmVTBrUUlXc1NIcFdYVnpnV1dKUHJaOTZJblZydGhINTlNTlhYYUJBLURmWURkM3dSUEpyNnVqZ3VWWHJUQWxKbGNOa1ltVllxVE03Rk1vejdjeVdEcG5MNi15cHZpWGdWSjg1ZEFzT2xUZlJfdVc2Z1YyQjktRzRWekdQU0loX3BVWEIwUzJ4Qk4xaVI4YlF0ZGdLbk9MRE1ISDgxNHF5cEJNV1FnWmtOeE9rYkpqbmd2cXZYQlk5aHdHQXdpMmNEYzBiRjQ0ZDFJ?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
+      "title": "Joint statement EU-United Kingdom summit, 20 November 2026",
+      "date": "2026-11-20",
+      "source": "Council, European Union",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPaGtUR0d5bHNOaHlwYVBCYU1hMnVhOE9yS01TXzBaSjNNenZCTkVRWXBtUEFkd3NOSy1HNlpFUHV0bzVvQXZGQjg3SnY0M0VtanpBX2JLRkpQTVlnNVlsTGgxY1Vob2sxUE1mSHBRRjhieEIzdmNuT1ZPRjZWejF3ekFkSE43MDdweHNkOWZKV3E0aWRUZHVxX2dMNWhCOHBrX3hWLUstMEYwWU93eVZfb3dHQkdhNFh2R3RXQW9HTGVwbVk?oc=5",
+      "category": "Europa e Unione europea",
+      "priority": "europa",
       "link_kind": "aggregatore"
     },
     {
       "title": "Avezzano | A Michela Lazzaro (UDC) la delega gratuita per il rilancio del centro cittadino",
       "date": "2026-11-19",
       "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPT2sweURENTRLZHYxbGw0U3pWTi14TE5KT2Q2SGNYdlJRUVpXNGk3N3N0ZHZyeHNPREVGZ0NzaUVLZExIb3c1dThRVktqQUthaHQwOXJ1dXlGTW90QWV3bk5ZZ2NEUWpReTJIUy1PZmhybUhubVlrU19Ld29PMDJTR1NJczMwOWZ1ZTNjSm50NUVCeUltdnVoeE5ZYm5mT0xwWXUzOThheGxnYUxpcVMyNmk2SQ?oc=5",
+      "url": "https://www.udc-italia.it/avezzano-a-michela-lazzaro-udc-la-delega-gratuita-per-il-rilancio-del-centro-cittadino/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
+      "title": "Pomezia | Lorenzo Cesa: «L’UDC è il motore moderato del centrodestra. Avanti con Francesco Rocca e il Governo Meloni»",
+      "date": "2026-11-19",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/pomezia-lorenzo-cesa-ludc-e-il-motore-moderato-del-centrodestra-avanti-con-francesco-rocca-e-il-governo-meloni/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
+      "title": "Zes unica | Antonio De Poli (Udc): battaglia vinta dall’Udc, semplificazioni per tutti, Centrodestra sostiene chi produce",
+      "date": "2026-11-19",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/zes-unica-antonio-de-poli-udc-battaglia-vinta-dalludc-semplificazioni-per-tutti-centrodestra-sostiene-chi-produce/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
+      "title": "Turismo e sport, dalla Regione oltre 2,8 milioni di euro per i progetti dei Comuni",
+      "date": "2026-11-19",
+      "source": "Regione Lazio",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNem1mY3RMakNfN3lmN0RuTExrMmpuUnU3SjdaNGpqalpMSmNBQlBsdW44Mmt3YXFwVnhmU2FTMGUxc2trZXZQRGRqX1A2M0M4dW9NM0VjZ1UzTEpORFdONkYwT0ZaUENVOWxIcnFIX2dFbFltUFZpZHlTTmNzdzRSLWo0ME5zUVhaMUFOcTNRN1hKVzVsUmc?oc=5",
+      "category": "Regione Lazio",
+      "priority": "regione_lazio",
       "link_kind": "aggregatore"
     },
     {
@@ -672,15 +699,6 @@
       "date": "2026-11-19",
       "source": "Regione Lazio",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTGJjS05Fc0hkNVJFR0xGc0NIMy1QRkpUd2pmbkZNLUdsaENRek9WWHRhMzZhV0xuRWNONEpYbjd2N2JiTzJ5VnVtWG5EdDZtNVVBZG1naHhIdmVhUGZ3VkJEWmEtTTVSa0RWZEx4SGZLd1F6V0FNcVV6YjJoQkx1eDdNTllmc2JZdU92UDFNcFNDYTZpVlE?oc=5",
-      "category": "Regione Lazio",
-      "priority": "regione_lazio",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Turismo e sport, dalla Regione oltre 2,8 milioni di euro per i progetti dei Comuni",
-      "date": "2026-11-19",
-      "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNem1mY3RMakNfN3lmN0RuTExrMmpuUnU3SjdaNGpqalpMSmNBQlBsdW44Mmt3YXFwVnhmU2FTMGUxc2trZXZQRGRqX1A2M0M4dW9NM0VjZ1UzTEpORFdONkYwT0ZaUENVOWxIcnFIX2dFbFltUFZpZHlTTmNzdzRSLWo0ME5zUVhaMUFOcTNRN1hKVzVsUmc?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -749,19 +767,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "La Regione Lazio alla fiera della piccola e media editoria - Più Libri più Liberi 2026",
+      "title": "Avviso Pubblico apprendistato professionalizzante ex art. 44 D.lgs n. 81/2015 PR FSE+ 21-27 - III edizione",
       "date": "2026-11-18",
       "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmo2LWZRSldpNWxXOTFhdjl6RzZYaGF2SFo5OGRCdEtzdkVkNVpQbVo3b0FmZFBXOUpyc25RSlJ3X2F6dld2UnVmMlFZYTI5QWs4VEZHd3d2Mm9wdWJtSFl4QmRGYjFnYWFzSXFjTkUxRTJaX3c5N2Q2c0ExcUY1Q1ZzMFl1U3EwRW0tR0ZzTmtON0FYUVMxZGFvczVGZnIzQm5YbGxXT1k5UEtUZnpEWVhyZlJUcTNnbEdrTF8ySF9NUQ?oc=5",
-      "category": "Regione Lazio",
-      "priority": "regione_lazio",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Approvata la Strategia d’Area Interna \"Terre di PreGio\": un traguardo condiviso per lo sviluppo del territorio",
-      "date": "2026-11-18",
-      "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBEa0VmMi1ZV2JsemFuUU1sQzZObVFGY0JNaWFQT3VveHdKdVN3T0NFcUlSRHZFQ0JYbHJWSngzODVvbzhUSXRXR3JBNDR6Zm5XejZCRGRJbjdIQjg4VWc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQczJUeVlCYmFnQzBwdXhwTHNZTWYwU2o1UEdkQXFRSlhmLS1BenpvZjlhWUJ4dEJiaDlGVl9IeFBUM0I0c3AtZzBVTk1GcDhRSVRIaEVTVEdDWnF3Y1VmdlNvcVAyQkstTmplNm5jT2puenNTd0lKNy1tejFFMjZ4M3MxN3VPRzJtXzBKbERNQ0ZuTlRjY0ZXUV9QcmhOX0g0c1IxRnFHaUtPQnA1MTNZdktlcTE3eThWOFg4Nkp6TnVIUkU?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -776,10 +785,19 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Avviso Pubblico apprendistato professionalizzante ex art. 44 D.lgs n. 81/2015 PR FSE+ 21-27 - III edizione",
+      "title": "Approvata la Strategia d’Area Interna \"Terre di PreGio\": un traguardo condiviso per lo sviluppo del territorio",
       "date": "2026-11-18",
       "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQczJUeVlCYmFnQzBwdXhwTHNZTWYwU2o1UEdkQXFRSlhmLS1BenpvZjlhWUJ4dEJiaDlGVl9IeFBUM0I0c3AtZzBVTk1GcDhRSVRIaEVTVEdDWnF3Y1VmdlNvcVAyQkstTmplNm5jT2puenNTd0lKNy1tejFFMjZ4M3MxN3VPRzJtXzBKbERNQ0ZuTlRjY0ZXUV9QcmhOX0g0c1IxRnFHaUtPQnA1MTNZdktlcTE3eThWOFg4Nkp6TnVIUkU?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBEa0VmMi1ZV2JsemFuUU1sQzZObVFGY0JNaWFQT3VveHdKdVN3T0NFcUlSRHZFQ0JYbHJWSngzODVvbzhUSXRXR3JBNDR6Zm5XejZCRGRJbjdIQjg4VWc?oc=5",
+      "category": "Regione Lazio",
+      "priority": "regione_lazio",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "La Regione Lazio alla fiera della piccola e media editoria - Più Libri più Liberi 2026",
+      "date": "2026-11-18",
+      "source": "Regione Lazio",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmo2LWZRSldpNWxXOTFhdjl6RzZYaGF2SFo5OGRCdEtzdkVkNVpQbVo3b0FmZFBXOUpyc25RSlJ3X2F6dld2UnVmMlFZYTI5QWs4VEZHd3d2Mm9wdWJtSFl4QmRGYjFnYWFzSXFjTkUxRTJaX3c5N2Q2c0ExcUY1Q1ZzMFl1U3EwRW0tR0ZzTmtON0FYUVMxZGFvczVGZnIzQm5YbGxXT1k5UEtUZnpEWVhyZlJUcTNnbEdrTF8ySF9NUQ?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -797,16 +815,16 @@
       "title": "Cesa e Binetti a Montecitorio: dopo la denuncia, nessuna donna lasciata sola",
       "date": "2026-11-17",
       "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZXdZN2RrVkVqRmV4aGJENzBsbURybzJOa0ZfZmlaTms1X2F1enM0YWV1U0kwSG5lYWlDZFBxRzk0eWpiRk5XZ3FTM3lOMEJ1OW42V0RlMUxoWTJ2cWExNi04ZmFQb3B3NGNMRnNuVmpxbUdWOTZBdWY1MXV6dEVzdlowV044dklsU2NhZGlqZmpMTXluc1RDNDJuMGpkYmpFaTEw?oc=5",
+      "url": "https://www.udc-italia.it/cesa-e-binetti-a-montecitorio-dopo-la-denuncia-nessuna-donna-lasciata-sola/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
+      "link_kind": "diretto"
     },
     {
-      "title": "Fitch conferma il rating BBB+ e migliora il profilo creditizio autonomo della Regione Lazio",
+      "title": "Comunicato - Pubblicazione esiti Avviso Pubblico GOL 4 (Codice Sigem 26005N) e Pre-informativa",
       "date": "2026-11-17",
       "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSWJSNThOaTdzQnV6Mld0MW15Nmk1aFQ4aVlDNUVlb1pwQW1oVzV0QktJWXN3dmpaTjc3X1k5WGpoaDdBY19RamZKMU5tNVJ5T3BNNkZjNlNwNnA2anl0N1RITExka21iV2hycE1ObTNhdG5ZVFlwc2FfU3NSb1lManRMNDY0MDBMaHk0cUs3RkFEMDFyTXFpQ2pFd28xMHRaaDlTLWhYV3FfckhOYlNPTVBQYw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSmM3bzczM0tsWkRsdWNPdW1VXzR6QUZJUFVtbmdsSTQ1RkFtZ0lVWUFLeWt1MGhNSGZzOHprQ2c5NWdCQXBPaEcyc3dsc1NoT3pkektQTFFqR05FUEhqLWlrLXZEa3NkeWtkMm5JM2Z4TDc0LU52YVRVMEtwb1BrODRVUHBhUWJ6QjlqWkxWY04yd05ubGVPQzE5T2plT2FnQnc?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -821,6 +839,15 @@
       "link_kind": "aggregatore"
     },
     {
+      "title": "Fitch conferma il rating BBB+ e migliora il profilo creditizio autonomo della Regione Lazio",
+      "date": "2026-11-17",
+      "source": "Regione Lazio",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSWJSNThOaTdzQnV6Mld0MW15Nmk1aFQ4aVlDNUVlb1pwQW1oVzV0QktJWXN3dmpaTjc3X1k5WGpoaDdBY19RamZKMU5tNVJ5T3BNNkZjNlNwNnA2anl0N1RITExka21iV2hycE1ObTNhdG5ZVFlwc2FfU3NSb1lManRMNDY0MDBMaHk0cUs3RkFEMDFyTXFpQ2pFd28xMHRaaDlTLWhYV3FfckhOYlNPTVBQYw?oc=5",
+      "category": "Regione Lazio",
+      "priority": "regione_lazio",
+      "link_kind": "aggregatore"
+    },
+    {
       "title": "SILD Viterbo - 2° scorrimento avviamento al lavoro delle persone con disabilità presso CCIAA DI Rieti - Viterbo - I Avviso 2026",
       "date": "2026-11-17",
       "source": "Regione Lazio",
@@ -830,10 +857,19 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Comunicato - Pubblicazione esiti Avviso Pubblico GOL 4 (Codice Sigem 26005N) e Pre-informativa",
+      "title": "CSR 2023-2027 del Lazio - Intervento SRD01 Investimenti produttivi agricoli per la competitività delle aziende agricole",
       "date": "2026-11-17",
       "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSmM3bzczM0tsWkRsdWNPdW1VXzR6QUZJUFVtbmdsSTQ1RkFtZ0lVWUFLeWt1MGhNSGZzOHprQ2c5NWdCQXBPaEcyc3dsc1NoT3pkektQTFFqR05FUEhqLWlrLXZEa3NkeWtkMm5JM2Z4TDc0LU52YVRVMEtwb1BrODRVUHBhUWJ6QjlqWkxWY04yd05ubGVPQzE5T2plT2FnQnc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOUEVsYnpBbHY4S19iZ2pOSmIxcGRGZ1BONXlEZHEwcEsyOGJ4SEdlbHJ6eGdMUFlzdFhIOFp1Zlg1S216eURkdHA3ZHd6WWNqSlliWVA4WHFlSDNfTE51WGlvZlNwUUNNLVVDYTBUSVNiS0tQV0R1em5WT3VFNEV6b2Yzb0hzd25QNS1WSnp0WVJYUVcxaTFzNzZ2dXI1Y1VTWFVaaWdqZDkzbDFUSF9SV0FFWTJmd3gxQlBfQnh4ajBvNEgxWVJUNzBsWGNhcS1XbHhFM1dGSDJENHhSOUFjRzRpdw?oc=5",
+      "category": "Regione Lazio",
+      "priority": "regione_lazio",
+      "link_kind": "aggregatore"
+    },
+    {
+      "title": "CPI di Roma, Velletri e Civitavecchia - Pubblicazione Graduatoria Provvisoria - n. 1 operatore (ex Ausiliario) –a tempo indeterminato pieno, presso il Ministero della Giustizia - Ufficio Centrale degli Archivi ",
+      "date": "2026-11-17",
+      "source": "Regione Lazio",
+      "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxNRmxxei1uaFVvaUZkTmZMYmdqWC0wM3RQVXFSWWVRaUpSby1fcDdySEh0aGpsamlCd2s0M0xEOFFRQ3JXSkQ3X1ZiY2lfRlRsQnpRYkt3REhiX08wVU1FSkYyb1ZPSGJ2ckM2cFVESXlfTFdGZUJMZVNCNXZyWDVoXzFZdmM5WW1ESGVLWW9naXA1T1pGbHgyYUlpcXRvN0VVbzZTMUhxWUItYXhhVlBjOUxHNHFwSnBUdW80TXpnYWxEWGxKVkVPSEQ5MTh0aEUzSUZtVmxjM3hyTERybzlYMTVQUHdVSV9jT3A3U0c2eW5qR05GWVpzMVlla092cmYzYkNTclJxODFqVXo1NVY2R1ZNb0tZem85WmJ3aE40TkxzZ25YWnRub3VOM19YTHppcWt3NnUxMUhUSVZnSmFlTHB2b1ExNVE?oc=5",
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
@@ -869,46 +905,19 @@
       "title": "Marcinelle | Antonio De Poli (Udc): bene giornata europea, sicurezza sul lavoro priorità",
       "date": "2026-11-16",
       "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOR1cwSFNfWW5YRnV0SjhMek42RDktUjdxamUyaXlNQ3YzSkN0ZTBVQ050UENGRVRINy1xQTBFZVY3WGR6Qm1IZzlmM0NSS0tDV3V6SjV6dFIwSkh4VzU2bjZwQjhieHdUMmI0bUNRZFpld2F1ZTZkNDR5MXFqTjJ1VlFTbjE3ai12VExpUlB0TnNNYzZKcURWQ3JBZ1NaR3p4b2xVUUlPdzNYREtkQ3c?oc=5",
+      "url": "https://www.udc-italia.it/marcinelle-antonio-de-poli-udc-bene-giornata-europea-sicurezza-sul-lavoro-priorita/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Cotral compie 50 anni: 282 nuovi mezzi in tre anni",
-      "date": "2026-11-16",
-      "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcEFuNzc5c0IwTHcydk5oWjR5OGMzRUhBQ2ZxRTZOME5INEdpYVVDX2NFeXlLWUlHNmpUMUFSRllBX3lRTG5JQlM0TFp4R193N1RtSXROT29VNFdoOV81V0ZwWHNueTJiYVV2VzhRT3FKaUlSdTVKZXZqR1FpRWF6VDFscmdVMGt2V0p5MV82dw?oc=5",
-      "category": "Regione Lazio",
-      "priority": "regione_lazio",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "I seminari dei CPI della Regione Lazio e del SILD al Salone Nazionale dello Studente e del Prof",
-      "date": "2026-11-16",
-      "source": "Regione Lazio",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPLWdabjA0dzhzUmNUN3RXQUp3TndCYVZZQnJrVldtdXNfVHFTbW8zQVJ2bVl2NV9FQU95eWZlZkd1TUQyakZOZGZ1VDl3d2sza0tIa2ZuU3NyN0JERHNoYWYyeVZqS3dvSkl2UHVBb2ZvNl9RcE55b3ZYZDhaTFEwRDIzaFlHM1VhdTFSWkNrNTNFcVpQanlVTm1xWGtVV1VZYW9obTZCeGhaa1V6ajk0ZmNQb1Qwck53VGhtQkljV2lVOWNjTjc3eGlrSDF3cWZiYmJZLUlUMWI?oc=5",
-      "category": "Regione Lazio",
-      "priority": "regione_lazio",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Edilizia, audizione sulla PL 298: ordini professionali favorevoli alle semplificazioni e al metodo di confronto",
-      "date": "2026-11-16",
-      "source": "Consiglio Regionale del Lazio",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE02T3VZeDFVSDhrNk11YnpHTVpYQmE4UlJQekZhLXM1eFNRc01ucjF6SnRiZmRPYzlpWTMyTlo3anZwdUlBNWYyMF80QmVIU0F3VWs5QXBnY05sMThhR3h5Qm54UnJwQ3c3VTVFMWFLc3pIeDJnb2RtOQ?oc=5",
-      "category": "Regione Lazio",
-      "priority": "regione_lazio",
-      "link_kind": "aggregatore"
+      "link_kind": "diretto"
     },
     {
       "title": "Reddito di Cittadinanza | Antonio De Poli (Udc): il Campo Largo, vecchie ricette",
       "date": "2026-11-13",
       "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQbnM2WkJqNEV6dDhLdXdkMTAwY0h2Wm0zbnFhQ1pTWGliYWNZR3N5aWtwQVJDRmtpekpDdWxKcUZpbmhES29VcTNvUGI2T1VFanFjQWxEdUFIbUcyNlgtb2dUeHppV1RSeTZRS0Z1TzdJYU5iLTY2bWp6WGJFeHZZM2hEX243MEVqQlFuQVFFSHVDMkVmZjZkMWNHdEdPTW5XQ3dj?oc=5",
+      "url": "https://www.udc-italia.it/reddito-di-cittadinanza-antonio-de-poli-udc-il-campo-largo-vecchie-ricette/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
+      "link_kind": "diretto"
     },
     {
       "title": "Avviso pubblico per la concessione di “voucher nidi”",
@@ -950,10 +959,10 @@
       "title": "Lavoro | Antonio De Poli (Udc): intesa parti sociali risultato straordinario del governo di centrodestra",
       "date": "2026-11-12",
       "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOS3RWaHVSSmJLQ3dldUU5UUlqbUpUSUwxMUNYNTJwcV9oUVpuZXJRLXhiT1gyQmJEZkxXSUtKd2xacUF4cUUzMmtKQ2dqUDI2WUREVW1PRHpTaWFPazJpLWFXV2dIY0dtaTlnWEsxQ3hvZHRrYnRhYUZ4SE04REZTWWd6ZEpDRjlHQWcwNmZnWDlaem92bHR2VURKZ0ZKc1I1NUhHSERYbEJkb0JjdkFNTjNWU0lyZXdfQWg2NnIzUEUtYjBN?oc=5",
+      "url": "https://www.udc-italia.it/lavoro-antonio-de-poli-udc-intesa-parti-sociali-risultato-straordinario-del-governo-di-centrodestra/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
+      "link_kind": "diretto"
     },
     {
       "title": "Modello B Al Comune di Aprilia III Settore – Servizio Pubblica Istruzione Piazza Bersaglieri, 04011 – Aprilia – LT Tel. 0",
@@ -965,22 +974,22 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Allarmi bomba nelle scuole | Antonio De Poli (Udc): la paura corre online, serve più conbsapevolezza",
-      "date": "2026-11-11",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQR2U4X3VHWWRnVkpROFFtTlh1UVBDbF9KTlVvZ25kZXZwWWkyLWpkMExGZzlESE8yb3hrLVJBMkY1VG5ER2NqWEl2MU10eGhBZ1hkNmRmWVZWTm5ULW1PZDFqakJEaDRMRE1ZWEI0UWYtcUp0UE5aNjZnckFCaW85OXJkSUdvdWROYXlvYXp4Tm9Ga2ltT0MydWxOTEw1MTY4MGs0RERwQkZBemlicTkwcGFhLTVaZmNWM3J3VTR3?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "ITALIA-NATO 3.0 | Lorenzo Cesa: “La difesa europea si costruisce sul campo e nell’innovazione tecnologica”",
       "date": "2026-11-11",
       "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNb21CblBmUzBoSTVqQjhsXzVWSzNDSXczeFI2cEZvbF9nYVljUFBsdWNiZmdGTzRJM0gxY09fZUF0WC0yNjBRcEhWUWUwUU5FN2NEUzVucXp0ek1lWDlQdkdZM1VINnIyczc4WWNWWEl0WlpPZ0p0T1ZOOU5Na2lsWlNaLU5aTGx0MEloWWgybWVEVTh5OTFhU3RpQ3hKcHJmcWFibjFWeDNnYU10ZGl5VThSaU84allDeWpVSmNKdlA1bjJrSnc?oc=5",
+      "url": "https://www.udc-italia.it/italia-nato-3-0-lorenzo-cesa-la-difesa-europea-si-costruisce-sul-campo-e-nellinnovazione-tecnologica/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
+      "link_kind": "diretto"
+    },
+    {
+      "title": "Allarmi bomba nelle scuole | Antonio De Poli (Udc): la paura corre online, serve più conbsapevolezza",
+      "date": "2026-11-11",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/allarmi-bomba-nelle-scuole-antonio-de-poli-udc-la-paura-corre-online-serve-piu-conbsapevolezza/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
     },
     {
       "title": "Orari di apertura al pubblico della Biblioteca comunale G. Manzù dal 16 novembre 2026",
@@ -1185,15 +1194,6 @@
       "date": "2026-10-26",
       "source": "UDC Italia",
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPTWVTbmZiejhLWG5ILVRNNnJHdnROT2NYMG9hMW51NHMwNkk2enBGcG91U0RKM21VbXcwdlZ5WFBGYll1UWZ0bEJPUHBiM1hyQjgyV2RyMTJ6Zy1IOTRBNWpSU0d4S25hUWhSejlEdXJPWUdNSUM3QlZYODNWQWo1X3Y4V29kZlhkTm9rTVpWeDVyaW5fdkc2cFdKRTE0Y3FGZGRIeDMwc1FVaC0tMXZxMG0yYllndUF4VlVGUw?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Minacce di stupro nelle chat degli istituti superiori del Veneto | Antonio De Poli (UDC): “Serve una regolamentazione dei social. Parlamento acceleri, appello bipartisan”",
-      "date": "2026-10-20",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMilwJBVV95cUxOaUJzXzlrYnU5TGIyOS1yV3RmMUZISGRFaU9yLW92VzR1aTdKdWVOQTRhamRXY0JYRDBmU3ZONmcyd1NvZWN4QjdyVHo4akJSS3lIcnJPenMwQWx4LUNIa0Q1M196ODU5WGctTHgyeXFOYzBndXIzdkQxRHN5N2FsVV95UlJkdTBOWjQwMFozZjdBVmVRMThQYXdieGwtNW1yY0RpcTJQVXo1T2VaTVplRWhTb2FCNXpJc184Q3g0QWNHZEtBdUxjaWdXOGI3dHNfNHZuSzNFWWxSUFpweGRMUm1mcHdMUFJqSTk0V055MldKVGl5Y1ZjY2hFNUpJLUd4dFNBbkpYX1pqTDhfcUZuOXZWUDdTMDg?oc=5",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
       "link_kind": "aggregatore"
