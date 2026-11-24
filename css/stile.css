@@ -3375,3 +3375,32 @@ body {overflow-wrap:break-word}
 
 /* TOP Premium Élite — profilo del coordinatore */
 .coordinator-bio{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(16,43,80,.16);font-size:.94rem;line-height:1.7;text-align:left}.coordinator-bio p{margin:.65rem 0}.coordinator-bio details{margin:.9rem 0}.coordinator-bio summary{cursor:pointer;font-weight:700;color:#102b50;padding:.5rem 0}.coordinator-contact{overflow-wrap:anywhere}.coordinator-contact a{color:#102b50;text-decoration:underline;text-underline-offset:3px}.coordinator-bio a:focus-visible,.coordinator-bio summary:focus-visible{outline:3px solid #b38b35;outline-offset:3px}.privacy-prose h2{scroll-margin-top:6rem}.privacy-prose a{overflow-wrap:anywhere}@media(max-width:640px){.coordinator-bio{font-size:.95rem}}
+
+/* Profili dinamici: griglia istituzionale, allineamento e lettura mobile. */
+.profile-grid {
+    align-items: start;
+}
+.profile-grid .profile {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+.profile-grid .profile-memberships {
+    font-size: .85rem;
+    font-weight: 600;
+    color: #102b50;
+}
+.profile-grid .coordinator-bio h4 {
+    margin: 1.15rem 0 .35rem;
+    font-size: 1rem;
+    color: #102b50;
+}
+.profile-grid .coordinator-bio ul {
+    padding-inline-start: 1.25rem;
+}
+.profile-grid .coordinator-bio li {
+    margin-block: .5rem;
+}
+.profile-grid .coordinator-bio p {
+    color: #334155;
+    font-weight: 400;
+}
