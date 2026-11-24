@@ -26,3 +26,6 @@ Il confronto SHA-256 avviene nella stessa cartella di pubblicazione: copie ident
 
 ## Profili dei dirigenti
 La sincronizzazione importa le tre cartelle personali esistenti e riconosce automaticamente le nuove cartelle con scheda.txt. Vedere GUIDA-PROFILI.md per nomi dei file, ruoli, sostituzioni e sospensione della pubblicazione.
+
+## Programma e Cultura (CMS editoriale)
+La stessa sincronizzazione crea anche `programma` e `cultura`, importa le schede dei libri esistenti e sostituisce i file canonici. Per programma e libri seguire `GUIDA-PROGRAMMA-E-CULTURA.md`, che sostituisce le vecchie indicazioni di modifica manuale. Il programma deve essere approvato prima del deposito. Non è necessaria un'altra attività pianificata.
