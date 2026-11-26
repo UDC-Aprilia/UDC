@@ -31,6 +31,7 @@
         return result;
     }
     async function load() {
+        sha = null; catalog = []; render();
         const result = await request(fileApi(cfg[kind].path) + '?ref=' + encodeURIComponent(session.branch));
         if (typeof result.content !== 'string')
             throw new Error('Archivio non leggibile');
@@ -42,7 +43,7 @@
         sha = result.sha;
         render();
     }
-    async function save(next, action) { const response = await request(fileApi(cfg[kind].path), 'PUT', { message: action, content: json64(next), sha, branch: session.branch }); sha = response.content.sha; catalog = next; render(); }
+    async function save(next, action) { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.'); const response = await request(fileApi(cfg[kind].path), 'PUT', { message: action, content: json64(next), sha, branch: session.branch }); sha = response.content.sha; catalog = next; render(); }
     async function withBusy(fn) { if (busy)
         return; busy = true; document.querySelectorAll('#workspace button').forEach(b => b.disabled = true); try {
         await fn();
@@ -54,7 +55,7 @@
         busy = false;
         document.querySelectorAll('#workspace button').forEach(b => b.disabled = false);
     } }
-    function switchKind(next) { kind = next; resetForm(); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
+    function switchKind(next) { $('archive-search').value = ''; kind = next; resetForm(); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
         $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('form-heading').textContent = kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
     function resetForm() { $('editor-form').reset(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
     const itemKey = x => isPdf() ? String(x.anno) + '/' + String(x.file) : String(x.id);
@@ -68,7 +69,8 @@
             target.append(msg);
             return;
         }
-        for (const item of [...catalog].sort((a, b) => String(b.data).localeCompare(String(a.data)))) {
+        const query = clean($('archive-search').value).toLocaleLowerCase('it');
+        for (const item of catalog.filter(x => [x.titolo,x.data,x.destinatario,x.descrizione,x.fonte].join(' ').toLocaleLowerCase('it').includes(query)).sort((a, b) => String(b.data).localeCompare(String(a.data)))) {
             const el = document.createElement('article');
             el.className = 'editor-entry';
             const meta = document.createElement('div');
@@ -121,7 +123,7 @@
         $('save').textContent = 'Salva modifiche';
         $('form-heading').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    async function publish() {
+    async function publish() { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.');
         const id = clean($('item-id').value);
         const old = id ? catalog.find(x => itemKey(x) === id) : null;
         if (id && !old)
@@ -129,7 +131,7 @@
         const titolo = clean($('title').value), data = $('date').value;
         if (!titolo || !/^\d{4}-\d{2}-\d{2}$/.test(data))
             throw new Error('Indica titolo e data validi.');
-        const next = isPdf() ? { data, titolo } : { id: old?.id || 'item-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8), data, titolo };
+        const next = isPdf() ? { ...old, data, titolo } : { id: old?.id || 'item-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8), data, titolo };
         if (kind === 'stampa') {
             const fonte = clean($('source').value), link = safeUrl($('press-url').value);
             if (!fonte || !link)
@@ -225,6 +227,7 @@
     $('logout').addEventListener('click', () => { session = null; catalog = []; sha = null; $('workspace').classList.add('hidden'); $('login-panel').classList.remove('hidden'); $('token').value = ''; status('Sessione terminata.'); });
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => withBusy(async () => { switchKind(t.dataset.kind); await load(); status('Archivio ' + cfg[kind].name + ' caricato.'); })));
     $('refresh').addEventListener('click', () => withBusy(async () => { await load(); status('Elenco aggiornato.'); }));
+    $('archive-search').addEventListener('input', render);
     $('cancel').addEventListener('click', resetForm);
     $('editor-form').addEventListener('submit', event => { event.preventDefault(); withBusy(publish); });
 })();
