@@ -2,7 +2,8 @@
 (() => {
     'use strict';
     const $ = id => document.getElementById(id);
-    const cfg = { stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati PDF' } };
+    const cfg = { stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati PDF' }, lettere: {path:'data/lettere.json',name:'Lettere istituzionali'} };
+    const isPdf = () => kind === 'documenti' || kind === 'lettere';
     let session = null, kind = 'stampa', catalog = [], sha = null, busy = false;
     const status = (message, error = false) => { $('status').textContent = message; $('status').classList.toggle('error', error); };
     const clean = s => String(s || '').trim();
@@ -54,9 +55,9 @@
         document.querySelectorAll('#workspace button').forEach(b => b.disabled = false);
     } }
     function switchKind(next) { kind = next; resetForm(); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
-        $(key + '-fields').classList.toggle('hidden', kind !== key); $('form-heading').textContent = kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
+        $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('form-heading').textContent = kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
     function resetForm() { $('editor-form').reset(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
-    const itemKey = x => kind === 'documenti' ? String(x.anno) + '/' + String(x.file) : String(x.id);
+    const itemKey = x => isPdf() ? String(x.anno) + '/' + String(x.file) : String(x.id);
     function render() {
         const target = $('listing');
         target.replaceChildren();
@@ -72,7 +73,7 @@
             el.className = 'editor-entry';
             const meta = document.createElement('div');
             meta.className = 'meta';
-            meta.textContent = [item.data, kind === 'stampa' ? item.fonte : kind === 'documenti' ? 'Anno ' + item.anno : item.luogo].filter(Boolean).join(' · ');
+            meta.textContent = [item.data, kind === 'stampa' ? item.fonte : isPdf() ? 'Anno ' + item.anno : item.luogo].filter(Boolean).join(' · ');
             const title = document.createElement('h3');
             title.textContent = item.titolo;
             const desc = document.createElement('p');
@@ -112,8 +113,8 @@
             $('event-url').value = x.link || '';
             $('event-photo').value = x.foto || '';
         }
-        if (kind === 'documenti') {
-            $('doc-description').value = x.descrizione || '';
+        if (isPdf()) {
+            $('doc-description').value = x.descrizione || ''; if (kind === 'lettere') { $('letter-recipient').value = x.destinatario || ''; $('letter-protocol').value = x.protocollo || ''; }
             $('doc-approved').checked = x.pubblica === true;
             $('doc-privacy').checked = x.verifica_privacy === true;
         }
@@ -128,7 +129,7 @@
         const titolo = clean($('title').value), data = $('date').value;
         if (!titolo || !/^\d{4}-\d{2}-\d{2}$/.test(data))
             throw new Error('Indica titolo e data validi.');
-        const next = kind === 'documenti' ? { data, titolo } : { id: old?.id || 'item-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8), data, titolo };
+        const next = isPdf() ? { data, titolo } : { id: old?.id || 'item-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8), data, titolo };
         if (kind === 'stampa') {
             const fonte = clean($('source').value), link = safeUrl($('press-url').value);
             if (!fonte || !link)
@@ -164,9 +165,10 @@
                 throw new Error('Nome foto non valido.');
             Object.assign(next, { luogo, tipo: $('event-type').value, descrizione: clean($('event-description').value), foto, link: url ? safeUrl(url) : '' });
         }
-        if (kind === 'documenti') {
+        if (isPdf()) {
             if (!$('doc-approved').checked || !$('doc-privacy').checked)
                 throw new Error('Per pubblicare il PDF devi confermare sia l’approvazione del coordinamento sia la verifica della privacy.');
+            if (kind === 'lettere') { Object.assign(next, old || {}, {data,titolo,destinatario:clean($('letter-recipient').value),protocollo:clean($('letter-protocol').value)}); if (!next.destinatario) throw new Error('Indica il destinatario istituzionale.'); }
             next.anno = data.slice(0, 4);
             next.descrizione = clean($('doc-description').value);
             next.pubblica = true;
@@ -180,8 +182,8 @@
                 const bytes = new Uint8Array(await file.arrayBuffer());
                 if (new TextDecoder().decode(bytes.slice(0, 5)) !== '%PDF-')
                     throw new Error('Il file selezionato non è un PDF valido.');
-                const name = 'comunicato-' + data + '-' + Math.random().toString(36).slice(2, 9) + '.pdf';
-                const path = 'documenti/' + next.anno + '/' + name;
+                const name = (kind === 'lettere' ? 'lettera-' : 'comunicato-') + data + '-' + Math.random().toString(36).slice(2, 9) + '.pdf';
+                const path = (kind === 'lettere' ? 'lettere/' : 'documenti/') + next.anno + '/' + name;
                 status('Carico il documento PDF nel repository…');
                 await request(fileApi(path), 'PUT', { message: 'Carica comunicato ufficiale ' + name, content: toBase64(bytes), branch: session.branch });
                 next.file = name;
