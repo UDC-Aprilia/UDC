@@ -112,6 +112,7 @@
       <button aria-pressed="false" class="tab" data-kind="documenti" type="button">
        Comunicati PDF
       </button>
+     <button aria-pressed="false" class="tab" data-kind="lettere" type="button">Lettere istituzionali</button>
      </div>
     </section>
     <section class="panel">
@@ -198,16 +199,17 @@
        <label><input id="event-photo-approved" type="checkbox"/> Confermo diritti, autorizzazioni e privacy della foto.</label>
        <p class="help">La nuova foto sostituisce quella indicata sopra. Sarà pubblica e resterà nella cronologia GitHub.</p>
       </div>
+      <div class="hidden" id="lettere-fields"><label>Destinatario istituzionale *<input id="letter-recipient" maxlength="180"/></label><label>Protocollo (facoltativo)<input id="letter-protocol" maxlength="100"/></label></div>
       <div class="hidden" id="documenti-fields">
        <p class="notice">
-        Carica esclusivamente comunicati PDF definitivi, su carta intestata e approvati dal coordinamento. Verranno archiviati nella cartella
+        Carica esclusivamente documenti PDF definitivi, su carta intestata e approvati dal coordinamento. Verranno archiviati nella cartella
         <code>
          documenti/ANNO/
         </code>
         .
        </p>
        <label>
-        Descrizione / oggetto del comunicato
+        Descrizione / oggetto del documento
         <textarea id="doc-description" maxlength="400" rows="2"></textarea>
        </label>
        <label>
@@ -217,14 +219,14 @@
        <div class="notice">
         <label style="display:block;margin-bottom:12px">
          <input id="doc-approved" type="checkbox"/>
-         Confermo che il comunicato è definitivo e approvato dal coordinamento per la pubblicazione sul sito.
+         Confermo che il documento è definitivo e approvato dal coordinamento per la pubblicazione sul sito.
         </label>
         <label style="display:block;margin-bottom:12px">
          <input id="doc-privacy" type="checkbox"/>
          Confermo di avere verificato la pubblicabilità del PDF, inclusi dati personali, allegati e contenuti riservati.
         </label>
         <p class="help">
-         Entrambe le conferme sono obbligatorie per pubblicare il comunicato. Il PDF pubblicato sarà accessibile e scaricabile da chiunque.
+         Entrambe le conferme sono obbligatorie per pubblicare il documento. Il PDF pubblicato sarà accessibile e scaricabile da chiunque.
         </p>
        </div>
        <p class="help">
