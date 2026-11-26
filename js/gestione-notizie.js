@@ -2,7 +2,8 @@
 (() => {
     'use strict';
     const $ = id => document.getElementById(id);
-    const cfg = { stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati PDF' }, lettere: {path:'data/lettere.json',name:'Lettere istituzionali'} };
+    let publicationData = null;
+    const cfg = { profili: {path:'js/pubblicazioni.js',name:'Organi e profili'}, stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati PDF' }, lettere: {path:'data/lettere.json',name:'Lettere istituzionali'} };
     const isPdf = () => kind === 'documenti' || kind === 'lettere';
     let session = null, kind = 'stampa', catalog = [], sha = null, busy = false;
     const status = (message, error = false) => { $('status').textContent = message; $('status').classList.toggle('error', error); };
@@ -36,14 +37,16 @@
         if (typeof result.content !== 'string')
             throw new Error('Archivio non leggibile');
         const bytes = Uint8Array.from(atob(result.content.replace(/\s/g, '')), c => c.charCodeAt(0));
-        const data = JSON.parse(new TextDecoder().decode(bytes));
+        const raw = new TextDecoder().decode(bytes);
+        let data;
+        if (kind === 'profili') { publicationData = JSON.parse(raw.replace(/^\s*window\.UDCPubblicazioni\s*=\s*/, '').replace(/;\s*$/, '')); data = publicationData.profili; } else data = JSON.parse(raw);
         if (!Array.isArray(data))
             throw new Error('Archivio non valido');
         catalog = data;
         sha = result.sha;
         render();
     }
-    async function save(next, action) { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.'); const response = await request(fileApi(cfg[kind].path), 'PUT', { message: action, content: json64(next), sha, branch: session.branch }); sha = response.content.sha; catalog = next; render(); }
+    async function save(next, action) { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.'); const response = await request(fileApi(cfg[kind].path), 'PUT', { message: action, content: kind === 'profili' ? toBase64(new TextEncoder().encode('window.UDCPubblicazioni = ' + JSON.stringify({...publicationData,profili:next},null,2) + ';\n')) : json64(next), sha, branch: session.branch }); sha = response.content.sha; if(kind === 'profili') publicationData.profili = next; catalog = next; render(); }
     async function withBusy(fn) { if (busy)
         return; busy = true; document.querySelectorAll('#workspace button').forEach(b => b.disabled = true); try {
         await fn();
@@ -55,8 +58,8 @@
         busy = false;
         document.querySelectorAll('#workspace button').forEach(b => b.disabled = false);
     } }
-    function switchKind(next) { $('archive-search').value = ''; kind = next; resetForm(); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
-        $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('form-heading').textContent = kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
+    function switchKind(next) { $('archive-search').value = ''; kind = next; resetForm(); $('common-fields').classList.toggle('hidden',kind === 'profili'); $('title').required = $('date').required = kind !== 'profili'; document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
+        $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('form-heading').textContent = kind === 'profili' ? '3. Profilo istituzionale' : kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'profili' ? 'Gestisci coordinamento, direttivo e Consiglio generale.' : kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
     function resetForm() { $('editor-form').reset(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
     const itemKey = x => isPdf() ? String(x.anno) + '/' + String(x.file) : String(x.id);
     function render() {
@@ -70,16 +73,16 @@
             return;
         }
         const query = clean($('archive-search').value).toLocaleLowerCase('it');
-        for (const item of catalog.filter(x => [x.titolo,x.data,x.destinatario,x.descrizione,x.fonte].join(' ').toLocaleLowerCase('it').includes(query)).sort((a, b) => String(b.data).localeCompare(String(a.data)))) {
+        for (const item of catalog.filter(x => [x.nome,x.incarico,x.titolo,x.data,x.destinatario,x.descrizione,x.fonte].join(' ').toLocaleLowerCase('it').includes(query)).sort((a, b) => String(b.data).localeCompare(String(a.data)))) {
             const el = document.createElement('article');
             el.className = 'editor-entry';
             const meta = document.createElement('div');
             meta.className = 'meta';
             meta.textContent = [item.data, kind === 'stampa' ? item.fonte : isPdf() ? 'Anno ' + item.anno : item.luogo].filter(Boolean).join(' · ');
             const title = document.createElement('h3');
-            title.textContent = item.titolo;
+            title.textContent = item.nome || item.titolo;
             const desc = document.createElement('p');
-            desc.textContent = item.testo || item.descrizione || '';
+            desc.textContent = item.incarico || item.testo || item.descrizione || '';
             const actions = document.createElement('div');
             actions.className = 'actions';
             const edit = document.createElement('button');
@@ -91,7 +94,7 @@
             remove.className = 'danger';
             remove.type = 'button';
             remove.textContent = 'Rimuovi';
-            remove.addEventListener('click', () => { if (!confirm('Rimuovere “' + item.titolo + '” dal sito pubblico?'))
+            remove.addEventListener('click', () => { if (!confirm('Rimuovere “' + (item.nome || item.titolo) + '” dal sito pubblico?'))
                 return; withBusy(async () => { await save(catalog.filter(x => itemKey(x) !== itemKey(item)), 'Rimuovi contenuto ' + itemKey(item)); status('Contenuto rimosso dal catalogo.'); }); });
             actions.append(edit, remove);
             el.append(meta, title, desc, actions);
@@ -101,6 +104,7 @@
     function editItem(x) {
         resetForm();
         $('item-id').value = itemKey(x);
+        if(kind === 'profili') { $('profile-name').value=x.nome||''; $('profile-role').value=x.incarico||''; $('profile-bio').value=x.testo||''; $('profile-contact').value=x.contatto||''; $('profile-lead').checked=!!x.coordinamento; $('profile-board').checked=!!x.direttivo; $('profile-council').checked=!!x.consiglio; $('profile-order').value=x.ordine||10; $('save').textContent='Salva modifiche'; return; }
         $('title').value = x.titolo;
         $('date').value = x.data;
         if (kind === 'stampa') {
@@ -128,6 +132,7 @@
         const old = id ? catalog.find(x => itemKey(x) === id) : null;
         if (id && !old)
             throw new Error('La voce da modificare non esiste più. Aggiorna elenco.');
+        if(kind === 'profili') { const nome=clean($('profile-name').value), incarico=clean($('profile-role').value), coordinamento=$('profile-lead').checked,direttivo=$('profile-board').checked,consiglio=$('profile-council').checked; if(!nome||!incarico||!(coordinamento||direttivo||consiglio)||!$('profile-approved').checked) throw new Error('Compila nome, incarico, appartenenza e conferma pubblicabilità.'); const person={...old,id:old?.id||'profilo-'+crypto.randomUUID(),nome,incarico,coordinamento,direttivo,consiglio,ordine:Number($('profile-order').value)||10,testo:clean($('profile-bio').value),contatto:clean($('profile-contact').value),allegati:old?.allegati||[]}; await save(old?catalog.map(x=>x.id===old.id?person:x):[...catalog,person],'Aggiorna profilo '+nome); resetForm(); status('Profilo salvato in GitHub.'); return; }
         const titolo = clean($('title').value), data = $('date').value;
         if (!titolo || !/^\d{4}-\d{2}-\d{2}$/.test(data))
             throw new Error('Indica titolo e data validi.');
