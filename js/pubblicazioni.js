@@ -17,7 +17,9 @@ window.UDCPubblicazioni = {
       "testo": "Professionista con una formazione interdisciplinare nelle scienze sociali, giuridiche ed economiche, Pietro Fazio affianca all’esperienza sindacale l’impegno civico e il dialogo con il territorio. Nel coordinamento comunale UDC Aprilia valorizza l’ascolto, la dignità della persona, la tutela del lavoro e la ricerca di soluzioni condivise.\n\n## Formazione e percorso professionale\n\nHa conseguito la laurea in Scienze Sociali per la Cooperazione, lo Sviluppo e le Relazioni tra i Popoli presso Sapienza Università di Roma, una laurea magistrale in Giurisprudenza e una in Scienze Economiche. È iscritto all’Ordine dei Periti Industriali di Latina e ha completato un master di secondo livello Bioneer in Energia e Ambiente.\n\nLa sua esperienza sindacale si fonda sul confronto costruttivo e sulla mediazione tra le parti, con attenzione alla sostenibilità economica e sociale e alle esigenze dei lavoratori.",
       "foto": "foto.jpg",
       "foto_versione": "ac4dca26ec3143e7",
-      "allegati": []
+      "allegati": [],
+      "data_nomina": "",
+      "data_fine": ""
     },
     {
       "nome": "Ilaria Cavallin",
