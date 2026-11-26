@@ -94,7 +94,7 @@ window.UDCPubblicazioni = {
       "tema": "Società e generazioni",
       "descrizione": "Una riflessione sulle trasformazioni sociali legate alla maggiore durata della vita e sulle relazioni tra generazioni, servizi e comunità.",
       "editore": "Edizioni Generazioni Insieme",
-      "anno": "",
+      "anno": "2026",
       "isbn": "979-12-986483-2-6",
       "ordine": 3,
       "nota": "",
