@@ -110,7 +110,7 @@
        Attività ed eventi
       </button>
       <button aria-pressed="false" class="tab" data-kind="documenti" type="button">
-       Comunicati PDF
+       Comunicati e documenti PDF
       </button>
      <button aria-pressed="false" class="tab" data-kind="profili" type="button">Organi e profili</button>
      <button aria-pressed="false" class="tab" data-kind="lettere" type="button">Lettere istituzionali</button>
@@ -139,7 +139,7 @@
         <input id="date" required="" type="date"/>
        </label>
       </div>
-      <div id="profili-fields" class="hidden"><p class="notice">Inserisci esclusivamente informazioni istituzionali autorizzate alla pubblicazione.</p><label>Nome e cognome<input id="profile-name" maxlength="150"/></label><label>Incarico<input id="profile-role" maxlength="150"/></label><label>Biografia e deleghe<textarea id="profile-bio" rows="7"></textarea></label><label>Foto del profilo (JPEG, PNG o WebP, max 5 MB)<input id="profile-photo" type="file" accept="image/jpeg,image/png,image/webp"/></label><label>Data di nomina<input id="profile-start" type="date"/></label><label>Contatto istituzionale<input id="profile-contact" maxlength="150"/></label><label><input type="checkbox" id="profile-lead"/> Coordinamento</label><label><input type="checkbox" id="profile-board"/> Consiglio direttivo</label><label><input type="checkbox" id="profile-council"/> Consiglio generale</label><label>Ordine di visualizzazione<input type="number" min="1" max="999" id="profile-order" value="10"/></label><label><input type="checkbox" id="profile-approved"/> Confermo approvazione e privacy del profilo pubblico.</label></div><div id="stampa-fields">
+      <div id="profili-fields" class="hidden"><p class="notice">Inserisci esclusivamente informazioni istituzionali autorizzate alla pubblicazione.</p><label>Nome e cognome<input id="profile-name" maxlength="150"/></label><label>Incarico<input id="profile-role" maxlength="150"/></label><label>Biografia e deleghe<textarea id="profile-bio" rows="7"></textarea></label><label>Foto del profilo (JPEG, PNG o WebP, max 5 MB)<input id="profile-photo" type="file" accept="image/jpeg,image/png,image/webp"/></label><label>Fine incarico (facoltativa)<input id="profile-end" type="date"/></label><label>Data di nomina<input id="profile-start" type="date"/></label><label>Contatto istituzionale<input id="profile-contact" maxlength="150"/></label><label><input type="checkbox" id="profile-lead"/> Coordinamento</label><label><input type="checkbox" id="profile-board"/> Consiglio direttivo</label><label><input type="checkbox" id="profile-council"/> Consiglio generale</label><label>Ordine di visualizzazione<input type="number" min="1" max="999" id="profile-order" value="10"/></label><label><input type="checkbox" id="profile-approved"/> Confermo approvazione e privacy del profilo pubblico.</label></div><div id="stampa-fields">
        <div class="fields two">
         <label>
          Testata giornalistica *
@@ -201,7 +201,7 @@
        <p class="help">La nuova foto sostituisce quella indicata sopra. Sarà pubblica e resterà nella cronologia GitHub.</p>
       </div>
       <div class="hidden" id="lettere-fields"><label>Destinatario istituzionale *<input id="letter-recipient" maxlength="180"/></label><label>Protocollo (facoltativo)<input id="letter-protocol" maxlength="100"/></label></div>
-      <div class="hidden" id="documenti-fields">
+      <div class="hidden" id="documenti-fields"><label id="category-label">Categoria del documento<select id="doc-category"><option value="comunicato">Comunicato stampa</option><option value="nomina">Atto di nomina</option><option value="delibera">Delibera pubblicabile</option><option value="documento">Altro documento ufficiale</option></select></label>
        <p class="notice">
         Carica esclusivamente documenti PDF definitivi, su carta intestata e approvati dal coordinamento. Verranno archiviati nella cartella
         <code>
