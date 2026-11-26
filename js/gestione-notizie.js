@@ -61,7 +61,9 @@
     } }
     function switchKind(next) { $('archive-search').value = ''; kind = next; resetForm(); $('common-fields').classList.toggle('hidden',['profili','cultura'].includes(kind)); $('title').required = $('date').required = !['profili','cultura'].includes(kind); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
         $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('category-label').classList.toggle('hidden',kind !== 'documenti'); $('form-heading').textContent = kind === 'cultura' ? '3. Scheda libro' : kind === 'profili' ? '3. Profilo istituzionale' : kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'cultura' ? 'Aggiungi o modifica libri e copertine.' : kind === 'profili' ? 'Gestisci coordinamento, direttivo e Consiglio generale.' : kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
-    function resetForm() { $('editor-form').reset(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
+    let previewObjectUrl = '';
+    function showProfilePhoto(url) { const img=$('profile-preview'); img.hidden=!url; img.style.display=url?'block':'none'; $('profile-placeholder').hidden=!!url; if(url) img.src=url; else img.removeAttribute('src'); }
+    function resetForm() { if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=''; showProfilePhoto(''); $('editor-form').reset(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
     const itemKey = x => isPdf() ? String(x.anno) + '/' + String(x.file) : String(x.id);
     function render() {
         const target = $('listing');
@@ -106,7 +108,7 @@
         resetForm();
         $('item-id').value = itemKey(x);
         if(kind === 'cultura') { for(const k of bookFields) $('book-'+k).value=x[k]??''; $('save').textContent='Salva modifiche'; $('form-heading').scrollIntoView({behavior:'smooth',block:'start'}); return; }
-        if(kind === 'profili') { $('profile-end').value=x.data_fine||''; $('profile-start').value=x.data_nomina||''; $('profile-name').value=x.nome||''; $('profile-role').value=x.incarico||''; $('profile-bio').value=x.testo||''; $('profile-contact').value=x.contatto||''; $('profile-lead').checked=!!x.coordinamento; $('profile-board').checked=!!x.direttivo; $('profile-council').checked=!!x.consiglio; $('profile-order').value=x.ordine||10; $('save').textContent='Salva modifiche'; $('form-heading').scrollIntoView({behavior:'smooth',block:'start'}); return; }
+        if(kind === 'profili') { if(x.foto) showProfilePhoto('https://raw.githubusercontent.com/'+encodeURIComponent(session.owner)+'/'+encodeURIComponent(session.repo)+'/'+encodeURIComponent(session.branch)+'/pubblicazioni/profili/'+encodeURIComponent(x.id)+'/'+encodeURIComponent(x.foto)); $('profile-end').value=x.data_fine||''; $('profile-start').value=x.data_nomina||''; $('profile-name').value=x.nome||''; $('profile-role').value=x.incarico||''; $('profile-bio').value=x.testo||''; $('profile-contact').value=x.contatto||''; $('profile-lead').checked=!!x.coordinamento; $('profile-board').checked=!!x.direttivo; $('profile-council').checked=!!x.consiglio; $('profile-order').value=x.ordine||10; $('save').textContent='Salva modifiche'; $('form-heading').scrollIntoView({behavior:'smooth',block:'start'}); return; }
         $('title').value = x.titolo;
         $('date').value = x.data;
         if (kind === 'stampa') {
@@ -236,6 +238,7 @@
     $('logout').addEventListener('click', () => { session = null; catalog = []; sha = null; $('workspace').classList.add('hidden'); $('login-panel').classList.remove('hidden'); $('token').value = ''; status('Sessione terminata.'); });
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => withBusy(async () => { switchKind(t.dataset.kind); await load(); status('Archivio ' + cfg[kind].name + ' caricato.'); })));
     $('refresh').addEventListener('click', () => withBusy(async () => { await load(); status('Elenco aggiornato.'); }));
+    $('profile-photo').addEventListener('change',()=>{const f=$('profile-photo').files[0]; if(!f)return; if(f.size>5*1024*1024||!['image/jpeg','image/png','image/webp'].includes(f.type)){ $('profile-photo').value=''; status('Scegli una fotografia JPEG, PNG o WebP fino a 5 MB.',true);return;} if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=URL.createObjectURL(f); showProfilePhoto(previewObjectUrl);});
     $('archive-search').addEventListener('input', render);
     $('cancel').addEventListener('click', resetForm);
     $('editor-form').addEventListener('submit', event => { event.preventDefault(); withBusy(publish); });
