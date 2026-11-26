@@ -111,3 +111,22 @@ code {
   padding:0;
   accent-color:#15457a;
 }
+
+/* Conferme e appartenenze: casella a sinistra, testo sulla stessa riga. */
+#cultura-fields label:has(input[type="checkbox"]),
+#profili-fields label:has(input[type="checkbox"]) {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:12px 0;
+  cursor:pointer;
+}
+#cultura-fields input[type="checkbox"],
+#profili-fields input[type="checkbox"] {
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  margin:2px 0 0;
+  padding:0;
+  accent-color:#15457a;
+}

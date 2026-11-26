@@ -6,12 +6,12 @@
   <meta content="noindex,nofollow,noarchive" name="robots"/>
   <meta content="no-referrer" name="referrer"/>
   <title>
-   Gestione notizie e comunicati | UDC Aprilia
+   Redazione digitale UDC Aprilia | UDC Aprilia
   </title>
   <link href="assets/logo.png" rel="icon"/>
   <link href="css/gestione-foto.css" rel="stylesheet"/>
-  <link href="css/gestione-notizie.css" rel="stylesheet"/>
-  <script defer="" src="js/gestione-notizie.js">
+  <link href="css/gestione-notizie.css?v=20261126-checkbox2" rel="stylesheet"/>
+  <script defer="" src="js/gestione-notizie.js?v=20261126-profile-preview">
   </script>
  </head>
  <body>
@@ -56,11 +56,11 @@
     <div class="fields two">
      <label>
       Proprietario repository
-      <input id="owner" placeholder="Organizzazione o utente" spellcheck="false"/>
+      <input value="UDC-Aprilia" id="owner" placeholder="Organizzazione o utente" spellcheck="false"/>
      </label>
      <label>
       Repository
-      <input id="repo" placeholder="Nome repository" spellcheck="false"/>
+      <input value="UDC" id="repo" placeholder="Nome repository" spellcheck="false"/>
      </label>
      <label>
       Branch
@@ -110,8 +110,10 @@
        Attività ed eventi
       </button>
       <button aria-pressed="false" class="tab" data-kind="documenti" type="button">
-       Comunicati PDF
+       Comunicati e documenti PDF
       </button>
+     <button aria-pressed="false" class="tab" data-kind="cultura" type="button">Cultura e biblioteca</button><button aria-pressed="false" class="tab" data-kind="profili" type="button">Organi e profili</button>
+     <button aria-pressed="false" class="tab" data-kind="lettere" type="button">Lettere istituzionali</button>
      </div>
     </section>
     <section class="panel">
@@ -127,7 +129,7 @@
      </div>
      <form id="editor-form">
       <input id="item-id" type="hidden"/>
-      <div class="fields two">
+      <div class="fields two" id="common-fields">
        <label>
         Titolo *
         <input id="title" maxlength="180" required=""/>
@@ -137,7 +139,7 @@
         <input id="date" required="" type="date"/>
        </label>
       </div>
-      <div id="stampa-fields">
+      <div id="cultura-fields" class="hidden"><label>Titolo<input id="book-titolo"/></label><label>Autori<input id="book-autori"/></label><label>Sottotitolo<input id="book-sottotitolo"/></label><label>Casa editrice<input id="book-editore"/></label><label>Anno<input id="book-anno"/></label><label>ISBN<input id="book-isbn"/></label><label>Tema<input id="book-tema"/></label><label>Descrizione<textarea id="book-descrizione" rows="5"></textarea></label><label>Link editore HTTPS<input id="book-link_editore"/></label><label>Link acquisto HTTPS<input id="book-link_pubblicazione"/></label><label>Ordine<input id="book-ordine"/></label><label>Copertina (JPEG, PNG, WebP, max 5 MB)<input id="book-cover" type="file" accept="image/jpeg,image/png,image/webp"/></label><label style="display:flex!important;align-items:flex-start;gap:10px;margin:12px 0"><input id="book-approved" type="checkbox" style="width:18px!important;height:18px!important;flex:0 0 18px;margin:2px 0 0!important;padding:0!important;accent-color:#15457a"/><span>Confermo diritti e autorizzazione alla pubblicazione.</span></label></div><div id="profili-fields" class="hidden"><p class="notice">Inserisci esclusivamente informazioni istituzionali autorizzate alla pubblicazione.</p><label>Nome e cognome<input id="profile-name" maxlength="150"/></label><label>Incarico<input id="profile-role" maxlength="150"/></label><label>Biografia e deleghe<textarea id="profile-bio" rows="7"></textarea></label><fieldset style="margin:16px 0;padding:16px;border:1px solid #b6c4d7;border-radius:8px"><legend>Fotografia istituzionale</legend><div style="width:144px;height:144px;border:4px solid #15457a;border-radius:50%;overflow:hidden;display:grid;place-items:center;margin:8px auto 16px;background:#eaf0f7"><img id="profile-preview" alt="Anteprima fotografia" hidden style="width:100%;height:100%;object-fit:cover"/><span id="profile-placeholder">Foto profilo</span></div><label for="profile-photo">Carica o sostituisci fotografia</label><input id="profile-photo" style="display:block;width:100%;margin:8px 0" type="file" accept="image/jpeg,image/png,image/webp"/><p>JPEG, PNG o WebP, massimo 5 MB. La fotografia sarà visualizzata in cornice rotonda. Se non scegli un nuovo file, la foto esistente resta invariata.</p></fieldset><label>Fine incarico (facoltativa)<input id="profile-end" type="date"/></label><label>Data di nomina<input id="profile-start" type="date"/></label><label>Contatto istituzionale<input id="profile-contact" maxlength="150"/></label><label style="display:flex!important;align-items:flex-start;gap:10px;margin:12px 0"><input type="checkbox" id="profile-lead" style="width:18px!important;height:18px!important;flex:0 0 18px;margin:2px 0 0!important;padding:0!important;accent-color:#15457a"/><span>Coordinamento</span></label><label style="display:flex!important;align-items:flex-start;gap:10px;margin:12px 0"><input type="checkbox" id="profile-board" style="width:18px!important;height:18px!important;flex:0 0 18px;margin:2px 0 0!important;padding:0!important;accent-color:#15457a"/><span>Consiglio direttivo</span></label><label style="display:flex!important;align-items:flex-start;gap:10px;margin:12px 0"><input type="checkbox" id="profile-council" style="width:18px!important;height:18px!important;flex:0 0 18px;margin:2px 0 0!important;padding:0!important;accent-color:#15457a"/><span>Consiglio generale</span></label><label>Ordine di visualizzazione<input type="number" min="1" max="999" id="profile-order" value="10"/></label><label style="display:flex!important;align-items:flex-start;gap:10px;margin:12px 0"><input type="checkbox" id="profile-approved" style="width:18px!important;height:18px!important;flex:0 0 18px;margin:2px 0 0!important;padding:0!important;accent-color:#15457a"/><span>Confermo approvazione e privacy del profilo pubblico.</span></label></div><div id="stampa-fields">
        <div class="fields two">
         <label>
          Testata giornalistica *
@@ -198,16 +200,17 @@
        <label><input id="event-photo-approved" type="checkbox"/> Confermo diritti, autorizzazioni e privacy della foto.</label>
        <p class="help">La nuova foto sostituisce quella indicata sopra. Sarà pubblica e resterà nella cronologia GitHub.</p>
       </div>
-      <div class="hidden" id="documenti-fields">
+      <div class="hidden" id="lettere-fields"><label>Destinatario istituzionale *<input id="letter-recipient" maxlength="180"/></label><label>Protocollo (facoltativo)<input id="letter-protocol" maxlength="100"/></label></div>
+      <div class="hidden" id="documenti-fields"><label id="category-label">Categoria del documento<select id="doc-category"><option value="comunicato">Comunicato stampa</option><option value="nomina">Atto di nomina</option><option value="delibera">Delibera pubblicabile</option><option value="documento">Altro documento ufficiale</option></select></label>
        <p class="notice">
-        Carica esclusivamente comunicati PDF definitivi, su carta intestata e approvati dal coordinamento. Verranno archiviati nella cartella
+        Carica esclusivamente documenti PDF definitivi, su carta intestata e approvati dal coordinamento. Verranno archiviati nella cartella
         <code>
-         documenti/ANNO/
+         documenti/ANNO/ oppure lettere/ANNO/
         </code>
         .
        </p>
        <label>
-        Descrizione / oggetto del comunicato
+        Descrizione / oggetto del documento
         <textarea id="doc-description" maxlength="400" rows="2"></textarea>
        </label>
        <label>
@@ -217,14 +220,14 @@
        <div class="notice">
         <label style="display:block;margin-bottom:12px">
          <input id="doc-approved" type="checkbox"/>
-         Confermo che il comunicato è definitivo e approvato dal coordinamento per la pubblicazione sul sito.
+         Confermo che il documento è definitivo e approvato dal coordinamento per la pubblicazione sul sito.
         </label>
         <label style="display:block;margin-bottom:12px">
          <input id="doc-privacy" type="checkbox"/>
          Confermo di avere verificato la pubblicabilità del PDF, inclusi dati personali, allegati e contenuti riservati.
         </label>
         <p class="help">
-         Entrambe le conferme sono obbligatorie per pubblicare il comunicato. Il PDF pubblicato sarà accessibile e scaricabile da chiunque.
+         Entrambe le conferme sono obbligatorie per pubblicare il documento. Il PDF pubblicato sarà accessibile e scaricabile da chiunque.
         </p>
        </div>
        <p class="help">
@@ -260,7 +263,7 @@
        Aggiorna
       </button>
      </div>
-     <div class="editor-list" id="listing">
+     <label>Cerca nell’archivio<input id="archive-search" type="search" placeholder="Titolo, data, destinatario"/></label><div class="editor-list" id="listing">
      </div>
     </section>
    </div>
