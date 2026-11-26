@@ -105,8 +105,8 @@
     function editItem(x) {
         resetForm();
         $('item-id').value = itemKey(x);
-        if(kind === 'cultura') { for(const k of bookFields) $('book-'+k).value=x[k]??''; $('save').textContent='Salva modifiche'; return; }
-        if(kind === 'profili') { $('profile-end').value=x.data_fine||''; $('profile-start').value=x.data_nomina||''; $('profile-name').value=x.nome||''; $('profile-role').value=x.incarico||''; $('profile-bio').value=x.testo||''; $('profile-contact').value=x.contatto||''; $('profile-lead').checked=!!x.coordinamento; $('profile-board').checked=!!x.direttivo; $('profile-council').checked=!!x.consiglio; $('profile-order').value=x.ordine||10; $('save').textContent='Salva modifiche'; return; }
+        if(kind === 'cultura') { for(const k of bookFields) $('book-'+k).value=x[k]??''; $('save').textContent='Salva modifiche'; $('form-heading').scrollIntoView({behavior:'smooth',block:'start'}); return; }
+        if(kind === 'profili') { $('profile-end').value=x.data_fine||''; $('profile-start').value=x.data_nomina||''; $('profile-name').value=x.nome||''; $('profile-role').value=x.incarico||''; $('profile-bio').value=x.testo||''; $('profile-contact').value=x.contatto||''; $('profile-lead').checked=!!x.coordinamento; $('profile-board').checked=!!x.direttivo; $('profile-council').checked=!!x.consiglio; $('profile-order').value=x.ordine||10; $('save').textContent='Salva modifiche'; $('form-heading').scrollIntoView({behavior:'smooth',block:'start'}); return; }
         $('title').value = x.titolo;
         $('date').value = x.data;
         if (kind === 'stampa') {
