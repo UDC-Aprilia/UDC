@@ -94,3 +94,20 @@ code {
   width:100%;
   margin-top:6px;
 }
+
+/* Allinea le conferme dei PDF come quella delle fotografie. */
+#documenti-fields label:has(#doc-approved),
+#documenti-fields label:has(#doc-privacy) {
+  display:flex !important;
+  align-items:flex-start;
+  gap:10px;
+}
+#doc-approved,
+#doc-privacy {
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  margin:2px 0 0;
+  padding:0;
+  accent-color:#15457a;
+}
