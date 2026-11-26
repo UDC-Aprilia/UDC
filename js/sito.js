@@ -81,7 +81,9 @@
     const directors = activeProfiles.filter(person => person.direttivo && !person.coordinamento);
     const council = activeProfiles.filter(person => person.consiglio && !person.coordinamento);
     const safeUrl = value => { try {
-        const url = new URL(String(value || ''), location.href);
+        const raw = String(value ?? '').trim();
+        if (!raw) return '';
+        const url = new URL(raw, location.href);
         return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : '';
     }
     catch {
