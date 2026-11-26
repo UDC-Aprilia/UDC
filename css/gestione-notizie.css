@@ -73,3 +73,24 @@ code {
     padding:13px
   }
 }
+
+/* Allinea la conferma della foto al testo anche su schermi piccoli. */
+#attivita-fields label:has(#event-photo-approved) {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:12px 0;
+}
+#event-photo-approved {
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  margin:2px 0 0;
+  padding:0;
+  accent-color:#15457a;
+}
+#event-photo-file {
+  display:block;
+  width:100%;
+  margin-top:6px;
+}

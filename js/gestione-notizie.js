@@ -136,11 +136,30 @@
             Object.assign(next, { fonte, link, testo: clean($('summary').value) });
         }
         if (kind === 'attivita') {
-            const luogo = clean($('place').value), url = clean($('event-url').value), foto = clean($('event-photo').value);
+            const luogo = clean($('place').value), url = clean($('event-url').value);
+            let foto = clean($('event-photo').value);
             if (!luogo)
                 throw new Error('Indica il luogo.');
             if (url && !safeUrl(url))
                 throw new Error('Il link deve essere HTTPS.');
+            const photo = $('event-photo-file').files[0];
+            if (photo) {
+                if (!$('event-photo-approved').checked) throw new Error('Conferma diritti e privacy della foto.');
+                if (photo.size < 12 || photo.size > 5 * 1024 * 1024) throw new Error('Foto non valida o superiore a 5 MB.');
+                const bytes = new Uint8Array(await photo.arrayBuffer());
+                const ascii = (a,b) => String.fromCharCode(...bytes.slice(a,b));
+                const ext = bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255 ? 'jpg' :
+                    [137,80,78,71,13,10,26,10].every((v,i) => bytes[i] === v) ? 'png' :
+                    ascii(0,4) === 'RIFF' && ascii(8,12) === 'WEBP' ? 'webp' : '';
+                if (!ext) throw new Error('Seleziona una foto JPEG, PNG o WebP.');
+                const bitmap = await createImageBitmap(photo);
+                bitmap.close();
+                foto = 'evento-' + data + '-' + crypto.randomUUID() + '.' + ext;
+                status('Carico la foto…');
+                await request(fileApi('assets/' + foto), 'PUT', {message:'Carica foto evento ' + foto,content:toBase64(bytes),branch:session.branch});
+                $('event-photo').value = foto;
+                $('event-photo-file').value = '';
+            }
             if (foto && !/^[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp)$/i.test(foto))
                 throw new Error('Nome foto non valido.');
             Object.assign(next, { luogo, tipo: $('event-type').value, descrizione: clean($('event-description').value), foto, link: url ? safeUrl(url) : '' });
