@@ -112,6 +112,7 @@
       <button aria-pressed="false" class="tab" data-kind="documenti" type="button">
        Comunicati PDF
       </button>
+     <button aria-pressed="false" class="tab" data-kind="profili" type="button">Organi e profili</button>
      <button aria-pressed="false" class="tab" data-kind="lettere" type="button">Lettere istituzionali</button>
      </div>
     </section>
@@ -128,7 +129,7 @@
      </div>
      <form id="editor-form">
       <input id="item-id" type="hidden"/>
-      <div class="fields two">
+      <div class="fields two" id="common-fields">
        <label>
         Titolo *
         <input id="title" maxlength="180" required=""/>
@@ -138,7 +139,7 @@
         <input id="date" required="" type="date"/>
        </label>
       </div>
-      <div id="stampa-fields">
+      <div id="profili-fields" class="hidden"><p class="notice">Inserisci esclusivamente informazioni istituzionali autorizzate alla pubblicazione.</p><label>Nome e cognome<input id="profile-name" maxlength="150"/></label><label>Incarico<input id="profile-role" maxlength="150"/></label><label>Biografia e deleghe<textarea id="profile-bio" rows="7"></textarea></label><label>Contatto istituzionale<input id="profile-contact" maxlength="150"/></label><label><input type="checkbox" id="profile-lead"/> Coordinamento</label><label><input type="checkbox" id="profile-board"/> Consiglio direttivo</label><label><input type="checkbox" id="profile-council"/> Consiglio generale</label><label>Ordine di visualizzazione<input type="number" min="1" max="999" id="profile-order" value="10"/></label><label><input type="checkbox" id="profile-approved"/> Confermo approvazione e privacy del profilo pubblico.</label></div><div id="stampa-fields">
        <div class="fields two">
         <label>
          Testata giornalistica *
