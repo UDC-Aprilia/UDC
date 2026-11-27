@@ -4,7 +4,7 @@
     const $ = id => document.getElementById(id);
     let publicationData = null;
     const bookFields=["titolo","autori","sottotitolo","editore","anno","isbn","tema","descrizione","link_editore","link_pubblicazione","ordine"];
-    const cfg = { cultura:{path:'js/pubblicazioni.js',name:'Cultura e biblioteca'}, profili: {path:'js/pubblicazioni.js',name:'Organi e profili'}, stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati PDF' }, lettere: {path:'data/lettere.json',name:'Lettere istituzionali'} };
+    const cfg = { cultura:{path:'js/pubblicazioni.js',name:'Cultura e biblioteca'}, profili: {path:'js/pubblicazioni.js',name:'Organi e profili'}, stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati e documenti' }, lettere: {path:'data/lettere.json',name:'Lettere istituzionali'} };
     const isPdf = () => kind === 'documenti' || kind === 'lettere';
     let session = null, kind = 'stampa', catalog = [], sha = null, busy = false;
     const status = (message, error = false) => { $('status').textContent = message; $('status').classList.toggle('error', error); };
@@ -67,7 +67,7 @@
         document.querySelectorAll('#workspace button').forEach(b => b.disabled = false); updatePrivacy();
     } }
     function switchKind(next) { $('archive-search').value = ''; kind = next; resetForm(); $('common-fields').classList.toggle('hidden',['profili','cultura'].includes(kind)); $('title').required = $('date').required = !['profili','cultura'].includes(kind); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
-        $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('category-label').classList.toggle('hidden',kind !== 'documenti'); $('form-heading').textContent = kind === 'cultura' ? '3. Scheda libro' : kind === 'profili' ? '3. Profilo istituzionale' : kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'cultura' ? 'Aggiungi o modifica libri e copertine.' : kind === 'profili' ? 'Gestisci coordinamento, direttivo e Consiglio generale.' : kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
+        $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('category-label').classList.toggle('hidden',kind !== 'documenti'); $('form-heading').textContent = kind === 'cultura' ? '3. Scheda libro' : kind === 'profili' ? '3. Profilo istituzionale' : kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale'; $('form-help').textContent = kind === 'cultura' ? 'Aggiungi o modifica libri e copertine.' : kind === 'profili' ? 'Gestisci coordinamento, direttivo e Consiglio generale.' : kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF o Word (.docx).'; }
     let previewObjectUrl = '';
     function showProfilePhoto(url) { const img=$('profile-preview'); img.hidden=!url; img.style.display=url?'block':'none'; $('profile-placeholder').hidden=!!url; if(url) img.src=url; else img.removeAttribute('src'); }
     function resetForm() { if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=''; showProfilePhoto(''); $('editor-form').reset(); letterOptions(); directionLabel(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; updatePrivacy(); }
@@ -186,37 +186,45 @@
         }
         if (isPdf()) {
             if (!$('privacy-review').checked || !$('privacy-redacted').checked)
-                throw new Error('Per pubblicare il PDF devi confermare sia l’approvazione del coordinamento sia la verifica della privacy.');
+                throw new Error('Per pubblicare il documento devi confermare sia l’approvazione del coordinamento sia la verifica della privacy.');
             if (kind === 'lettere') { const direzione=$('letter-direction').value, party=clean($('letter-recipient').value), data_trasmissione=$('letter-date').value, materia=$('letter-topic').value, stato_invio=$('letter-state').value, collegata_a=$('letter-related').value; if(!['entrata','uscita'].includes(direzione)||!party||!data_trasmissione||!materia||!stato_invio||!clean($('doc-description').value)) throw new Error('Completa direzione, ente, data, materia, stato e descrizione.'); if(collegata_a && !catalog.some(x=>letterId(x)===collegata_a && (!old||letterId(x)!==letterId(old)))) throw new Error('Collegamento non valido.'); Object.assign(next,{id:old?letterId(old):'lettera-'+crypto.randomUUID(),direzione,data_trasmissione,materia,stato_invio,collegata_a,fascicolo:clean($('letter-case').value),modalita_invio:$('letter-channel').value,esito_testo:$('letter-outcome').value,protocollo:clean($('letter-protocol').value),destinatario:direzione==='uscita'?party:'',mittente:direzione==='entrata'?party:''}); }
             if(kind === 'documenti') next.categoria = $('doc-category').value;
             next.anno = data.slice(0, 4);
             next.descrizione = clean($('doc-description').value);
             next.pubblica = true;
             next.verifica_privacy = true; next.data_verifica_privacy = new Date().toISOString();
-            const file = $('document-file').files[0];
-            if (!file && !old)
-                throw new Error('Seleziona un PDF da caricare.');
-            if (file) {
-                if (!/\.pdf$/i.test(file.name) || file.size < 5 || file.size > 5 * 1024 * 1024)
-                    throw new Error('Serve un PDF valido e non superiore a 5 MB.');
+            const files = Array.from($('document-file').files);
+            if (!files.length && !old) throw new Error('Seleziona un PDF o DOCX.');
+            if(old && String(old.anno)!==next.anno) throw new Error('La data deve restare nello stesso anno del documento archiviato.');
+            const prepared = [];
+            for(const file of files){
+                const ext = file.name.split('.').pop().toLowerCase();
+                if(!['pdf','docx'].includes(ext)||file.size<5||file.size>5*1024*1024||prepared.some(x=>x.ext===ext)) throw new Error('Massimo un PDF e un DOCX, ciascuno entro 5 MB.');
                 const bytes = new Uint8Array(await file.arrayBuffer());
-                if (new TextDecoder().decode(bytes.slice(0, 5)) !== '%PDF-')
-                    throw new Error('Il file selezionato non è un PDF valido.');
-                const rawPdf = new TextDecoder('latin1').decode(bytes);
-                scanText(rawPdf);
-                if (/\/Encrypt\b|\/EmbeddedFiles\b|\/EmbeddedFile\b|\/JavaScript\b|\/JS\b|\/Launch\b|\/RichMedia\b|\/XFA\b|\/ByteRange\b/.test(rawPdf)) throw new Error('PDF con cifratura, firma, allegati o contenuti attivi rilevati: prepara una copia pubblicabile separata.');
-                if (!$('privacy-pdf-manual').checked) throw new Error('Conferma la verifica visiva integrale del PDF e dei metadati con uno strumento locale. Il controllo automatico non analizza tutti i contenuti compressi o scansionati.');
-                const name = (kind === 'lettere' ? 'lettera-' : 'comunicato-') + data + '-' + Math.random().toString(36).slice(2, 9) + '.pdf';
-                const path = (kind === 'lettere' ? 'lettere/' : 'documenti/') + next.anno + '/' + name;
-                status('Carico il documento PDF nel repository…');
-                await request(fileApi(path), 'PUT', { message: 'Carica comunicato ufficiale ' + name, content: toBase64(bytes), branch: session.branch });
-                next.file = name;
+                const raw = new TextDecoder('latin1').decode(bytes);
+                if(ext==='pdf'){
+                    if(!raw.startsWith('%PDF-')) throw new Error('PDF non valido.');
+                    scanText(raw);
+                    if(/\/(Encrypt|EmbeddedFiles?|JavaScript|JS|Launch|RichMedia|XFA|ByteRange)\b/.test(raw)) throw new Error('PDF con indicatori di rischio: prepara una copia pubblicabile.');
+                } else {
+                    if(bytes[0]!==80||bytes[1]!==75||bytes[2]!==3||bytes[3]!==4||!raw.includes('[Content_Types].xml')||!raw.includes('word/document.xml')) throw new Error('DOCX non riconosciuto.');
+                    if(/vbaProject|vbaData|word\/embeddings\/|word\/activeX\/|word\/comments|_xmlsignatures/i.test(raw)) throw new Error('DOCX con indicatori di macro, commenti, firma o allegati: prepara una copia pulita.');
+                }
+                prepared.push({ext,bytes});
             }
-            else {
-                if (old.anno !== next.anno)
-                    throw new Error('Per cambiare anno a un PDF già pubblicato carica nuovamente il file.');
-                next.file = old.file;
+            const formats = {};
+            if(old){for(const name of [old.file,old.file_alternativo]) if(typeof name==='string'&&/^[\w.-]+\.(pdf|docx)$/i.test(name)) formats[name.split('.').pop().toLowerCase()]=name;}
+            for(const {ext,bytes} of prepared){
+                const name=(kind==='lettere'?'lettera-':'comunicato-')+'-'+data+'-'+crypto.randomUUID()+'.'+ext;
+                const path=(kind==='lettere'?'lettere/':'documenti/')+next.anno+'/'+name;
+                status('Carico il documento '+ext.toUpperCase()+' nel repository…');
+                await request(fileApi(path),'PUT',{message:'Carica documento '+name,content:toBase64(bytes),branch:session.branch});
+                formats[ext]=name;
             }
+            next.file=formats.pdf||formats.docx;
+            if(formats.pdf&&formats.docx) next.file_alternativo=formats.docx; else delete next.file_alternativo;
+            if(!next.file) throw new Error('Documento mancante.');
+
         }
         const replacement = old ? catalog.map(x => itemKey(x) === itemKey(old) ? next : x) : [...catalog, next];
         await save(replacement, (old ? 'Aggiorna' : 'Pubblica') + ' ' + cfg[kind].name + ' ' + titolo.slice(0, 70));
