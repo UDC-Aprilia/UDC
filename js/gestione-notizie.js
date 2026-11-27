@@ -3,17 +3,19 @@
     'use strict';
     const $ = id => document.getElementById(id);
     let publicationData = null;
+    let pendingFiles = null;
+    let publishing = false;
     const bookFields=["titolo","autori","sottotitolo","editore","anno","isbn","tema","descrizione","link_editore","link_pubblicazione","ordine"];
     const cfg = { cultura:{path:'js/pubblicazioni.js',name:'Cultura e biblioteca'}, profili: {path:'js/pubblicazioni.js',name:'Organi e profili'}, stampa: { path: 'data/stampa.json', name: 'Rassegna stampa' }, attivita: { path: 'data/attivita.json', name: 'Attività ed eventi' }, documenti: { path: 'data/documenti.json', name: 'Comunicati e documenti' }, lettere: {path:'data/lettere.json',name:'Lettere istituzionali'} };
     const isPdf = () => kind === 'documenti' || kind === 'lettere';
     let session = null, kind = 'stampa', catalog = [], sha = null, busy = false;
-    const status = (message, error = false) => { $('status').textContent = message; $('status').classList.toggle('error', error); };
+    const status = (message, error = false) => { $('status').textContent = message; $('status').classList.toggle('error', error); if(publishing){ const el=$('publish-status'); el.textContent=message; el.style.color=error?'#a12626':'#17643a'; } };
     const clean = s => String(s || '').trim();
     const letterId = x => x.id || 'lettera-'+x.anno+'-'+x.file;
     function letterOptions(current='') { const el=$('letter-related'); el.replaceChildren(new Option('Nessuno','')); for(const x of catalog) if(kind==='lettere' && letterId(x)!==current) el.add(new Option(x.titolo,letterId(x))); }
     function directionLabel(){ $('letter-party-label').firstChild.textContent=$('letter-direction').value==='entrata'?'Mittente istituzionale *':'Destinatario istituzionale *'; }
     function privacyReady(){return $('privacy-review').checked && $('privacy-redacted').checked && $('privacy-result').value==='clear' && (!['lettere','documenti'].includes(kind)||!$('document-file').files.length||$('privacy-pdf-manual').checked);}
-    function updatePrivacy(){const pdf=['lettere','documenti'].includes(kind)&&$('document-file').files.length>0; $('privacy-pdf-manual').closest('label').hidden=!pdf; $('privacy-pdf-manual').closest('label').style.display=pdf?'flex':'none'; const ready=privacyReady(); $('save').disabled=busy||!ready; $('privacy-status').textContent=ready?'Verifiche preliminari completate: restano i controlli finali.':'Pubblicazione bloccata: verifica incompleta o dati riservati.'; $('privacy-status').style.color=ready?'#17643a':'#a12626';}
+    function updatePrivacy(){const pdf=['lettere','documenti'].includes(kind)&&$('document-file').files.length>0; $('privacy-pdf-manual').closest('label').hidden=!pdf; $('privacy-pdf-manual').closest('label').style.display=pdf?'flex':'none'; const ready=privacyReady(); $('save').disabled=busy||!ready||!session||!sha; $('privacy-status').textContent=ready?'Verifiche preliminari completate: restano i controlli finali.':'Pubblicazione bloccata: verifica incompleta o dati riservati.'; $('privacy-status').style.color=ready?'#17643a':'#a12626';}
     function privacyCheck(){if(!privacyReady()) throw new Error('Pubblicazione bloccata: completa le verifiche obbligatorie.'); if(!$('privacy-review').checked || !$('privacy-redacted').checked || $('privacy-result').value!=='clear') throw new Error('Pubblicazione bloccata: completa la verifica privacy.'); }
     function scanText(value){ const t=String(value); if(/\b[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]\b/i.test(t)||/\bIT\d{2}[A-Z]\d{10}[A-Z0-9]{12}\b/i.test(t)) throw new Error('Possibile codice fiscale o IBAN: verifica e rimuovi il dato prima di pubblicare.'); }
     const validRepo = s => /^[a-zA-Z0-9_.-]{1,100}$/.test(s) && !s.startsWith('.');
@@ -54,7 +56,26 @@
         sha = result.sha;
         render();
     }
-    async function save(next, action) { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.'); const response = await request(fileApi(cfg[kind].path), 'PUT', { message: action, content: (kind === 'profili' || kind === 'cultura') ? toBase64(new TextEncoder().encode('window.UDCPubblicazioni = ' + JSON.stringify({...publicationData,[kind]:next},null,2) + ';\n')) : json64(next), sha, branch: session.branch }); sha = response.content.sha; if(kind === 'profili' || kind === 'cultura') publicationData[kind] = next; catalog = next; render(); }
+    async function atomicSave(content, action) {
+        const root='https://api.github.com/repos/'+encodeURIComponent(session.owner)+'/'+encodeURIComponent(session.repo)+'/git';
+        const refPath=root+'/refs/heads/'+session.branch.split('/').map(encodeURIComponent).join('/');
+        const ref=await request(refPath);
+        const parent=ref.object.sha;
+        const commit=await request(root+'/commits/'+parent);
+        const current=await request(fileApi(cfg[kind].path)+'?ref='+encodeURIComponent(parent));
+        if(current.sha!==sha) throw new Error('Archivio modificato da un altro utente: aggiorna e riprova.');
+        const tree=[];
+        for(const file of [...pendingFiles,{path:cfg[kind].path,content}]){
+            const blob=await request(root+'/blobs','POST',{content:file.content,encoding:'base64'});
+            tree.push({path:file.path,mode:'100644',type:'blob',sha:blob.sha});
+        }
+        const newTree=await request(root+'/trees','POST',{base_tree:commit.tree.sha,tree});
+        const newCommit=await request(root+'/commits','POST',{message:action,tree:newTree.sha,parents:[parent]});
+        await request(refPath,'PATCH',{sha:newCommit.sha,force:false});
+        return {content:{sha:tree[tree.length-1].sha}};
+    }
+    async function stageFile(path, content){ if(!pendingFiles) throw new Error('Sessione di pubblicazione non attiva.'); pendingFiles.push({path,content}); }
+    async function save(next, action) { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.'); const content=(kind === 'profili' || kind === 'cultura') ? toBase64(new TextEncoder().encode('window.UDCPubblicazioni = ' + JSON.stringify({...publicationData,[kind]:next},null,2) + ';\n')) : json64(next); const response = pendingFiles ? await atomicSave(content,action) : await request(fileApi(cfg[kind].path),'PUT',{message:action,content,sha,branch:session.branch}); sha = response.content.sha; if(kind === 'profili' || kind === 'cultura') publicationData[kind] = next; catalog = next; render(); }
     async function withBusy(fn) { if (busy)
         return; busy = true; document.querySelectorAll('#workspace button').forEach(b => b.disabled = true); try {
         await fn();
@@ -143,8 +164,8 @@
         const old = id ? catalog.find(x => itemKey(x) === id) : null;
         if (id && !old)
             throw new Error('La voce da modificare non esiste più. Aggiorna elenco.');
-        if(kind === 'cultura') { const book={...old,id:old?.id||'libro-'+crypto.randomUUID()}; for(const k of bookFields) book[k]=clean($('book-'+k).value); if(!book.titolo||!book.autori||!$('book-approved').checked) throw new Error('Indica titolo, autori e conferma autorizzazione.'); book.ordine=Number(book.ordine)||10; for(const k of ['link_editore','link_pubblicazione']) if(book[k]&&!safeUrl(book[k])) throw new Error('Usa link HTTPS validi.'); const photo=$('book-cover').files[0]; if(photo){ if(photo.size<12||photo.size>5*1024*1024) throw new Error('Copertina non valida o superiore a 5 MB.'); const bytes=new Uint8Array(await photo.arrayBuffer()); const ascii=(a,b)=>String.fromCharCode(...bytes.slice(a,b)); const ext=bytes[0]===255&&bytes[1]===216&&bytes[2]===255?'jpg':[137,80,78,71,13,10,26,10].every((v,i)=>bytes[i]===v)?'png':ascii(0,4)==='RIFF'&&ascii(8,12)==='WEBP'?'webp':''; if(!ext) throw new Error('Formato copertina non valido.'); const bitmap=await createImageBitmap(photo); bitmap.close(); if(!/^[a-zA-Z0-9_-]+$/.test(book.id)) throw new Error('ID libro non valido.'); book.copertina='copertina-'+crypto.randomUUID()+'.'+ext; book.versione=Date.now().toString(); await request(fileApi('pubblicazioni/cultura/'+book.id+'/'+book.copertina),'PUT',{message:'Carica copertina '+book.id,content:toBase64(bytes),branch:session.branch}); } await save(old?catalog.map(x=>x.id===old.id?book:x):[...catalog,book],'Aggiorna libro '+book.titolo); resetForm(); status('Libro salvato in GitHub.'); return; }
-        if(kind === 'profili') { const nome=clean($('profile-name').value), incarico=clean($('profile-role').value), coordinamento=$('profile-lead').checked,direttivo=$('profile-board').checked,consiglio=$('profile-council').checked; if(!nome||!incarico||!(coordinamento||direttivo||consiglio)||!$('profile-approved').checked) throw new Error('Compila nome, incarico, appartenenza e conferma pubblicabilità.'); const person={...old,id:old?.id||'profilo-'+crypto.randomUUID(),nome,incarico,coordinamento,direttivo,consiglio,ordine:Number($('profile-order').value)||10,testo:clean($('profile-bio').value),contatto:clean($('profile-contact').value),allegati:old?.allegati||[],data_nomina:$('profile-start').value,data_fine:$('profile-end').value}; if(person.data_nomina && person.data_fine && person.data_fine < person.data_nomina) throw new Error('La fine incarico precede la nomina.'); const photo=$('profile-photo').files[0]; if(photo){ if(photo.size<12||photo.size>5*1024*1024) throw new Error('Foto non valida o superiore a 5 MB.'); const bytes=new Uint8Array(await photo.arrayBuffer()); const ascii=(a,b)=>String.fromCharCode(...bytes.slice(a,b)); const ext=bytes[0]===255&&bytes[1]===216&&bytes[2]===255?'jpg':[137,80,78,71,13,10,26,10].every((v,i)=>bytes[i]===v)?'png':ascii(0,4)==='RIFF'&&ascii(8,12)==='WEBP'?'webp':''; if(!ext) throw new Error('Formato foto non valido.'); const bitmap=await createImageBitmap(photo); bitmap.close(); if(!/^[a-zA-Z0-9_-]+$/.test(person.id)) throw new Error('Identificativo profilo non valido.'); person.foto='foto-'+crypto.randomUUID()+'.'+ext; person.foto_versione=Date.now().toString(); await request(fileApi('pubblicazioni/profili/'+person.id+'/'+person.foto),'PUT',{message:'Carica foto profilo '+person.id,content:toBase64(bytes),branch:session.branch}); } await save(old?catalog.map(x=>x.id===old.id?person:x):[...catalog,person],'Aggiorna profilo '+nome); resetForm(); status('Profilo salvato in GitHub.'); return; }
+        if(kind === 'cultura') { const book={...old,id:old?.id||'libro-'+crypto.randomUUID()}; for(const k of bookFields) book[k]=clean($('book-'+k).value); if(!book.titolo||!book.autori||!$('book-approved').checked) throw new Error('Indica titolo, autori e conferma autorizzazione.'); book.ordine=Number(book.ordine)||10; for(const k of ['link_editore','link_pubblicazione']) if(book[k]&&!safeUrl(book[k])) throw new Error('Usa link HTTPS validi.'); const photo=$('book-cover').files[0]; if(photo){ if(photo.size<12||photo.size>5*1024*1024) throw new Error('Copertina non valida o superiore a 5 MB.'); const bytes=new Uint8Array(await photo.arrayBuffer()); const ascii=(a,b)=>String.fromCharCode(...bytes.slice(a,b)); const ext=bytes[0]===255&&bytes[1]===216&&bytes[2]===255?'jpg':[137,80,78,71,13,10,26,10].every((v,i)=>bytes[i]===v)?'png':ascii(0,4)==='RIFF'&&ascii(8,12)==='WEBP'?'webp':''; if(!ext) throw new Error('Formato copertina non valido.'); const bitmap=await createImageBitmap(photo); bitmap.close(); if(!/^[a-zA-Z0-9_-]+$/.test(book.id)) throw new Error('ID libro non valido.'); book.copertina='copertina-'+crypto.randomUUID()+'.'+ext; book.versione=Date.now().toString(); await stageFile('pubblicazioni/cultura/'+book.id+'/'+book.copertina,toBase64(bytes)); } await save(old?catalog.map(x=>x.id===old.id?book:x):[...catalog,book],'Aggiorna libro '+book.titolo); resetForm(); status('Libro salvato in GitHub.'); return; }
+        if(kind === 'profili') { const nome=clean($('profile-name').value), incarico=clean($('profile-role').value), coordinamento=$('profile-lead').checked,direttivo=$('profile-board').checked,consiglio=$('profile-council').checked; if(!nome||!incarico||!(coordinamento||direttivo||consiglio)||!$('profile-approved').checked) throw new Error('Compila nome, incarico, appartenenza e conferma pubblicabilità.'); const person={...old,id:old?.id||'profilo-'+crypto.randomUUID(),nome,incarico,coordinamento,direttivo,consiglio,ordine:Number($('profile-order').value)||10,testo:clean($('profile-bio').value),contatto:clean($('profile-contact').value),allegati:old?.allegati||[],data_nomina:$('profile-start').value,data_fine:$('profile-end').value}; if(person.data_nomina && person.data_fine && person.data_fine < person.data_nomina) throw new Error('La fine incarico precede la nomina.'); const photo=$('profile-photo').files[0]; if(photo){ if(photo.size<12||photo.size>5*1024*1024) throw new Error('Foto non valida o superiore a 5 MB.'); const bytes=new Uint8Array(await photo.arrayBuffer()); const ascii=(a,b)=>String.fromCharCode(...bytes.slice(a,b)); const ext=bytes[0]===255&&bytes[1]===216&&bytes[2]===255?'jpg':[137,80,78,71,13,10,26,10].every((v,i)=>bytes[i]===v)?'png':ascii(0,4)==='RIFF'&&ascii(8,12)==='WEBP'?'webp':''; if(!ext) throw new Error('Formato foto non valido.'); const bitmap=await createImageBitmap(photo); bitmap.close(); if(!/^[a-zA-Z0-9_-]+$/.test(person.id)) throw new Error('Identificativo profilo non valido.'); person.foto='foto-'+crypto.randomUUID()+'.'+ext; person.foto_versione=Date.now().toString(); await stageFile('pubblicazioni/profili/'+person.id+'/'+person.foto,toBase64(bytes)); } await save(old?catalog.map(x=>x.id===old.id?person:x):[...catalog,person],'Aggiorna profilo '+nome); resetForm(); status('Profilo salvato in GitHub.'); return; }
         const titolo = clean($('title').value), data = $('date').value;
         if (!titolo || !/^\d{4}-\d{2}-\d{2}$/.test(data))
             throw new Error('Indica titolo e data validi.');
@@ -176,9 +197,7 @@
                 bitmap.close();
                 foto = 'evento-' + data + '-' + crypto.randomUUID() + '.' + ext;
                 status('Carico la foto…');
-                await request(fileApi('assets/' + foto), 'PUT', {message:'Carica foto evento ' + foto,content:toBase64(bytes),branch:session.branch});
-                $('event-photo').value = foto;
-                $('event-photo-file').value = '';
+                await stageFile('assets/' + foto,toBase64(bytes));
             }
             if (foto && !/^[a-zA-Z0-9_.-]+\.(jpg|jpeg|png|webp)$/i.test(foto))
                 throw new Error('Nome foto non valido.');
@@ -218,7 +237,7 @@
                 const name=(kind==='lettere'?'lettera-':'comunicato-')+'-'+data+'-'+crypto.randomUUID()+'.'+ext;
                 const path=(kind==='lettere'?'lettere/':'documenti/')+next.anno+'/'+name;
                 status('Carico il documento '+ext.toUpperCase()+' nel repository…');
-                await request(fileApi(path),'PUT',{message:'Carica documento '+name,content:toBase64(bytes),branch:session.branch});
+                await stageFile(path,toBase64(bytes));
                 formats[ext]=name;
             }
             next.file=formats.pdf||formats.docx;
@@ -244,7 +263,7 @@
             $('token').value = '';
             $('login-panel').classList.add('hidden');
             $('workspace').classList.remove('hidden');
-            status('Accesso riuscito. Puoi gestire contenuti e documenti.');
+            updatePrivacy(); status('Accesso riuscito. Puoi gestire contenuti e documenti.');
         }
         catch (e) {
             session = null;
@@ -261,8 +280,20 @@
     $('letter-direction').addEventListener('change',directionLabel);
     $('archive-search').addEventListener('input', render);
     $('cancel').addEventListener('click', resetForm);
-    $('editor-form').addEventListener('input',updatePrivacy);
-    $('editor-form').addEventListener('change',e=>{if(e.target.type==='file'){ $('privacy-review').checked=false; $('privacy-redacted').checked=false; $('privacy-pdf-manual').checked=false; $('privacy-result').value=''; } updatePrivacy();});
+    function invalidatePrivacy(e){if(!e.target.closest('#privacy-gate') && e.target.matches('input,select,textarea')){ $('privacy-review').checked=false; $('privacy-redacted').checked=false; $('privacy-pdf-manual').checked=false; $('privacy-result').value=''; $('publish-status').textContent=''; } updatePrivacy();}
+    $('editor-form').addEventListener('input',invalidatePrivacy);
+    $('editor-form').addEventListener('change',invalidatePrivacy);
     updatePrivacy();
-    $('editor-form').addEventListener('submit', event => { event.preventDefault(); withBusy(publish); });
+    $('editor-form').addEventListener('invalid',()=>{const el=$('publish-status');el.textContent='Completa i campi obbligatori indicati nel modulo.';el.style.color='#a12626';},true);
+    $('editor-form').addEventListener('submit', async event => {
+        event.preventDefault(); if(busy)return;
+        const button=$('save'), original=button.textContent;
+        publishing=true; pendingFiles=[];
+        button.textContent='Pubblicazione in corso…';
+        const controls=[...$('editor-form').querySelectorAll('input,select,textarea')].filter(el=>!el.disabled);
+        controls.forEach(el=>el.disabled=true);
+        status('Verifica e preparazione del contenuto…');
+        try { await withBusy(publish); }
+        finally { controls.forEach(el=>el.disabled=false); pendingFiles=null; publishing=false; if(button.textContent==='Pubblicazione in corso…')button.textContent=original; updatePrivacy(); }
+    });
 })();
