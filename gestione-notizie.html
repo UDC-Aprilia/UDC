@@ -11,7 +11,7 @@
   <link href="assets/logo.png" rel="icon"/>
   <link href="css/gestione-foto.css" rel="stylesheet"/>
   <link href="css/gestione-notizie.css?v=20261126-checkbox2" rel="stylesheet"/>
-  <script defer="" src="js/gestione-notizie.js?v=20261127-privacy3">
+  <script defer="" src="js/gestione-notizie.js?v=20261127-privacy4">
   </script>
  </head>
  <body>
@@ -217,19 +217,7 @@
         File PDF * (max 5 MB)
         <input accept="application/pdf,.pdf" id="document-file" type="file"/>
        </label>
-       <div class="notice">
-        <label style="display:block;margin-bottom:12px">
-         <input id="doc-approved" type="checkbox"/>
-         Confermo che il documento è definitivo e approvato dal coordinamento per la pubblicazione sul sito.
-        </label>
-        <label style="display:block;margin-bottom:12px">
-         <input id="doc-privacy" type="checkbox"/>
-         Confermo di avere verificato la pubblicabilità del PDF, inclusi dati personali, allegati e contenuti riservati.
-        </label>
-        <p class="help">
-         Entrambe le conferme sono obbligatorie per pubblicare il documento. Il PDF pubblicato sarà accessibile e scaricabile da chiunque.
-        </p>
-       </div>
+       <p class="help">Il PDF pubblicato sarà accessibile e scaricabile da chiunque. Completa le verifiche nel riquadro sottostante.</p>
        <p class="help">
         Per modificare titolo o descrizione di un documento esistente non serve caricare di nuovo il PDF. Se scegli un altro PDF verrà pubblicato un nuovo file; l'originale rimane nello storico GitHub.
        </p>
@@ -239,8 +227,8 @@
         </a>
        </p>
       </div>
-      <fieldset id="privacy-gate"><legend>Verifica preventiva obbligatoria</legend><p class="notice">Non caricare originali riservati. Anche i rami di prova sono pubblici. Verifica anche testi, immagini, firme, allegati e metadati.</p><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-review"/> Ho verificato integralmente i contenuti e la legittimità della pubblicazione.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-redacted"/> Non sono presenti dati non pubblicabili; eventuali oscuramenti sono irreversibili.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-pdf-manual"/> Per i nuovi PDF: ho controllato tutte le pagine, scansioni, allegati e metadati con uno strumento locale. Il controllo automatico è limitato e non certifica la pubblicabilità.</label><label>Esito verifica<select id="privacy-result"><option value="">Non verificato</option><option value="risk">Dati riservati presenti: blocco</option><option value="clear">Copia pubblicabile verificata</option></select></label><p id="privacy-status" role="status">Pubblicazione bloccata: verifica incompleta.</p></fieldset><div class="actions">
-       <button id="save" type="submit">
+      <fieldset id="privacy-gate"><legend>Verifica preventiva obbligatoria</legend><p class="notice">Non caricare originali riservati. Anche i rami di prova sono pubblici. Verifica anche testi, immagini, firme, allegati e metadati.</p><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-review"/> Ho verificato integralmente i contenuti, la legittimità e l’autorizzazione del coordinamento alla pubblicazione.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-redacted"/> Non sono presenti dati non pubblicabili; eventuali oscuramenti sono irreversibili.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-pdf-manual"/> Per i nuovi PDF: ho controllato tutte le pagine, scansioni, allegati e metadati con uno strumento locale. Il controllo automatico è limitato e non certifica la pubblicabilità.</label><label>Esito verifica<select id="privacy-result"><option value="">Non verificato</option><option value="risk">Dati riservati presenti: blocco</option><option value="clear">Copia pubblicabile verificata</option></select></label><p id="privacy-status" role="status">Pubblicazione bloccata: verifica incompleta.</p></fieldset><div class="actions">
+       <button id="save" type="submit" disabled>
         Pubblica contenuto
        </button>
        <button class="secondary" id="cancel" type="button">
