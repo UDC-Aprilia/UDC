@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T02:27:39+00:00",
+  "updated_at": "2026-11-27T02:27:52+00:00",
   "items": [
     {
       "title": "L'Ambasciata d'Italia celebra i 50 anni del gruppo Chiesi in Brasile",
@@ -9,6 +9,33 @@
       "category": "Italia · notizie nazionali",
       "priority": "italia",
       "link_kind": "aggregatore"
+    },
+    {
+      "title": "Kuwait | Antonio De Poli (Udc): dolore per la morte dei due italiani",
+      "date": "2026-11-26",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/kuwait-antonio-de-poli-udc-dolore-per-la-morte-dei-due-italiani/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
+      "title": "Manovra | Antonio De Poli (Udc): casa, cura famiglia al centro delle nostre priorità",
+      "date": "2026-11-26",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/manovra-antonio-de-poli-udc-casa-cura-famiglia-al-centro-delle-nostre-priorita/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
+      "title": "Manovra | Lorenzo Cesa: «Priorità a sanità e caregiver, 500 euro al mese a chi assiste a domicilio»",
+      "date": "2026-11-26",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/manovra-lorenzo-cesa-priorita-a-sanita-e-caregiver-500-euro-al-mese-a-chi-assiste-a-domicilio/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
     },
     {
       "title": "Avviso erogazione di voucher alle famiglie di minori con disabilità a.s. 26/27",
@@ -45,15 +72,6 @@
       "category": "Europa e Unione europea",
       "priority": "europa",
       "link_kind": "aggregatore"
-    },
-    {
-      "title": "Sondaggi | De Poli (Udc): Centrodestra al 44,6%, Udc al lavoro per rafforzare la coalizione",
-      "date": "2026-11-25",
-      "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/sondaggi-de-poli-udc-centrodestra-al-446-udc-al-lavoro-per-rafforzare-la-coalizione/",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "diretto"
     },
     {
       "title": "Aprilia, accordo transattivo con Geropa da 451mila euro: il commento dell'Udc",
@@ -110,15 +128,6 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Assemblea NATO-Berlino | Lorenzo Cesa: più coesione tra gli Alleati, più peso per l’Italia",
-      "date": "2026-11-25",
-      "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/assemblea-nato-berlino-lorenzo-cesa-piu-coesione-tra-gli-alleati-piu-peso-per-litalia/",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "diretto"
-    },
-    {
       "title": "Aprilia, l’Udc favorevole all’accordo GEROPA da 451mila euro. “Tutela delle risorse pubbliche”.",
       "date": "2026-11-25",
       "source": "Radio Studio 93",
@@ -173,15 +182,6 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "25 Novembre | Antonio De Poli (Udc): contro la violenza economica serve un fondo per restituire autonomia alle donne",
-      "date": "2026-11-25",
-      "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/25-novembre-antonio-de-poli-udc-contro-la-violenza-economica-serve-un-fondo-per-restituire-autonomia-alle-donne/",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "diretto"
-    },
-    {
       "title": "Manovra economica 2027, confronto con le parti sociali",
       "date": "2026-11-25",
       "source": "Consiglio Regionale del Lazio",
@@ -218,10 +218,10 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Violenza contro le donne | Lorenzo Cesa: «Primo argine dentro casa»",
+      "title": "Sondaggi | De Poli (Udc): Centrodestra al 44,6%, Udc al lavoro per rafforzare la coalizione",
       "date": "2026-11-25",
       "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/violenza-contro-le-donne-lorenzo-cesa-primo-argine-dentro-casa/",
+      "url": "https://www.udc-italia.it/sondaggi-de-poli-udc-centrodestra-al-446-udc-al-lavoro-per-rafforzare-la-coalizione/",
       "category": "UDC nazionale",
       "priority": "udc_nazionale",
       "link_kind": "diretto"
@@ -254,6 +254,15 @@
       "link_kind": "aggregatore"
     },
     {
+      "title": "Assemblea NATO-Berlino | Lorenzo Cesa: più coesione tra gli Alleati, più peso per l’Italia",
+      "date": "2026-11-25",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/assemblea-nato-berlino-lorenzo-cesa-piu-coesione-tra-gli-alleati-piu-peso-per-litalia/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
       "title": "La cooperazione italiana sostiene l'empowerment delle donne in Egitto",
       "date": "2026-11-25",
       "source": "ANSA",
@@ -281,6 +290,15 @@
       "link_kind": "aggregatore"
     },
     {
+      "title": "25 Novembre | Antonio De Poli (Udc): contro la violenza economica serve un fondo per restituire autonomia alle donne",
+      "date": "2026-11-25",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/25-novembre-antonio-de-poli-udc-contro-la-violenza-economica-serve-un-fondo-per-restituire-autonomia-alle-donne/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
+    },
+    {
       "title": "L'Italia eccellenza nel riciclo ma ha il gap della vendita delle nuove risorse",
       "date": "2026-11-25",
       "source": "ANSA",
@@ -306,6 +324,15 @@
       "category": "Europa e Unione europea",
       "priority": "europa",
       "link_kind": "aggregatore"
+    },
+    {
+      "title": "Violenza contro le donne | Lorenzo Cesa: «Primo argine dentro casa»",
+      "date": "2026-11-25",
+      "source": "UDC Italia",
+      "url": "https://www.udc-italia.it/violenza-contro-le-donne-lorenzo-cesa-primo-argine-dentro-casa/",
+      "category": "UDC nazionale",
+      "priority": "udc_nazionale",
+      "link_kind": "diretto"
     },
     {
       "title": "La Serbia in transizione politica non partecipa a vertice Ue-Balcani di Bruxelles",
@@ -839,15 +866,6 @@
       "link_kind": "diretto"
     },
     {
-      "title": "Zes unica | Antonio De Poli (Udc): battaglia vinta dall’Udc, semplificazioni per tutti, Centrodestra sostiene chi produce",
-      "date": "2026-11-19",
-      "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/zes-unica-antonio-de-poli-udc-battaglia-vinta-dalludc-semplificazioni-per-tutti-centrodestra-sostiene-chi-produce/",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "diretto"
-    },
-    {
       "title": "Oltre sei milioni di euro per la riqualificazione dei porti nel Lazio",
       "date": "2026-11-19",
       "source": "Regione Lazio",
@@ -965,15 +983,6 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Cesa e Binetti a Montecitorio: dopo la denuncia, nessuna donna lasciata sola",
-      "date": "2026-11-17",
-      "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/cesa-e-binetti-a-montecitorio-dopo-la-denuncia-nessuna-donna-lasciata-sola/",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "diretto"
-    },
-    {
       "title": "Recruiting Day Obiettivo Tropici: colloqui ad Albano e Roma",
       "date": "2026-11-17",
       "source": "Regione Lazio",
@@ -981,15 +990,6 @@
       "category": "Regione Lazio",
       "priority": "regione_lazio",
       "link_kind": "aggregatore"
-    },
-    {
-      "title": "Marcinelle | Antonio De Poli (Udc): bene giornata europea, sicurezza sul lavoro priorità",
-      "date": "2026-11-16",
-      "source": "UDC Italia",
-      "url": "https://www.udc-italia.it/marcinelle-antonio-de-poli-udc-bene-giornata-europea-sicurezza-sul-lavoro-priorita/",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "diretto"
     },
     {
       "title": "Avviso pubblico per la concessione di “voucher nidi”",
@@ -1001,39 +1001,12 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Reddito di Cittadinanza | Antonio De Poli (Udc): il Campo Largo, vecchie ricette",
-      "date": "2026-11-13",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQbnM2WkJqNEV6dDhLdXdkMTAwY0h2Wm0zbnFhQ1pTWGliYWNZR3N5aWtwQVJDRmtpekpDdWxKcUZpbmhES29VcTNvUGI2T1VFanFjQWxEdUFIbUcyNlgtb2dUeHppV1RSeTZRS0Z1TzdJYU5iLTY2bWp6WGJFeHZZM2hEX243MEVqQlFuQVFFSHVDMkVmZjZkMWNHdEdPTW5XQ3dj?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "Trasporto degli alunni con disabilità - erogazione voucher",
       "date": "2026-11-13",
       "source": "Comune di Aprilia",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdVBIMUE2MnBvVnlzVmtENGN5M0xOUG9kc0JlXzBnT3N6MEhaM0U1Y1JWMmh6RUJET1RfMVpTMlpsTkVWVldtS2pETl9ZWXIzM3lvQkxRTTV1T1RxblBfX2RWVXZiY0dTVzZTMHpQVmltbkJIZTk2SDhWbklvRFlfWjltT0JVU0xKWHRCeG5zQ3BJWWN6d0NFNHJERHJfZw?oc=5",
       "category": "Città di Aprilia",
       "priority": "aprilia",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Allarmi bomba nelle scuole | Antonio De Poli (Udc): la paura corre online, serve più conbsapevolezza",
-      "date": "2026-11-11",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQR2U4X3VHWWRnVkpROFFtTlh1UVBDbF9KTlVvZ25kZXZwWWkyLWpkMExGZzlESE8yb3hrLVJBMkY1VG5ER2NqWEl2MU10eGhBZ1hkNmRmWVZWTm5ULW1PZDFqakJEaDRMRE1ZWEI0UWYtcUp0UE5aNjZnckFCaW85OXJkSUdvdWROYXlvYXp4Tm9Ga2ltT0MydWxOTEw1MTY4MGs0RERwQkZBemlicTkwcGFhLTVaZmNWM3J3VTR3?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "ITALIA-NATO 3.0 | Lorenzo Cesa: “La difesa europea si costruisce sul campo e nell’innovazione tecnologica”",
-      "date": "2026-11-11",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNb21CblBmUzBoSTVqQjhsXzVWSzNDSXczeFI2cEZvbF9nYVljUFBsdWNiZmdGTzRJM0gxY09fZUF0WC0yNjBRcEhWUWUwUU5FN2NEUzVucXp0ek1lWDlQdkdZM1VINnIyczc4WWNWWEl0WlpPZ0p0T1ZOOU5Na2lsWlNaLU5aTGx0MEloWWgybWVEVTh5OTFhU3RpQ3hKcHJmcWFibjFWeDNnYU10ZGl5VThSaU84allDeWpVSmNKdlA1bjJrSnc?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
       "link_kind": "aggregatore"
     },
     {
@@ -1064,24 +1037,6 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "9 novembre | Antonio De Poli (UDC): «Il Muro di Berlino ci insegna che la libertà è più forte di ogni divisione",
-      "date": "2026-11-09",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNZ25WRWRtYVBRdTF4dm1ranJmcFN3UXBHemRSZWZGSE4wSnZ5YnZVQ2JIaVlKRFNNd253eTJzSjRtMV9GdGVESDRWblhkZmtXQ2FZTVk5QU9vdUpHSUNOUW9mQmlsbE5yRTVaSnhMc0tYU3V3Si1mdkhSNWlDVUJRLWJPZ1lJbkRLRW1mUkc0SGVxT25nSzN6S0hPbWZaTjNXWnFTZThVYWtUMUlPZE1MX1hrQ25rN3hxV2dwZHEwanI5cHpKT2dBc3ZUYUk?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Cybersicurezza | Antonio De Poli (Udc): «La guerra ibrida è già qui, sulla difesa basta demagogia",
-      "date": "2026-11-09",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPeXZiNnJGdkpFYUt4eDFDNTNEYVhtNG9WTXY3MHlEMlFkTzZ4d0VyRlMyNEphUjVqYnJmcXdzR2t2SUlFWEhPelVSLXY0TG0yeGE4RW1LZ3VwNC1nSEZhTVZleHY2V2oyNlRRZnRaazdNcFA1UDlJTm1zdGcyS1dyZG1HTVllOHdzc2J4dWR4b28zS0pnWEpkb3RMVG1tQy11RDREQjJhUXhZc0EwR3dMeGM0ZnV2Vzli?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "Elenco beneficiari della Carta Dedicata a Te – anno 2026",
       "date": "2026-11-09",
       "source": "Comune di Aprilia",
@@ -1091,30 +1046,12 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "ITALIA-USA | Lorenzo Cesa: una giornata all’anno tra i due Parlamenti, si parta dalla cybersicurezza",
-      "date": "2026-11-06",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPLUcwRk1NeWRobUJ6c2JiVGRVOEFoeF8zOUZObkVEMlBxenhPV1VpcjBHY25jdHVZMkVoaE9uSDJldFFuUC1vY2psOG1FR2ZNYlNqSW5sMkd4dmtJZTROZXpOZlhQb0xRdmpadF9lXy10dGlJUHZIQXdWLVZfb1VjSjhvLUxVb21acVpXSEVmZ3dDd1BTcnVYeE5MbDZGQXo4VFYtOWtkTjl5WjBrVXBDSWl6NFRmb3BmeGFXN05zOA?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "8 novembre 2026 - Festa dell’Unità Nazionale e delle Forze Armate",
       "date": "2026-11-06",
       "source": "Comune di Aprilia",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMFpEckFhS1ZwNWtQSDdOSTJhY25SOXFiQ1R6anNPUHgxdThISjVFLWNqMXFsUDRXUnR6UGtvSjhRYURUaU9GVjZZT21HMU9ZYm8yeHhtWE5sSU4xbkhHdGRhdW5SS21zOXlQOHpIT1JtYWxZbzA2a1k0RVRSQXlTWmY3TWJoWk9kLUtnU1ZqVjlTZ0d3OGFkaTB4QjBzbVlBTGRnSw?oc=5",
       "category": "Città di Aprilia",
       "priority": "aprilia",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Privacy Policy",
-      "date": "2026-11-05",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBNcDFPN1Nyc1A5MS03Zzg5U3pMZkpPV0hadUdMa0ROelFkd2ZLRE8wdUJCOFBQcnpicGJiRGhRWms5TXN4V2RlbFF1RFFIMlV5bmk0?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
       "link_kind": "aggregatore"
     },
     {
@@ -1145,15 +1082,6 @@
       "link_kind": "aggregatore"
     },
     {
-      "title": "Manovra | Antonio De Poli: interventi su casa, lavoro e fisco per ceto medio e giovani coppie",
-      "date": "2026-11-04",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNTlJNSWlWSThJaVNpa1RObFYyMDZ4VVhGQmJSMTc2TE1hcVc3TGdyeTk0U1NWT3dOd2E0NEZ3NTR0QTVnSWtFckRDV2pGcDUyN2l4Q3JwVE9TSE5PWGV3c0JTUDdILW0zRGRiZndQY0toVEFjcUNyZW1YMVN0anYxSGZEdkZxMTdTelM5WnhOZ1NwWllVOHJhT2RfWEF2cTJXUjZveU9ZR1dtdUdZeFhtRlFoVlVDMkU?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
       "title": "Censimento sull’intero territorio comunale del Canone Unico Patrimoniale",
       "date": "2026-11-04",
       "source": "Comune di Aprilia",
@@ -1178,42 +1106,6 @@
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQclV6NVMzdGJfR1kwM2lhOF9SVFlTMlNOWkp2OTNrVXhmQmJSM2F3MV9KX3RuX1Bia3hGSWt6a2s1Rk9jOWlPZjBLLS1JUDNEcDVUY3p4RHpsNW1JUWQybU5zNWt5U052TGlPRjhWUjR2VlZSenNnbEVsQjk0a21UUmRjQmXSAYwBQVVfeXFMUFhhZkJCUC16cndNanZ4cGlVVjA3VGptUDBxSUduTUhIVnBYX2dyVGVpaHBjVG9oS01XZjh6dXVvSUpCOXNGTkVmR3IwUEh3R05wdkxDalNLY0ZTNmlSSlpMSnVrZlFHc0tabE1lNm9EOGE2dVN1TTNlV3NKN0xLMk92bUVnVmh3YzZuMTE?oc=5",
       "category": "UDC Aprilia",
       "priority": "udc_aprilia",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Social e minori | Antonio De Poli (Udc): stop Ue di 12 mesi inaccettabile, la salute dei nostri ragazzi non può aspettare",
-      "date": "2026-11-01",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNdmFmaWZwbVBqVWVaV1dnRmNsaG9kOHBQZGNRdnpCYXhRb0wyN2E4YVdwNTJOUFZFSDMxbFRHcFlGaEhFNjJ1VVFCOGpIME1KRWt2TjZubmFHRTBQc2hQalBmWmI3UkJ0OF9UNkZUUmJ3Q1BuOHlqSXpDei1aWDUtMGJHalhRNFJDcU5DT3JZT3l0ejB2N1RlTFJJeHcwZTkydHp1VTdZVVpXTlVaTkluYjB5QXRIcDZZZTRSdUJOSGw2VWRZQlpEMktQQmlsM05SRzBjelpLVVA1UQ?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "Antonio De Poli ospite ad Agorà Rai 3 | Giovani, manovra economica e futuro del Paese",
-      "date": "2026-10-30",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWl9DenpnUkFOeGtkY0Q2SVJ4X25hWWt6b0t4Y2xBQ1J0V0pjdGh3LWtTaUlvTE5aLXRKZ3dxX3c4c1Mxa2VNcUNCcFBtYUlTbjdZV3ZIdmk1cDRkcFVZWnVTLW4zWlhrOHlpMXFuNWpLb3BfUnJ1c1FmMWNHSTZrbHY5Sms5aDFWY1I5Q2R5MmdTX1FjeEVkWTloaENWMnEwb2VnNTlndlNLSDFVbHc?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "NATO | Lorenzo Cesa riunisce la Delegazione italiana alla vigilia della sessione di Berlino e delle sfide istituzionali",
-      "date": "2026-10-27",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNdnBvbVRzZkVoNjVaOE80a0lZblB1cWFQbDJhcGtpaHlTN2Q0aDdsdV92cXNvNFZzM2ZXSncxdXJyM3ZIS3AyS18tX0dxbHpCYWp5THdrTlNqT2ZHdldxMjZlcFdUZ05wZ0g4SXhCVmhiLXlPNHRmWS1FRFVRUUZZUFBPU21hSHhoWmNZOFJKb2NPSDlSWThiQm1LUXR3UVk5d1lHNFhVZ0xyTU1MeUZxTE45QWdLUWRJSk1ITjlycXl6N3FqX0cyTmo1NFlUS1Viamh0ajlGMEE2QkMy?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
-      "link_kind": "aggregatore"
-    },
-    {
-      "title": "NATO | Lorenzo Cesa a Bruxelles per la riunione dei Presidenti delle Commissioni Difesa",
-      "date": "2026-10-27",
-      "source": "UDC Italia",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSVMwNGpnQWFHaURTeF91QWFJZWc3a201UEE0aE82dkhWOUFqWGtLUkk5ZXdhWGNlMnQ1WUNfczJCTkxrMXZ6VW9HZWgtRDBsanJXdnBKTEF3dno3UmVtS2J2UllndEVSd3VQcmJBV19sV1d0ek01VTlfQ3VYNHk4dmFKX1Ixb2lGWFNmVE5uRENYd1pFYW00ZGNPak1faHQxV2Eza3RKXzY5cWhTU09IamZn?oc=5",
-      "category": "UDC nazionale",
-      "priority": "udc_nazionale",
       "link_kind": "aggregatore"
     },
     {
