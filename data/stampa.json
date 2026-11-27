@@ -19,7 +19,15 @@
     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSkNWQ05EeFdvZ2pNcmEwY0FVdDFid1U3aUFGY0RKWmdEOWdFQ2RodERRVC1UbXNfUXZaenVJcDJpdWxvc0FvQ01KdjJHSU9rOENXM3g2TWw0d1BtVXI5dXE3T1d3RWE1ZW5CendHSE1yby1fa0NhdWhnVWZsSDVnQndlUE5SakVOY2lFdFplVW9TcXBNcFcxcGRWRmhGUjBqOGJIRWg1SVhrNUFpd1NRNjl3?oc=5",
     "tipo_link": "aggregatore",
     "origine": "ricerca_rss",
-    "argomento": "UDC Aprilia / Pietro Fazio"
+    "argomento": "UDC Aprilia / Pietro Fazio",
+    "pdf_collegati": [
+      {
+        "file": "comunicato-2026-11-25-kn18llb.pdf",
+        "titolo": "Accordo GEROPA, UDC Aprilia:  «Responsabilità istituzionale   e tutela delle risorse pubbliche»",
+        "data": "2026-11-25",
+        "stato": "corrispondenza_da_verificare"
+      }
+    ]
   },
   {
     "id": "rassegna-latinanews-2026-11-20-fazio-sanita",

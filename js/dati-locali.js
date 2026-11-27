@@ -55,7 +55,15 @@ window.UDCLocalData = {
       "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSkNWQ05EeFdvZ2pNcmEwY0FVdDFid1U3aUFGY0RKWmdEOWdFQ2RodERRVC1UbXNfUXZaenVJcDJpdWxvc0FvQ01KdjJHSU9rOENXM3g2TWw0d1BtVXI5dXE3T1d3RWE1ZW5CendHSE1yby1fa0NhdWhnVWZsSDVnQndlUE5SakVOY2lFdFplVW9TcXBNcFcxcGRWRmhGUjBqOGJIRWg1SVhrNUFpd1NRNjl3?oc=5",
       "tipo_link": "aggregatore",
       "origine": "ricerca_rss",
-      "argomento": "UDC Aprilia / Pietro Fazio"
+      "argomento": "UDC Aprilia / Pietro Fazio",
+      "pdf_collegati": [
+        {
+          "file": "comunicato-2026-11-25-kn18llb.pdf",
+          "titolo": "Accordo GEROPA, UDC Aprilia:  «Responsabilità istituzionale   e tutela delle risorse pubbliche»",
+          "data": "2026-11-25",
+          "stato": "corrispondenza_da_verificare"
+        }
+      ]
     },
     {
       "id": "rassegna-latinanews-2026-11-20-fazio-sanita",
@@ -569,15 +577,6 @@ window.UDCLocalData = {
     },
     {
       "anno": "2026",
-      "data": "2026-04-10",
-      "titolo": "Coordinamento UDC Aprilia Spett.le Commissione Straordinaria del Comune di Aprilia NOTA UFFICIALE",
-      "descrizione": "Comunicato ufficiale UDC Aprilia del 10 aprile 2026. PDF integrale per lettura, stampa e download.",
-      "file": "2026-04-10-coordinamento-udc-aprilia-spett-le-commissione-straordinaria-del-comune-di-aprilia-no.pdf",
-      "pubblica": true,
-      "verifica_privacy": true
-    },
-    {
-      "anno": "2026",
       "data": "2026-03-23",
       "titolo": "Aprilia, avviato il confronto nel centrodestra obiettivo una coalizione solida e credibile",
       "descrizione": "Comunicato ufficiale UDC Aprilia del 23 marzo 2026. PDF integrale per lettura, stampa e download.",
@@ -600,24 +599,6 @@ window.UDCLocalData = {
       "titolo": "Forum sull’Europa ad Aprilia l’UDC rilancia una pace fondata su responsabilità e un’Europa più forte",
       "descrizione": "Comunicato ufficiale UDC Aprilia del 2 marzo 2026. PDF integrale per lettura, stampa e download.",
       "file": "2026-03-02-forum-sulleuropa-ad-aprilia-ludc-rilancia-una-pace-fondata-su-responsabilita-e-uneuro.pdf",
-      "pubblica": true,
-      "verifica_privacy": true
-    },
-    {
-      "anno": "2026",
-      "data": "2026-02-28",
-      "titolo": "Terzo Settore, responsabilità e confronto per il futuro di Aprilia Si è svolta presso la Comunità",
-      "descrizione": "Comunicato ufficiale UDC Aprilia del 28 febbraio 2026. PDF integrale per lettura, stampa e download.",
-      "file": "2026-02-28-terzo-settore-responsabilita-e-confronto-per-il-futuro-di-aprilia-si-e-svolta-presso.pdf",
-      "pubblica": true,
-      "verifica_privacy": true
-    },
-    {
-      "anno": "2026",
-      "data": "2026-02-23",
-      "titolo": "Ora è il tempo della responsabilità L’impegno dell’UDC per la ricostruzione della politica ad Aprilia",
-      "descrizione": "Comunicato ufficiale UDC Aprilia del 23 febbraio 2026. PDF integrale per lettura, stampa e download.",
-      "file": "2026-02-23-ora-e-il-tempo-della-responsabilita-limpegno-delludc-per-la-ricostruzione-della-polit.pdf",
       "pubblica": true,
       "verifica_privacy": true
     },
@@ -800,6 +781,166 @@ window.UDCLocalData = {
       "file": "2025-05-27-discarica-di-santapollonia-ludc-propone-alternative-sostenibili-e-chiede-trasparenza.pdf",
       "pubblica": true,
       "verifica_privacy": true
+    },
+    {
+      "data": "2026-01-18",
+      "titolo": "APRILIA, RICOSTRUIRE FIDUCIA: UN CONTRIBUTO AL DIBATTITO CIVICO DELLA CITTÀ",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-01-18-sp9b9xo.pdf"
+    },
+    {
+      "data": "2026-01-26",
+      "titolo": "IDENTITÀ DELLA COMUNITÀ DI APRILIA: RADICI, RESPONSABILITÀ, FUTURO",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-01-26-qxbrvct.pdf"
+    },
+    {
+      "data": "2026-02-02",
+      "titolo": "PARTECIPAZIONE DEMOCRATICA",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-02-02-sixsg4w.pdf"
+    },
+    {
+      "data": "2026-02-10",
+      "titolo": "Casa della Salute di Aprilia  I cittadini chiedono chiarezza, servizi e tempi certi",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-02-10-onsu2qv.pdf"
+    },
+    {
+      "data": "2026-02-16",
+      "titolo": "Ricostruire fiducia ad Aprilia: una visione di governo per la nuova fase.",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-02-16-4cmyu6e.pdf"
+    },
+    {
+      "data": "2026-02-17",
+      "titolo": "NON SOLO FONDI, SERVE PROGRAMMAZIONE",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-02-17-0kgj1qz.pdf"
+    },
+    {
+      "data": "2026-03-11",
+      "titolo": "Referendum giustizia  l’UDC di Aprilia per il Sì alla separazione delle carriere",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-03-11-jm7kw53.pdf"
+    },
+    {
+      "data": "2026-09-24",
+      "titolo": "STRISCE BLU, UDC APRILIA: «DOPO IL TAR, ORA PARLINO I DATI»",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-09-24-vansltj.pdf"
+    },
+    {
+      "data": "2026-08-08",
+      "titolo": "Spari in via degli Oleandri: un episodio che preoccupa la città",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-08-08-5g23lf4.pdf"
+    },
+    {
+      "data": "2026-04-07",
+      "titolo": "Casa della Salute / Casa di Comunità:   serve chiarezza su tempi, risorse e servizi",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-04-07-a51h9am.pdf"
+    },
+    {
+      "data": "2026-04-18",
+      "titolo": "Casa della Salute / Casa di Comunità di Aprilia: i cittadini  meritano certezze",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-04-18-2qd92rf.pdf"
+    },
+    {
+      "data": "2026-04-08",
+      "titolo": "ASAM, UDC Aprilia: “Serve un chiarimento pubblico”",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-04-08-7io2utf.pdf"
+    },
+    {
+      "data": "2026-11-25",
+      "titolo": "Accordo GEROPA, UDC Aprilia:  «Responsabilità istituzionale   e tutela delle risorse pubbliche»",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-11-25-kn18llb.pdf"
+    },
+    {
+      "data": "2026-08-21",
+      "titolo": "UDC APRILIA: SALA MANZÙ   ABBIAMO CHIESTO GLI ATTI AL COMUNE",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-08-21-xs6n27s.pdf"
+    },
+    {
+      "data": "2026-02-28",
+      "titolo": "Terzo Settore, responsabilità e confronto per il futuro di Aprilia",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-02-28-td9qboa.pdf"
+    },
+    {
+      "data": "2026-02-23",
+      "titolo": "Ora è il tempo della responsabilità",
+      "categoria": "comunicato",
+      "anno": "2026",
+      "descrizione": "",
+      "pubblica": true,
+      "verifica_privacy": true,
+      "file": "comunicato-2026-02-23-h1sju9m.pdf"
     }
   ],
   "webNews": {
