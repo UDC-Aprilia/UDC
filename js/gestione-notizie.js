@@ -9,6 +9,11 @@
     let session = null, kind = 'stampa', catalog = [], sha = null, busy = false;
     const status = (message, error = false) => { $('status').textContent = message; $('status').classList.toggle('error', error); };
     const clean = s => String(s || '').trim();
+    const letterId = x => x.id || 'lettera-'+x.anno+'-'+x.file;
+    function letterOptions(current='') { const el=$('letter-related'); el.replaceChildren(new Option('Nessuno','')); for(const x of catalog) if(kind==='lettere' && letterId(x)!==current) el.add(new Option(x.titolo,letterId(x))); }
+    function directionLabel(){ $('letter-party-label').firstChild.textContent=$('letter-direction').value==='entrata'?'Mittente istituzionale *':'Destinatario istituzionale *'; }
+    function privacyCheck(){ if(!$('privacy-review').checked || !$('privacy-redacted').checked || $('privacy-result').value!=='clear') throw new Error('Pubblicazione bloccata: completa la verifica privacy.'); }
+    function scanText(value){ const t=String(value); if(/\b[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]\b/i.test(t)||/\bIT\d{2}[A-Z]\d{10}[A-Z0-9]{12}\b/i.test(t)) throw new Error('Possibile codice fiscale o IBAN: verifica e rimuovi il dato prima di pubblicare.'); }
     const validRepo = s => /^[a-zA-Z0-9_.-]{1,100}$/.test(s) && !s.startsWith('.');
     const safeUrl = s => { try {
         const u = new URL(clean(s));
@@ -43,7 +48,7 @@
         if (kind === 'profili' || kind === 'cultura') { publicationData = JSON.parse(raw.replace(/^\s*window\.UDCPubblicazioni\s*=\s*/, '').replace(/;\s*$/, '')); data = publicationData[kind]; } else data = JSON.parse(raw);
         if (!Array.isArray(data))
             throw new Error('Archivio non valido');
-        catalog = data;
+        catalog = data; letterOptions();
         sha = result.sha;
         render();
     }
@@ -63,7 +68,7 @@
         $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('category-label').classList.toggle('hidden',kind !== 'documenti'); $('form-heading').textContent = kind === 'cultura' ? '3. Scheda libro' : kind === 'profili' ? '3. Profilo istituzionale' : kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'cultura' ? 'Aggiungi o modifica libri e copertine.' : kind === 'profili' ? 'Gestisci coordinamento, direttivo e Consiglio generale.' : kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
     let previewObjectUrl = '';
     function showProfilePhoto(url) { const img=$('profile-preview'); img.hidden=!url; img.style.display=url?'block':'none'; $('profile-placeholder').hidden=!!url; if(url) img.src=url; else img.removeAttribute('src'); }
-    function resetForm() { if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=''; showProfilePhoto(''); $('editor-form').reset(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
+    function resetForm() { if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=''; showProfilePhoto(''); $('editor-form').reset(); letterOptions(); directionLabel(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
     const itemKey = x => isPdf() ? String(x.anno) + '/' + String(x.file) : String(x.id);
     function render() {
         const target = $('listing');
@@ -76,12 +81,12 @@
             return;
         }
         const query = clean($('archive-search').value).toLocaleLowerCase('it');
-        for (const item of catalog.filter(x => [x.autori,x.tema,x.editore,x.isbn,x.nome,x.incarico,x.titolo,x.data,x.destinatario,x.descrizione,x.fonte].join(' ').toLocaleLowerCase('it').includes(query)).sort((a, b) => String(b.data).localeCompare(String(a.data)))) {
+        for (const item of catalog.filter(x => [x.autori,x.tema,x.editore,x.isbn,x.nome,x.incarico,x.titolo,x.data,x.destinatario,x.mittente,x.direzione,x.materia,x.fascicolo,x.stato_invio,x.esito,x.descrizione,x.fonte].join(' ').toLocaleLowerCase('it').includes(query)).sort((a, b) => String(b.data).localeCompare(String(a.data)))) {
             const el = document.createElement('article');
             el.className = 'editor-entry';
             const meta = document.createElement('div');
             meta.className = 'meta';
-            meta.textContent = [item.data, kind === 'stampa' ? item.fonte : isPdf() ? 'Anno ' + item.anno : item.luogo].filter(Boolean).join(' · ');
+            meta.textContent = [item.data, kind==='lettere'?(item.direzione==='entrata'?'Ricevuta':item.direzione==='uscita'?'Inviata':'Direzione da verificare'): '', kind === 'stampa' ? item.fonte : isPdf() ? 'Anno ' + item.anno : item.luogo].filter(Boolean).join(' · ');
             const title = document.createElement('h3');
             title.textContent = item.nome || item.titolo;
             const desc = document.createElement('p');
@@ -124,14 +129,14 @@
             $('event-photo').value = x.foto || '';
         }
         if (isPdf()) {
-            $('doc-category').value = x.categoria || 'comunicato'; $('doc-description').value = x.descrizione || ''; if (kind === 'lettere') { $('letter-recipient').value = x.destinatario || ''; $('letter-protocol').value = x.protocollo || ''; }
+            $('doc-category').value = x.categoria || 'comunicato'; $('doc-description').value = x.descrizione || ''; if (kind === 'lettere') { $('letter-direction').value=x.direzione||''; directionLabel(); $('letter-recipient').value=x.mittente||x.destinatario||''; $('letter-protocol').value=x.protocollo||''; $('letter-date').value=x.data_trasmissione||''; $('letter-topic').value=x.materia||''; $('letter-case').value=x.fascicolo||''; letterOptions(letterId(x)); $('letter-related').value=x.collegata_a||''; $('letter-channel').value=x.modalita_invio||''; $('letter-state').value=x.stato_invio||''; $('letter-outcome').value=x.esito_testo||'Non definito'; }
             $('doc-approved').checked = x.pubblica === true;
             $('doc-privacy').checked = x.verifica_privacy === true;
         }
         $('save').textContent = 'Salva modifiche';
         $('form-heading').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    async function publish() { if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.');
+    async function publish() { privacyCheck(); for(const el of $('editor-form').querySelectorAll('input[type=text], input:not([type]), textarea')) { if(!el.closest('.hidden')) scanText(el.value); } if (!sha) throw new Error('Archivio non caricato: premi Aggiorna.');
         const id = clean($('item-id').value);
         const old = id ? catalog.find(x => itemKey(x) === id) : null;
         if (id && !old)
@@ -180,12 +185,12 @@
         if (isPdf()) {
             if (!$('doc-approved').checked || !$('doc-privacy').checked)
                 throw new Error('Per pubblicare il PDF devi confermare sia l’approvazione del coordinamento sia la verifica della privacy.');
-            if (kind === 'lettere') { Object.assign(next, old || {}, {data,titolo,destinatario:clean($('letter-recipient').value),protocollo:clean($('letter-protocol').value)}); if (!next.destinatario) throw new Error('Indica il destinatario istituzionale.'); }
+            if (kind === 'lettere') { const direzione=$('letter-direction').value, party=clean($('letter-recipient').value), data_trasmissione=$('letter-date').value, materia=$('letter-topic').value, stato_invio=$('letter-state').value, collegata_a=$('letter-related').value; if(!['entrata','uscita'].includes(direzione)||!party||!data_trasmissione||!materia||!stato_invio||!clean($('doc-description').value)) throw new Error('Completa direzione, ente, data, materia, stato e descrizione.'); if(collegata_a && !catalog.some(x=>letterId(x)===collegata_a && (!old||letterId(x)!==letterId(old)))) throw new Error('Collegamento non valido.'); Object.assign(next,{id:old?letterId(old):'lettera-'+crypto.randomUUID(),direzione,data_trasmissione,materia,stato_invio,collegata_a,fascicolo:clean($('letter-case').value),modalita_invio:$('letter-channel').value,esito_testo:$('letter-outcome').value,protocollo:clean($('letter-protocol').value),destinatario:direzione==='uscita'?party:'',mittente:direzione==='entrata'?party:''}); }
             if(kind === 'documenti') next.categoria = $('doc-category').value;
             next.anno = data.slice(0, 4);
             next.descrizione = clean($('doc-description').value);
             next.pubblica = true;
-            next.verifica_privacy = true;
+            next.verifica_privacy = true; next.data_verifica_privacy = new Date().toISOString();
             const file = $('document-file').files[0];
             if (!file && !old)
                 throw new Error('Seleziona un PDF da caricare.');
@@ -195,6 +200,7 @@
                 const bytes = new Uint8Array(await file.arrayBuffer());
                 if (new TextDecoder().decode(bytes.slice(0, 5)) !== '%PDF-')
                     throw new Error('Il file selezionato non è un PDF valido.');
+                scanText(new TextDecoder().decode(bytes));
                 const name = (kind === 'lettere' ? 'lettera-' : 'comunicato-') + data + '-' + Math.random().toString(36).slice(2, 9) + '.pdf';
                 const path = (kind === 'lettere' ? 'lettere/' : 'documenti/') + next.anno + '/' + name;
                 status('Carico il documento PDF nel repository…');
@@ -239,6 +245,7 @@
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => withBusy(async () => { switchKind(t.dataset.kind); await load(); status('Archivio ' + cfg[kind].name + ' caricato.'); })));
     $('refresh').addEventListener('click', () => withBusy(async () => { await load(); status('Elenco aggiornato.'); }));
     $('profile-photo').addEventListener('change',()=>{const f=$('profile-photo').files[0]; if(!f)return; if(f.size>5*1024*1024||!['image/jpeg','image/png','image/webp'].includes(f.type)){ $('profile-photo').value=''; status('Scegli una fotografia JPEG, PNG o WebP fino a 5 MB.',true);return;} if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=URL.createObjectURL(f); showProfilePhoto(previewObjectUrl);});
+    $('letter-direction').addEventListener('change',directionLabel);
     $('archive-search').addEventListener('input', render);
     $('cancel').addEventListener('click', resetForm);
     $('editor-form').addEventListener('submit', event => { event.preventDefault(); withBusy(publish); });
