@@ -11,7 +11,7 @@
   <link href="assets/logo.png" rel="icon"/>
   <link href="css/gestione-foto.css" rel="stylesheet"/>
   <link href="css/gestione-notizie.css?v=20261126-checkbox2" rel="stylesheet"/>
-  <script defer="" src="js/gestione-notizie.js?v=20261127-privacy4">
+  <script defer="" src="js/gestione-notizie.js?v=20261127-docx1">
   </script>
  </head>
  <body>
@@ -110,7 +110,7 @@
        Attività ed eventi
       </button>
       <button aria-pressed="false" class="tab" data-kind="documenti" type="button">
-       Comunicati e documenti PDF
+       Comunicati e documenti
       </button>
      <button aria-pressed="false" class="tab" data-kind="cultura" type="button">Cultura e biblioteca</button><button aria-pressed="false" class="tab" data-kind="profili" type="button">Organi e profili</button>
      <button aria-pressed="false" class="tab" data-kind="lettere" type="button">Corrispondenza istituzionale</button>
@@ -203,7 +203,7 @@
       <div class="hidden" id="lettere-fields"><label>Direzione *<select id="letter-direction"><option value="">Seleziona</option><option value="uscita">Inviata</option><option value="entrata">Ricevuta</option></select></label><label id="letter-party-label">Mittente o destinatario *<input id="letter-recipient" maxlength="180"/></label><label>Data invio/ricezione *<input id="letter-date" type="date"/></label><label>Materia *<select id="letter-topic"><option value="">Seleziona</option><option value="Sanità e servizi sociali">Sanità e servizi sociali</option><option value="Ambiente e territorio">Ambiente e territorio</option><option value="Urbanistica e infrastrutture">Urbanistica e infrastrutture</option><option value="Sicurezza e legalità">Sicurezza e legalità</option><option value="Cultura e istruzione">Cultura e istruzione</option><option value="Economia e lavoro">Economia e lavoro</option><option value="Rapporti istituzionali">Rapporti istituzionali</option><option value="Organizzazione del partito">Organizzazione del partito</option><option value="Altro">Altro</option></select></label><label>Fascicolo (titolo pubblico)<input id="letter-case" maxlength="150"/></label><label>Collega documento precedente<select id="letter-related"><option value="">Nessuno</option></select></label><label>Protocollo (facoltativo)<input id="letter-protocol" maxlength="100"/></label><label>Modalità di trasmissione<select id="letter-channel"><option value="">Non indicata</option><option value="PEC">PEC</option><option value="Email">Email</option><option value="Consegna a mano">Consegna a mano</option><option value="Posta">Posta</option><option value="Altro">Altro</option></select></label><label>Stato *<select id="letter-state"><option value="">Seleziona</option><option value="inviata">Inviata</option><option value="ricevuta">Ricevuta</option><option value="protocollata">Protocollata</option><option value="risposta-ricevuta">Riscontro ricevuto</option><option value="attesa">In attesa di risposta</option><option value="conclusa">Conclusa</option></select></label><label>Esito<select id="letter-outcome"><option value="Non definito">Non definito</option><option value="In valutazione">In valutazione</option><option value="Accolta">Accolta</option><option value="Parzialmente accolta">Parzialmente accolta</option><option value="Non accolta">Non accolta</option><option value="Presa d’atto">Presa d’atto</option><option value="Non applicabile">Non applicabile</option></select></label></div>
       <div class="hidden" id="documenti-fields"><label id="category-label">Categoria del documento<select id="doc-category"><option value="comunicato">Comunicato stampa</option><option value="nomina">Atto di nomina</option><option value="delibera">Delibera pubblicabile</option><option value="documento">Altro documento ufficiale</option></select></label>
        <p class="notice">
-        Carica esclusivamente copie PDF autorizzate alla pubblicazione. Per le lettere ricevute conserva l’intestazione dell’ente mittente. Verranno archiviati nella cartella
+        Carica esclusivamente copie PDF o DOCX autorizzate alla pubblicazione. Per le lettere ricevute conserva l’intestazione dell’ente mittente. Verranno archiviati nella cartella
         <code>
          documenti/ANNO/ oppure lettere/ANNO/
         </code>
@@ -214,12 +214,12 @@
         <textarea id="doc-description" maxlength="400" rows="2"></textarea>
        </label>
        <label>
-        File PDF * (max 5 MB)
-        <input accept="application/pdf,.pdf" id="document-file" type="file"/>
+        File PDF e/o Word (.docx) * (max 5 MB ciascuno)
+        <input accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple id="document-file" type="file"/>
        </label>
-       <p class="help">Il PDF pubblicato sarà accessibile e scaricabile da chiunque. Completa le verifiche nel riquadro sottostante.</p>
+       <p class="help">Il documento pubblicato sarà accessibile e scaricabile da chiunque. Completa le verifiche nel riquadro sottostante.</p>
        <p class="help">
-        Per modificare titolo o descrizione di un documento esistente non serve caricare di nuovo il PDF. Se scegli un altro PDF verrà pubblicato un nuovo file; l'originale rimane nello storico GitHub.
+        Per modificare titolo o descrizione di un documento esistente non serve caricare di nuovo il file. Se scegli un altro file dello stesso formato verrà pubblicato un nuovo file; l'originale rimane nello storico GitHub.
        </p>
        <p class="help">
         <a href="modello-comunicato.html" target="_blank">
@@ -227,7 +227,7 @@
         </a>
        </p>
       </div>
-      <fieldset id="privacy-gate"><legend>Verifica preventiva obbligatoria</legend><p class="notice">Non caricare originali riservati. Anche i rami di prova sono pubblici. Verifica anche testi, immagini, firme, allegati e metadati.</p><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-review"/> Ho verificato integralmente i contenuti, la legittimità e l’autorizzazione del coordinamento alla pubblicazione.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-redacted"/> Non sono presenti dati non pubblicabili; eventuali oscuramenti sono irreversibili.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-pdf-manual"/> Per i nuovi PDF: ho controllato tutte le pagine, scansioni, allegati e metadati con uno strumento locale. Il controllo automatico è limitato e non certifica la pubblicabilità.</label><label>Esito verifica<select id="privacy-result"><option value="">Non verificato</option><option value="risk">Dati riservati presenti: blocco</option><option value="clear">Copia pubblicabile verificata</option></select></label><p id="privacy-status" role="status">Pubblicazione bloccata: verifica incompleta.</p></fieldset><div class="actions">
+      <fieldset id="privacy-gate"><legend>Verifica preventiva obbligatoria</legend><p class="notice">Non caricare originali riservati. Anche i rami di prova sono pubblici. Verifica anche testi, immagini, firme, allegati e metadati.</p><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-review"/> Ho verificato integralmente i contenuti, la legittimità e l’autorizzazione del coordinamento alla pubblicazione.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-redacted"/> Non sono presenti dati non pubblicabili; eventuali oscuramenti sono irreversibili.</label><label style="display:flex;align-items:flex-start;gap:10px;margin:12px 0"><input style="width:18px;height:18px;flex:0 0 18px;margin:3px 0 0" type="checkbox" id="privacy-pdf-manual"/> Per i nuovi file: ho controllato tutte le pagine, scansioni, allegati, metadati, commenti, revisioni e testo nascosto con uno strumento locale. Il controllo automatico è limitato e non certifica la pubblicabilità.</label><label>Esito verifica<select id="privacy-result"><option value="">Non verificato</option><option value="risk">Dati riservati presenti: blocco</option><option value="clear">Copia pubblicabile verificata</option></select></label><p id="privacy-status" role="status">Pubblicazione bloccata: verifica incompleta.</p></fieldset><div class="actions">
        <button id="save" type="submit" disabled>
         Pubblica contenuto
        </button>
@@ -268,7 +268,7 @@
     </a>
     ·
     <a href="archivio-comunicati.html">
-     Archivio PDF
+     Archivio documenti
     </a>
     ·
     <a href="gestione-foto.html">
