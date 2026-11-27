@@ -200,15 +200,17 @@
     const letterDetail = x => {
         const year = String(x.anno);
         const parts = [];
+        for(const [label,value] of [['Materia',x.materia],['Fascicolo',x.fascicolo],['Data trasmissione',x.data_trasmissione],['Esito',x.esito_testo]]) if(value) parts.push('<p><strong>'+label+':</strong> '+escape(value)+'</p>');
+        if(x.collegata_a){const related=(d.lettere||[]).find(y=>(y.id||'lettera-'+y.anno+'-'+y.file)===x.collegata_a && y.pubblica===true && y.verifica_privacy===true && /^20\d{2}$/.test(String(y.anno)) && safePdfName(y.file));if(related) parts.push('<p><a class="text-link" href="'+escape('lettere/'+related.anno+'/'+encodeURIComponent(related.file))+'">Documento collegato: '+escape(related.titolo)+'</a></p>');}
         if (x.iniziativa)
             parts.push(`<p><strong>Iniziativa del coordinamento:</strong> ${escape(x.iniziativa)}</p>`);
         if (x.modalita_invio)
             parts.push(`<p><strong>Modalità di trasmissione:</strong> ${escape(x.modalita_invio)}</p>`);
-        if (statoInvioLabel[x.stato_invio])
-            parts.push(`<p><strong>Stato documentale:</strong> ${escape(statoInvioLabel[x.stato_invio])}</p>`);
+        if (statoInvioLabel[x.stato_invio] || ['ricevuta','attesa','conclusa'].includes(x.stato_invio))
+            parts.push(`<p><strong>Stato documentale:</strong> ${escape(statoInvioLabel[x.stato_invio] || ({ricevuta:'Ricevuta',attesa:'In attesa di risposta',conclusa:'Conclusa'})[x.stato_invio])}</p>`);
         if (x.data_consegna && x.stato_invio !== 'inviata')
             parts.push(`<p><strong>Consegna PEC:</strong> ${escape(prettyDate(x.data_consegna))} (se documentata)</p>`);
-        if (x.protocollo && ['protocollata', 'risposta-ricevuta'].includes(x.stato_invio))
+        if (x.protocollo)
             parts.push(`<p><strong>Protocollo comunicato dall'ente:</strong> ${escape(x.protocollo)}${x.data_protocollo ? ' del ' + escape(prettyDate(x.data_protocollo)) : ''}</p>`);
         if (x.data_risposta && x.stato_invio === 'risposta-ricevuta')
             parts.push(`<p><strong>Riscontro ricevuto:</strong> ${escape(prettyDate(x.data_risposta))}</p>`);
@@ -234,7 +236,7 @@
         const categories = {comunicato:'Comunicato stampa',nomina:'Atto di nomina',delibera:'Delibera',documento:'Documento ufficiale'};
         const entries = (Array.isArray(items) ? items : []).filter(x => x && x.pubblica === true && x.verifica_privacy === true &&
             /^20\d{2}$/.test(String(x.anno || '')) &&
-            safePdfName(x.file) && (!lettere || (typeof x.destinatario === 'string' && x.destinatario.trim())) &&
+            safePdfName(x.file) && (!lettere || (x.direzione === 'entrata' ? typeof x.mittente === 'string' && x.mittente.trim() : typeof x.destinatario === 'string' && x.destinatario.trim())) &&
             typeof x.titolo === 'string' && x.titolo.trim() &&
             /^\d{4}-\d{2}-\d{2}$/.test(String(x.data || '')) &&
             String(x.data).slice(0, 4) === String(x.anno));
@@ -244,7 +246,7 @@
             const ofYear = entries.filter(x => String(x.anno) === year).sort((a, b) => String(b.data).localeCompare(String(a.data)) || String(a.titolo).localeCompare(String(b.titolo), 'it'));
             const mesi = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
             return `<section class="archive-year" aria-label="${label} ${escape(year)}"><h2>${label} ${escape(year)}</h2>${ofYear.length
-                ? `<div class="archive-list">${ofYear.map((x, i) => `${i === 0 || x.data.slice(0, 7) !== ofYear[i - 1].data.slice(0, 7) ? `<h3 class="archive-month">${mesi[Number(x.data.slice(5, 7)) - 1]} ${year}</h3>` : ''}<article class="archive-doc${lettere ? ' archive-letter' : ''}"><div><div class="meta">${escape(prettyDate(x.data))} · ${lettere ? 'Lettera istituzionale' : escape(categories[x.categoria] || categories.comunicato)} PDF${lettere && x.destinatario ? ' · Destinatario: ' + escape(x.destinatario) : ''}</div><h3>${escape(x.titolo)}</h3>${x.descrizione ? `<p>${escape(x.descrizione)}</p>` : ''}${lettere ? letterDetail(x) : ''}</div>${lettere ? `<a class="text-link" href="${escape(folder + '/' + year + '/' + encodeURIComponent(x.file))}" target="_blank" rel="noopener noreferrer" aria-label="Apri il PDF: ${escape(x.titolo)}">Apri lettera PDF ↗</a>` : `<div class="archive-pdf-actions"><a class="text-link" href="${escape(folder + '/' + year + '/' + encodeURIComponent(x.file))}" target="_blank" rel="noopener noreferrer" aria-label="Leggi PDF: ${escape(x.titolo)}">Leggi PDF ↗</a><a class="text-link" href="${escape(folder + '/' + year + '/' + encodeURIComponent(x.file))}" download="${escape(x.file)}" aria-label="Scarica PDF: ${escape(x.titolo)}">Scarica PDF ↓</a></div>`}</article>`).join('')}</div>`
+                ? `<div class="archive-list">${ofYear.map((x, i) => `${i === 0 || x.data.slice(0, 7) !== ofYear[i - 1].data.slice(0, 7) ? `<h3 class="archive-month">${mesi[Number(x.data.slice(5, 7)) - 1]} ${year}</h3>` : ''}<article class="archive-doc${lettere ? ' archive-letter' : ''}"><div><div class="meta">${escape(prettyDate(x.data))} · ${lettere ? (x.direzione === 'entrata' ? 'Lettera ricevuta' : x.direzione === 'uscita' ? 'Lettera inviata' : 'Corrispondenza istituzionale') : escape(categories[x.categoria] || categories.comunicato)} PDF${lettere ? (x.direzione === 'entrata' ? ' · Mittente: ' + escape(x.mittente) : ' · Destinatario: ' + escape(x.destinatario)) : ''}</div><h3>${escape(x.titolo)}</h3>${x.descrizione ? `<p>${escape(x.descrizione)}</p>` : ''}${lettere ? letterDetail(x) : ''}</div>${lettere ? `<a class="text-link" href="${escape(folder + '/' + year + '/' + encodeURIComponent(x.file))}" target="_blank" rel="noopener noreferrer" aria-label="Apri il PDF: ${escape(x.titolo)}">Apri lettera PDF ↗</a>` : `<div class="archive-pdf-actions"><a class="text-link" href="${escape(folder + '/' + year + '/' + encodeURIComponent(x.file))}" target="_blank" rel="noopener noreferrer" aria-label="Leggi PDF: ${escape(x.titolo)}">Leggi PDF ↗</a><a class="text-link" href="${escape(folder + '/' + year + '/' + encodeURIComponent(x.file))}" download="${escape(x.file)}" aria-label="Scarica PDF: ${escape(x.titolo)}">Scarica PDF ↓</a></div>`}</article>`).join('')}</div>`
                 : `<p class="note">Nessun${lettere ? 'a lettera istituzionale' : ' comunicato'} PDF ${lettere ? 'pubblicata' : 'pubblicato'} per questo anno.</p>`}</section>`;
         }).join('')}</div>`;
     };
