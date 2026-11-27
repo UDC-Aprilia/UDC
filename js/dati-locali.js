@@ -502,7 +502,7 @@ window.UDCLocalData = {
       "data": "2026-11-18",
       "titolo": "La politica dell’UDC: i territori al centro",
       "luogo": "Hotel Selene, Via Pontina Km 30, Pomezia",
-      "descrizione": "Incontro territoriale UDC, mercoledì 18 novembre alle ore 18:00. Focus: «Dalle nostre radici il futuro delle nuove generazioni». Previsti interventi di rappresentanti UDC e istituzionali, secondo la locandina dell’evento.",
+      "descrizione": "Incontro territoriale UDC, mercoledì 18 novembre alle ore 18:00. Focus: «Dalle nostre radici il futuro delle nuove generazioni». Previsti interventi di rappresentanti UDC e istituzionali, secondo la locandina dell’evento.\n\nProgramma dell’incontro: la locandina annuncia i saluti istituzionali di Veronica Felici, Daniele Sabatini, Marco Silvestroni, Giorgio Simeoni, Luciano Crea e Laura Cartaginese; modera Daniele Reguiz. Tra gli interventi sono indicati Stefano Annesi, Roberto Ricciardi, Regino Brachetti, Nazzareno Neri e Francesco Rocca. Le conclusioni sono affidate all’On. Lorenzo Cesa.\nInformazioni riportate dalla locandina fornita per la pubblicazione.",
       "foto": "evento-udc-pomezia-18-novembre-2026.jpg",
       "link": "",
       "tipo": "iniziativa-territoriale"
@@ -526,6 +526,26 @@ window.UDCLocalData = {
       "foto": "",
       "link": "https://www.studio93.it/il-comitato-terzo-settore-rete-di-aprilia-si-presenta-alla-citta",
       "tipo": "partecipazione"
+    },
+    {
+      "id": "item-1795714959169-jsb8t6",
+      "data": "2026-09-12",
+      "titolo": "L'ITALIA HA BISOGNO DI TE",
+      "luogo": "ROMA",
+      "tipo": "partecipazione",
+      "descrizione": "**Festa Nazionale UDC 2026 – L’Italia ha bisogno di te**\nRoma, 12-13 settembre 2026. Due giornate di confronto politico e istituzionale sulle principali sfide del Paese, con esponenti del Governo, rappresentanti delle istituzioni e della società civile. Al centro del dibattito, il ruolo dei moderati, la partecipazione democratica e la centralità della persona.",
+      "foto": "evento-2026-09-12-15023679-c604-4ccd-8b68-ae61f31fd62f.jpg",
+      "link": "https://www.udc-italia.it/festa-nazionale-udc-2026-litalia-ha-bisogno-di-te/udcgallery/slideshow"
+    },
+    {
+      "id": "item-1795719338258-4g4tit",
+      "data": "2026-11-25",
+      "titolo": "🌹  𝟐𝟓 𝐍𝐨𝐯𝐞𝐦𝐛𝐫𝐞 | 𝐃𝐚𝐥𝐥𝐚 𝐩𝐚𝐫𝐭𝐞 𝐝𝐞𝐥𝐥𝐞 𝐝𝐨𝐧𝐧𝐞, 𝐬𝐞𝐦𝐩𝐫𝐞.",
+      "luogo": "Internazionale",
+      "tipo": "organizzato",
+      "descrizione": "Il rispetto, la dignità e la libertà non sono negoziabili.\nContrastare la violenza sulle donne è una responsabilità morale, civile e istituzionale.\nNon soltanto oggi, ma ogni giorno.\n𝐏𝐢𝐞𝐭𝐫𝐨 𝐅𝐚𝐳𝐢𝐨\n𝐶𝑜𝑜𝑟𝑑𝑖𝑛𝑎𝑡𝑜𝑟𝑒 𝑐𝑖𝑡𝑡𝑎𝑑𝑖𝑛𝑜 𝑈𝐷𝐶 𝐴𝑝𝑟𝑖𝑙𝑖𝑎\n#25Novembre #NoAllaViolenza #Rispetto #UDCAprilia",
+      "foto": "evento-2026-11-25-47b6eb1f-8a4c-400a-8a1c-7d9d58eb358b.png",
+      "link": "https://www.facebook.com/pietro.fazio.376"
     }
   ],
   "documenti": [
