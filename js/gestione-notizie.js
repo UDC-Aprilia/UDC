@@ -12,7 +12,9 @@
     const letterId = x => x.id || 'lettera-'+x.anno+'-'+x.file;
     function letterOptions(current='') { const el=$('letter-related'); el.replaceChildren(new Option('Nessuno','')); for(const x of catalog) if(kind==='lettere' && letterId(x)!==current) el.add(new Option(x.titolo,letterId(x))); }
     function directionLabel(){ $('letter-party-label').firstChild.textContent=$('letter-direction').value==='entrata'?'Mittente istituzionale *':'Destinatario istituzionale *'; }
-    function privacyCheck(){ if(!$('privacy-review').checked || !$('privacy-redacted').checked || $('privacy-result').value!=='clear') throw new Error('Pubblicazione bloccata: completa la verifica privacy.'); }
+    function privacyReady(){return $('privacy-review').checked && $('privacy-redacted').checked && $('privacy-result').value==='clear' && (!['lettere','documenti'].includes(kind)||!$('document-file').files.length||$('privacy-pdf-manual').checked);}
+    function updatePrivacy(){const pdf=['lettere','documenti'].includes(kind)&&$('document-file').files.length>0; $('privacy-pdf-manual').closest('label').hidden=!pdf; $('privacy-pdf-manual').closest('label').style.display=pdf?'flex':'none'; const ready=privacyReady(); $('save').disabled=busy||!ready; $('privacy-status').textContent=ready?'Verifiche preliminari completate: restano i controlli finali.':'Pubblicazione bloccata: verifica incompleta o dati riservati.'; $('privacy-status').style.color=ready?'#17643a':'#a12626';}
+    function privacyCheck(){if(!privacyReady()) throw new Error('Pubblicazione bloccata: completa le verifiche obbligatorie.'); if(!$('privacy-review').checked || !$('privacy-redacted').checked || $('privacy-result').value!=='clear') throw new Error('Pubblicazione bloccata: completa la verifica privacy.'); }
     function scanText(value){ const t=String(value); if(/\b[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]\b/i.test(t)||/\bIT\d{2}[A-Z]\d{10}[A-Z0-9]{12}\b/i.test(t)) throw new Error('Possibile codice fiscale o IBAN: verifica e rimuovi il dato prima di pubblicare.'); }
     const validRepo = s => /^[a-zA-Z0-9_.-]{1,100}$/.test(s) && !s.startsWith('.');
     const safeUrl = s => { try {
@@ -62,13 +64,13 @@
     }
     finally {
         busy = false;
-        document.querySelectorAll('#workspace button').forEach(b => b.disabled = false);
+        document.querySelectorAll('#workspace button').forEach(b => b.disabled = false); updatePrivacy();
     } }
     function switchKind(next) { $('archive-search').value = ''; kind = next; resetForm(); $('common-fields').classList.toggle('hidden',['profili','cultura'].includes(kind)); $('title').required = $('date').required = !['profili','cultura'].includes(kind); document.querySelectorAll('.tab').forEach(t => { const active = t.dataset.kind === kind; t.classList.toggle('active', active); t.setAttribute('aria-pressed', String(active)); }); for (const key of Object.keys(cfg))
         $(key + '-fields').classList.toggle('hidden', kind !== key); $('documenti-fields').classList.toggle('hidden', !isPdf()); $('category-label').classList.toggle('hidden',kind !== 'documenti'); $('form-heading').textContent = kind === 'cultura' ? '3. Scheda libro' : kind === 'profili' ? '3. Profilo istituzionale' : kind === 'stampa' ? '3. Nuovo articolo di stampa' : kind === 'attivita' ? '3. Nuova attività o evento' : kind === 'lettere' ? '3. Nuova lettera istituzionale' : '3. Nuovo comunicato ufficiale PDF'; $('form-help').textContent = kind === 'cultura' ? 'Aggiungi o modifica libri e copertine.' : kind === 'profili' ? 'Gestisci coordinamento, direttivo e Consiglio generale.' : kind === 'stampa' ? 'Articoli esterni: breve sintesi, testata e collegamento verificato.' : kind === 'attivita' ? 'Distingui un evento organizzato da UDC da una semplice partecipazione.' : 'Carica documenti ufficiali approvati in formato PDF.'; }
     let previewObjectUrl = '';
     function showProfilePhoto(url) { const img=$('profile-preview'); img.hidden=!url; img.style.display=url?'block':'none'; $('profile-placeholder').hidden=!!url; if(url) img.src=url; else img.removeAttribute('src'); }
-    function resetForm() { if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=''; showProfilePhoto(''); $('editor-form').reset(); letterOptions(); directionLabel(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; }
+    function resetForm() { if(previewObjectUrl) URL.revokeObjectURL(previewObjectUrl); previewObjectUrl=''; showProfilePhoto(''); $('editor-form').reset(); letterOptions(); directionLabel(); $('item-id').value = ''; $('save').textContent = 'Pubblica contenuto'; updatePrivacy(); }
     const itemKey = x => isPdf() ? String(x.anno) + '/' + String(x.file) : String(x.id);
     function render() {
         const target = $('listing');
@@ -130,8 +132,8 @@
         }
         if (isPdf()) {
             $('doc-category').value = x.categoria || 'comunicato'; $('doc-description').value = x.descrizione || ''; if (kind === 'lettere') { $('letter-direction').value=x.direzione||''; directionLabel(); $('letter-recipient').value=x.mittente||x.destinatario||''; $('letter-protocol').value=x.protocollo||''; $('letter-date').value=x.data_trasmissione||''; $('letter-topic').value=x.materia||''; $('letter-case').value=x.fascicolo||''; letterOptions(letterId(x)); $('letter-related').value=x.collegata_a||''; $('letter-channel').value=x.modalita_invio||''; $('letter-state').value=x.stato_invio||''; $('letter-outcome').value=x.esito_testo||'Non definito'; }
-            $('doc-approved').checked = x.pubblica === true;
-            $('doc-privacy').checked = x.verifica_privacy === true;
+
+
         }
         $('save').textContent = 'Salva modifiche';
         $('form-heading').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -183,7 +185,7 @@
             Object.assign(next, { luogo, tipo: $('event-type').value, descrizione: clean($('event-description').value), foto, link: url ? safeUrl(url) : '' });
         }
         if (isPdf()) {
-            if (!$('doc-approved').checked || !$('doc-privacy').checked)
+            if (!$('privacy-review').checked || !$('privacy-redacted').checked)
                 throw new Error('Per pubblicare il PDF devi confermare sia l’approvazione del coordinamento sia la verifica della privacy.');
             if (kind === 'lettere') { const direzione=$('letter-direction').value, party=clean($('letter-recipient').value), data_trasmissione=$('letter-date').value, materia=$('letter-topic').value, stato_invio=$('letter-state').value, collegata_a=$('letter-related').value; if(!['entrata','uscita'].includes(direzione)||!party||!data_trasmissione||!materia||!stato_invio||!clean($('doc-description').value)) throw new Error('Completa direzione, ente, data, materia, stato e descrizione.'); if(collegata_a && !catalog.some(x=>letterId(x)===collegata_a && (!old||letterId(x)!==letterId(old)))) throw new Error('Collegamento non valido.'); Object.assign(next,{id:old?letterId(old):'lettera-'+crypto.randomUUID(),direzione,data_trasmissione,materia,stato_invio,collegata_a,fascicolo:clean($('letter-case').value),modalita_invio:$('letter-channel').value,esito_testo:$('letter-outcome').value,protocollo:clean($('letter-protocol').value),destinatario:direzione==='uscita'?party:'',mittente:direzione==='entrata'?party:''}); }
             if(kind === 'documenti') next.categoria = $('doc-category').value;
@@ -251,5 +253,8 @@
     $('letter-direction').addEventListener('change',directionLabel);
     $('archive-search').addEventListener('input', render);
     $('cancel').addEventListener('click', resetForm);
+    $('editor-form').addEventListener('input',updatePrivacy);
+    $('editor-form').addEventListener('change',e=>{if(e.target.type==='file'){ $('privacy-review').checked=false; $('privacy-redacted').checked=false; $('privacy-pdf-manual').checked=false; $('privacy-result').value=''; } updatePrivacy();});
+    updatePrivacy();
     $('editor-form').addEventListener('submit', event => { event.preventDefault(); withBusy(publish); });
 })();
