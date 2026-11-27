@@ -200,7 +200,10 @@
                 const bytes = new Uint8Array(await file.arrayBuffer());
                 if (new TextDecoder().decode(bytes.slice(0, 5)) !== '%PDF-')
                     throw new Error('Il file selezionato non è un PDF valido.');
-                scanText(new TextDecoder().decode(bytes));
+                const rawPdf = new TextDecoder('latin1').decode(bytes);
+                scanText(rawPdf);
+                if (/\/Encrypt\b|\/EmbeddedFiles\b|\/EmbeddedFile\b|\/JavaScript\b|\/JS\b|\/Launch\b|\/RichMedia\b|\/XFA\b|\/ByteRange\b/.test(rawPdf)) throw new Error('PDF con cifratura, firma, allegati o contenuti attivi rilevati: prepara una copia pubblicabile separata.');
+                if (!$('privacy-pdf-manual').checked) throw new Error('Conferma la verifica visiva integrale del PDF e dei metadati con uno strumento locale. Il controllo automatico non analizza tutti i contenuti compressi o scansionati.');
                 const name = (kind === 'lettere' ? 'lettera-' : 'comunicato-') + data + '-' + Math.random().toString(36).slice(2, 9) + '.pdf';
                 const path = (kind === 'lettere' ? 'lettere/' : 'documenti/') + next.anno + '/' + name;
                 status('Carico il documento PDF nel repository…');
