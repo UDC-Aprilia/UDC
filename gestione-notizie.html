@@ -11,7 +11,7 @@
   <link href="assets/logo.png" rel="icon"/>
   <link href="css/gestione-foto.css" rel="stylesheet"/>
   <link href="css/gestione-notizie.css?v=20261126-checkbox2" rel="stylesheet"/>
-  <script defer="" src="js/gestione-notizie.js?v=20261127-privacy1">
+  <script defer="" src="js/gestione-notizie.js?v=20261127-privacy2">
   </script>
  </head>
  <body>
@@ -239,7 +239,7 @@
         </a>
        </p>
       </div>
-      <fieldset id="privacy-gate"><legend>Verifica preventiva obbligatoria</legend><p class="notice">Non caricare originali riservati. Anche i rami di prova sono pubblici. Verifica anche testi, immagini, firme, allegati e metadati.</p><label style="display:block"><input type="checkbox" id="privacy-review"/> Ho verificato integralmente i contenuti e la legittimità della pubblicazione.</label><label style="display:block"><input type="checkbox" id="privacy-redacted"/> Non sono presenti dati non pubblicabili; eventuali oscuramenti sono irreversibili.</label><label>Esito verifica<select id="privacy-result"><option value="">Non verificato</option><option value="risk">Dati riservati presenti: blocco</option><option value="clear">Copia pubblicabile verificata</option></select></label></fieldset><div class="actions">
+      <fieldset id="privacy-gate"><legend>Verifica preventiva obbligatoria</legend><p class="notice">Non caricare originali riservati. Anche i rami di prova sono pubblici. Verifica anche testi, immagini, firme, allegati e metadati.</p><label style="display:block"><input type="checkbox" id="privacy-review"/> Ho verificato integralmente i contenuti e la legittimità della pubblicazione.</label><label style="display:block"><input type="checkbox" id="privacy-redacted"/> Non sono presenti dati non pubblicabili; eventuali oscuramenti sono irreversibili.</label><label style="display:block"><input type="checkbox" id="privacy-pdf-manual"/> Per i nuovi PDF: ho controllato tutte le pagine, scansioni, allegati e metadati con uno strumento locale. Il controllo automatico è limitato e non certifica la pubblicabilità.</label><label>Esito verifica<select id="privacy-result"><option value="">Non verificato</option><option value="risk">Dati riservati presenti: blocco</option><option value="clear">Copia pubblicabile verificata</option></select></label></fieldset><div class="actions">
        <button id="save" type="submit">
         Pubblica contenuto
        </button>
