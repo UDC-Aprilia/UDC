@@ -407,8 +407,15 @@
         }
         get('global-search-form').addEventListener('submit',e=>{e.preventDefault();e.stopPropagation();get('global-query').blur();limit=20;renderSearch();});
         get('global-search-form').addEventListener('change',e=>{if(e.target.tagName==='SELECT'){limit=20;renderSearch();}});
-        document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',()=>{panel.showModal();shadow.getElementById('global-close').focus({preventScroll:true});panel.scrollTop=0;get('global-count').textContent='Inserisci una parola chiave e premi Cerca.';get('global-results').replaceChildren();}));
-        panel.showModal();panel.scrollTop=0;get('global-count').textContent='Inserisci una parola chiave e premi Cerca.';get('global-results').replaceChildren();
+        const openSearch = () => {
+            if (!panel.open) panel.showModal();
+            shadow.getElementById('global-close').focus({preventScroll:true});
+            panel.scrollTop=0;
+            limit=20;
+            renderSearch();
+        };
+        document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',openSearch));
+        openSearch();
     };
     document.querySelectorAll('[data-global-search]').forEach(button=>button.addEventListener('click',globalSearch,{once:true}));
     if (page === 'comunicati') {
