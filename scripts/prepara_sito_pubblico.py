@@ -12,7 +12,7 @@ DEST=ROOT/'_site'
 ALLOWED_ROOT_EXT={'.html','.xml'}
 ALLOWED_ROOT_FILES={'CNAME','robots.txt','favicon.ico','site.webmanifest'}
 DATA_FILES={'lettere.json','documenti.json','web-news.json','foto.json','stampa.json','attivita.json'}
-DIRECTORIES={'assets':{'.jpg','.jpeg','.png','.webp','.gif','.svg','.ico','.avif'},'css':{'.css'},'js':{'.js'},'data':{'.json'},'lettere':{'.pdf'},'documenti':{'.pdf'},'pubblicazioni':{'.pdf','.jpg','.jpeg','.png'}}
+DIRECTORIES={'assets':{'.jpg','.jpeg','.png','.webp','.gif','.svg','.ico','.avif'},'css':{'.css'},'js':{'.js'},'data':{'.json'},'lettere':{'.pdf','.docx'},'documenti':{'.pdf','.docx'},'pubblicazioni':{'.pdf','.jpg','.jpeg','.png'}}
 
 def editorial_fallback(publications, destination):
     """HTML essenziale per lettori senza JS, derivato dal medesimo catalogo."""
@@ -74,8 +74,12 @@ def main():
             approved_uploads.add(ROOT / 'pubblicazioni' / 'cultura' / book['id'] / book['copertina'])
     if validate(ROOT): raise SystemExit('Pubblicazione bloccata: correggere gli errori sopra.')
     import json
-    approved = {ROOT / 'documenti' / str(x['anno']) / x['file'] for x in json.loads((ROOT/'data/documenti.json').read_text())}
-    approved |= {ROOT / 'lettere' / str(x['anno']) / x['file'] for x in json.loads((ROOT/'data/lettere.json').read_text())}
+    approved = set()
+    for kind in ('documenti','lettere'):
+        for row in json.loads((ROOT/'data'/f'{kind}.json').read_text(encoding='utf-8')):
+            for key in ('file','file_alternativo','file_risposta'):
+                if row.get(key):
+                    approved.add(ROOT/kind/str(row['anno'])/row[key])
     if DEST.exists(): shutil.rmtree(DEST)
     DEST.mkdir()
     for p in ROOT.iterdir():
@@ -88,7 +92,7 @@ def main():
                 if not f.is_file():continue
                 if f.suffix.lower() not in DIRECTORIES[p.name] and not (p.name=='documenti' and is_public_privacy_file(f, ROOT)):continue
                 if p.name=='data' and f.name not in DATA_FILES:continue
-                if p.name in ('documenti','lettere') and f.suffix.lower()=='.pdf' and f not in approved and not is_public_privacy_file(f, ROOT):continue
+                if p.name in ('documenti','lettere') and f not in approved and not is_public_privacy_file(f, ROOT):continue
                 if p.name == "pubblicazioni" and f not in approved_uploads:
                     continue
                 target=DEST/f.relative_to(ROOT)
