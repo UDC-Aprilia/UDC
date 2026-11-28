@@ -28,9 +28,12 @@ try {
  const admin=await browser.newPage();
  const errors=[];
  admin.on('pageerror',e=>errors.push(e.message));
- let writes=0;
+ let writes=0, allowWrite=false, committed=false; const methods=[];
  await admin.route('https://api.github.com/**',async route=>{
-  if(route.request().method()!=='GET'){writes++;return route.abort();}
+  const method=route.request().method(); const pathname=new URL(route.request().url()).pathname;
+  if(method!=='GET'){writes++;if(!allowWrite)return route.abort();methods.push(method+' '+pathname.split('/git/')[1]);const body=route.request().postDataJSON();if(method==='PATCH'){assert.equal(body.force,false);committed=true;}return route.fulfill({json:{sha:'mock-sha'},headers:{'access-control-allow-origin':'*'}});}
+  if(pathname.includes('/git/ref/'))return route.fulfill({json:{object:{sha:'parent'}},headers:{'access-control-allow-origin':'*'}});
+  if(pathname.includes('/git/commits/'))return route.fulfill({json:{tree:{sha:'base-tree'}},headers:{'access-control-allow-origin':'*'}});
   const url=new URL(route.request().url());
   const file=url.pathname.split('/contents/')[1];
   if(!file)return route.abort();
@@ -54,6 +57,20 @@ try {
   assert.equal(await admin.locator('#save').isDisabled(),true);
  }
  assert.equal(writes,0);
+ await admin.locator('[data-kind="stampa"]').click();
+ await admin.waitForFunction(()=>!document.querySelector('#refresh').disabled);
+ await admin.locator('#title').fill('Test fittizio automatico');
+ await admin.locator('#date').fill('2026-11-28');
+ await admin.locator('#source').fill('Test');
+ await admin.locator('#press-url').fill('https://example.org/test');
+ await admin.locator('#privacy-review').check();
+ await admin.locator('#privacy-redacted').check();
+ await admin.locator('#privacy-result').selectOption('clear');
+ allowWrite=true;
+ await admin.locator('#save').click();
+ await admin.waitForFunction(()=>document.querySelector('#publish-status').textContent.includes('GitHub'));
+ assert.equal(committed,true);
+ assert.deepEqual(methods,['POST blobs','POST trees','POST commits','PATCH refs/heads/main']);
  assert.deepEqual(errors,[]);
  await admin.close();
 } finally {await browser.close();}
