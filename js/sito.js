@@ -365,10 +365,22 @@
         const panel=document.createElement('dialog');
         panel.id='global-search';
         panel.style.cssText='width:min(760px,94vw);max-height:85vh;overflow:auto;border:1px solid #b6c4d7;border-radius:14px;padding:24px;color:#102b50;background:white';
-        panel.innerHTML='<form method="dialog" style="text-align:right"><button class="btn" aria-label="Chiudi ricerca">Chiudi ×</button></form><h2 id="global-search-title">Cerca nel sito</h2><form id="global-search-form" role="search"><label for="global-query">Parole chiave</label><input id="global-query" type="search" placeholder="Articoli, documenti, eventi, persone…" style="width:100%;padding:12px;margin:8px 0;border:1px solid #aab8c9;border-radius:8px"><div style="display:flex;flex-wrap:wrap;gap:12px;margin:12px 0"><label>Categoria <select id="global-category"><option value="">Tutte</option></select></label><label>Anno <select id="global-year"><option value="">Tutti</option></select></label><label>Ordine <select id="global-order"><option value="score">Rilevanza</option><option value="date">Data</option></select></label></div><button class="btn" type="submit">Cerca</button></form><p id="global-count" role="status" aria-live="polite"></p><div id="global-results"></div><hr><p>Ricerca esterna (risultati non verificati dal coordinamento): <a id="global-national" target="_blank" rel="noopener noreferrer">UDC Italia ↗</a> · <a id="global-news" target="_blank" rel="noopener noreferrer">Stampa online ↗</a></p>';
-        panel.setAttribute('aria-labelledby','global-search-title');
+        const shadow=panel.appendChild(document.createElement('div')).attachShadow({mode:'open'});
+        shadow.innerHTML=`<style>
+        :host{font:16px/1.5 system-ui,sans-serif;color:#102b50}
+        *{box-sizing:border-box} h2{font-size:1.4rem;margin:0} h3{font-size:1.05rem;line-height:1.4} p{margin:8px 0} a{color:#15457a;overflow-wrap:anywhere}
+        .head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+        button{appearance:none;position:static;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid #102b50;border-radius:7px;background:#102b50;color:white;font:inherit;font-weight:600;cursor:pointer}
+        .close{background:white;color:#102b50;padding:8px 12px;flex:none}
+        input,select{display:block;width:100%;min-height:44px;border:1px solid #aab8c9;border-radius:7px;background:white;color:#102b50;padding:8px;font:inherit}
+        label{display:block;font-size:.9rem} .filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+        .submit,#global-results>button{width:100%;margin:8px 0} #global-count{font-weight:600} :focus-visible{outline:2px solid #2484cf;outline-offset:2px}
+        @media(max-width:600px){.filters{grid-template-columns:1fr 1fr}.filters label:last-child{grid-column:1/-1}}
+        </style><div class="head"><h2 id="global-search-title">Cerca nel sito</h2><button type="button" class="close" id="global-close">Chiudi ×</button></div><form id="global-search-form" role="search"><label for="global-query">Parole chiave</label><input id="global-query" type="search" placeholder="Articoli, documenti, eventi…" autocomplete="off" enterkeyhint="search"><div class="filters"><label>Categoria<select id="global-category"><option value="">Tutte</option></select></label><label>Anno<select id="global-year"><option value="">Tutti</option></select></label><label>Ordine<select id="global-order"><option value="score">Rilevanza</option><option value="date">Data</option></select></label></div><button class="submit" type="submit">Cerca</button></form><p id="global-count" role="status" aria-live="polite"></p><div id="global-results"></div><hr><p>Ricerca esterna: <a id="global-national" target="_blank" rel="noopener noreferrer">UDC Italia ↗</a> · <a id="global-news" target="_blank" rel="noopener noreferrer">Stampa online ↗</a></p>`;
+        shadow.getElementById('global-close').addEventListener('click',()=>panel.close());
+        panel.setAttribute('aria-label','Cerca nel sito');
         document.body.append(panel);
-        const get=id=>panel.querySelector('#'+id), rows=[];
+        const get=id=>shadow.getElementById(id), rows=[];
         const norm=v=>String(v??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('it');
         const add=(category,title,description,date,url,extra='')=>{if(title&&safeUrl(url))rows.push({category,title:String(title),description:String(description||''),date:String(date||''),url:safeUrl(url),extra:String(extra||'')});};
         for(const x of d.comunicati||[]) add('Stampa',x.titolo,x.testo,x.data,safeUrl(x.link)||'comunicati.html',[x.fonte,x.autore,x.argomento].join(' '));
@@ -404,10 +416,10 @@
             get('global-national').href='https://www.google.com/search?q='+encodeURIComponent('site:udc-italia.it '+q);
             get('global-news').href='https://news.google.com/search?q='+encodeURIComponent('UDC Aprilia '+q)+'&hl=it&gl=IT&ceid=IT:it';
         }
-        get('global-search-form').addEventListener('submit',e=>{e.preventDefault();limit=20;renderSearch();});
-        get('global-search-form').addEventListener('input',()=>{limit=20;renderSearch();});
-        document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',()=>{panel.showModal();renderSearch();get('global-query').focus();}));
-        panel.showModal();renderSearch();get('global-query').focus();
+        get('global-search-form').addEventListener('submit',e=>{e.preventDefault();e.stopPropagation();get('global-query').blur();limit=20;renderSearch();});
+        get('global-search-form').addEventListener('change',e=>{if(e.target.tagName==='SELECT'){limit=20;renderSearch();}});
+        document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',()=>{panel.showModal();shadow.getElementById('global-close').focus({preventScroll:true});panel.scrollTop=0;get('global-count').textContent='Inserisci una parola chiave e premi Cerca.';get('global-results').replaceChildren();}));
+        panel.showModal();panel.scrollTop=0;get('global-count').textContent='Inserisci una parola chiave e premi Cerca.';get('global-results').replaceChildren();
     };
     document.querySelectorAll('[data-global-search]').forEach(button=>button.addEventListener('click',globalSearch,{once:true}));
     if (page === 'comunicati') {
