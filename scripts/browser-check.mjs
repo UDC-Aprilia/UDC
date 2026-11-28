@@ -28,7 +28,7 @@ try {
  const admin=await browser.newPage();
  const errors=[];
  admin.on('pageerror',e=>errors.push(e.message));
- let writes=0, allowWrite=false, committed=false; const methods=[];
+ let writes=0, allowWrite=false, committed=false, conflict=false; const methods=[];
  await admin.route('https://api.github.com/**',async route=>{
   const method=route.request().method(); const pathname=new URL(route.request().url()).pathname;
   if(method!=='GET'){writes++;if(!allowWrite)return route.abort();methods.push(method+' '+pathname.split('/git/')[1]);const body=route.request().postDataJSON();if(method==='PATCH'){assert.equal(body.force,false);committed=true;}return route.fulfill({json:{sha:'mock-sha'},headers:{'access-control-allow-origin':'*'}});}
@@ -39,7 +39,7 @@ try {
   if(!file)return route.abort();
   const {readFileSync}=await import('node:fs');
   const content=readFileSync(file).toString('base64');
-  await route.fulfill({json:{content,sha:'test-sha'},headers:{'access-control-allow-origin':'*'}});
+  await route.fulfill({json:{content,sha:conflict&&url.searchParams.get('ref')==='parent'?'changed-sha':'test-sha'},headers:{'access-control-allow-origin':'*'}});
  });
  await admin.goto('http://127.0.0.1:8000/gestione-notizie.html');
  await admin.locator('#token').fill('token-fittizio-test');
@@ -71,6 +71,20 @@ try {
  await admin.waitForFunction(()=>document.querySelector('#publish-status').textContent.includes('GitHub'));
  assert.equal(committed,true);
  assert.deepEqual(methods,['POST blobs','POST trees','POST commits','PATCH refs/heads/main']);
+ await admin.locator('#refresh').click();
+ await admin.waitForFunction(()=>!document.querySelector('#refresh').disabled);
+ await admin.locator('#title').fill('Test conflitto automatico');
+ await admin.locator('#date').fill('2026-11-28');
+ await admin.locator('#source').fill('Test');
+ await admin.locator('#press-url').fill('https://example.org/conflict');
+ await admin.locator('#privacy-review').check();
+ await admin.locator('#privacy-redacted').check();
+ await admin.locator('#privacy-result').selectOption('clear');
+ conflict=true;
+ const before=writes;
+ await admin.locator('#save').click();
+ await admin.waitForFunction(()=>document.body.textContent.includes('Archivio modificato da un altro utente'));
+ assert.equal(writes,before,'Un conflitto non deve produrre scritture');
  assert.deepEqual(errors,[]);
  await admin.close();
 } finally {await browser.close();}
