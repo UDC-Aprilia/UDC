@@ -21,7 +21,7 @@
         const link = `<a href="${group.href}"${active ? ' class="active" aria-current="location"' : ''}>${group.label}</a>`;
         return group.children ? `<details class="nav-group"${active ? ' data-active="true"' : ''}><summary>${group.label}<span aria-hidden="true">⌄</span></summary><div class="nav-submenu">${group.children.map(([label, href]) => `<a href="${href}"${location.pathname.endsWith('/' + href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</div></details>` : link;
     }).join('');
-    const header = `<a class="skip" href="#contenuto">Vai al contenuto</a><div class="topline"></div><div class="utility"><div class="container">Unione dei Democratici Cristiani e di Centro · Aprilia</div></div><header class="header"><div class="container header-inner"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Logo UDC Aprilia"><span><strong>UDC Aprilia</strong><small>Coordinamento comunale</small></span></a><button type="button" class="toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu">☰</button><nav id="menu" class="menu" aria-label="Navigazione principale">${nav}<a class="national" href="${d.nazionale}" target="_blank" rel="noopener noreferrer">UDC nazionale ↗</a></nav></div></header>`;
+    const header = `<a class="skip" href="#contenuto">Vai al contenuto</a><div class="topline"></div><div class="utility"><div class="container">Unione dei Democratici Cristiani e di Centro · Aprilia</div></div><header class="header"><div class="container header-inner"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Logo UDC Aprilia"><span><strong>UDC Aprilia</strong><small>Coordinamento comunale</small></span></a><button type="button" data-global-search aria-label="Cerca nel sito" title="Cerca nel sito" style="background:white;color:#102b50;border:1px solid #b6c4d7;border-radius:8px;padding:8px;cursor:pointer;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span style="font-size:12px"> Cerca</span></button><button type="button" class="toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu">☰</button><nav id="menu" class="menu" aria-label="Navigazione principale">${nav}<a class="national" href="${d.nazionale}" target="_blank" rel="noopener noreferrer">UDC nazionale ↗</a></nav></div></header>`;
     // Un solo collegamento a Cultura nel footer. Eliminati i link ripetuti.
     const footer = `<footer class="footer"><div class="container"><div class="foot-grid"><div><div class="logo-foot"><span class="logo-foot-disc"><img src="assets/logo.png" alt="Logo UDC Aprilia"></span><div><h3>UDC Aprilia</h3><p>Unione dei Democratici Cristiani e di Centro<br>Coordinamento comunale di Aprilia</p></div></div></div><div><h3>Il coordinamento</h3><div class="foot-list"><a href="missione.html">Missione</a><a href="programma.html">Programma 2027–2032</a><a href="cultura.html">Cultura e libri</a><a href="organi.html">Direzione e direttivo</a><a href="rete-udc.html">Attività UDC</a><a href="consiglio-generale.html">Consiglio generale</a><a href="tesseramento.html">Tesseramento</a><a href="contatti.html">Contatti</a></div></div><div><h3>Informazione e documenti</h3><div class="foot-list"><a href="notizie.html">Osservatorio notizie</a><a href="eventi.html">Eventi</a><a href="comunicati.html">Rassegna stampa</a><a href="archivio-comunicati.html">Comunicati ufficiali</a><a href="archivio-lettere.html">Lettere ed esiti istituzionali</a><a href="foto.html">Archivio fotografico</a><a href="collegamenti.html">Rete territoriale</a><a href="${d.nazionale}" target="_blank" rel="noopener noreferrer">UDC nazionale ↗</a></div></div></div><div class="footer-bottom">© <span id="anno"></span> UDC Aprilia · Sito informativo del coordinamento territoriale. <a href="privacy.html">Privacy</a></div></div></footer>`;
     const heading = (title, description) => `<div class="page-head"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a> / ${escape(title)}</div><h1>${escape(title)}</h1><p>${escape(description)}</p></div></div>`;
@@ -332,6 +332,50 @@
     const returnNavigation = page === 'home' ? '' : `<nav class="return-navigation container" aria-label="Ritorno alla navigazione"><a href="index.html">← Torna alla home</a>${['comunicati', 'eventi'].includes(page) ? '<a href="notizie.html">Osservatorio notizie →</a>' : ''}</nav>`;
     const homeShortcut = ['notizie', 'rete'].includes(page) ? '<a class="floating-home" href="index.html" aria-label="Torna alla home di UDC Aprilia"><span aria-hidden="true">⌂</span><span class="floating-home-label">Home UDC Aprilia</span></a>' : '';
     document.getElementById('app').innerHTML = header + `<main id="contenuto">${returnNavigation}${content[page] || content.home}${extraUploads[page] || ''}</main>` + footer + homeShortcut;
+
+    // Ricerca globale: usa esclusivamente i cataloghi pubblici già caricati.
+    const globalSearch = () => {
+        const panel=document.createElement('dialog');
+        panel.id='global-search';
+        panel.style.cssText='width:min(760px,94vw);max-height:85vh;overflow:auto;border:1px solid #b6c4d7;border-radius:14px;padding:24px;color:#102b50;background:white';
+        panel.innerHTML='<form method="dialog" style="text-align:right"><button class="btn" aria-label="Chiudi ricerca">Chiudi ×</button></form><h2 id="global-search-title">Cerca nel sito</h2><form id="global-search-form" role="search"><label for="global-query">Parole chiave</label><input id="global-query" type="search" placeholder="Articoli, documenti, eventi, persone…" style="width:100%;padding:12px;margin:8px 0;border:1px solid #aab8c9;border-radius:8px"><div style="display:flex;flex-wrap:wrap;gap:12px;margin:12px 0"><label>Categoria <select id="global-category"><option value="">Tutte</option></select></label><label>Anno <select id="global-year"><option value="">Tutti</option></select></label><label>Ordine <select id="global-order"><option value="score">Rilevanza</option><option value="date">Data</option></select></label></div><button class="btn" type="submit">Cerca</button></form><p id="global-count" role="status" aria-live="polite"></p><div id="global-results"></div><hr><p>Ricerca esterna (risultati non verificati dal coordinamento): <a id="global-national" target="_blank" rel="noopener noreferrer">UDC Italia ↗</a> · <a id="global-news" target="_blank" rel="noopener noreferrer">Stampa online ↗</a></p>';
+        panel.setAttribute('aria-labelledby','global-search-title');
+        document.body.append(panel);
+        const get=id=>panel.querySelector('#'+id), rows=[];
+        const norm=v=>String(v??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('it');
+        const add=(category,title,description,date,url,extra='')=>{if(title&&safeUrl(url))rows.push({category,title:String(title),description:String(description||''),date:String(date||''),url:safeUrl(url),extra:String(extra||'')});};
+        for(const x of d.comunicati||[]) add('Stampa',x.titolo,x.testo,x.data,safeUrl(x.link)||'comunicati.html',[x.fonte,x.autore,x.argomento].join(' '));
+        for(const x of d.eventi||[]) add('Eventi',x.titolo,x.descrizione,x.data,'eventi.html#'+encodeURIComponent(eventId(x)),x.luogo);
+        for(const [items,folder,category] of [[d.documenti,'documenti','Documenti'],[d.lettere,'lettere','Lettere']]) for(const x of items||[]){
+            if(x.pubblica!==true||x.verifica_privacy!==true||!/^20\d{2}$/.test(String(x.anno))||!safeDocumentName(x.file))continue;
+            add(category,x.titolo,x.descrizione,x.data,folder+'/'+x.anno+'/'+encodeURIComponent(x.file),[x.mittente,x.destinatario,x.materia,x.fascicolo,x.protocollo,x.esito_testo,x.categoria].join(' '));
+        }
+        for(const x of books) add('Cultura',x.titolo,x.descrizione,x.anno,'cultura.html',[x.autori,x.editore,x.isbn,x.tema,x.sottotitolo].join(' '));
+        for(const x of profiles) add('Organi',x.nome,x.incarico,x.data_nomina,x.consiglio&&!x.coordinamento&&!x.direttivo?'consiglio-generale.html':'organi.html',x.testo);
+        for(const x of fotoArchivio) add('Fotografie',x.titolo,x.descrizione,x.data,asset(x.file));
+        if(program&&programUrl)add('Programma',program.titolo||'Programma 2027–2032',program.descrizione,program.data,programUrl);
+        for(const group of groups) for(const [label,url] of group.children||[[group.label,group.href]]) add('Pagine',label,'Pagina istituzionale UDC Aprilia','',url);
+        add('Pagine','UDC Italia','Sito nazionale ufficiale','',d.nazionale);
+        const unique=new Map();for(const x of rows){const key=x.category+'|'+norm(x.title)+'|'+x.date;if(!unique.has(key)||(!x.url.includes('news.google.com')&&unique.get(key).url.includes('news.google.com')))unique.set(key,x);}
+        const index=[...unique.values()];
+        for(const c of [...new Set(index.map(x=>x.category))].sort())get('global-category').add(new Option(c,c));
+        for(const y of [...new Set(index.map(x=>x.date.match(/^20\d{2}/)?.[0]).filter(Boolean))].sort().reverse())get('global-year').add(new Option(y,y));
+        let limit=20;
+        function renderSearch(){
+            const q=get('global-query').value.trim(), words=norm(q).split(/\s+/).filter(Boolean), cat=get('global-category').value, year=get('global-year').value;
+            const matches=index.filter(x=>(!cat||x.category===cat)&&(!year||x.date.startsWith(year))&&words.every(w=>norm([x.title,x.description,x.extra,x.date,x.category].join(' ')).includes(w))).map(x=>({...x,score:words.reduce((n,w)=>n+(norm(x.title).includes(w)?5:1),0)})).sort((a,b)=>(get('global-order').value==='score'?b.score-a.score:0)||b.date.localeCompare(a.date)||a.title.localeCompare(b.title,'it'));
+            get('global-count').textContent=matches.length+' risultati';
+            const out=get('global-results');out.replaceChildren();
+            for(const x of matches.slice(0,limit)){const article=document.createElement('article');article.style.cssText='border-top:1px solid #dce3eb;padding:14px 0';const meta=document.createElement('small');meta.textContent=x.category+(x.date?' · '+x.date:'');const h=document.createElement('h3');h.style.margin='6px 0';const a=document.createElement('a');a.href=x.url;a.textContent=x.title;if(new URL(x.url).origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer';}h.append(a);const p=document.createElement('p');p.textContent=x.description.slice(0,350);article.append(meta,h,p);out.append(article);}
+            if(matches.length>limit){const more=document.createElement('button');more.type='button';more.textContent='Mostra altri risultati';more.onclick=()=>{limit+=20;renderSearch();};out.append(more);}
+            get('global-national').href='https://www.google.com/search?q='+encodeURIComponent('site:udc-italia.it '+q);
+            get('global-news').href='https://news.google.com/search?q='+encodeURIComponent('UDC Aprilia '+q)+'&hl=it&gl=IT&ceid=IT:it';
+        }
+        get('global-search-form').addEventListener('submit',e=>{e.preventDefault();limit=20;renderSearch();});
+        get('global-search-form').addEventListener('input',()=>{limit=20;renderSearch();});
+        document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',()=>{panel.showModal();renderSearch();get('global-query').focus();}));
+    };
+    globalSearch();
     if (page === 'comunicati') {
         const flow = document.querySelector('.press-flow');
         if (flow) {
