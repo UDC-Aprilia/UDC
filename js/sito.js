@@ -380,8 +380,9 @@
         get('global-search-form').addEventListener('submit',e=>{e.preventDefault();limit=20;renderSearch();});
         get('global-search-form').addEventListener('input',()=>{limit=20;renderSearch();});
         document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',()=>{panel.showModal();renderSearch();get('global-query').focus();}));
+        panel.showModal();renderSearch();get('global-query').focus();
     };
-    document.querySelectorAll('[data-global-search]').forEach(button=>button.addEventListener('click',()=>{globalSearch();button.click();},{once:true}));
+    document.querySelectorAll('[data-global-search]').forEach(button=>button.addEventListener('click',globalSearch,{once:true}));
     if (page === 'comunicati') {
         const flow = document.querySelector('.press-flow');
         if (flow) {
