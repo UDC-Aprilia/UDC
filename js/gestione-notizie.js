@@ -59,7 +59,7 @@
     async function atomicSave(content, action) {
         const root='https://api.github.com/repos/'+encodeURIComponent(session.owner)+'/'+encodeURIComponent(session.repo)+'/git';
         const refPath=root+'/refs/heads/'+session.branch.split('/').map(encodeURIComponent).join('/');
-        const ref=await request(refPath);
+        const ref=await request(root+'/ref/heads/'+session.branch.split('/').map(encodeURIComponent).join('/'));
         const parent=ref.object.sha;
         const commit=await request(root+'/commits/'+parent);
         const current=await request(fileApi(cfg[kind].path)+'?ref='+encodeURIComponent(parent));
