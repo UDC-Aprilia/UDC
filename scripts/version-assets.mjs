@@ -9,7 +9,8 @@ for(const file of readdirSync('.').filter(f=>f.endsWith('.html'))){
   if(/^(?:[a-z]+:|\/)/i.test(path))return all;
   const target=join(dirname(file),path);
   if(!existsSync(target))return all;
-  const hash=createHash('sha256').update(readFileSync(target)).digest('hex').slice(0,12);
+  const bytes=readFileSync(target);
+  const hash=createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex').slice(0,12);
   return prefix+path+'?v='+hash+suffix;
  });
  if(next!==old){changed++;console.log(file);if(!check)writeFileSync(file,next);}
