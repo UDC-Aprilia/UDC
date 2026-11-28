@@ -85,6 +85,22 @@ try {
  await admin.locator('#save').click();
  await admin.waitForFunction(()=>document.body.textContent.includes('Archivio modificato da un altro utente'));
  assert.equal(writes,before,'Un conflitto non deve produrre scritture');
+ conflict=false;
+ await admin.locator('[data-kind="attivita"]').click();
+ await admin.waitForFunction(()=>!document.querySelector('#refresh').disabled);
+ await admin.locator('#title').fill('Evento fittizio con foto');
+ await admin.locator('#date').fill('2026-11-28');
+ await admin.locator('#place').fill('Luogo di prova');
+ await admin.locator('#event-photo-file').setInputFiles({name:'test.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aX1sAAAAASUVORK5CYII=','base64')});
+ await admin.locator('#event-photo-approved').check();
+ await admin.locator('#privacy-review').check();
+ await admin.locator('#privacy-redacted').check();
+ await admin.locator('#privacy-result').selectOption('clear');
+ methods.length=0; committed=false;
+ await admin.locator('#save').click();
+ await admin.waitForFunction(()=>document.querySelector('#publish-status').textContent.includes('Contenuto salvato in GitHub'));
+ assert.equal(committed,true);
+ assert.deepEqual(methods,['POST blobs','POST blobs','POST trees','POST commits','PATCH refs/heads/main']);
  assert.deepEqual(errors,[]);
  await admin.close();
 } finally {await browser.close();}
