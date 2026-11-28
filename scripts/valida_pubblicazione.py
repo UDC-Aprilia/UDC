@@ -3,15 +3,16 @@
 Non può verificare che un documento sia giuridicamente pubblicabile: serve revisione umana.
 """
 import json
+import zipfile
 import re
 import sys
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SAFE = re.compile(r"[a-z0-9][a-z0-9_-]*\.pdf", re.I)
+SAFE = re.compile(r"[a-z0-9][a-z0-9_-]*\.(?:pdf|docx)", re.I)
 YEARS = re.compile(r"20\d{2}")
-STATI = {'inviata', 'consegnata', 'protocollata', 'risposta-ricevuta'}
+STATI = {'inviata', 'consegnata', 'protocollata', 'risposta-ricevuta', 'ricevuta', 'attesa', 'conclusa'}
 ESITI = {'non-noto', 'in-valutazione', 'accolta', 'parzialmente-accolta', 'non-accolta', 'nessun-riscontro'}
 RISERVATI = re.compile(r'(ricevut[ae]|accettazione|consegna-pec|documento-identita|tessera|riservat|privat|sanitari|allegato-pec|\.p7m)', re.I)
 DATE_FIELDS = ('data','data_consegna','data_protocollo','data_risposta')
@@ -20,6 +21,8 @@ DATE_FIELDS = ('data','data_consegna','data_protocollo','data_risposta')
 PRIVACY_PUBLIC_FILES = {
     Path('documenti/Informativa-Privacy-UDC-Aprilia-2026.pdf'),
     Path('documenti/Informativa-Privacy-UDC-Aprilia-2026.docx'),
+    Path('documenti/UDC_Aprilia_Privacy_Aggiornata_GitHub_DominiOK_2026.docx'),
+    Path('documenti/UDC_Aprilia_Privacy_Aggiornata_GitHub_DominiOK_2026.pdf'),
 }
 
 def is_public_privacy_file(path, root):
@@ -28,8 +31,8 @@ def is_public_privacy_file(path, root):
 
 # Soltanto i campi elencati possono entrare nel catalogo pubblico.
 FIELDS = {
- 'documenti': {'anno','data','titolo','descrizione','file','pubblica','verifica_privacy'},
- 'lettere': {'anno','data','titolo','descrizione','file','destinatario','iniziativa','modalita_invio',
+ 'documenti': {'categoria','file_alternativo','data_verifica_privacy','anno','data','titolo','descrizione','file','pubblica','verifica_privacy'},
+ 'lettere': {'id','direzione','mittente','data_trasmissione','materia','collegata_a','fascicolo','esito_testo','file_alternativo','data_verifica_privacy','anno','data','titolo','descrizione','file','destinatario','iniziativa','modalita_invio',
   'stato_invio','data_consegna','protocollo','data_protocollo','data_risposta','sintesi_risposta',
   'esito','nota_esito','file_risposta','risposta_pubblicabile','verifica_privacy_risposta',
   'pubblica','verifica_privacy'}
@@ -39,6 +42,16 @@ def parse_date(value):
     if not isinstance(value, str): return False
     try: return date.fromisoformat(value).isoformat() == value
     except (ValueError, TypeError): return False
+
+def valid_attachment(path):
+    if not path.is_file() or path.is_symlink(): return False
+    if path.suffix.lower()=='.pdf': return path.read_bytes().startswith(b'%PDF-')
+    if path.suffix.lower()!='.docx' or path.stat().st_size>5*1024*1024: return False
+    try:
+        with zipfile.ZipFile(path) as z:
+            names=set(z.namelist())
+            return {'[Content_Types].xml','word/document.xml'} <= names and not any(re.search(r'vbaProject|vbaData|word/embeddings/|word/activeX/|word/comments|_xmlsignatures', n, re.I) for n in names)
+    except (OSError, zipfile.BadZipFile): return False
 
 def validate(root=ROOT):
     errors=[]
@@ -75,12 +88,20 @@ def validate(root=ROOT):
             path=folder/y/filename
             refs[kind].add(path.resolve())
             if not path.is_file(): err(f'{tag}: PDF mancante {path.relative_to(root)}')
-            elif not path.read_bytes().startswith(b'%PDF-'): err(f'{tag}: file non è un PDF riconoscibile')
+            elif not valid_attachment(path): err(f'{tag}: allegato non valido')
+            alt=x.get('file_alternativo')
+            if alt:
+                if not isinstance(alt,str) or not SAFE.fullmatch(alt) or RISERVATI.search(alt) or not alt.lower().endswith('.docx') or not filename.lower().endswith('.pdf'):
+                    err(f'{tag}: allegato alternativo non valido')
+                else:
+                    ap=folder/y/alt; refs[kind].add(ap.resolve())
+                    if not valid_attachment(ap): err(f'{tag}: DOCX alternativo non valido')
             if kind=='lettere':
-                if not isinstance(x.get('destinatario'),str) or not x['destinatario'].strip(): err(f'{tag}: destinatario obbligatorio')
+                party=x.get('mittente') if x.get('direzione')=='entrata' else x.get('destinatario')
+                if not isinstance(party,str) or not party.strip(): err(f'{tag}: ente obbligatorio')
                 stato=x.get('stato_invio')
-                if stato not in STATI: err(f'{tag}: stato_invio non valido')
-                if x.get('esito') not in ESITI: err(f'{tag}: esito non valido')
+                if stato not in STATI and (stato is not None or x.get('direzione')): err(f'{tag}: stato_invio non valido')
+                if x.get('esito') is not None and x.get('esito') not in ESITI: err(f'{tag}: esito non valido')
                 if x.get('data_consegna') and stato=='inviata': err(f'{tag}: consegna indicata ma stato solo inviata')
                 if (x.get('protocollo') or x.get('data_protocollo')) and stato not in {'protocollata','risposta-ricevuta'}:
                     err(f'{tag}: protocollo non coerente con stato_invio')
@@ -107,7 +128,7 @@ def validate(root=ROOT):
                 if path.is_symlink(): err(f'Collegamento simbolico vietato: {path.relative_to(root)}');continue
                 if not path.is_file() or path.name in {'.gitkeep', 'LEGGIMI.txt', 'README.md'}:continue
                 if kind == 'documenti' and is_public_privacy_file(path, root):continue
-                if path.suffix.lower()!='.pdf': err(f'File non previsto nelle cartelle pubbliche: {path.relative_to(root)}')
+                if path.suffix.lower() not in {'.pdf','.docx'}: err(f'File non previsto nelle cartelle pubbliche: {path.relative_to(root)}')
                 elif path.resolve() not in refs[kind]:
                     if kind == 'lettere':
                         err(f'Lettera non autorizzata: {path.relative_to(root)}')
@@ -130,7 +151,7 @@ def validate(root=ROOT):
             if entry.is_symlink():err(f'Symlink vietato: {entry.relative_to(root)}');continue
             if any(part.lower() in private_names for part in entry.relative_to(root).parts):
                 err(f'Percorso riservato nel sito: {entry.relative_to(root)}')
-            if entry.is_file() and entry.suffix.lower() in forbidden_ext and not is_public_privacy_file(entry, root):
+            if entry.is_file() and entry.suffix.lower() in forbidden_ext and not is_public_privacy_file(entry, root) and not (entry.suffix.lower()=='.docx' and any(entry.resolve() in group for group in refs.values())):
                 err(f'Formato non ammesso nelle cartelle del sito: {entry.relative_to(root)}')
     for entry in root.iterdir():
         if entry.is_file() and entry.suffix.lower() in forbidden_ext:
