@@ -2,14 +2,20 @@ import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 const browser=await chromium.launch({headless:true});
 try {
- for(const viewport of [{width:1280,height:900},{width:390,height:844}]){
+ for(const viewport of [{width:1600,height:900},{width:1280,height:900},{width:1024,height:768},{width:390,height:844}]){
   const page=await browser.newPage({viewport});
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
   for(const path of ['index.html','eventi.html']){
    await page.goto('http://127.0.0.1:8000/'+path);
-   await page.locator('[data-global-search]').click();
+   const search=page.locator('[data-global-search]');
+   await search.waitFor({state:'visible'});
+   assert.equal(await search.count(),1);
+   assert.equal(await search.evaluate(el=>el.nextElementSibling.matches(innerWidth>=1161?'.national':'.toggle')),true);
+   assert.equal(await search.locator('.global-search-label').isVisible(),viewport.width>=1400);
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+   await search.click();
    const dialog=page.locator('#global-search');
    await dialog.waitFor({state:'visible'});
    await dialog.locator('#global-query').fill('UDC');
