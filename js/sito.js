@@ -356,6 +356,12 @@
         if(program&&programUrl)add('Programma',program.titolo||'Programma 2027–2032',program.descrizione,program.data,programUrl);
         for(const group of groups) for(const [label,url] of group.children||[[group.label,group.href]]) add('Pagine',label,'Pagina istituzionale UDC Aprilia','',url);
         add('Pagine','UDC Italia','Sito nazionale ufficiale','',d.nazionale);
+        for(const [key,url,label] of [['missione','missione.html','Missione'],['programma','programma.html','Programma 2027–2032'],['rete','rete-udc.html','Attività UDC'],['tesseramento','tesseramento.html','Tesseramento'],['collegamenti','collegamenti.html','Rete territoriale']]){
+            const doc=new DOMParser().parseFromString(content[key]||'','text/html');
+            const existing=rows.find(x=>x.category==='Pagine'&&x.url===safeUrl(url));
+            if(existing)existing.extra=doc.body.textContent||'';else add('Pagine',label,'Pagina istituzionale','',url,doc.body.textContent);
+        }
+
         const unique=new Map();for(const x of rows){const key=x.category+'|'+norm(x.title)+'|'+x.date;if(!unique.has(key)||(!x.url.includes('news.google.com')&&unique.get(key).url.includes('news.google.com')))unique.set(key,x);}
         const index=[...unique.values()];
         for(const c of [...new Set(index.map(x=>x.category))].sort())get('global-category').add(new Option(c,c));
@@ -375,7 +381,7 @@
         get('global-search-form').addEventListener('input',()=>{limit=20;renderSearch();});
         document.querySelectorAll('[data-global-search]').forEach(b=>b.addEventListener('click',()=>{panel.showModal();renderSearch();get('global-query').focus();}));
     };
-    globalSearch();
+    document.querySelectorAll('[data-global-search]').forEach(button=>button.addEventListener('click',()=>{globalSearch();button.click();},{once:true}));
     if (page === 'comunicati') {
         const flow = document.querySelector('.press-flow');
         if (flow) {
