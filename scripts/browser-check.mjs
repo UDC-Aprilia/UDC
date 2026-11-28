@@ -25,5 +25,36 @@ try {
   assert.deepEqual(errors,[]);
   await page.close();
  }
+ const admin=await browser.newPage();
+ const errors=[];
+ admin.on('pageerror',e=>errors.push(e.message));
+ let writes=0;
+ await admin.route('https://api.github.com/**',async route=>{
+  if(route.request().method()!=='GET'){writes++;return route.abort();}
+  const url=new URL(route.request().url());
+  const file=url.pathname.split('/contents/')[1];
+  if(!file)return route.abort();
+  const {readFileSync}=await import('node:fs');
+  const content=readFileSync(file).toString('base64');
+  await route.fulfill({json:{content,sha:'test-sha'},headers:{'access-control-allow-origin':'*'}});
+ });
+ await admin.goto('http://127.0.0.1:8000/gestione-notizie.html');
+ await admin.locator('#token').fill('token-fittizio-test');
+ await admin.locator('#connect').click();
+ await admin.locator('#workspace').waitFor({state:'visible'});
+ for(const kind of ['stampa','attivita','documenti','cultura','profili','lettere']){
+  await admin.locator('[data-kind="'+kind+'"]').click();
+  await admin.waitForFunction(()=>document.querySelector('#refresh').disabled===false);
+  assert.equal(await admin.locator('#save').isDisabled(),true);
+  await admin.locator('#privacy-review').check();
+  await admin.locator('#privacy-redacted').check();
+  await admin.locator('#privacy-result').selectOption('clear');
+  assert.equal(await admin.locator('#save').isEnabled(),true);
+  await admin.locator('#cancel').click();
+  assert.equal(await admin.locator('#save').isDisabled(),true);
+ }
+ assert.equal(writes,0);
+ assert.deepEqual(errors,[]);
+ await admin.close();
 } finally {await browser.close();}
 console.log('Controlli browser superati');
