@@ -25,7 +25,8 @@
 .header .global-search-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:none;min-height:44px;padding:0 10px;background:#fff;color:#102b50;border:1px solid #b6c4d7;border-radius:6px;cursor:pointer;font:inherit;font-size:.8rem}
 .header .global-search-toggle svg{flex:none;display:block}
 .header .global-search-toggle:focus-visible,.header .toggle:focus-visible{outline:3px solid #2484cf;outline-offset:-3px}
-@media(min-width:1161px){.header .header-inner{gap:clamp(8px,1vw,16px)}}
+@media(min-width:1161px){.header .header-inner{gap:clamp(8px,1vw,16px)}.header .menu .global-search-toggle{margin:0;min-width:44px}}
+@media(min-width:1161px) and (max-width:1399px){.header .global-search-label{display:none}.header .global-search-toggle{width:44px;padding:0}}
 @media(max-width:1160px){
 .header .header-inner{display:grid;grid-template-columns:minmax(0,1fr) 44px 44px;align-items:center;gap:8px;min-height:0;padding:10px 0}
 .header .brand{min-width:0;margin:0;gap:8px}
@@ -684,6 +685,14 @@
     // Attività UDC usa solo contenuti istituzionali; nessuna duplicazione della stampa.
     document.getElementById('anno').textContent = new Date().getFullYear();
     const toggle = document.querySelector('.toggle');
+    const searchToggle = document.querySelector('.header .global-search-toggle');
+    const desktopHeader = matchMedia('(min-width:1161px)');
+    const positionSearch = () => {
+        const anchor = desktopHeader.matches ? document.querySelector('.menu .national') : toggle;
+        if (searchToggle.nextElementSibling !== anchor) anchor.before(searchToggle);
+    };
+    positionSearch();
+    desktopHeader.addEventListener('change', positionSearch);
     toggle.addEventListener('click', () => { const n = document.getElementById('menu'); const open = n.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu'); });
     document.querySelectorAll('.nav-group').forEach(detail => {
         detail.addEventListener('toggle', () => { if (detail.open)
