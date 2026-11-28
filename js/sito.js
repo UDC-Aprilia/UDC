@@ -22,20 +22,9 @@
         return group.children ? `<details class="nav-group"${active ? ' data-active="true"' : ''}><summary>${group.label}<span aria-hidden="true">⌄</span></summary><div class="nav-submenu">${group.children.map(([label, href]) => `<a href="${href}"${location.pathname.endsWith('/' + href) ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</div></details>` : link;
     }).join('');
     const header = `<style>
-#global-search{box-sizing:border-box;max-width:94vw;overscroll-behavior:contain}
-#global-search button{position:static!important;inset:auto!important;transform:none!important;float:none!important;width:auto!important;height:auto!important;min-height:44px;max-width:100%;white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important;display:inline-flex!important;align-items:center;justify-content:center;padding:10px 16px!important;border:1px solid #b6c4d7;border-radius:6px;background:#102b50;color:white;font:inherit;font-weight:600;cursor:pointer}
-#global-search form{display:block!important;position:static!important;width:100%;margin:0}
-#global-search #global-search-form button[type=submit],#global-search #global-results>button{width:100%!important;margin:10px 0}
-#global-search select{max-width:100%;min-height:40px;padding:6px;border:1px solid #aab8c9;border-radius:6px;background:white;color:#102b50;font:inherit}
-#global-search input{box-sizing:border-box;font:inherit}
-#global-search #global-results{min-width:0;overflow-wrap:anywhere}
-.header .global-search-toggle:focus:not(:focus-visible){outline:none}
-@media(max-width:1160px){.header .global-search-toggle,.header .toggle{box-sizing:border-box;width:44px;height:44px;min-width:44px;max-width:44px}.header .global-search-toggle:focus-visible,.header .toggle:focus-visible{outline-offset:-3px}}
-@media(max-width:600px){#global-search{padding:16px!important;max-height:85dvh!important}#global-search #global-search-form>div{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important}#global-search #global-search-form>div label{display:flex;flex-direction:column;min-width:0;font-size:.85rem}#global-search #global-search-form>div label:last-child{grid-column:1/-1}}
-</style><style>
 .header .global-search-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;flex:none;min-height:44px;padding:0 10px;background:#fff;color:#102b50;border:1px solid #b6c4d7;border-radius:6px;cursor:pointer;font:inherit;font-size:.8rem}
 .header .global-search-toggle svg{flex:none;display:block}
-.header .global-search-toggle:focus-visible,.header .toggle:focus-visible{outline:3px solid #2484cf;outline-offset:3px}
+.header .global-search-toggle:focus-visible,.header .toggle:focus-visible{outline:3px solid #2484cf;outline-offset:-3px}
 @media(min-width:1161px){.header .header-inner{gap:clamp(8px,1vw,16px)}}
 @media(max-width:1160px){
 .header .header-inner{display:grid;grid-template-columns:minmax(0,1fr) 44px 44px;align-items:center;gap:8px;min-height:0;padding:10px 0}
@@ -44,7 +33,7 @@
 .header .brand span{min-width:0}
 .header .brand strong{font-size:clamp(1rem,4.5vw,1.45rem);line-height:1.1}
 .header .brand small{font-size:clamp(.55rem,2vw,.7rem);letter-spacing:.025em;line-height:1.25;margin-top:4px}
-.header .global-search-toggle,.header .toggle{width:44px;height:44px;min-height:44px;padding:0;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.header .global-search-toggle,.header .toggle{box-sizing:border-box;width:44px;height:44px;min-width:44px;max-width:44px;min-height:44px;padding:0;border-radius:6px;display:flex;align-items:center;justify-content:center}
 .header .global-search-label{display:none}
 .header .menu{grid-column:1/-1;min-width:0}
 }
@@ -364,7 +353,7 @@
     const globalSearch = () => {
         const panel=document.createElement('dialog');
         panel.id='global-search';
-        panel.style.cssText='width:min(760px,94vw);max-height:85vh;overflow:auto;border:1px solid #b6c4d7;border-radius:14px;padding:24px;color:#102b50;background:white';
+        panel.style.cssText='box-sizing:border-box;width:min(760px,94vw);max-height:85dvh;overscroll-behavior:contain;overflow:auto;border:1px solid #b6c4d7;border-radius:14px;padding:24px;color:#102b50;background:white';
         const shadow=panel.appendChild(document.createElement('div')).attachShadow({mode:'open'});
         shadow.innerHTML=`<style>
         :host{font:16px/1.5 system-ui,sans-serif;color:#102b50}
