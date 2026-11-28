@@ -102,6 +102,32 @@ try {
  assert.match(await admin.locator('#publish-status').innerText(),/Contenuto salvato in GitHub/);
  assert.equal(committed,true);
  assert.deepEqual(methods,['POST blobs','POST blobs','POST trees','POST commits','PATCH refs/heads/main']);
+ await admin.locator('[data-kind="documenti"]').click();
+ await admin.waitForFunction(()=>!document.querySelector('#refresh').disabled);
+ await admin.locator('#title').fill('Documento fittizio di prova');
+ await admin.locator('#date').fill('2026-11-28');
+ await admin.locator('#doc-description').fill('Allegati sintetici per collaudo');
+ const {execFileSync}=await import('node:child_process');
+ const docx=execFileSync('python3',['-c',`import io,zipfile,sys
+b=io.BytesIO()
+with zipfile.ZipFile(b,'w') as z:
+ z.writestr('[Content_Types].xml','<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>')
+ z.writestr('_rels/.rels','<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>')
+ z.writestr('word/document.xml','<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>Test</w:t></w:r></w:p></w:body></w:document>')
+sys.stdout.buffer.write(b.getvalue())`]);
+ const pdf=Buffer.from('%PDF-1.4\n1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n2 0 obj\n<< /Type /Pages /Kids [] /Count 0 >>\nendobj\n%%EOF');
+ await admin.locator('#document-file').setInputFiles([{name:'test.pdf',mimeType:'application/pdf',buffer:pdf},{name:'test.docx',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document',buffer:docx}]);
+ await admin.locator('#privacy-review').check();
+ await admin.locator('#privacy-redacted').check();
+ await admin.locator('#privacy-result').selectOption('clear');
+ assert.equal(await admin.locator('#save').isDisabled(),true);
+ await admin.locator('#privacy-pdf-manual').check();
+ methods.length=0; committed=false;
+ await admin.locator('#save').click();
+ await admin.waitForFunction(()=>!document.querySelector('#refresh').disabled);
+ assert.match(await admin.locator('#publish-status').innerText(),/Contenuto salvato in GitHub/);
+ assert.equal(committed,true);
+ assert.deepEqual(methods,['POST blobs','POST blobs','POST blobs','POST trees','POST commits','PATCH refs/heads/main']);
  assert.deepEqual(errors,[]);
  await admin.close();
 } finally {await browser.close();}
